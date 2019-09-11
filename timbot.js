@@ -392,7 +392,11 @@ client.on('message', async message => {
                     `you are not a puff main and your superior reflexes allow you to catch the crab`,
                     `you are not a puff main and your superior reflexes allow you to catch the crab`,
                     `the crab reverse fadeback fairs you`,
-                    `you use your copious amount of tech skill practice to jc crab and escape`];
+                    `you use your copious amount of tech skill practice to jc crab and escape`,
+                    `The crab misses you and sails into the first tower, altering western civilization forever`,
+                    `The crab misses you and sails into the first tower, altering western civilization forever`,
+                    `The crab flies by you and careens into the second tower, totalling a death count of 3000 people. Never forget`,
+                    `The crab flies by you and careens into the second tower, totalling a death count of 3000 people. Never forget`];
 
             var r = Math.floor((Math.random() * c.length));
 
@@ -418,6 +422,10 @@ client.on('message', async message => {
                 reward = 90;
             } else if (r >= 15 && r < 16) {
                 reward = 100;
+            } else if (r >= 16 && r < 18) {
+                reward = 90;
+            } else if (r >= 18 && r < 20) {
+                reward = 110;
             }
 
             var results = await eco.AddToBalance(sender.id, reward);
@@ -772,6 +780,7 @@ client.on('message', async message => {
                 `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`,
                 `ok`,
                 `Doesn't know who Milkman is, despite Milkman being the 4th best player in his region`,
+                `https://cdn.discordapp.com/attachments/612063946643472389/620757496352604202/unknown.png`,
                 `I should do octo nut october\n8 times a day`];
 
         var r = Math.floor((Math.random() * c.length));
@@ -1392,8 +1401,8 @@ client.on('message', async message => {
     //Never Cum
 
     if (command === `NEVER` || command === `NEVERCUM`) {
-        var n = [`Never cum`,
-                `Never cum`,
+        var n = [`Never forget`,
+                /*`Never cum`,
                 `Never cum`,
                 `Never cum`,
                 `Never cum`,
@@ -1401,7 +1410,29 @@ client.on('message', async message => {
                 `Never cum`,
                 `Never cum`,
                 `Never cum \n \n \n \n \nNever cum`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`];
+                `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`,*/
+                `Never forget`,
+                `Never forget`,
+                `Never forget`,
+                `Never forget`,
+                `Never forget`,
+                `Never forget`,
+                `Never forget`,
+                `Never forget`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/621299845843648528/unknown.png`,
+                `Never forget o7`,
+                `Never forget o7`,
+                `Never forget o7`,
+                `Never forget o7`,
+                `Never 4get`,
+                `Never 4get`,
+                `Never 4get`,
+                `Never 4get`,
+                `Did 9/11 happen in the cars universe? the thing I really like about Planes is that we learn that WWII happened in the cars universe. Which means there was a Cars Hitler, a Cars Holocaust, a Cars Pacific War, a Cars D-Day, a Cars nuking of Hiroshima and Nagasaki, a Cars Rape of Nanking, a Cars Battle of Iwo Jima... This leads to so many important questions, like: were the Cars Little Boy and Fat Man nukes sentient? Was it a suicide mission? Are ALL Cars nuclear weapons sentient? Did Tsar Bomba have a personality? What kind of car was Car Hitler? A VW? A forklift? Was there a Cars 9/11? Where the planes hijacked, or were the planes themselves radicalized? I could go on`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/621293949159604234/IMG_20190911_112153.jpg`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/621300905718972416/unknown.png`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/621301728460931072/1568191155579.png`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/621302766429667328/1568180032226.png`];
 
         var r = Math.floor((Math.random() * n.length));
 
@@ -2118,77 +2149,11 @@ client.on('message', async message => {
                 `the Spider-Man video game for the PS1, GBC, N64, Dreamcast and PC`,
                 `the Spider-Man 2 video game for the PS2, GBA, Gamecube, Xbox, DS, PSP, N-Gage and PC`,
                 `the Spider-Man 3 video game for the GBA, PC, DS, PS2, Wii, Xbox 360, Ps3 and PSP`,
-                `the Star Wars video game for the NES, GB, Master System, GAme Gear, Arcade and Famicom`,
+                `the Star Wars video game for the NES, GB, Master System, Game Gear, Arcade and Famicom`,
                 `the Disney's Tarzan video game for the PS1`,
                 `Tarzan: Untamed for the PS2 and Gamecube`,
                 `Tarzan Jungle Tumble for the PC`,
                 `Disney's Tarzan: Return to the Jungle for the PC`,
-                /*`Winnie the Pooh`,
-                `Alice in Wonderland`,
-                `Alvin and the Chipmunks`,
-                `The Ant Bully`,
-                `Astro Boy`,
-                `Atlantis The Lost Empire`,
-                `Avatar`,
-                `Back to the Future`,
-                `Batman`,
-                `Barnyard`,
-                `The Cat in the Hat`,
-                `Charlie and the Chocolate Factory`,
-                `Charlotte's Web`,
-                `Chicken Little`,
-                `Chicken Run`,
-                `Coraline`,
-                `Curious George`,
-                `Brother Bear`,
-                `How the Grinch Stole Christmas`,
-                `Eragon`,
-                `The Emperor's New Groove`,
-                `Fantastic Four`,
-                `Finding Nemo`,
-                `Flushed Away`,
-                `Frozen`,
-                `G-Force`,
-                `G.I. Joe`,
-                `Ghost Rider`,
-                `The Golden Compass`,
-                `Gremlins`,
-                `Happy Feet`,
-                `Herbie`,
-                `Hulk`,
-                `Ice Age`,
-                `Ice Age 2`,
-                `Iron Man`,
-                `Jurassic Park 2`,
-                `Karate Kid`,
-                `The Land Before Time`,
-                `The Last Airbender`,
-                `the Legend of the Guardians: The Owls of Ga'Hoole`,
-                `The Lego Movie`,
-                `the A Series of Unfortunate Events`,
-                `the Meet the Robinsons`,
-                `the Men in Black`,
-                `the Mighty Morphin Power Rangers: The Movie`,
-                `the Monster House`,
-                `the Nacho Libre`,
-                `the Napoleon Dynamite`,
-                `the Night at the Museum`,
-                `the Night at the Museum: Battle of the Smithsonian`,
-                `the Pacific Rim`,
-                `the Phineas and Ferb`,
-                `The Polar Express`,
-                `the Robots`,
-                `The Room`,
-                `The Rugrats Movie`,
-                `the Rugrats in Paris`,
-                `the Shark Tale`,
-                `The Smurfs`,
-                `the Space Jam`,
-                `the Speed Racer`,
-                `The Spiderwick Chronicles`,
-                `The SpongeBob SquarePants Movie`,
-                `the Surf's Up`,
-                `the Tangled`,*/
                 `The Wizard of Oz video game for the SNES`];
 
         var r = Math.floor((Math.random() * w.length));
