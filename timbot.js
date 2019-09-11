@@ -519,6 +519,15 @@ client.on('message', async message => {
     }
 
 
+    if (command === `CALENDAR` || command === `HOLIDAY` || command === `HOLIDAYS`) {
+
+
+        if (args[0] === `FULL`) { //Display all months
+
+        }
+    }
+
+
 
 
 
