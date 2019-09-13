@@ -5,8 +5,8 @@ const Discord = require('discord.js');
 const { token } = require('./config.json');
 const eco = require("discord-economy");
 const client = new Discord.Client();
-const modRole = 'Wizard\'s Foot';
-const modRole2 = 'Wizard\'s Foot';
+const modRole = 'Illusion';
+const modRole2 = 'Illusion';
 const banRole = 'useless bitch';
 const sql = require('sqlite');
 sql.open('Storage/userData.sqlite');
@@ -366,7 +366,8 @@ client.on('message', async message => {
             `Just go for one that's retarded`,
             `I'm not about to adopt a kid if there's even the slightest possibility he'll want to be a Fox main.`,
             `"What's that podcast where they watch the same movie every day" \n"twitch.tv/chillendude?"`,
-            `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`];
+            `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`,
+            `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`];
 
         var r = Math.floor((Math.random() * quotes.length));
 
@@ -752,7 +753,8 @@ client.on('message', async message => {
     if (command === `BRIO` || command === `BRANDON`) {
         var b = [`You know what this reminds me of? TF2 rocket jumping...`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
-                `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`];
+                `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
+                `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`];
 
         var r = Math.floor((Math.random() * b.length));
 
@@ -1637,7 +1639,8 @@ client.on('message', async message => {
             `Flame`,
             `Flaming homosexual`,
             `Firefox`,
-            `can'tgobackwardsinstarFox64`];
+            `can'tgobackwardsinstarFox64`,
+            `you stupid bitch, you stupid fucking bitch, you stupid Fucking bitch`];
 
         var r = Math.floor((Math.random() * f.length));
 
