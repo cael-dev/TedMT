@@ -2195,9 +2195,9 @@ client.on('message', async message => {
                     `returned a lost USB stick to his good friend Randy Pitchford`,
                     `Snitched on a mall that had a Super Mario Bros. ROM in an attempt to be more like Randy Pitchford`];
 
-            var r = Math.floor((Math.random() * w.length));
+            var r = Math.floor((Math.random() * b.length));
 
-            message.channel.send(`Recently `+w[r]+`.`);
+            message.channel.send(`Recently `+b[r]+`.`);
         } else {
             var w = [`101 Dalmations`,
                     `Aladdin`,
