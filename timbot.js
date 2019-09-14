@@ -2184,7 +2184,7 @@ client.on('message', async message => {
                     `purchased a USB drive containing suspicious files`,
                     `gave Randy Pitchford $60`,
                     `purchased a lifesize body pillow of Randy Pitchford`,
-                    `purchased a photo album of Randy Pitchford seflies`,
+                    `purchased a photo album of Randy Pitchford selfies`,
                     `sculpted a statue depicting his idol and role model, Randy Pitchford`,
                     `purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC`,
                     `purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC`,
