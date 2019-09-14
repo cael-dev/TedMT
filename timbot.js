@@ -13,7 +13,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.10 Launched');
+    console.log('TimBot v1.1.0 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -61,7 +61,7 @@ client.on('message', async message => {
 
     if (command === `PATCHNOTES` || command === `PATCH`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.10 Patch Notes, 9/13/19`)
+            .setTitle(`TimBot v1.1.0 Patch Notes, 9/13/19`)
             .setColor(0x2d64f1)
             .addField('!calendar', `Added new command`, true)
             .addField('!chillin', `Added new command`, true)
@@ -544,6 +544,161 @@ client.on('message', async message => {
     }
 
 
+    if (command === `CALENDAR` || command === `HOLIDAY` || command === `HOLIDAYS`) {
+        var d = new Date();
+        var m = d.getMonth();
+
+        if (m === 0) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`January Calendar`)
+                .setColor(0xafeeec)
+                .addField('1/10', `Silverhand's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 1) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`February Calendar`)
+                .setColor(0xe46263)
+                .addField('2/02', `SubjectiveF's Birthday`, true)
+                .addField('2/04', `Creation Day`, true)
+                .addField('2/20', `FUCK YOU. Day`, true)
+                .addField('2/24', `Sugden's Birthday`, true)
+                .addField('2/26', `ADLP's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 2) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`March Calendar`)
+                .setColor(0x33bb46)
+                .addField('3/21', `Meinkraft Day`, true)
+                .addField('3/26', `The Great Wormpocalypse`, true)
+                .addField('3/27', `The Lost Tapes`, true)
+                .addField('3/28', `Structuremole's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 3) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`April Calendar`)
+                .setColor(0x46ff00)
+                .addField('4/01', `Ted vs Cael`, true)
+                .addField('4/12', `Birth of Goiter`, true)
+                .addField('4/13', `Creation of TedMT`, true)
+                .addField('4/13', `Winnarly's Birthday`, true)
+                .addField('4/21', `Crab Day`, true)
+                .addField('4/22', `Chandy Blasts In`, true)
+                .addField('4/26', `Fuck GG Day`, true)
+                .addField('4/29', `Brio's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 4) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`May Calendar`)
+                .setColor(0x1fade9)
+                .addField('5/10', `Cum Champ Day`, true)
+                .addField('5/25', `Can't Go Backwards Day`, true)
+                .addField('5/29', `Hollow Knight Day`, true)
+            message.channel.send({embed});
+        } else if (m === 5) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`June Calendar`)
+                .setColor(0xfffc00)
+                .addField('6/01', `Biday`, true)
+                .addField('6/03', `Sugden Mod Coronation Day`, true)
+                .addField('6/11', `Return of the DDT`, true)
+                .addField('6/12', `Sugden Netplay Day`, true)
+                .addField('6/24', `SPOTW Returns`, true)
+            message.channel.send({embed});
+        } else if (m === 6) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`July Calendar`)
+                .setColor(0xecc81f)
+                .addField('7/23', `WubWubWowzy's Birthday`, true)
+                .addField('7/24', `Skribbl.io Day`, true)
+                .addField('7/31', `UCFGate`, true)
+            message.channel.send({embed});
+        } else if (m === 7) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`August Calendar`)
+                .setColor(0xf398d5)
+                .addField('8/06', `Blasting of the Selfies`, true)
+                .addField('8/08', `Silver Mode`, true)
+                .addField('8/16', `The Tedpocalypse`, true)
+                .addField('8/27', `Loscar's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 8) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`September Calendar`)
+                .setColor(0x831ceb)
+                .addField('9/06', `Merging of the Bots`, true)
+                .addField('9/10', `History Day`, true)
+                .addField('9/11', `The crab misses you and sails into the first tower, altering western civilization forever`, true)
+                .addField('9/18', `MidnightLifter's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 9) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`October Calendar`)
+                .setColor(0xff8000)
+                .addField('10/12', `AnimeLover's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 10) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`November Calendar`)
+                .setColor(0xa35c28)
+                .addField('11/26', `Soap's Birthday`, true)
+            message.channel.send({embed});
+        } else if (m === 11) {
+            var embed = new Discord.RichEmbed()
+                .setTitle(`December Calendar`)
+                .setColor(0xffffff)
+                .addField('12/25', `Timsmas`, true)
+            message.channel.send({embed});
+        }
+
+        if (args[0] === `FULL`) { //Display all months
+            //To-do
+        }
+    }
+
+    if (command === `COMIC` || command === `COMICS` || command === `FUNNY`) {
+        var c = [`https://cdn.discordapp.com/attachments/612058753293877274/621812880983064627/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/621563099408891927/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/621561519729278988/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/621068752791797790/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/621054984988917790/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/621054982606815271/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/620817138076221440/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/619291005065363466/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061640694824960/619253106651299850/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/617143559929462844/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/616710771799228502/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616681351734624262/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616428140650299392/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616423882659987456/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616423676568535046/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616423543303045138/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616423369620848652/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616423311353839616/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616423109251170315/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616422819336814603/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616421716800831535/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616318135657693236/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616304961948745728/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/616299012462739458/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/616284616466366484/comic.png`,
+                `https://cdn.discordapp.com/attachments/615454765886996481/615513757799677952/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063946643472389/615243696740368415/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/614207691740413962/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/613393134143143936/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/613386094255407154/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/613111650098216990/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/613110446895136789/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/613109942987128989/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/613109280391954641/comic.png`,
+                `https://cdn.discordapp.com/attachments/612086349960445952/613107723575492610/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063656036925502/613107131813462047/comic.png`];
+
+        var r = Math.floor((Math.random() * c.length));
+
+        message.channel.send(c[r]);
+    }
+
+
 
 
 
@@ -760,7 +915,8 @@ client.on('message', async message => {
     if (command === `BRIO` || command === `BRANDON`) {
         var b = [`You know what this reminds me of? TF2 rocket jumping...`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
-                `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`];
+                `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
+                `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`];
 
         var r = Math.floor((Math.random() * b.length));
 
@@ -1776,7 +1932,8 @@ client.on('message', async message => {
             `Flaming homosexual`,
             `Firefox`,
             `Facts don't care about your feelings`,
-            `can'tgobackwardsinstarFox64`];
+            `can'tgobackwardsinstarFox64`,
+            `you stupid bitch, you stupid fucking bitch, you stupid Fucking bitch`];
 
         var r = Math.floor((Math.random() * f.length));
 
@@ -2020,7 +2177,7 @@ client.on('message', async message => {
 
     if (command === `WUB` || command === `WUBWUB` || command === `WUBWUBWOWZY`) {
         var r = Math.random() * 100;
-        
+
         if (r <= 40) {
             var b = [`purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC (Pedophile Courtcase)`,
                     `purchased a USB drive containing suspicious files`,
