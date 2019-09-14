@@ -13,7 +13,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.0.1 Launched');
+    console.log('TimBot v1.10 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -61,14 +61,18 @@ client.on('message', async message => {
 
     if (command === `PATCHNOTES` || command === `PATCH`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.0.1 Patch Notes, 9/9/19`)
+            .setTitle(`TimBot v1.10 Patch Notes, 9/13/19`)
             .setColor(0x2d64f1)
-            .addField('!q', `Added 4 new quotes.`, true)
-            .addField('!sugden', `Added 13 new pics.`, true)
-            .addField('!anti', `adjusted to be more faithful to the original.`, true)
-            .addField('!subf', `Added 3 new results, fixed it so it actually works.`, true)
-            .addField('!bbb', 'Added 2 new results', true)
-            .addField('!patch or !patchnotes', 'Created a new command, displays patch notes for the most recent update.', true)
+            .addField('!calendar', `Added new command`, true)
+            .addField('!chillin', `Added new command`, true)
+            .addField('!comic', `Added new command`, true)
+            .addField('!dj', `Added new command`, true)
+            .addField('!q', `Added 22 new quotes.`, true)
+            .addField('!cael', `Added 1 new result`, true)
+            .addField('!silver', `Added 1 new result`, true)
+            .addField('!subf', `Added 1 new result`, true)
+            .addField('!winnarly', `Added 1 new result for each part`, true)
+            .addField('!wub', `Adjusted command ;)`, true)
         message.channel.send({embed});
     }
 
@@ -366,8 +370,28 @@ client.on('message', async message => {
             `Just go for one that's retarded`,
             `I'm not about to adopt a kid if there's even the slightest possibility he'll want to be a Fox main.`,
             `"What's that podcast where they watch the same movie every day" \n"twitch.tv/chillendude?"`,
-            `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`,
-            `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`];
+            `I'm going to run over a white person as reparations`,
+            `Wait a minute is Norway included in the Netherlands?`,
+            `apples are just potatoes with sugar in them`,
+            `foreskins are legal tender in israel`,
+            `women don't exist \n the goverment is lying to us`,
+            `The orphanage around the corner of my house has a "do not watch the children" policy \nJust makes me want to do that more, so i just touch them, since they have no policy for that`,
+            `I like seeing vro commentate because it reminds me that even if you look like a scumbag and are innately annoying you can still be successful`,
+            `the whole murica 9/11 thing struc made`,
+            `I'm for sure a noun and verb kind of guy`,
+            `the torah, bible and quaran are all shitty seasonal anime but got a high following cause of marketing`,
+            `"the only white people who deserve n word passes are the ones who wouldn't use them" - George Bush`,
+            `ants are awful \nants are like IRL malware`,
+            `randy pitchford asks you to return the usb stick you found asmr`,
+            `the only one who can stop a bad guy with a gun isn't a good guy with a gun \nit's a good guy with a car bomb`,
+            `SFAT would have had way more success in his melee career if he tried selling CutCo knives to his opponents mid game.`,
+            `skedaddle skedoodle \nyour peen is now a noodle`,
+            `floaties don't care about your feelings`,
+            `Facts don’t care about your fall speed`,
+            `>strongbad probably hired a hooker at least once \nAnd asked the hooker to dress up as Fox before beating the shit out of her`,
+            `Rog was way ahead of the meta, he’s blocked me on anthers for years`,
+            `Sugden is so Anti-smoking because his teeth can’t afford to get any worse`,
+            `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`];
 
         var r = Math.floor((Math.random() * quotes.length));
 
@@ -393,11 +417,7 @@ client.on('message', async message => {
                     `you are not a puff main and your superior reflexes allow you to catch the crab`,
                     `you are not a puff main and your superior reflexes allow you to catch the crab`,
                     `the crab reverse fadeback fairs you`,
-                    `you use your copious amount of tech skill practice to jc crab and escape`,
-                    `The crab misses you and sails into the first tower, altering western civilization forever`,
-                    `The crab misses you and sails into the first tower, altering western civilization forever`,
-                    `The crab flies by you and careens into the second tower, totalling a death count of 3000 people. Never forget`,
-                    `The crab flies by you and careens into the second tower, totalling a death count of 3000 people. Never forget`];
+                    `you use your copious amount of tech skill practice to jc crab and escape`];
 
             var r = Math.floor((Math.random() * c.length));
 
@@ -423,10 +443,6 @@ client.on('message', async message => {
                 reward = 90;
             } else if (r >= 15 && r < 16) {
                 reward = 100;
-            } else if (r >= 16 && r < 18) {
-                reward = 90;
-            } else if (r >= 18 && r < 20) {
-                reward = 110;
             }
 
             var results = await eco.AddToBalance(sender.id, reward);
@@ -521,161 +537,6 @@ client.on('message', async message => {
                 `you are not a puff main and your superior reflexes allow you to catch the crab`,
                 `the crab reverse fadeback fairs you`,
                 `you use your copious amount of tech skill practice to jc crab and escape`];
-
-        var r = Math.floor((Math.random() * c.length));
-
-        message.channel.send(c[r]);
-    }
-
-
-    if (command === `CALENDAR` || command === `HOLIDAY` || command === `HOLIDAYS`) {
-        var d = new Date();
-        var m = d.getMonth();
-
-        if (m === 0) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`January Calendar`)
-                .setColor(0xafeeec)
-                .addField('1/10', `Silverhand's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 1) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`February Calendar`)
-                .setColor(0xe46263)
-                .addField('2/02', `SubjectiveF's Birthday`, true)
-                .addField('2/04', `Creation Day`, true)
-                .addField('2/20', `FUCK YOU. Day`, true)
-                .addField('2/24', `Sugden's Birthday`, true)
-                .addField('2/26', `ADLP's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 2) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`March Calendar`)
-                .setColor(0x33bb46)
-                .addField('3/21', `Meinkraft Day`, true)
-                .addField('3/26', `The Great Wormpocalypse`, true)
-                .addField('3/27', `The Lost Tapes`, true)
-                .addField('3/28', `Structuremole's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 3) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`April Calendar`)
-                .setColor(0x46ff00)
-                .addField('4/01', `Ted vs Cael`, true)
-                .addField('4/12', `Birth of Goiter`, true)
-                .addField('4/13', `Creation of TedMT`, true)
-                .addField('4/13', `Winnarly's Birthday`, true)
-                .addField('4/21', `Crab Day`, true)
-                .addField('4/22', `Chandy Blasts In`, true)
-                .addField('4/26', `Fuck GG Day`, true)
-                .addField('4/29', `Brio's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 4) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`May Calendar`)
-                .setColor(0x1fade9)
-                .addField('5/10', `Cum Champ Day`, true)
-                .addField('5/25', `Can't Go Backwards Day`, true)
-                .addField('5/29', `Hollow Knight Day`, true)
-            message.channel.send({embed});
-        } else if (m === 5) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`June Calendar`)
-                .setColor(0xfffc00)
-                .addField('6/01', `Biday`, true)
-                .addField('6/03', `Sugden Mod Coronation Day`, true)
-                .addField('6/11', `Return of the DDT`, true)
-                .addField('6/12', `Sugden Netplay Day`, true)
-                .addField('6/24', `SPOTW Returns`, true)
-            message.channel.send({embed});
-        } else if (m === 6) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`July Calendar`)
-                .setColor(0xecc81f)
-                .addField('7/23', `WubWubWowzy's Birthday`, true)
-                .addField('7/24', `Skribbl.io Day`, true)
-                .addField('7/31', `UCFGate`, true)
-            message.channel.send({embed});
-        } else if (m === 7) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`August Calendar`)
-                .setColor(0xf398d5)
-                .addField('8/06', `Blasting of the Selfies`, true)
-                .addField('8/08', `Silver Mode`, true)
-                .addField('8/16', `The Tedpocalypse`, true)
-                .addField('8/27', `Loscar's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 8) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`September Calendar`)
-                .setColor(0x831ceb)
-                .addField('9/06', `Merging of the Bots`, true)
-                .addField('9/10', `History Day`, true)
-                .addField('9/11', `The crab misses you and sails into the first tower, altering western civilization forever`, true)
-                .addField('9/18', `MidnightLifter's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 9) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`October Calendar`)
-                .setColor(0xff8000)
-                .addField('10/12', `AnimeLover's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 10) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`November Calendar`)
-                .setColor(0xa35c28)
-                .addField('11/26', `Soap's Birthday`, true)
-            message.channel.send({embed});
-        } else if (m === 11) {
-            var embed = new Discord.RichEmbed()
-                .setTitle(`December Calendar`)
-                .setColor(0xffffff)
-                .addField('12/25', `Timsmas`, true)
-            message.channel.send({embed});
-        }
-
-        if (args[0] === `FULL`) { //Display all months
-            //To-do
-        }
-    }
-
-    if (command === `COMIC` || command === `COMICS` || command === `FUNNY`) {
-        var c = [`https://cdn.discordapp.com/attachments/612058753293877274/621812880983064627/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/621563099408891927/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/621561519729278988/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/621068752791797790/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061198288027796/621054984988917790/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061198288027796/621054982606815271/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/620817138076221440/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061198288027796/619291005065363466/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061640694824960/619253106651299850/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/617143559929462844/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061198288027796/616710771799228502/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616681351734624262/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616428140650299392/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616423882659987456/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616423676568535046/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616423543303045138/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616423369620848652/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616423311353839616/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616423109251170315/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616422819336814603/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616421716800831535/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616318135657693236/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616304961948745728/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061198288027796/616299012462739458/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616284616466366484/comic.png`,
-                `https://cdn.discordapp.com/attachments/615454765886996481/615513757799677952/comic.png`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615243696740368415/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/614207691740413962/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613393134143143936/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613386094255407154/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613111650098216990/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613110446895136789/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613109942987128989/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613109280391954641/comic.png`,
-                `https://cdn.discordapp.com/attachments/612086349960445952/613107723575492610/comic.png`,
-                `https://cdn.discordapp.com/attachments/612063656036925502/613107131813462047/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -899,8 +760,7 @@ client.on('message', async message => {
     if (command === `BRIO` || command === `BRANDON`) {
         var b = [`You know what this reminds me of? TF2 rocket jumping...`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
-                `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
-                `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`];
+                `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`];
 
         var r = Math.floor((Math.random() * b.length));
 
@@ -1076,6 +936,136 @@ client.on('message', async message => {
     }
 
 
+    //Chillindude
+
+    if (command === `CHILLIN` || command === `BIGCHILLIN` || command === `CHILLINDUDE` || command === `MYB` || command === `CHILLINDUDE829` || command === `CHILLINDUDE82MUCH`) {
+        var c = [`I'm not lawful, make this pussy stop talking`,
+                `You're not one of the gods, you're one of the god-awfuls`,
+                `We all gawkin' when looking at your Fox`,
+                `Bitch, stick to Smash 4 and losing by four stocks`,
+                `Not a fan of your style`,
+                `You ain't standing your ground`,
+                `Get wins while kicking a man when he's down`,
+                `Like, "I beat Mango, I'm the favorite if he chokes! As far as Armada goes, I'll just wait 'til he's a host."`,
+                `Ain't no telling how foolish you'll be lookin'`,
+                `Evidence.zip can't contain the ass whooping`,
+                `Right when we realize the money match is over`,
+                `That'll be your cue to throw your controller`,
+                `Expose you as a fraud yeah I'll be blowing you up`,
+                `Who said you were a god?`,
+                `I know it wasn't Plup`,
+                `Been here ten years and you know I'm showing up`,
+                `For a man of many words, I think you've said enough`,
+                `But, the only way to make you hush`,
+                `First I'll body bag your Fox then .zip it shut`,
+                `'Imma put you in your place kid, you a disgrace`,
+                `Get killed quick like that missile hit you in the face`,
+                `After all of this you'll be watching your mouth`,
+                `Ain't no telling who'll be calling you out`,
+                `Salty Suite goes down, you better come correct`,
+                `Until you win a major show your elders some respect`,
+                `P.S. Leffen, I ain't done yet`,
+                `I'm the underdog so place your bets`,
+                `Whoever want to see Leffen looking dumb`,
+                `Throw your money on the line cause I'm making some`,
+                `Gotta say bro you're looking awfully weak`,
+                `Wait and see what happens at the Salty Suite`,
+                `Vanilla Fox don't suit you so go find another`,
+                `Teach you a lesson and take back my color`,
+                `Stepping to Mike, repping it right`,
+                `Killing in dubs like Leffen and Ice`,
+                `Losing to Eikelmann, guessing you aight`,
+                `Talking to Hugo, you stepped in the fight`,
+                `Yo, Mike's not even ready for that though. Check it.`,
+                `Your boy, Liquid Chillin, flows smooth as ice`,
+                `I smell bullshitting, that must be Mike`,
+                `When I start spitting, why, it sounds so nice`,
+                `Your frees prewritten, that's that shit I don't like`,
+                `Mike always having trouble staying on the beat`,
+                `And he having trouble playing Connor's Sheik`,
+                `Damn, gotta say you looking awfully weak`,
+                `Screaming getting wobbled, only time I hear you speak`,
+                `I guess they sponsor people now for being a choker`,
+                `You went from Brawl to Melee, still mediocre`,
+                `FatGoku ain't the the hard part, took your ass to game 5`,
+                `Maybe with a smart Marth, you could have beaten BladeWise`,
+                `Gotta keep it real, you know it's all love, bro`,
+                `No way you can beat me if you're dropping sets to Spud though`,
+                `Trying different angles, man, stick to one`,
+                `Yeah I got 5-0'd, you lost 6 to n0ne`,
+                `P.S. Mike, I ain't done yet`,
+                `Why we still waiting on your top 8 set?`,
+                `Yep, it looks like you got a nice stream`,
+                `But why I get more viewers on my BRB screen?`,
+                `Please keep it fresh man, 9th getting old`,
+                `No one catching on like when Ice read your roll`,
+                `This the only time that you get to be on stage`,
+                `And I don't play Jiggs, but I rest my case`,
+                `Yo Hugo? That's my dog... But I gotta hit a sub goal tho`,
+                `It's been a while, it's time for a new flow`,
+                `I'm Chillin, that's too cold, I'm taking a shot at Hugo`,
+                `How in the fuck you still losing to Drephen`,
+                `It's truly upsettin', I've been stomping that dude since '07`,
+                `And we got Faceroll, HAT, Alex and ChuDat`,
+                `I'm leavin' them dudes flat, you can't even do that`,
+                `Don't get me wrong we ain't talking bad players`,
+                `But you can't even sleep without nightmares of YAYUHZZ`,
+                `Pull it back, hit you with the slow flow`,
+                `Make the comeback like two stocks with SoPo`,
+                `Get back to labbing if you spent some time playing it`,
+                `You might stop losing to Falcon and maybe even to Ganon`,
+                `I still have faith, get back to the big stage`,
+                `Before that you gotta learn to beat KJH`,
+                `Why you out here making cakes of my face`,
+                `Try beating Tafo, that's a piece of cake`,
+                `Kira and Reno, why they still bop you`,
+                `My man still out here losing to Gahtzu`,
+                `HugS this year looking real shaky son`,
+                `How many Ganons you beat lately? n0ne`,
+                `You need to reflect like Alex19`,
+                `Maybe even need to practice on your stream`,
+                `I think all that BrainGear's bad for your head`,
+                `Why the fuck you on camera shavin' your legs?`,
+                `Shit gettin' heavy man, I feel kinda bad`,
+                `Maybe I should stop... Nah, fuck that`,
+                `Ready to go in, man, gimme the drop`,
+                `HugS whole year been getting bibbity bopped`,
+                `Can't say I expected it, it's really a shock`,
+                `That Samus so sloppy, man gimme a mop`,
+                `Guess you can't teach an old dog new tricks`,
+                `Who hasn't whoopedu hugs86?`,
+                `Placing 9th at locals, he must be feeling free`,
+                `But HugS will be fine, he got Social Security`,
+                `At this point, I guess it's pretty clear`,
+                `HugS really wishin' it was back to last year`,
+                `Maryland-Virginia, we fill his heart with fear`,
+                `Might be bad at Smash but at least he knows his beer`,
+                `P.S. Hugo, I find it kinda odd`,
+                `Got swept by SmashG0D, got swept by lloD`,
+                `Couple bad losses, maybe coulda shook it off`,
+                `Unranked Falco? That's Far from a good loss`,
+                `20th rank, but your skills might be fadin'`,
+                `My man lost to Plank, yeah that rank is outdated`,
+                `Might be top 50 but I'm tryna be nice \nAccurately speaking maybe 129th`,
+                `Das my dawwwwwg`,
+                `Dag mah, the heck?`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/622237508276584458/local_man_claims_to_have_evidence_of_The_Sasquatch.jpg`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/622237622206464030/oh_i_am_leffin.jpg`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236526742601729/1545247849891.png`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236598150365193/B_L_A_C_K_E_D.jpg`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236644153491524/big_chillin_breaks_the_stream.webm`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236737002799124/chillin_buttstomps_the_stream.webm`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236804178771968/chillin_dab.webm`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236874987143208/chillin_is_hungry.webm`,
+                `https://cdn.discordapp.com/attachments/608818247877525526/622236900312350760/Chillstar_Depths.jpg`,
+                `My B`];
+
+        var r = Math.floor((Math.random() * c.length));
+
+        message.channel.send(c[r]);
+    }
+
+
     //Coffee
 
     if (command === `COFFEE` || command === `SDDL`) {
@@ -1180,6 +1170,28 @@ client.on('message', async message => {
                 `**diminnuendo** is typing...`,
                 `https://media.discordapp.net/attachments/612058753293877274/614814529641250816/ezgif-4-3e8037e6fc2f.gif`,
                 `im@gay`];
+
+        var r = Math.floor((Math.random() * d.length));
+
+        message.channel.send(d[r]);
+    }
+
+
+    //DJ Nintendo
+
+    if (command === `DJ` || command === `DJNINTENDO` || command === `DJMUTENDO`) {
+        var d = [`KICKS`,
+                `SCHLICE`,
+                `Yup! That's a thing!`,
+                `NOOOOOOOOOO DEEEEE EEEEEEYYYYEEEE`,
+                `YO he hit him the Papaya Smack`,
+                `Yo so he could've opted for a downsmash and covered everyhting there`,
+                `Yo Mango is SCHMOOVIN right now`,
+                `Yo Hax is OD right now`,
+                `Yo Hax is SCHMOOOOOVIN`,
+                `You know docs nair is stronger the longer it's out`,
+                `*amsa DJ armor's through a Fox nair* \nGreat parry by amsa there`,
+                `Yo what's cool about FD is that there's no platforms`];
 
         var r = Math.floor((Math.random() * d.length));
 
@@ -1549,8 +1561,7 @@ client.on('message', async message => {
     //Never Cum
 
     if (command === `NEVER` || command === `NEVERCUM`) {
-        var n = [`Never forget`,
-                /*`Never cum`,
+        var n = [`Never cum`,
                 `Never cum`,
                 `Never cum`,
                 `Never cum`,
@@ -1558,29 +1569,7 @@ client.on('message', async message => {
                 `Never cum`,
                 `Never cum`,
                 `Never cum \n \n \n \n \nNever cum`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`,*/
-                `Never forget`,
-                `Never forget`,
-                `Never forget`,
-                `Never forget`,
-                `Never forget`,
-                `Never forget`,
-                `Never forget`,
-                `Never forget`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/621299845843648528/unknown.png`,
-                `Never forget o7`,
-                `Never forget o7`,
-                `Never forget o7`,
-                `Never forget o7`,
-                `Never 4get`,
-                `Never 4get`,
-                `Never 4get`,
-                `Never 4get`,
-                `Did 9/11 happen in the cars universe? the thing I really like about Planes is that we learn that WWII happened in the cars universe. Which means there was a Cars Hitler, a Cars Holocaust, a Cars Pacific War, a Cars D-Day, a Cars nuking of Hiroshima and Nagasaki, a Cars Rape of Nanking, a Cars Battle of Iwo Jima... This leads to so many important questions, like: were the Cars Little Boy and Fat Man nukes sentient? Was it a suicide mission? Are ALL Cars nuclear weapons sentient? Did Tsar Bomba have a personality? What kind of car was Car Hitler? A VW? A forklift? Was there a Cars 9/11? Where the planes hijacked, or were the planes themselves radicalized? I could go on`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/621293949159604234/IMG_20190911_112153.jpg`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/621300905718972416/unknown.png`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/621301728460931072/1568191155579.png`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/621302766429667328/1568180032226.png`];
+                `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`];
 
         var r = Math.floor((Math.random() * n.length));
 
@@ -1622,6 +1611,7 @@ client.on('message', async message => {
                 `**\*Loud Fightstick noises\***`,
                 `Nooo don't shut down the bot your so sexy aha`,
                 `Long overdue, but I think it's time for me to unsubscribe from this server.`,
+                `What if Silver sex Ky Kiske from the new Guilty Gear trailer`,
                 `Hi, at the time of you reading this I am taking an indefinite break from the scene and taking this puff along with me. I'll get straight to the point, Leffen has been an asshole to me and my character countless times, and shows no remorse or effort to change. I'm sure he or someone else will try to spin my absence as being about what happened right before I got eliminated, or some other small thing, but that was just the straw that broke the clutchgod's back. He is a hurtful person to be around, and has gone so far as blatantly saying so. A point he made the day I'm writing this that really pushed me towards leaving is that he doesn't single me out, he's just like this to everyone. I don't think any of you deserve to be around people like that. Leaving was a very hard decision to make, as I've spent a lot of my time with this scene the past decade, and if it were just the rest of you I'd love to continue to do so. However, people defending someone who is that awful to be around outweighs the other benefits of being in this community, at least to me. I hope that something can change, whether that is Leffen showing real effort to change as a person and be nicer to people, or him leaving the server. If not, it's been nice knowing the rest of you, and my DMs are open if anyone wants to get in touch with me. \n \n-Hungrybox`,
                 `Hi, at the time of you reading this I am taking an indefinite break from the server and taking this bot along with me. I'll get straight to the point, SubjectiveF has been an asshole to me and my friends countless times, and shows no remorse or effort to change. I'm sure he or someone else will try to spin my absence as being about what happened right before I left, or some other small thing, but that was just the straw that broke the camel's back. He is a hurtful person to be around, and has gone so far as blatantly saying so. A point he made the day I'm writing this that really pushed me towards leaving is that he doesn't single me out, he's just like this to everyone. I don't think any of you deserve to be around people like that. Leaving was a very hard decision to make, as I've spent a lot of my time with this server the past few months, and if it were just the rest of you I'd love to continue to do so. However, people defending someone who is that awful to be around outweighs the other benefits of being in this community, at least to me. I hope that something can change, whether that is Subjective showing real effort to change as a person and be nicer to people, or him leaving the server. If not, it's been nice knowing the rest of you, and my DMs are open if anyone wants to get in touch with me. \n \n-I'm gay`,
                 `wanna play tekken`];
@@ -1785,8 +1775,8 @@ client.on('message', async message => {
             `Flame`,
             `Flaming homosexual`,
             `Firefox`,
-            `can'tgobackwardsinstarFox64`,
-            `you stupid bitch, you stupid fucking bitch, you stupid Fucking bitch`];
+            `Facts don't care about your feelings`,
+            `can'tgobackwardsinstarFox64`];
 
         var r = Math.floor((Math.random() * f.length));
 
@@ -1890,6 +1880,7 @@ client.on('message', async message => {
                 `bowser's NICE top spin serve is only 6 mph faster than baby mario's due to a programming error?`,
                 `you can see the decline of civilization is directly correlated to how prominent final fantasy is in popular media`,
                 `lgl will actually hurt amsa and ultimate2king too? we should only be trying to target hbox here, ok?`,
+                `78% of black people live underground and only come up after sundown.`,
                 `in the PAL version of Super Smash Bros. Melee, Marth, Roy, Link, and Young Link had their swords completely removed from the game?`];
 
         var t = [`Wow!`,
@@ -1904,6 +1895,7 @@ client.on('message', async message => {
                 `Yeah, that's right!`,
                 `I said it.`,
                 `Facts don't care about your feelings.`,
+                `Where's the lie?`,
                 `It explains everything!`];
 
         var r = Math.floor((Math.random() * w.length));
@@ -2027,288 +2019,312 @@ client.on('message', async message => {
     //Wub Wub Wowzy
 
     if (command === `WUB` || command === `WUBWUB` || command === `WUBWUBWOWZY`) {
-        var w = [`101 Dalmations`,
-                `Aladdin`,
-                `Indiana Jones and the Fate of Atlantis for the Amiga, FM Towns, PC and Wii`,
-                `Indiana Jones and the Infernal Machine for the PC, N64 and GBC`,
-                `Instruments of Chaos starring Young Indiana Jones for the Genesis`,
-                `Indiana Jones in the Lost Kingdom for the Commodore 64`,
-                `the Indiana Jones and the Last Crusade video game for the NES`,
-                `Indiana Jones and the Last Crusade: The Action Game for the Amiga, Amstrad CPC, Atari ST, Commodore 64, Master System, Mega Drive, NES, Game Gear, MSX, PC and ZX Spectrum`,
-                `Indiana Jones and the Last Crusade: The Graphic Adventure for DOS, Amiga, Atari ST and Macintosh`,
-                `the Raiders of the Lost Ark video game for the Atari 2600`,
-                `Indiana Jones in Revenge of the Ancients for the Apple II and MS-DOS`,
-                `Indiana Jones and the Staff of Kings for the Wii, PS2, DS and PSP`,
-                `the Indiana Jones and the Temple of Doom video game for the Arcade, Amiga, Amstrad CPC, Apple II, Atari ST, Commodore 64, MS-DOS, MSX, NES and ZX Spectrum`,
-                `The Young Indiana Jones Chronicles video game for the NES`,
-                `Indiana Jones and His Desktop Adventures for the PC`,
-                `Disney Sing It! – High School Musical 3: Senior Year for the PS2, PS3, Wii and Xbox 360`,
-                `High School Musical: Makin' the Cut! for the DS`,
-                `the High School Musical 3: Senior Year video game for the DS`,
-                `High School Musical 3: Senior Year Dance for the PC, PS2, Wii and Xbox 360`,
-                `Disney Sing It for the PC, Wii, PS2, PS3 and Xbox 360`,
-                `Disney Sing It: Family Hits for the PS3 and Wii`,
-                `Disney Sing It: Pop Hits for the PS2, PS3 and Wii`,
-                `High School Musical: Sing It! for the PS2 and Wii`,
-                `High School Musical 2: Work This Out! for the DS`,
-                `The Haunted Mansion video game for the Xbox, Gamecube and PS2`,
-                `Kinect: Disneyland Adventures for the Xbox Kinect`,
-                `Mickey no Tokyo Disneyland Daibōken for the Super Famicom`,
-                `The Walt Disney World Explorer for the PC`,
-                `Walt Disney World Quest: Magical Racing Tour for the Dreamcast, GBC, PC and PS1`,
-                `Virtual Magic Kingdom for the PC`,
-                `The Cheetah Girls video game for the GBA`,
-                `The Cheetah Girls: Passport to Stardom for the DS`,
-                `The Cheetah Girls: Pop Star Sensations for the DS`,
-                `Adventures in the Magic Kingdom for the NES`,
-                `the Chip 'n Dale Rescue Rangers video game for the NES and PlayChoice-10`,
-                `Chip 'n Dale Rescue Rangers 2 for the NES`,
-                `the Darkwing Duck video game for the NES and GB`,
-                `The Disney Afternoon Collection for the PC, Xbox One and PS4`,
-                `Disney's Aladdin for the SNES and GBA`,
-                `Disney's Hide and Sneak for the Gamecube`,
-                `Disney's Magical Mirror Starring Mickey Mouse for the Gamecube`,
-                `The Magical Quest Starring Mickey Mouse for the SNES and GBA`,
-                `Disney's Magical Quest 2: The Great Circus Mystery Starring Mickey & Minnie for the SNES, Genesis and GBA`,
-                `Disney's Magical Quest 3 Starring Mickey & Donald for the Super Famicom and GBA`,
-                `the DuckTales video game for the NES and GBA`,
-                `Deep Duck Trouble Starring Donald Duck for the Sega Master System and Game Gear`,
-                `Disney Golf for the PS2`,
-                `Disney Magicboard Online for the PC`,
-                `Disney Think Fast for the PS2 and Wii`,
-                `Disney's Party for the GBA and Gamecube`,
-                `Donald Duck: Goin' Quackers for the GBC, GBA, PC, N64, PS1, Dreamcast, PS2 and Gamecube`,
-                `Donald Duck's Playground for the Amiga, Atari ST, Apple II, Commodore 64, IBM PCjr and MS-DOS`,
-                `Donald's Alphabet Chase for the Amiga, Amstrad CPC, Apple II, Commodore 64, ZX Spectrum and DOS`,
-                `Castle of Illusion Starring Mickey Mouse for the MEga Drive, Master System and Game Gear`,
-                `Land of Illusion Starring Mickey Mouse for the Master System and Game Gear`,
-                `World of Illusion Starring Mickey Mouse and Donald Duck for the Mega Drive`,
-                `Legend of Illusion Starring Mickey Mouse for the Game Gear`,
-                `The Disney Collection: Castle of Illusion Starring Mickey Mouse & Quackshot Starring Donald Duck for the Mega Drive`,
-                `Sega Ages: I Love Mickey Mouse for the Sega Saturn`,
-                `Castle of Illusion Starring Mickey Mouse (2013) for the PC, PSN and Xbox Live Arcade`,
-                `The Lucky Dime Caper starring Donald Duck for the Game Gear and Master System`,
-                `Maui Mallard in Cold Shadow for the Genesis, SNES, GB and PC`,
-                `Mickey's Speedway USA for the N64 and GBC`,
-                `PK: Out of the Shadows for the Gamecube and PS2`,
-                `QuackShot Starring Donald Duck for the Genesis and Saturn`,
-                `Disney's Extremely Goofy Skateboarding for the PC`,
-                `the Goof Troop video game for the SNES`,
-                `Goofy's Fun House for the PS1`,
-                `Goofy's Hysterical History Tour for the Genesis`,
-                `Epic Mickey for the Wii`,
-                `Epic Mickey 2: The Power of Two for the PS3, Wii, Wii U, Xbox 360, PC and PS Vita`,
-                `Epic Mickey: Power of Illusion for the 3DS`,
-                `DuckTales: Remastered for the PS3, Xbox 360, Wii U and PC`,
-                `DuckTales 2 for the NES and GB`,
-                `DuckTales: The Quest for Gold for the Amiga, Apple II, Commodore 64, DOS and PC`,
-                `The Nightmare Before Christmas: Oogie's Revenge for the PS2 and Xbox`,
-                `TaleSpin for the NES and GB`,
-                `the Who Framed Roger Rabbit video game for the Game Boy`,
-                `The Little Mermaid video game for the NES and GB`,
-                `Mickey Mousecapade for the NES`,
-                `Mickey's Dangerous Chase for the Game Boy`,
-                `Indiana Jones and the Emperor's Tomb for the Xbox, PS2 and PC`,
-                `Buzz Lightyear of Star Command for the PS1, Dreamcast, GBC and PC`,
-                `Disney's Extreme Skate Adventure for the GBA, Gamecube, PS2 and Xbox`,
-                `the Toy Story video game for the SNES, Genesis, GB and PC`,
-                `Toy Story 2: Buzz Lightyear to the Rescue! for the PS1, N64, GBC, Dreamcast and PC`,
-                `Toy Story 3: The Video Game for the DS, PS2, PS3, PSP, Wii, Xbox 360, PC, Leapster and V.Reader`,
-                `Toy Story Mania! for the Wii, PS3, Xbox 360 and PC`,
-                `Toy Story Racer for the GBC and PS1`,
-                `the Cars video game for the GameCube, PS2, Xbox, PC, GBA, DS, PSP, Xbox 360 and Wii`,
-                `the Cars 2 video game for the Wii, PS3, Xbox 360, PC, DS, 3DS PSP and Arcade`,
-                `Cars 3: Driven to Win for the Switch, PS3, PS4, Wii U, Xbox 360 and Xbox One`,
-                `Cars Mater-National Championship for the Xbox 360, PC, DS, PS2, PS3, GBA and Wii`,
-                `Cars Race-O-Rama for the PS3, PS2, Wii, Xbox 360, PSP and DS`,
-                `Cars: Radiator Springs Adventures for the PC`,
-                `the Brave video game for the PC, DS, PS3, Wii and Xbox 360`,
-                `the Ratatouille video game for Gamecube, GBA, J2ME, PC, Mobile Phone, DS, PS2, PS3, PSP, Wii, Xbox and Xbox 360`,
-                `the Up video game for Xbox 360, Wii, iOS, PS3, PS2, PSP, DS, PC, Mobile Phone, Leapster and V.Smile`,
-                `the A Bug's Life video game for the PS1, PC, GBC, N64, Game.com, Sega Saturn and Dreamcast`,
-                `the Monsters, Inc. video game for the PS2, GBC and GBA`,
-                `Monsters, Inc. Scream Team for the PS1, PS2 and PC`,
-                `Monsters, Inc. Scream Arena for the Gamecube`,
-                `the Finding Nemo video game for GBA, Gamecube, PC, OS X, PS2 and Xbox`,
-                `The Incredibles video game for Gamecube, PS2, Xbox, PC, OS X and GBA`,
-                `The Incredibles: Rise of the Underminer for the PS2, Gamecube, Xbox, GBA, DS and PC`,
-                `The Incredibles: When Danger Calls for the PC`,
-                `the WALL-E video game for PC, DS, PS2, PS3, PSP, Wii, Xbox 360, V.Smile, J2ME and Leapster`,
-                `Kinect Rush: A Disney-Pixar Adventure for the Xbox 360`,
-                `Kamen Rider: Battride War for the PS3`,
-                `Kamen Rider: Battride War II for the PS3 and Wii U`,
-                `Kamen Rider: Battride War Genesis for the PS3, PS4 and PS Vita`,
-                `All Kamen Rider: Rider Generation for the DS`,
-                `All Kamen Rider: Rider Generation 2 for the DS`,
-                `All Kamen Rider: Rider Revolution for the 3DS`,
-                `Kamen Rider: Climax Fighters for the PS4`,
-                `Kamen Rider: Climax Scramble for the Switch`,
-                `Kamen Rider: Super Climax Heroes for the PSP and Wii`,
-                `Kamen Rider: Climax Heroes W for the Wii`,
-                `Kamen Rider: Climax Heroes OOO for the PSP and Wii`,
-                `Kamen Rider: Climax Heroes for the PS2`,
-                `Kamen Rider: Climax Heroes Fourze for the PSP and Wii`,
-                `the Hotel Transylvania video game for the DS and 3DS`,
-                `The Smurfs video game for the DS`,
-                `The Smurfs Dance Party for the Wii`,
-                `The Smurfs 2 video game for the Xbox 360, PS3, Wii, Wii U and DS`,
-                `the Open Season video game for the GBA, Gamecube, PC, DS, PS2, PSP, Wii, Xbox and Xbox 360`,
-                `the Cloudy with a Chance of Meatballs 2 video game for the DS and 3DS`,
-                `the Cloudy with a Chance of Meatballs video game for the PS3, Xbox 360, Wii, DS, PSP and PC`,
-                `the Over the Hedge video game for the Nintendo DS`,
-                `the Over the Hedge video game for the GBA, Gamecube, Xbox, PS2 and PC`,
-                `Over the Hedge: Hammy Goes Nuts! for the GBA, DS and PSP`,
-                `Antz Racing for the GBC`,
-                `the Antz video game for the GBC`,
-                `Antz Extreme Racing for the Xbox, PS2, GBA, PC`,
-                `Antz World Sportz for the GBC`,
-                `Gold and Glory: The Road to El Dorado for the PS1, GBC and PC`,
-                `the Chicken Run video game for the GBC, Dreamcast, PS1 and PC`,
-                `the Shrek video game for the Xbox`,
-                `the Shrek 2 video game for the Gamecube, PS2, Xbox, GBA and PC`,
-                `the Shrek the Third video game for the Xbox 360, PC, Wii, PS2, PSP, DS, GBA and iOS`,
-                `the Shrek forever After video game for the Xbox 360, PC, Wii, PS3, DS and iOS`,
-                `Shrek Swamp Kart Speedway for the GBA`,
-                `Shrek Smash n' Crash Racing for the Gamecube, PS2, PSP, DS and GBA`,
-                `DreamWorks Super Star Kartz for Xbox 360, Wii, PS3 and DS`,
-                `Shrek: Treasure Hunt for the PS1`,
-                `Shrek Super Party for Xbox, PS2 and Gamecube`,
-                `Shrek's Carnival Craze Party Games for PS2, PC, Wii and DS`,
-                `Shrek: Fairy Tale Freakdown for GBC`,
-                `Shrek Game Land Activity Center for PC`,
-                `Shrek: Hassle at the Castle for GBA`,
-                `Shrek Extra Large for the Gamecube`,
-                `Shrek: Reekin' Havoc for the GBA`,
-                `Shrek 2 Activity Center: Twisted Fairy Tale Fun for the PC`,
-                `Shrek 2: Team Action for the PC`,
-                `Shrek 2: Beg for Mercy for GBA`,
-                `Shrek SuperSlam for the PS2, Xbox, Gamecube, DS, PC and GBA`,
-                `Shrek n' Roll for Xbox Live Arcade`,
-                `Shrek: Ogres & Dronkeys for the DS`,
-                `the Puss in Boots video game for the Xbox 360, Wii, PS3 and DS`,
-                `Shrek: Dragon's Tale for the V.Smile`,
-                `Shrek the Third: Arthur's School Day Adventure for the V.Smile`,
-                `Shrek the Third: the Search for Arthur for the V.Smile`,
-                `Spirit: Stallion of the Cimarron — Forever Free for the PC`,
-                `Spirit: Stallion of the Cimarron — Search For Homeland for the GBA`,
-                `the Sinbad: Legend of the Seven Seas video game for the PC`,
-                `the Shark Tale video game for the PS2, PC, Xbox, Gamecube and GBA`,
-                `the Madagascar video game for the PS2, Xbox, PC, DS, GBA and Gamecube`,
-                `Madagascar: Operation Penguin for the GBA`,
-                `the Madagascar: Escape 2 Africa video game for Xbox 360, PS2, PS2, Wii, PC and DS`,
-                `Madagascar Kartz for Wii, PS3, Xbox 360 and DS`,
-                `The Penguins of Madagascar for the DS`,
-                `The Penguins of Madagascar: Dr. Blowhole Returns - Again! for the DS, Wii, Xbox 360 and PS3`,
-                `Madagascar: Join the Circus! for iOS`,
-                `Madagascar 3: The Video Game for the Wii, 3DS, DS, Xbox 360 and PS3`,
-                `Madagascar Preschool Surf n' Slide for iOS`,
-                `the Penguins of Madagascar video game for 3DS, Wii and Wii U`,
-                `Wallace & Gromit Fun Pack for PC`,
-                `Wallace & Gromit in Project Zoo for the PS2, Xbox, Gamecube and PC`,
-                `the Wallace & Gromit: Curse of the Were-Rabbit game for the PS2 and Xbox`,
-                `the Flushed Away video game for the PS2, Gamecube, GBA and DS`,
-                `Bee Movie Game for PC, Xbox 360, Wii, PS2 and DS`,
-                `the Kung Fu Panda video game for PC, DS, PS2, PS3, Wii and Xbox 360`,
-                `Kung Fu Panda: Legendary Warriors for the DS and Wii`,
-                `the Kung Fu Panda 2 video game for the DS, PS3, Wii and Xbox 360`,
-                `Kung Fu Panda: Showdown of Legendary Legends for PC, Xbox One, PS3, PS4, 3DS and Wii U`,
-                `the Monsters vs. Aliens game for PC, PS3, Xbox 360, DS, Wii and PS2`,
-                `the How to Train Your Dragon video game for Wii, Xbox 360, PS3 and DS`,
-                `the How to Train Your Dragon video game for Wii, Wii U, Xbox 360, PS3 and 3DS`,
-                `Megamind: Ultimate Showdown for the PS3 and Xbox 360`,
-                `Megamind: Mega Team Unite for the Wii`,
-                `Megamind: The Blue Defender for the DS and PSP`,
-                `Rise of the Guardians: The Video Game for the PS3, Xbox 360, Wii, Wii U, DS and 3DS`,
-                `The Croods: Prehistoric Party! for the Wii U, Wii, DS and 3DS`,
-                `Turbo: Super Stunt Squad for the Wii, Wii U, DS, 3DS, PS3 and Xbox 360`,
-                `Casper the Friendly Ghost video game for the PS1, Sega Saturn, SNES, GB, 3DO, GBC, GBA and PC`,
-                `Casper: A Spirited Beginning Activity Center for the PC`,
-                `Casper: Friends Around the World for the PS1`,
-                `Casper: Spirit Dimensions for the PS2 and Gamecube`,
-                `Casper and the Ghostly Trio for the PS2`,
-                `the Casper's Scare School video game for the PS2, DS and Wii`,
-                `The Chronicles of Narnia: The Lion, the Witch and the Wardrobe video game for the Xbox, PS2, PC, GBA, Gamecube and DS`,
-                `E.T. the Extra-Terrestrial for the Atari 2600`,
-                `E.T. the Extra-Terrestrial for the TI-99/4A`,
-                `E.T. the Extra-Terrestrial for the GBA`,
-                `E.T. Go Home (UFI und sein gefährlicher Einsatz) for the Atari 2600`,
-                `E.T.: Digital Companion for the GBC`,
-                `E.T.: Escape from Planet Earth for the GBC`,
-                `E.T.: Interplanetary Mission for the PC and PS1`,
-                `E.T. and the Cosmic Garden`,
-                `E.T.: Away from Home for the PC`,
-                `E.T.: Phone Home Adventure for the PC`,
-                `E.T.: The Green Planet`,
-                `the Ghostbusters video game for the Atari 800, Commodore 64, MSX, ZX Spectrum, Amstrad CPC, Atari 2600 and Apple II`,
-                `The Real Ghostbusters for the Arcade`,
-                `the Ghostbusters video game for the NES, Sega Master System and Genesis`,
-                `Ghostbusters II for the NES, Atari 2600, Amiga, Commodore 64, MSX, PC, ZX Spectrum and Amstrad CPC`,
-                `New Ghostbusters II for the GB and NES`,
-                `the Real Ghostbusters for the GBA`,
-                `Ghostbusters: The Video Game for the PlayStation 3, PlayStation 2, PlayStation Portable, Xbox 360, Nintendo DS, Wii and PC`,
-                `Ghostbusters: Sanctum of Slime for PSN, Xbox Live and PC`,
-                `the Ghostbusters (2016) video game for the PS4, Xbox One and PC`,
-                `the Harry Potter and the Philosopher's Stone video game for the PS1, PS2, Xbox, Gamecube, GBC, GBA and PC`,
-                `the Harry Potter and the Chaber of Secrets video game for the PS1, PS2, Xbox, Gamecube, GBC, GBA and PC`,
-                `the Harry Potter and the Prisoner of Azkaban video game for the PS2, Xbox, Gamecube, GBA and PC`,
-                `the Harry Potter and the Goblet of Fire video game for the PS2, Xbox, Gamecube, DS, PSP, GBA and PC`,
-                `the Harry Potter and the Order of the Phoenix video game for the PS2, PS3, Xbox, Wii, GBA, PSP, DS and PC`,
-                `the Harry Potter and the Half-Blood Prince video game for the PS2, PS3, Xbox, Wii, PSP, DS and PC`,
-                `the Harry Potter and the Deathly Hallows - Part 1 video game for the PS3, Xbox 360, Wii, DS, and PC`,
-                `the Harry Potter and the Deathly Hallows - Part 2 video game for the PS3, Xbox 360, Wii, DS, and PC`,
-                `Harry Potter Quidditch World Cup for the PS2, Xbox, Gamecube, GBA and PC`,
-                `the Harry Potter video game for the Kinect`,
-                `the Jurassic Park video game for the NES, GB, SNES, Genesis, Game Gear, MAster System, Sega CD, Amiga and Arcade`,
-                `Jurassic Park 2: the Chaos Continues for the SNES and Game Boy`,
-                `Jurassic Park: Rampage Edition for the Sega Genesis`,
-                `The Lost World: Jurassic Park for the PS1, Sega Saturn and Arcade`,
-                `Warpath: Jurassic Park for the PS1`,
-                `Jurassic Park III: Dino Defender for the PC`,
-                `Jurassic Park III: Danger Zone! for the PC`,
-                `Jurassic Park III: Island Attack for the GBA`,
-                `Jurassic Park III: The DNA Factor for the GBA`,
-                `Jurassic Park III: Park Builder for the GBA`,
-                `Scan Command: Jurassic Park for the PC`,
-                `Jurassic Park: Dinosaur Battles for the PC`,
-                `Jurassic Park: Operation Genesis for the PS2, Xbox and PC`,
-                `Jurassic Park Institute Tour: Dinosaur Rescue for the GBA`,
-                `Jurassic Park: The Game for the PS3, Xbox 360 and PC`,
-                `Jurassic World Evolution for PSN, Xbox Live and PC`,
-                `the Disney's Lilo & Stitch video game for the GBA`,
-                `Motto! Stitch! DS: Rhythm de Rakugaki Daisakusen for the DS`,
-                `Disney's Lilo & Stitch: Trouble in Paradise for the PS1 and PC`,
-                `Disney's Stitch: Experiment 626 for the PS2`,
-                `Lilo & Stitch: Hawaiian Adventure for the PC`,
-                `Lilo & Stitch Pinball for the PC`,
-                `Lilo & Stitch 2: Hämsterviel Havoc for the GBA`,
-                `Disney Stitch Jam for the DS`,
-                `The Lion King video game for the Genesis, SNES, NES, GB, Amiga, PC, Game Gear and Master System`,
-                `The Lion King: Simba's Mighty Adventure for the GBC and PS1`,
-                `Timon & Pumbaa's Jungle Games for the SNES and PC`,
-                `The Lion King 1½ for the GBA`,
-                `Disney's Adventures in Typing With Timon and Pumbaa for the PC`,
-                `Pink Panther in Pink Goes To Hollywood for the SNES and Genesis`,
-                `The Pink Panther: Passport to Peril for the PC`,
-                `The Pink Panther: Hokus Pokus Pink for the PC`,
-                `the Pirates of the Caribbean: The Curse of the Black Pearl video game for the GBA`,
-                `Pirates of the Caribbean: The Game for the Xbox and PC`,
-                `Pirates of the Caribbean: Dead Man's Chest for the PSP, GBA and DS`,
-                `Pirates of the Caribbean: The Legend of Jack Sparrow for the PS2 and PC`,
-                `Pirates of the Caribbean: At World's End for the Wii, DS, Xbox 360, PSP, PS2, PS3 and PC`,
-                `the Spider-Man video game for the PS1, GBC, N64, Dreamcast and PC`,
-                `the Spider-Man 2 video game for the PS2, GBA, Gamecube, Xbox, DS, PSP, N-Gage and PC`,
-                `the Spider-Man 3 video game for the GBA, PC, DS, PS2, Wii, Xbox 360, Ps3 and PSP`,
-                `the Star Wars video game for the NES, GB, Master System, Game Gear, Arcade and Famicom`,
-                `the Disney's Tarzan video game for the PS1`,
-                `Tarzan: Untamed for the PS2 and Gamecube`,
-                `Tarzan Jungle Tumble for the PC`,
-                `Disney's Tarzan: Return to the Jungle for the PC`,
-                `The Wizard of Oz video game for the SNES`];
+        var r = Math.random() * 100;
+        
+        if (r <= 40) {
+            var b = [`purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC (Pedophile Courtcase)`,
+                    `purchased a USB drive containing suspicious files`,
+                    `gave Randy Pitchford $60`,
+                    `purchased a lifesize body pillow of Randy Pitchford`,
+                    `purchased a photo album of Randy Pitchford seflies`,
+                    `sculpted a statue depicting his idol and role model, Randy Pitchford`,
+                    `purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC`,
+                    `purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC`,
+                    `purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC`,
+                    `made a cum tribute of Randy Pitchford's Twitter profile pic`,
+                    `purchased Borderlands 3 on the Epic Games Store, selling out all of his information to the Chinese`,
+                    `cried himself to sleep because he realised he will never hold Randy Pitchford in his arms`,
+                    `returned a lost USB stick to his good friend Randy Pitchford`,
+                    `Snitched on a mall that had a Super Mario Bros. ROM in an attempt to be more like Randy Pitchford`];
 
-        var r = Math.floor((Math.random() * w.length));
+            var r = Math.floor((Math.random() * w.length));
 
-        message.channel.send(`Recently purchased `+w[r]+`.`);
+            message.channel.send(`Recently `+w[r]+`.`);
+        } else {
+            var w = [`101 Dalmations`,
+                    `Aladdin`,
+                    `Indiana Jones and the Fate of Atlantis for the Amiga, FM Towns, PC and Wii`,
+                    `Indiana Jones and the Infernal Machine for the PC, N64 and GBC`,
+                    `Instruments of Chaos starring Young Indiana Jones for the Genesis`,
+                    `Indiana Jones in the Lost Kingdom for the Commodore 64`,
+                    `the Indiana Jones and the Last Crusade video game for the NES`,
+                    `Indiana Jones and the Last Crusade: The Action Game for the Amiga, Amstrad CPC, Atari ST, Commodore 64, Master System, Mega Drive, NES, Game Gear, MSX, PC and ZX Spectrum`,
+                    `Indiana Jones and the Last Crusade: The Graphic Adventure for DOS, Amiga, Atari ST and Macintosh`,
+                    `the Raiders of the Lost Ark video game for the Atari 2600`,
+                    `Indiana Jones in Revenge of the Ancients for the Apple II and MS-DOS`,
+                    `Indiana Jones and the Staff of Kings for the Wii, PS2, DS and PSP`,
+                    `the Indiana Jones and the Temple of Doom video game for the Arcade, Amiga, Amstrad CPC, Apple II, Atari ST, Commodore 64, MS-DOS, MSX, NES and ZX Spectrum`,
+                    `The Young Indiana Jones Chronicles video game for the NES`,
+                    `Indiana Jones and His Desktop Adventures for the PC`,
+                    `Disney Sing It! – High School Musical 3: Senior Year for the PS2, PS3, Wii and Xbox 360`,
+                    `High School Musical: Makin' the Cut! for the DS`,
+                    `the High School Musical 3: Senior Year video game for the DS`,
+                    `High School Musical 3: Senior Year Dance for the PC, PS2, Wii and Xbox 360`,
+                    `Disney Sing It for the PC, Wii, PS2, PS3 and Xbox 360`,
+                    `Disney Sing It: Family Hits for the PS3 and Wii`,
+                    `Disney Sing It: Pop Hits for the PS2, PS3 and Wii`,
+                    `High School Musical: Sing It! for the PS2 and Wii`,
+                    `High School Musical 2: Work This Out! for the DS`,
+                    `The Haunted Mansion video game for the Xbox, Gamecube and PS2`,
+                    `Kinect: Disneyland Adventures for the Xbox Kinect`,
+                    `Mickey no Tokyo Disneyland Daibōken for the Super Famicom`,
+                    `The Walt Disney World Explorer for the PC`,
+                    `Walt Disney World Quest: Magical Racing Tour for the Dreamcast, GBC, PC and PS1`,
+                    `Virtual Magic Kingdom for the PC`,
+                    `The Cheetah Girls video game for the GBA`,
+                    `The Cheetah Girls: Passport to Stardom for the DS`,
+                    `The Cheetah Girls: Pop Star Sensations for the DS`,
+                    `Adventures in the Magic Kingdom for the NES`,
+                    `the Chip 'n Dale Rescue Rangers video game for the NES and PlayChoice-10`,
+                    `Chip 'n Dale Rescue Rangers 2 for the NES`,
+                    `the Darkwing Duck video game for the NES and GB`,
+                    `The Disney Afternoon Collection for the PC, Xbox One and PS4`,
+                    `Disney's Aladdin for the SNES and GBA`,
+                    `Disney's Hide and Sneak for the Gamecube`,
+                    `Disney's Magical Mirror Starring Mickey Mouse for the Gamecube`,
+                    `The Magical Quest Starring Mickey Mouse for the SNES and GBA`,
+                    `Disney's Magical Quest 2: The Great Circus Mystery Starring Mickey & Minnie for the SNES, Genesis and GBA`,
+                    `Disney's Magical Quest 3 Starring Mickey & Donald for the Super Famicom and GBA`,
+                    `the DuckTales video game for the NES and GBA`,
+                    `Deep Duck Trouble Starring Donald Duck for the Sega Master System and Game Gear`,
+                    `Disney Golf for the PS2`,
+                    `Disney Magicboard Online for the PC`,
+                    `Disney Think Fast for the PS2 and Wii`,
+                    `Disney's Party for the GBA and Gamecube`,
+                    `Donald Duck: Goin' Quackers for the GBC, GBA, PC, N64, PS1, Dreamcast, PS2 and Gamecube`,
+                    `Donald Duck's Playground for the Amiga, Atari ST, Apple II, Commodore 64, IBM PCjr and MS-DOS`,
+                    `Donald's Alphabet Chase for the Amiga, Amstrad CPC, Apple II, Commodore 64, ZX Spectrum and DOS`,
+                    `Castle of Illusion Starring Mickey Mouse for the MEga Drive, Master System and Game Gear`,
+                    `Land of Illusion Starring Mickey Mouse for the Master System and Game Gear`,
+                    `World of Illusion Starring Mickey Mouse and Donald Duck for the Mega Drive`,
+                    `Legend of Illusion Starring Mickey Mouse for the Game Gear`,
+                    `The Disney Collection: Castle of Illusion Starring Mickey Mouse & Quackshot Starring Donald Duck for the Mega Drive`,
+                    `Sega Ages: I Love Mickey Mouse for the Sega Saturn`,
+                    `Castle of Illusion Starring Mickey Mouse (2013) for the PC, PSN and Xbox Live Arcade`,
+                    `The Lucky Dime Caper starring Donald Duck for the Game Gear and Master System`,
+                    `Maui Mallard in Cold Shadow for the Genesis, SNES, GB and PC`,
+                    `Mickey's Speedway USA for the N64 and GBC`,
+                    `PK: Out of the Shadows for the Gamecube and PS2`,
+                    `QuackShot Starring Donald Duck for the Genesis and Saturn`,
+                    `Disney's Extremely Goofy Skateboarding for the PC`,
+                    `the Goof Troop video game for the SNES`,
+                    `Goofy's Fun House for the PS1`,
+                    `Goofy's Hysterical History Tour for the Genesis`,
+                    `Epic Mickey for the Wii`,
+                    `Epic Mickey 2: The Power of Two for the PS3, Wii, Wii U, Xbox 360, PC and PS Vita`,
+                    `Epic Mickey: Power of Illusion for the 3DS`,
+                    `DuckTales: Remastered for the PS3, Xbox 360, Wii U and PC`,
+                    `DuckTales 2 for the NES and GB`,
+                    `DuckTales: The Quest for Gold for the Amiga, Apple II, Commodore 64, DOS and PC`,
+                    `The Nightmare Before Christmas: Oogie's Revenge for the PS2 and Xbox`,
+                    `TaleSpin for the NES and GB`,
+                    `the Who Framed Roger Rabbit video game for the Game Boy`,
+                    `The Little Mermaid video game for the NES and GB`,
+                    `Mickey Mousecapade for the NES`,
+                    `Mickey's Dangerous Chase for the Game Boy`,
+                    `Indiana Jones and the Emperor's Tomb for the Xbox, PS2 and PC`,
+                    `Buzz Lightyear of Star Command for the PS1, Dreamcast, GBC and PC`,
+                    `Disney's Extreme Skate Adventure for the GBA, Gamecube, PS2 and Xbox`,
+                    `the Toy Story video game for the SNES, Genesis, GB and PC`,
+                    `Toy Story 2: Buzz Lightyear to the Rescue! for the PS1, N64, GBC, Dreamcast and PC`,
+                    `Toy Story 3: The Video Game for the DS, PS2, PS3, PSP, Wii, Xbox 360, PC, Leapster and V.Reader`,
+                    `Toy Story Mania! for the Wii, PS3, Xbox 360 and PC`,
+                    `Toy Story Racer for the GBC and PS1`,
+                    `the Cars video game for the GameCube, PS2, Xbox, PC, GBA, DS, PSP, Xbox 360 and Wii`,
+                    `the Cars 2 video game for the Wii, PS3, Xbox 360, PC, DS, 3DS PSP and Arcade`,
+                    `Cars 3: Driven to Win for the Switch, PS3, PS4, Wii U, Xbox 360 and Xbox One`,
+                    `Cars Mater-National Championship for the Xbox 360, PC, DS, PS2, PS3, GBA and Wii`,
+                    `Cars Race-O-Rama for the PS3, PS2, Wii, Xbox 360, PSP and DS`,
+                    `Cars: Radiator Springs Adventures for the PC`,
+                    `the Brave video game for the PC, DS, PS3, Wii and Xbox 360`,
+                    `the Ratatouille video game for Gamecube, GBA, J2ME, PC, Mobile Phone, DS, PS2, PS3, PSP, Wii, Xbox and Xbox 360`,
+                    `the Up video game for Xbox 360, Wii, iOS, PS3, PS2, PSP, DS, PC, Mobile Phone, Leapster and V.Smile`,
+                    `the A Bug's Life video game for the PS1, PC, GBC, N64, Game.com, Sega Saturn and Dreamcast`,
+                    `the Monsters, Inc. video game for the PS2, GBC and GBA`,
+                    `Monsters, Inc. Scream Team for the PS1, PS2 and PC`,
+                    `Monsters, Inc. Scream Arena for the Gamecube`,
+                    `the Finding Nemo video game for GBA, Gamecube, PC, OS X, PS2 and Xbox`,
+                    `The Incredibles video game for Gamecube, PS2, Xbox, PC, OS X and GBA`,
+                    `The Incredibles: Rise of the Underminer for the PS2, Gamecube, Xbox, GBA, DS and PC`,
+                    `The Incredibles: When Danger Calls for the PC`,
+                    `the WALL-E video game for PC, DS, PS2, PS3, PSP, Wii, Xbox 360, V.Smile, J2ME and Leapster`,
+                    `Kinect Rush: A Disney-Pixar Adventure for the Xbox 360`,
+                    `Kamen Rider: Battride War for the PS3`,
+                    `Kamen Rider: Battride War II for the PS3 and Wii U`,
+                    `Kamen Rider: Battride War Genesis for the PS3, PS4 and PS Vita`,
+                    `All Kamen Rider: Rider Generation for the DS`,
+                    `All Kamen Rider: Rider Generation 2 for the DS`,
+                    `All Kamen Rider: Rider Revolution for the 3DS`,
+                    `Kamen Rider: Climax Fighters for the PS4`,
+                    `Kamen Rider: Climax Scramble for the Switch`,
+                    `Kamen Rider: Super Climax Heroes for the PSP and Wii`,
+                    `Kamen Rider: Climax Heroes W for the Wii`,
+                    `Kamen Rider: Climax Heroes OOO for the PSP and Wii`,
+                    `Kamen Rider: Climax Heroes for the PS2`,
+                    `Kamen Rider: Climax Heroes Fourze for the PSP and Wii`,
+                    `the Hotel Transylvania video game for the DS and 3DS`,
+                    `The Smurfs video game for the DS`,
+                    `The Smurfs Dance Party for the Wii`,
+                    `The Smurfs 2 video game for the Xbox 360, PS3, Wii, Wii U and DS`,
+                    `the Open Season video game for the GBA, Gamecube, PC, DS, PS2, PSP, Wii, Xbox and Xbox 360`,
+                    `the Cloudy with a Chance of Meatballs 2 video game for the DS and 3DS`,
+                    `the Cloudy with a Chance of Meatballs video game for the PS3, Xbox 360, Wii, DS, PSP and PC`,
+                    `the Over the Hedge video game for the Nintendo DS`,
+                    `the Over the Hedge video game for the GBA, Gamecube, Xbox, PS2 and PC`,
+                    `Over the Hedge: Hammy Goes Nuts! for the GBA, DS and PSP`,
+                    `Antz Racing for the GBC`,
+                    `the Antz video game for the GBC`,
+                    `Antz Extreme Racing for the Xbox, PS2, GBA, PC`,
+                    `Antz World Sportz for the GBC`,
+                    `Gold and Glory: The Road to El Dorado for the PS1, GBC and PC`,
+                    `the Chicken Run video game for the GBC, Dreamcast, PS1 and PC`,
+                    `the Shrek video game for the Xbox`,
+                    `the Shrek 2 video game for the Gamecube, PS2, Xbox, GBA and PC`,
+                    `the Shrek the Third video game for the Xbox 360, PC, Wii, PS2, PSP, DS, GBA and iOS`,
+                    `the Shrek forever After video game for the Xbox 360, PC, Wii, PS3, DS and iOS`,
+                    `Shrek Swamp Kart Speedway for the GBA`,
+                    `Shrek Smash n' Crash Racing for the Gamecube, PS2, PSP, DS and GBA`,
+                    `DreamWorks Super Star Kartz for Xbox 360, Wii, PS3 and DS`,
+                    `Shrek: Treasure Hunt for the PS1`,
+                    `Shrek Super Party for Xbox, PS2 and Gamecube`,
+                    `Shrek's Carnival Craze Party Games for PS2, PC, Wii and DS`,
+                    `Shrek: Fairy Tale Freakdown for GBC`,
+                    `Shrek Game Land Activity Center for PC`,
+                    `Shrek: Hassle at the Castle for GBA`,
+                    `Shrek Extra Large for the Gamecube`,
+                    `Shrek: Reekin' Havoc for the GBA`,
+                    `Shrek 2 Activity Center: Twisted Fairy Tale Fun for the PC`,
+                    `Shrek 2: Team Action for the PC`,
+                    `Shrek 2: Beg for Mercy for GBA`,
+                    `Shrek SuperSlam for the PS2, Xbox, Gamecube, DS, PC and GBA`,
+                    `Shrek n' Roll for Xbox Live Arcade`,
+                    `Shrek: Ogres & Dronkeys for the DS`,
+                    `the Puss in Boots video game for the Xbox 360, Wii, PS3 and DS`,
+                    `Shrek: Dragon's Tale for the V.Smile`,
+                    `Shrek the Third: Arthur's School Day Adventure for the V.Smile`,
+                    `Shrek the Third: the Search for Arthur for the V.Smile`,
+                    `Spirit: Stallion of the Cimarron — Forever Free for the PC`,
+                    `Spirit: Stallion of the Cimarron — Search For Homeland for the GBA`,
+                    `the Sinbad: Legend of the Seven Seas video game for the PC`,
+                    `the Shark Tale video game for the PS2, PC, Xbox, Gamecube and GBA`,
+                    `the Madagascar video game for the PS2, Xbox, PC, DS, GBA and Gamecube`,
+                    `Madagascar: Operation Penguin for the GBA`,
+                    `the Madagascar: Escape 2 Africa video game for Xbox 360, PS2, PS2, Wii, PC and DS`,
+                    `Madagascar Kartz for Wii, PS3, Xbox 360 and DS`,
+                    `The Penguins of Madagascar for the DS`,
+                    `The Penguins of Madagascar: Dr. Blowhole Returns - Again! for the DS, Wii, Xbox 360 and PS3`,
+                    `Madagascar: Join the Circus! for iOS`,
+                    `Madagascar 3: The Video Game for the Wii, 3DS, DS, Xbox 360 and PS3`,
+                    `Madagascar Preschool Surf n' Slide for iOS`,
+                    `the Penguins of Madagascar video game for 3DS, Wii and Wii U`,
+                    `Wallace & Gromit Fun Pack for PC`,
+                    `Wallace & Gromit in Project Zoo for the PS2, Xbox, Gamecube and PC`,
+                    `the Wallace & Gromit: Curse of the Were-Rabbit game for the PS2 and Xbox`,
+                    `the Flushed Away video game for the PS2, Gamecube, GBA and DS`,
+                    `Bee Movie Game for PC, Xbox 360, Wii, PS2 and DS`,
+                    `the Kung Fu Panda video game for PC, DS, PS2, PS3, Wii and Xbox 360`,
+                    `Kung Fu Panda: Legendary Warriors for the DS and Wii`,
+                    `the Kung Fu Panda 2 video game for the DS, PS3, Wii and Xbox 360`,
+                    `Kung Fu Panda: Showdown of Legendary Legends for PC, Xbox One, PS3, PS4, 3DS and Wii U`,
+                    `the Monsters vs. Aliens game for PC, PS3, Xbox 360, DS, Wii and PS2`,
+                    `the How to Train Your Dragon video game for Wii, Xbox 360, PS3 and DS`,
+                    `the How to Train Your Dragon video game for Wii, Wii U, Xbox 360, PS3 and 3DS`,
+                    `Megamind: Ultimate Showdown for the PS3 and Xbox 360`,
+                    `Megamind: Mega Team Unite for the Wii`,
+                    `Megamind: The Blue Defender for the DS and PSP`,
+                    `Rise of the Guardians: The Video Game for the PS3, Xbox 360, Wii, Wii U, DS and 3DS`,
+                    `The Croods: Prehistoric Party! for the Wii U, Wii, DS and 3DS`,
+                    `Turbo: Super Stunt Squad for the Wii, Wii U, DS, 3DS, PS3 and Xbox 360`,
+                    `Casper the Friendly Ghost video game for the PS1, Sega Saturn, SNES, GB, 3DO, GBC, GBA and PC`,
+                    `Casper: A Spirited Beginning Activity Center for the PC`,
+                    `Casper: Friends Around the World for the PS1`,
+                    `Casper: Spirit Dimensions for the PS2 and Gamecube`,
+                    `Casper and the Ghostly Trio for the PS2`,
+                    `the Casper's Scare School video game for the PS2, DS and Wii`,
+                    `The Chronicles of Narnia: The Lion, the Witch and the Wardrobe video game for the Xbox, PS2, PC, GBA, Gamecube and DS`,
+                    `E.T. the Extra-Terrestrial for the Atari 2600`,
+                    `E.T. the Extra-Terrestrial for the TI-99/4A`,
+                    `E.T. the Extra-Terrestrial for the GBA`,
+                    `E.T. Go Home (UFI und sein gefährlicher Einsatz) for the Atari 2600`,
+                    `E.T.: Digital Companion for the GBC`,
+                    `E.T.: Escape from Planet Earth for the GBC`,
+                    `E.T.: Interplanetary Mission for the PC and PS1`,
+                    `E.T. and the Cosmic Garden`,
+                    `E.T.: Away from Home for the PC`,
+                    `E.T.: Phone Home Adventure for the PC`,
+                    `E.T.: The Green Planet`,
+                    `the Ghostbusters video game for the Atari 800, Commodore 64, MSX, ZX Spectrum, Amstrad CPC, Atari 2600 and Apple II`,
+                    `The Real Ghostbusters for the Arcade`,
+                    `the Ghostbusters video game for the NES, Sega Master System and Genesis`,
+                    `Ghostbusters II for the NES, Atari 2600, Amiga, Commodore 64, MSX, PC, ZX Spectrum and Amstrad CPC`,
+                    `New Ghostbusters II for the GB and NES`,
+                    `the Real Ghostbusters for the GBA`,
+                    `Ghostbusters: The Video Game for the PlayStation 3, PlayStation 2, PlayStation Portable, Xbox 360, Nintendo DS, Wii and PC`,
+                    `Ghostbusters: Sanctum of Slime for PSN, Xbox Live and PC`,
+                    `the Ghostbusters (2016) video game for the PS4, Xbox One and PC`,
+                    `the Harry Potter and the Philosopher's Stone video game for the PS1, PS2, Xbox, Gamecube, GBC, GBA and PC`,
+                    `the Harry Potter and the Chaber of Secrets video game for the PS1, PS2, Xbox, Gamecube, GBC, GBA and PC`,
+                    `the Harry Potter and the Prisoner of Azkaban video game for the PS2, Xbox, Gamecube, GBA and PC`,
+                    `the Harry Potter and the Goblet of Fire video game for the PS2, Xbox, Gamecube, DS, PSP, GBA and PC`,
+                    `the Harry Potter and the Order of the Phoenix video game for the PS2, PS3, Xbox, Wii, GBA, PSP, DS and PC`,
+                    `the Harry Potter and the Half-Blood Prince video game for the PS2, PS3, Xbox, Wii, PSP, DS and PC`,
+                    `the Harry Potter and the Deathly Hallows - Part 1 video game for the PS3, Xbox 360, Wii, DS, and PC`,
+                    `the Harry Potter and the Deathly Hallows - Part 2 video game for the PS3, Xbox 360, Wii, DS, and PC`,
+                    `Harry Potter Quidditch World Cup for the PS2, Xbox, Gamecube, GBA and PC`,
+                    `the Harry Potter video game for the Kinect`,
+                    `the Jurassic Park video game for the NES, GB, SNES, Genesis, Game Gear, MAster System, Sega CD, Amiga and Arcade`,
+                    `Jurassic Park 2: the Chaos Continues for the SNES and Game Boy`,
+                    `Jurassic Park: Rampage Edition for the Sega Genesis`,
+                    `The Lost World: Jurassic Park for the PS1, Sega Saturn and Arcade`,
+                    `Warpath: Jurassic Park for the PS1`,
+                    `Jurassic Park III: Dino Defender for the PC`,
+                    `Jurassic Park III: Danger Zone! for the PC`,
+                    `Jurassic Park III: Island Attack for the GBA`,
+                    `Jurassic Park III: The DNA Factor for the GBA`,
+                    `Jurassic Park III: Park Builder for the GBA`,
+                    `Scan Command: Jurassic Park for the PC`,
+                    `Jurassic Park: Dinosaur Battles for the PC`,
+                    `Jurassic Park: Operation Genesis for the PS2, Xbox and PC`,
+                    `Jurassic Park Institute Tour: Dinosaur Rescue for the GBA`,
+                    `Jurassic Park: The Game for the PS3, Xbox 360 and PC`,
+                    `Jurassic World Evolution for PSN, Xbox Live and PC`,
+                    `the Disney's Lilo & Stitch video game for the GBA`,
+                    `Motto! Stitch! DS: Rhythm de Rakugaki Daisakusen for the DS`,
+                    `Disney's Lilo & Stitch: Trouble in Paradise for the PS1 and PC`,
+                    `Disney's Stitch: Experiment 626 for the PS2`,
+                    `Lilo & Stitch: Hawaiian Adventure for the PC`,
+                    `Lilo & Stitch Pinball for the PC`,
+                    `Lilo & Stitch 2: Hämsterviel Havoc for the GBA`,
+                    `Disney Stitch Jam for the DS`,
+                    `The Lion King video game for the Genesis, SNES, NES, GB, Amiga, PC, Game Gear and Master System`,
+                    `The Lion King: Simba's Mighty Adventure for the GBC and PS1`,
+                    `Timon & Pumbaa's Jungle Games for the SNES and PC`,
+                    `The Lion King 1½ for the GBA`,
+                    `Disney's Adventures in Typing With Timon and Pumbaa for the PC`,
+                    `Pink Panther in Pink Goes To Hollywood for the SNES and Genesis`,
+                    `The Pink Panther: Passport to Peril for the PC`,
+                    `The Pink Panther: Hokus Pokus Pink for the PC`,
+                    `the Pirates of the Caribbean: The Curse of the Black Pearl video game for the GBA`,
+                    `Pirates of the Caribbean: The Game for the Xbox and PC`,
+                    `Pirates of the Caribbean: Dead Man's Chest for the PSP, GBA and DS`,
+                    `Pirates of the Caribbean: The Legend of Jack Sparrow for the PS2 and PC`,
+                    `Pirates of the Caribbean: At World's End for the Wii, DS, Xbox 360, PSP, PS2, PS3 and PC`,
+                    `the Spider-Man video game for the PS1, GBC, N64, Dreamcast and PC`,
+                    `the Spider-Man 2 video game for the PS2, GBA, Gamecube, Xbox, DS, PSP, N-Gage and PC`,
+                    `the Spider-Man 3 video game for the GBA, PC, DS, PS2, Wii, Xbox 360, Ps3 and PSP`,
+                    `the Star Wars video game for the NES, GB, Master System, Game Gear, Arcade and Famicom`,
+                    `the Disney's Tarzan video game for the PS1`,
+                    `Tarzan: Untamed for the PS2 and Gamecube`,
+                    `Tarzan Jungle Tumble for the PC`,
+                    `Disney's Tarzan: Return to the Jungle for the PC`,
+                    `The Wizard of Oz video game for the SNES`];
+
+            var r = Math.floor((Math.random() * w.length));
+
+            message.channel.send(`Recently purchased `+w[r]+`.`);
+        }
     }
+
 
     //Netplay
 
