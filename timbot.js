@@ -618,6 +618,7 @@ client.on('message', async message => {
                 .setColor(0xf398d5)
                 .addField('8/06', `Blasting of the Selfies`, true)
                 .addField('8/08', `Silver Mode`, true)
+                .addField('8/13', `Cael's Birthday`, true)
                 .addField('8/16', `The Tedpocalypse`, true)
                 .addField('8/27', `Loscar's Birthday`, true)
             message.channel.send({embed});
