@@ -13,7 +13,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.1.0 Launched');
+    console.log('TimBot v1.1.1 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -59,20 +59,16 @@ client.on('message', async message => {
 
     //Patch Notes
 
-    if (command === `PATCHNOTES` || command === `PATCH`) {
+    if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.1.0 Patch Notes, 9/13/19`)
+            .setTitle(`TimBot v1.1.1 Patch Notes, 9/22/19`)
             .setColor(0x2d64f1)
-            .addField('!calendar', `Added new command`, true)
-            .addField('!chillin', `Added new command`, true)
-            .addField('!comic', `Added new command`, true)
-            .addField('!dj', `Added new command`, true)
-            .addField('!q', `Added 22 new quotes.`, true)
-            .addField('!cael', `Added 1 new result`, true)
-            .addField('!silver', `Added 1 new result`, true)
-            .addField('!subf', `Added 1 new result`, true)
-            .addField('!winnarly', `Added 1 new result for each part`, true)
-            .addField('!wub', `Adjusted command ;)`, true)
+            .addField('!vro', `Added new command`, true)
+            .addField('!xavier', `Added new command`, true)
+            .addField('!help', `added a '!commands' section to the command`, true)
+            .addField('!wub', `Removed some incomplete results`, true)
+            .addField('!q', `Added 18 new quotes`, true)
+            .addField('!comic', `Added 20 new comics`, true)
         message.channel.send({embed});
     }
 
@@ -87,12 +83,13 @@ client.on('message', async message => {
             .addField('!crab', `Roll your crab to get a daily Silverbux reward.`, true)
             .addField('s!bal', `Displays your Silverbux balance.`, true)
             .addField('s!give <amount> <user>', `Gives Silverbux to another user`, true)
+            .addField('!commands', 'Shows a full list of all commands you can use', true)
             .addField('!quote', 'Try it :)', true)
         message.channel.send({embed});
     }
 
     if (command === `COMMAND` || command === `COMMANDS`) {
-        message.channel.send("**Commands List (Up-to-date):** \n \n**IMPORTANT COMMANDS** \n**!q**  - quotes \n**!sugden** - Tedcord pet pics \n**!precrab** - practice on dodging crabs, unlimited use \n**!crab** - !precrab but the real deal, roll for daily rewards depending on the crab outcome \n**!help** - Instructions on currency-based commands \n**!commands** - this command, ya dingus \n \n**TEDCORD USER-BASED COMMANDS** \n!adlp, !ahampster, !al or !animelover, !anti, !beywiz, !brio, !bubbles, !cael, !cag, !coffee, !cori, !cuck, !darsh, !dimi, !draco, !drew, !duck, !loscar, !midnight, !mmuller, !risc, !sm, !silver, !soap, !subf, !ted, !wub \n \n**NETPLAY COMMANDS** \n**!netplay - @'s anyone signed up to regions you want to play against, the summoning call of TimCord** \n**!opt-in** - signs you up for a specific netplay role, i.e. !opt-in N-NE makes it so you will be @'ed every time someone wants to netplay vs NE, and !opt-in VS-NE will make it so whenever you use !netplay, N-NE roles will be @'ed. \n**!opt-out** - akes away a specifc netplay role from you, i.e. !opt-out N-NE takes the N-NE role away from you. \n \n**MISC. COMMANDS** \n**!askgoiter** - for an accurate fortune-telling \n**!hbox** - for wise words, teachings and history from the Juan True God \n**!mango** - for teachings and history on Satan himself \n**!axe, !bbb or !bobbybigballz, !chacha, !gimr, !ibdw, !minecraft, !never**");
+        message.channel.send("**Commands List (Up-to-date):** \n \n**IMPORTANT COMMANDS** \n**!q**  - quotes \n**!sugden** - Tedcord pet pics \n**!precrab** - practice on dodging crabs, unlimited use \n**!crab** - !precrab but the real deal, roll for daily rewards depending on the crab outcome \n**!help** - Instructions on currency-based commands \n**!commands** - this command, ya dingus \n \n**TEDCORD USER-BASED COMMANDS** \n!adlp, !ahampster, !al or !animelover, !anti, !beywiz, !brio, !bubbles, !cael, !cag, !coffee, !cori, !cuck, !darsh, !dimi, !draco, !drew, !duck, !loscar, !midnight, !mmuller, !risc, !sm, !silver, !soap, !subf, !ted, !wub \n \n**NETPLAY COMMANDS** \n**!netplay - @'s anyone signed up to regions you want to play against, the summoning call of TimCord** \n**!opt-in** - signs you up for a specific netplay role, i.e. !opt-in N-NE makes it so you will be @'ed every time someone wants to netplay vs NE, and !opt-in VS-NE will make it so whenever you use !netplay, N-NE roles will be @'ed. \n**!opt-out** - akes away a specifc netplay role from you, i.e. !opt-out N-NE takes the N-NE role away from you. \n \n**MISC. COMMANDS** \n**!calendar** - for a calendar detailing events happening this month \n**!comic** - roll for a comic that's been saved across TimCord history \n**!askgoiter** - for an accurate fortune-telling \n**!hbox** - for wise words, teachings and history from the Juan True God \n**!mango** - for teachings and history on Satan himself \n**!axe, !bbb or !bobbybigballz, !chacha, !chillin, !dj, !gimr, !ibdw, !minecraft, !never, !vro, !xavier**");
     }
 
 
@@ -391,6 +388,24 @@ client.on('message', async message => {
             `>strongbad probably hired a hooker at least once \nAnd asked the hooker to dress up as Fox before beating the shit out of her`,
             `Rog was way ahead of the meta, he’s blocked me on anthers for years`,
             `Sugden is so Anti-smoking because his teeth can’t afford to get any worse`,
+            `It's a fucking indian movie, it's about fuck you guys`,
+            `14 inches should be enough for anybody right? \nThey're not consecutive inches`,
+            `mcdonalds = irish food?`,
+            `anti is the closest thing we have to an NPC in terms of melee on this server`,
+            `Loscar is a DIM: Do It Mexican`,
+            `There's nothing to learn, it's just pressing a few buttons in sequence`,
+            `Fucking die wobbling bitch boy`,
+            `would you like darkatma more if he was whiteatma?`,
+            `I can't tell if n0ne is black. I think he's black.`,
+            `53 is the Sword Art Online of Numbers`,
+            `what the hell is tcle`,
+            `honestly guys loscar is the smartest person on the server unironically`,
+            `Specifically you, Ben Shapeacho Jr.`,
+            `Hello sir, I am here to date your ex-girlfriend. Is there anything you would like me to know? \n*whispers* how hard do you want me to hit her?`,
+            `I'm sorry ypu don't even get half as mich bussy as me sugden`,
+            `Turkey is great \nGood taste \nGood size \nGood genocide`,
+            `Im making a genocide tierlist tonight`,
+            `im regaarded`,
             `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`];
 
         var r = Math.floor((Math.random() * quotes.length));
@@ -608,6 +623,7 @@ client.on('message', async message => {
             var embed = new Discord.RichEmbed()
                 .setTitle(`July Calendar`)
                 .setColor(0xecc81f)
+                .addField('7/04', `The Day Armada got Destroyed by Sugden`, true)
                 .addField('7/23', `WubWubWowzy's Birthday`, true)
                 .addField('7/24', `Skribbl.io Day`, true)
                 .addField('7/31', `UCFGate`, true)
@@ -627,8 +643,10 @@ client.on('message', async message => {
                 .setTitle(`September Calendar`)
                 .setColor(0x831ceb)
                 .addField('9/06', `Merging of the Bots`, true)
+                .addField('9/08', `Rognut's Birthday`, true)
                 .addField('9/10', `History Day`, true)
                 .addField('9/11', `The crab misses you and sails into the first tower, altering western civilization forever`, true)
+                .addField('9/17', `Emergence of the Civil War`, true)
                 .addField('9/18', `MidnightLifter's Birthday`, true)
             message.channel.send({embed});
         } else if (m === 9) {
@@ -692,6 +710,26 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612058753293877274/613109942987128989/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/613109280391954641/comic.png`,
                 `https://cdn.discordapp.com/attachments/612086349960445952/613107723575492610/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/624702166585835540/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/624665502056316930/comic.png`,
+                `https://cdn.discordapp.com/attachments/612065359285059615/624658683812380692/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/623960274579226624/comic.png`,
+                `https://cdn.discordapp.com/attachments/612065359285059615/624636113939726356/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/624270686717739008/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/624224377193365515/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/623943357143711744/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061367972790281/623603446389669897/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/623261047104733194/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/623260317346168865/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/623254857075130368/comic.png?width=676&height=676`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/623184917081096213/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063946643472389/622955842853011497/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063946643472389/622895923223199795/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/622827145584050205/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/622437346884976640/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/622435775207964707/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/622249578997219359/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/622248490898030602/comic.png?width=676&height=676`,
                 `https://cdn.discordapp.com/attachments/612063656036925502/613107131813462047/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
@@ -1961,6 +1999,29 @@ client.on('message', async message => {
     }
 
 
+    //Vro
+
+    if (command === `VRO` || command === `RATTAIL`) {
+        var v = [`I like seeing vro commentate because it reminds me that even if you look like a scumbag and are innately annoying you can still be successful`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/625272358583926784/unknown.png`,
+                `https://cdn.discordapp.com/attachments/611202965558132747/625328138414718978/EBo4sqp.png`,
+                `Imagine being someone who's played melee for 3 or 4 years. You're not the greatest player ever, but you can do some things and all your homies think you're sick. \n \nYou head on out to beautiful Worcester MA for Shine. For some reason, your round 1 pool match gets called to be on stream. You think to yourself how cool it'll be to have a real commentator talk about your melee play. "Maybe Armada will commentate my pool and I'll learn something," you think. "Or maybe it'll be The Cheat, he's pretty funny and that'll be something I can go back to for a laugh." \n \nYou make your way on stage, passing by the commentators. You didn't even realize it, but you've been smiling this whole time. You turn your head to check out the commentators. There's one guy you don't really recognize - "that's alright," you think - then you look to his right. It's Vro. \n \nYour smile fades. A new pain appears in your left wrist. You lose 4 GALINT off your ledgedashes. \n \nMaybe it's time for you to take a break from melee.`,
+                `*picking hairs off my rattail* He vros me, he vros me not....`,
+                `Vro, Vro, Vro your boat \nGently close the stream`,
+                `WHATS up Vrochachos iiiiits ya boiii Cary here coming atcha with another hot steamy Melee Blast straight outta my vroZONE. You know we like to keep it crankin out sweetness with 100% natural Stevia over at Melee Everyday, but now that we're DOUBLE HQd from the L.A reeg we can hit you twice as many Care-y packages. Like your Mommy sending you pop-tarts and optimistic condoms to the dorms, we've got TWICE the commie blocks, TWICE the content and HALF the clout of Gimr. Rest up and Bless ⬆️ on this glorious day, and if you want to reach me you Chan always slide into my DMs for business inquiries.`,
+                `Vruh`,
+                `Vro \nis \nBAD`,
+                `The 3 W’s of Life: Women, Wisdom, and Whining about how bad Vro is on commentary`,
+                `https://www.youtube.com/watch?v=4HkaW0zVH7E`,
+                `https://www.youtube.com/watch?v=Lx4k-0RFaaQ`,
+                `Two Vros diverged in a yellow wood \nAnd I'm sorry I could not mute them both`];
+
+        var r = Math.floor((Math.random() * v.length));
+
+        message.channel.send(v[r]);
+    }
+
+
     //Winnarly
 
     if (command === `WINNARLY` || command === `WINNAR`) {
@@ -2060,6 +2121,103 @@ client.on('message', async message => {
         var r2 = Math.floor((Math.random() * t.length));
 
         message.channel.send(`Did you know... that `+w[r]+`\n`+t[r2]);
+    }
+
+
+    //Xavier
+
+    if (command === `XAVIER` || command === `XAV` || command === `XAVIERRENEGEADEANGEL`) {
+        var x = [`I'm a survivor. We're a dying breed.`,
+                `[scoffs] Powers are for the weak. I have no powers. I mean, unless you count the power to blow minds with my weapons-grade philosophical insights.`,
+                `If the computer virus is infecting people, then I need a human virus to infecticide the computer`,
+                `Welcome to the US Army, how can I help you? \nI need some of that disease you guys invented \nCrack? \nThe other one \nAIDS? \nThat's the spice`,
+                `Just got to dump this load in that dirty 'puter's floppy slot and collect my kudos.`,
+                `I believe that we are all one. By helping this tiny mosquito, in a way, I'm helping your mother. \nHe's comparing the universal oneness of all life to your mama!`,
+                `You were a hit! Everyone loves you, now. You even, have a girlfriend. \nReally? Is he disabled?`,
+                `Nobody has ever survived our initiation, come give it a try. Here's my card. It's got embossed gold 12-point Courier font on bone white semigloss stock \nBone white? I thought we all agreed to get eggshell white! Absurdity! \nI'm the leader! I say bone white! [thinking] Its haunting elegance is so restrained.`,
+                `Now boil his blood and get our drugs back. Charge him a recycling fee!`,
+                `We all have our own way of killing. Me, I like to kill on the beach. \nI like to kill to music.\nThis is kind of embarrassing, but I like to kill on the toilet.`,
+                `IacceptJesusChristintomyheartasmypersonalsavior YES! Made it!`,
+                `Ready? Inhale. Hold. Hold. HALE.`,
+                `MY EYE! My visual connection to this beautiful world has been severed!`,
+                `You need to slow it down, relax. Inhale. Hold. Hold.\n*takes out water skin and takes a swig*\nHold. Hold. Little longer. Hold. Hale.`,
+                `I want to infiltrate the gang. I may just have some avenging chief beef to queef.`,
+                `I killed him hard. Pulled out his heart and showed it to him, and he was like, "Nice!"`,
+                `Once a year we let one novice member sit in as gang member for a week. My benefit is that I get to see the gang from a novice perspective, and then you benefit by experiencing the hardships that come with the administrative role that I play.`,
+                `I can think so clearly, without all the visual clutter.\nNow everyone will know The Loco's are crazy about postmodernist aesthetic contextual reframing!`,
+                `Friday night is Taco Tuesday!\nInstead of eating taco's, let's just talk. Ohhhhh.`,
+                `You're right, rape is not an excuse, it's a reason. And tonight, everything seems so reasonable.`,
+                `So she says "Oh, that puppy is the cutest thing in the world!" and it's like, I'm standing right here mom! I'm standing right here...`,
+                `You're not better than me, okay? Just because you created life, doesn't make you some kind of god. There's more to life, than life.`,
+                `Condescension! The last refuge of the differently-abled. Crippical. Don't talk down to me from down there on your sparkling high horse.`,
+                `Oh yeah? Stand up and say that to my face. Oh yeah, I forgot. You can't stand. So maybe I have a memory problem, but at least I can- uhhhh, I can do theeeee...\nStand?\nNo thanks guy, I'm beat. *sits down* Now where was I? OH YEAH! *stands up* I was walking outta here!`,
+                `Can you tell me how to get to the lake?\nHow are you going to get there, by car?\nI'm driving right now!\nOkay, first, you wanna get in your car. Then, you wanna start your car! A lot of people make it halfway to the lake, then they realise they forgot to start their car.`,
+                `At least he died with God in his herat, you can taste it. Mm, could use a little coconut.`,
+                `They say when you die, you shit your pants. But not me, I'm gonna shit my heart.`,
+                `Fate. Destiny. Fatestiny. People throw around those words like tennis balls. Well I eat balls for breakfast.`,
+                `Welcome home kids. It doesn't look like much, but these sewer walls were built with love. you can taste it [licks wall]`,
+                `[Talking to infants] Kids, I swear, I'm gonna love all of you, and equally. I will be dividing my love into 7 equal sections, or "love quadrants". Each quadrant will be worth 15 love units, represented by these small brass marbles. You may use these marbles as currency amongst yourselves. Collect 35 love units and you can trade those in for a beach towel with my face on it. Collect more than 3 towe- what is that racket?`,
+                `Aw, the wails of a victim. Almost as heartbreaking as the victim of a whale.`,
+                `I'll get you to puke. Okay, okay, one time there was this reaaaally wrinkly old lady, and- and she was reaaaally weeeeeiiiiird \nSnake hand says "You're just making me horny" \nAnd and she pulled this huge scab away from her face, and ate it. Oooh, sick... *(vomits)*`,
+                `This is no longer a clue, it's a game. You may have just gotten checkmate, but we're playing Chinese Checkers, and as my good friend Confucius say, "The hunter has become the hunter-ed. The chaser has become the chose'd." Dame Fortuna has had her franking priveleges revoked. It seems the portrait has painted the artist, sketching the reverser, who has become the reverset. But this time, the suffix'd will become the sufferer. And it appears the baby killer, is about to kill a baby. [vomits]`,
+                `Rain... It's just God's tears. I know a shamanic Navaho rain dance, that hasn't just blown MINDS. Its's blown ducks. 'Tear ducks'.`,
+                `Well, I'm a good farmhand, and I don't need much. Just five hots. And a cot. And a queen-size lazy bread bed. And a flatscreen iTV. And a WiFi hotspot. And a breakfast nook... A sauna. Conversation nook. Some o' them crazy cookies.\nWe're in a drought. I can give you a plate of weevils every day...\nDeal! *(thinking)* Sucker, I would've settled for every OTHER day.`,
+                `Society is about to end, girl. And it's up to us to start repopulating the planet.\n I suppose so...\nReally? OH! I just repopulated my pants.`,
+                `If these be my last words, then I'd like to leave this world with one final thought: Me no wanna die, mommy! Waaahhh!`,
+                `My name is Goldern B. Taintnun, as in "T'ain't none of yer goldern beeswax!"`,
+                `You are not on trial for shooting the mayor. You are on trial for being on trial! \nBut I swear, I'm innocent! \nBy proclaiming your innocence, you admit that you are on trial!`,
+                `A crying lady! I'll help you. I'm a feminist. I'll make sexism my bitch. Sexism will be all like, "Oh Xavier! You're so strong! Kissy kissy! You can hit me. I like it."`,
+                `What *is* this place and who *am* I? I don't remember my name. All I remember is that I don't know my name, and that I can't remember if I do know my, uh, um.`,
+                `[points gun at Xavier] Do you believe in God? \nThat's a complicated question. It depends on what you mean by "God". You see, I- \nYes or no?\nIt helps no one to be reductive. I believe that that we are here implies to some degree that there are forces larger than us. Now, we can get into the semanticalities...\n***Yes* or *no***\n[smokes a pipe] The very notion of belief itself can be rhetorically whittled to the bare nub of its meaning. [attempts to hand the man a pamphlet] I'd like to talk to you a lot more about this. Would you be interested in reading some of my literature?\n**NO!** [shoots himself]`,
+                `Ma'am! Someone stole our Bloodhounds! But we got the backup Bloodhounds to chase the first tier Bloodhounds! Their scent took us here. \nThey were just here...THEY ATE MY BABY! [sobbing] \nI knew we shouldn't have left you alone! You're twisted! And you have the gall to blame it on police dogs? [tears running down his cheeks] Those dogs were decorated. Look at this place! What have you ever decorated?`,
+                `I've got him cornered. And it looks like this time, the Coroner has become, the Cornholer.`,
+                `I forgive you. you can put me to death, but you can't put me to life.`,
+                `I think we all now realise that our society needs to stop its selfish search for missing children and start searching for the child within, the only child that matters.`,
+                `Don't you see? The missing child you each seek to reconnect with is still inside you all. But you buried it. You, Paul, when you were six and you killed that spider monkey with that claw hammer, you really just squashed your heart with that hammer, and that's why you became a dirty pig cop.`,
+                `Unload your troubles unto me, even if it's tough to swallow. I'm used to swallowing huge loads.`,
+                `But, Master, you can't punch someone with your mind.\nHold this board.\n*(a phantom fist emerges from the guru's head and punches young Xavier in the face)*\nIdiot. He totally missed the board.`,
+                `I was trained for 22 years to fight with my feet, but it takes a real man to console with his feet.`,
+                `This insolent micro-billionaire is cruisin' for a bruisin'. Crawlin', for a brawlin'. Achin', for a spiritual awakenin'!`,
+                `I'm gonna break you down, using Navajo Mysticism. Or Cherokee Fisticism.`,
+                `The wise elders taught that resorting to violence will never change a person on the inside. In conflict, you must rip your opponent a new asshole in his conciousness. Soon, his mind will be open to all truth, all hole, no ass.`,
+                `By smashing myself in the raisins, I'm smashing your mind, in the balls. \n*(Xavier smashes himself in the balls)* \n[coughing in pain] AUUUUGH! ughhh... It...didn't work...`,
+                `Why are you making those horrid groaning sounds? \nI'm in pain, you little turdlet. \nSilly! Pain is a myth made up by poor people who don't want to work. Tears are as real as a unicorn's horn. I've got a unicorn's horn belt!`,
+                `Let's play a board game. I'm bored. I win! What's my prize? Where are you hiding my prize? \nYour prize is up here [points to own temple] \nIs it a puppy? We better *hwip* open the crate before he suffocates, like all the rest.`,
+                `So pain is real...I hate it! I intend to buy up all the suffering in the world and drown it in the ocean like a kitten.`,
+                `The balance of happiness is constant. \nFACT: Every time you eat a bite of cake, someone gets horsewhipped. \nFACTOR: Every time two people kiss, an orphanage collapses. \nFACTEST: Every time a baby is born, an animal is severely mocked for it's physical appearance.`,
+                `My frolicking life of laughter has blood on its hands. Cake tastes like a whiplash on my tongue. I've farted on the doorknob of justice.`,
+                `I gotta warn ya. They say every cigarette takes 17 minutes off your life. \nWell hey, if I keep smokin' fast enough, I'll get younger. \nShoot, you're a baaaad little boy. \nBesides, they say every slice of bacon takes 9 minutes off your life. I just chowed me down a years worth. \nHmph. Shoot, you're a naughty boy. I'd like to put you over my knee, and spank you some.`,
+                `How long you been standing there ya freak? \nWhat are you, a chinamen? \nI wish I knew myself. \nWe don't cotton to strange chinamen, with no sense of self, who stand secretly by for indeterminate amounts of time! Gonna put you in a worl of hurt! \nTake THAT! Taste the pain!`,
+                `[Covered in bruises] Maybe, it my husband! He only do it becuase he love me! \nNo, that's the stupidest thing I ever heard. Maybe he does it because you're stupid.`,
+                `From now on, I'm your guardian. I'll be standing right behind you, and if he wants to get ot me, he's gonna have to punch his way through you first.`,
+                `That is the peak of disappointment. [Points to mountain peak with Xavier: Renegade Angel title card on top]`,
+                `WUH-OH! Now there was a FACTORY MIXUP! We accidentally mixed up the COOKIE factory, with the TAMPON factory! Now our cookies absord up to TWO PINTS OF FLAVOUR! \nYummy! And the light floral scent keeps me feeling fresh all day! \nThese Blue chocolate chip tampons are gooably, chewably, HUGE! So huge, it hurts! Just slice and insert!`,
+                `I'm on a helping roll, and I'd be glad to do a solid all over your family.`,
+                `At least this brutal drought hasn't taken your poor grandma. \nThat's my daughter, she's 14. \n*(Thinking)* Ooo, nice and legal.`,
+                `No, Burning Man! Actually this year we're not gonna be sexist, we're calling it Burning Person. In this day and age, women can be set on fire too.`,
+                `Ma'am, I'd like to make some seed money. Uh, I'd like to peddle my puddle ma'am. Yoohoo! I'd like to hawk my loogie. \n*(Sighs)* We pay by the cup, or the noseful. \nUm, cup please, I'm kind of nervous. I've never plopped my glopper. Been saving myself for marriage, or at least consent.`,
+                `[Burning alive] This is Democracy! Personified!`,
+                `Before we sing our glorious praise to the lord, it is my sad duty to announce that our sign language translator has donated her hands to the needy groper society. In her place we have PoPo, a very special gorilla from the research society, who has been studying sign language under the tutilage of my wife June for 3 years.`,
+                `We're back! WCRST suckatie suckabrrr in the morning, the Christian zoo radio hooty-hoo featuring suckatie shakabrrr in the morning accept the saviour get into the glorious kingdom, of Heaven. Suckatie suckatash dial us up win some cash we've got traffic on the ones, weather on the WHAT we got PoPo the Preaching Gorilla in the studio how ya doing today PoPo kinda making a splash on the preaching scene make a splash make a splash suckatash call us up WIN SOME CASH! Well it's 5:55 let's check in on the 5 W's we got whowhatwhenwherewhyHOW'S the weather this morning \nWwwweather's on the traffic traffic's on the *(sheep noises)* \nNo time for-suckatie suckatash win some CASH accept Christ into your heart look down on us, from the glorious kingdom of Heaven. Now PoPo I understand you're starting your own 700 club 7's a prime number you're in the prime of your life life could change win a CHUNK of change suck a cash suckaTASH dial us up win some cash we got a caller on line 7 are you there \nYeah, did I win some cash? \n OOOoooh, SO CLOSE! Was the phrase that pays and we give praise! Bow your heads well thanks for coming in PoPo! Coming up we got traffic on the ones traffic every ONE SECOND! There's traffic! There's traffic! There's traffic! No traffic! There's traffic! Sing alert REMIIIIIIIIIIIIIX!`,
+                `Welcome to the afterlife! You will experience an eternity of infinite joy in this realm! \nBut my *sexy wife* is still down there and those Filipino Gators are about to eat her! \nI'm sorry, you can't go back. \nI'm not taking no for an answer! *(Pulls out assault rifles)* Get me the *hell* out of heaven. \n*(shoots up heaven)* \nIN THE NAME OF THE DATHER, THE SON, AND THE HOOOOOLY SHIIIIIIIIIIIIIIIIIIIIIII-`,
+                `And that's when he realised that to stand and consider all possibilities, is to drown in a tunneling sea of infinite potentiality. So he changed his mind, and took the path on the right. His right. If you are facing him it's your left.`,
+                `THAT'S IT! Hold my books! I'm gonna rip you a new A-hole. \nAw yeah! Provide him with a fresh rectum. \nHold my wallet and sunglasses, while I whoop him. \nAww you're going down! \nBest hold my contact lenses too and my silk shirt, don't wanna get any blood on it. \nAwhaw yuuummy! There gonna be blood! \nPlease, walk away! I can't be responsible for what I do when you beat me to death. \nTHAT TEARS IT! Hold my prosthesis *(Tears off leg)* \nAww, you are in for a nubbin'! \nI've got no beef with you. I am, woefully beefless. \nWell I'm about to make you teethless! Oh, hold on to my teeth. Hold on to my tattoo, and my roboticle *(Tears off arm)*`,
+                `[Calling himself] No, I called you, and you sound like the ugliest son of a bitch I ever heard. \nYou sound like the physical manifestation of some losers inner demons! \nWell, you sound like some total chode's inability to confront the reality of his past actions. \nIf I ever get you stinky mug in my line of sight I swear to Chekov I'll cock your clock off. \nWell I'm going to be the bigger man, and hang up firs- *(Phone hangs up)* DAMNIT!`,
+                `[Arguing with himself] So you're the one who stained them! \nWhoever found it, browned it! \nYou'd like me to be you, wouldn't me? But it's too late. You Snoze, you loze. \nYou Sleep't, you weep't. \nYou nappa, you get slappa! \nYou slumber, a cucumber! \nYou catch up on some zed's, you get outta my headz! \nYou slumber, ham...BURGERdon'twannatalk'boutnothin'else!`,
+                `[Arguing with himself] Listen, this psyche isn't big enough for two metaphysical seekers. \You couldn't seek your way out of a cardboard bag! \nYeah, I know. Because it would be an EGG! \nOUUGHH! *(Thinking)* This guy might be better than me. \nYou're right, I am better than me!`,
+                `Look buddy, admit when you're defeated. Accept your defecation! \nNo thanks, I'm full. Because I eat pussies like you for breakfast.`,
+                `Look at you. You look so superficial, you probably judge things by their physical appearance.`,
+                `You're about as deep as a bowl of soup. And your tongue is about as sharp as a *SOUP SPOON!* \nHey. Say what you want about me, but lay off the soup.`,
+                `If you love soup so much, why don't you marry soup? \nBecause I'm already married, to Justice. \nYeah, only a blind girl would marry you!`,
+                `Oh yeah? Well, when God was passing out insight, you thought he said, that, when, God was passing out holy prophets, you thought he said oily faucets. Cause your soul has diarrhea. Of the mouth. Faucet.`,
+                `Are you so dumb, you even answer rhetorical questions? \nI don't know, do you?`,
+                `We can play this game all night. \nFirst of all, it's daytime! And this is no game. \nCheck mate! \nOh, so you admit that you're checking me out, and you wanna mate. OOO!`,
+                `You got a liscence to sell hot dogs, chico man? \nNo. They wouldn't give it to me, because, when I was filling out the application, my penis was sticking out! \nOh yeah, you only got one penii? Let me see it.`,
+                `Oh yeah? Your mom's so shallow, she probably thinks this quip is about her!`];
+
+        var r = Math.floor((Math.random() * x.length));
+
+        message.channel.send(x[r]);
     }
 
 
@@ -2199,9 +2357,7 @@ client.on('message', async message => {
 
             message.channel.send(`Recently `+b[r]+`.`);
         } else {
-            var w = [`101 Dalmations`,
-                    `Aladdin`,
-                    `Indiana Jones and the Fate of Atlantis for the Amiga, FM Towns, PC and Wii`,
+            var w = [`Indiana Jones and the Fate of Atlantis for the Amiga, FM Towns, PC and Wii`,
                     `Indiana Jones and the Infernal Machine for the PC, N64 and GBC`,
                     `Instruments of Chaos starring Young Indiana Jones for the Genesis`,
                     `Indiana Jones in the Lost Kingdom for the Commodore 64`,
