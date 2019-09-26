@@ -4,6 +4,7 @@ console.log(`Loading...`);
 const Discord = require('discord.js');
 const { token } = require('./config.json');
 const eco = require("discord-economy");
+const lvl = require("discord-leveling");
 const client = new Discord.Client();
 const modRole = 'Illusion';
 const modRole2 = 'Illusion';
@@ -38,6 +39,17 @@ client.on('message', async message => {
     } else if (msg.startsWith(prefix2)) {
         var sArgs = message.content.slice(prefix2.length).trim().split(/ +/g); //Creates array with content after prefix
         var sCommand = sArgs.shift().toUpperCase(); //Slices off the first word e.g. 'm!<this part>'
+    }
+
+    //Event test
+    if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
+        var r = Math.floor((Math.random() * 100));
+
+        if (r >= 99) {
+            message.channel.send('Test - please ignore <@72734539834720256>');
+        } else {
+            return;
+        }
     }
 
     //Ignore
@@ -2939,6 +2951,26 @@ client.on('message', async message => {
             .addField(`${defineduser.username}'s Balance'`, `${recipientNewBalance.balance}`, true)
             .addField(`${sender.username}'s Balance'`, `${senderNewBalance.balance}`, true)
         message.channel.send({embed});
+    }
+
+    //Leaderboards and leveling
+    if (command === `LEADERBOARD` || command === `TOP` || sCommand === `LEADERBOARD` || sCommand === `TOP`) {
+        var list = await lvl.Leaderboard({limit: 100});
+
+        const embed = new Discord.RichEmbed()
+            embed.setTitle(`Leaderboard`)
+            embed.setColor(0xFFFFFF)
+
+        for (var i = 0; i < list.length; i++) {
+            embed.addField(`${list[i].userid}`, `Level: ${list[i].level} | XP: ${list[i].xp}`)
+        }
+
+        message.channel.send({embed});
+    }
+
+    if (command === `TESTLEVEL`) {
+        var test = await lvl.SetLevel(sender.id, 1);
+        message.channel.send(`${test[0]} | ${test[1]} | ${test[2]}`);
     }
 
     //TedCoin
