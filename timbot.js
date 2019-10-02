@@ -41,7 +41,7 @@ client.on('message', async message => {
         var sCommand = sArgs.shift().toUpperCase(); //Slices off the first word e.g. 'm!<this part>'
     }
 
-    //Event test
+    //Halloween Event
     if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
         var r = (Math.random() * 100);
 
@@ -127,10 +127,10 @@ client.on('message', async message => {
 
 
                     const filter = (reaction, user) => {
-                        return reaction.emoji.name === `🍬` && user.id === message.author.id;
+                        return reaction.emoji.name === `🍬` && user.id != msg.author.id;
                     }
 
-                    const collector = msg.createReactionCollector(filter, { time: 10000 });
+                    const collector = msg.createReactionCollector(filter, { max:20, time: 10000 });
 
                     collector.on('collect', async (reaction, reactionCollector) => {
                         if(!alreadyRewarded.includes(reaction.users.last().id)) {
@@ -172,9 +172,114 @@ client.on('message', async message => {
     }
 
     //Event Test 2 - Delete This Later
-    /*if (command === `EVENTTEST`) {
+    if (command === `EVENTTEST`) {
+        var costumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
+            `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
+            `https://i.pinimg.com/originals/f3/b1/b0/f3b1b045c3e1d50b5d7f4b931165fd15.jpg`,
+            `https://media.phillyvoice.com/media/images/01_102417_HalloweenDogs_Carroll.2e16d0ba.fill-735x490.jpg`,
+            `https://purewows3.imgix.net/images/articles/2019_08/dog_halloween_costumes.jpg`,
+            `https://i.ytimg.com/vi/hdxKJsTvvxQ/hqdefault.jpg`,
+            `https://media1.popsugar-assets.com/files/thumbor/JQUUCOeO9YTIkYrVplfJchnodek/0x0:2003x2003/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/28/858/n/24155406/931e6e6c5d66d798a36ba9.34935958_/i/Dogs-Halloween-Costumes.jpg`,
+            `https://diy.sndimg.com/content/dam/images/diy/fullset/2014/6/9/0/CI-Brian-Brainerd_bull-dog-in-ballerina-Halloween-costume_v.jpg.rend.hgtvcom.616.822.suffix/1420778852478.jpeg`,
+            `https://www.simplemost.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-21-at-11.37.56-AM-750x500.png`,
+            `https://static01.nyt.com/images/2014/10/30/t-magazine/30viewfinder-hirsch-slide-TWGN/30viewfinder-hirsch-slide-TWGN-videoLarge.jpg`,
+            `https://dogtime.com/assets/uploads/2018/09/unhappy-dogs-in-costume-2-1280x720.png`,
+            `https://media1.popsugar-assets.com/files/thumbor/hIev4EBak4afdOeJGaGyuzxX-HE/248x0:1454x1206/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2019/09/05/937/n/1922243/4236cd385d717e527c8e79.13418759_/i/Disney-Dog-Costumes.jpg`,
+            `http://trupanion.com/blog/wp-content/uploads/2017/11/edit_IMG_7241.jpg`,
+            `https://www.thepubliceditor.com/wp-content/uploads/2018/09/Dogs_Scary_Halloween_Costume.jpg`,
+            `https://cdn.fashionmagazine.com/wp-content/uploads/2017/10/Screen-Shot-2018-10-30-at-9.58.49-AM-480x320-c-top.png`,
+            `https://i.imgur.com/JO2lNCl.jpg`,
+            `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-halloween-costumes-1532555670.jpg`,
+            `https://media1.popsugar-assets.com/files/thumbor/CJEtk1U6VpB75o_qxfPAX6579r0/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/10/19/826/n/1922243/a00d1cad_edit_img_image_16686166_1444860712_12142682_526874914145470_1831035987_n/i/DIY-Halloween-Costumes-Dogs.jpg`,
+            `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
+            `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLAmTQErzE1uoHF0n3NEwx0x1IFPUhhKL2QyDHoWFkmmz4Kapa`,
+            `https://i.imgur.com/E3wqRQi.png`,
+            `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2014/09/tumblr_mvhs34RztR1qei7a7o1_5001.jpg?resize=500%2C667&ssl=1`,
+            `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
+            `https://www.pedigreefoundation.org/wp-content/uploads/2016/10/elvis.jpg`,
+            `https://s.hdnux.com/photos/67/05/73/14442226/3/920x920.jpg`,
+            `https://i.pinimg.com/originals/2e/a0/cd/2ea0cd6333d77d49334fd638d8f1bc28.jpg`,
+            `http://www.dogtagart.com/sites/default/files/blog/dogscostume.jpg`,
+            `https://i.imgur.com/DQJjEMV.jpg`,
+            `https://i.pinimg.com/originals/7e/85/d0/7e85d05973c3b487c9d45c63df55d431.jpg`,
+            `https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-robin.jpg`,
+            `https://s.hdnux.com/photos/04/34/32/1164953/3/920x920.jpg`,
+            `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-12-at-4.12.06-PM1.png`,
+            `https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAeWnoY.img`,
+            `https://i.imgur.com/ddFxviv.png`,
+            `https://static.businessinsider.com/image/5088501f6bb3f78664000002-750.jpg`,
+            `https://i.ytimg.com/vi/T0OHl7bbL1g/hqdefault.jpg`,
+            `https://hips.hearstapps.com/rbk.h-cdn.co/assets/cm/14/50/548969e457d0e_-_top-paw-basketball-player-costume-for-dogslgn.gif`,
+            `https://static.fabfitfun.com/magazine/wp-content/uploads/2018/10/09170644/dog.png`,
+            `https://i.imgur.com/LzcvHfl.png`,
+            `https://purewows3.imgix.net/images/articles/2017_09/Princess-Leia-dog-costume-for-Halloween.jpg`,
+            `https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2010/7/27/0/Halloween-UGC_Foleyboy-alien-dog-costumes_s4x3.jpg.rend.hgtvcom.616.462.suffix/1400947976466.jpeg`,
+            `https://www.wweek.com/resizer/b5st6q0nx-4BE81x0TdZzJ2198Y=/1200x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/wweek/wp-content/uploads/2017/10/26171017/Cowboy-Dog.jpg`,
+            `https://media.healthday.com/Images/icimages/dog_costume1026.jpg`,
+            `https://www.telegraph.co.uk/content/dam/Pets/2015-09/30oct/dogcrab.jpg`,
+            `https://purewows3.imgix.net/images/articles/2017_09/Dog-dressed-up-for-Halloween-in-spider-costume.jpg`,
+            `https://petcube.com/blog/content/images/2018/10/dog-pumpkin-halloween-costume.jpg`,
+            `https://i.imgur.com/0UJXND1.jpg`,
+            `https://cdn1-www.cattime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-cerberus.jpg`,
+            `https://costumesjoy.com/wp-content/uploads/2018/08/Dogbaby-Halloween-Costumes-Pet-Clothing-Funny-Guitar-Dog-Clothes-Pet-Puppy-Coats-For-Puppy-Dog-French.jpg`,
+            `https://static-blog.fabfitfun.com/magazine/wp-content/uploads/2018/10/09164347/spider-pup-costume.png`,
+            `https://i.imgur.com/djUHSvl.png`,
+            `https://sitterforyourcritter.com/wp-content/uploads/2017/10/dogs-dressed-as-superheros.jpg`];
 
-    }*/
+        var messages = [`🎃👻🐶💀🍬`,
+            `🎃 Happy Halloween! 🎃`,
+            `👻 Happy Halloween! 👻`,
+            `🍬 Trick or Treat! 🍬`,
+            `🐶 Trick or Treat! 🐶`,
+            `🐶🐶🐶`,
+            `🎃🎃🎃`,
+            `👻👻👻`,
+            `💀💀💀`,
+            `🍬🍬🍬`,
+            `🎃 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🎃`,
+            `👻 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 👻`,
+            `🐶 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🐶`,
+            `💀 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 💀`,
+            `🍬 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🍬`];
+
+        var r1 = Math.floor((Math.random() * costumes.length));
+
+        var r2 = Math.floor((Math.random() * messages.length));
+
+        message.channel.send('test')
+            .then(async msg => {
+                msg.react(`🍬`)
+
+                var alreadyRewarded = new Array();
+
+
+                const filter = (reaction, user) => {
+                    return reaction.emoji.name === `🍬` && user.id != msg.author.id;
+                }
+
+                const collector = msg.createReactionCollector(filter, { max: 20, time: 10000 });
+
+                collector.on('collect', async (reaction, reactionCollector) => {
+                    if(!alreadyRewarded.includes(reaction.users.last().id)) {
+                        alreadyRewarded.push(reaction.users.last().id);
+
+                        //Level them up here
+                        var min = Math.ceil(3);
+                         max = Math.floor(5);
+                        var c = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                        //await lvl.Fetch(reaction.users.last().id);
+                        //await lvl.SetXp(reaction.users.last().id, 0);
+
+                        //var output = await lvl.AddLevel(reaction.users.last().id, c);
+
+                        message.channel.send(`${reaction.users.last().username} won ${c} candies!`);
+                    }
+                })
+
+                msg.delete(10000)
+            })
+    }
 
     if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || sCommand === `CANDY` || sCommand === `CANDYBALANCE` || sCommand === `CANDYBAL` || sCommand === `CBAL`) {
         var output = await lvl.Fetch(message.author.id);
