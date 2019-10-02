@@ -287,7 +287,7 @@ client.on('message', async message => {
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}\'s Trick or Treat Bag`)
             .setColor(0xEB6123)
-            .addField(`Candy`, `${output.level}`, true)
+            .addField(`Candies`, `${output.level}`, true)
         message.channel.send({embed});
     }
 
@@ -328,6 +328,14 @@ client.on('message', async message => {
         message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 5 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
     }
 
+    if(command === `CUMCOIN`) {
+        const embed = new Discord.RichEmbed()
+            .setTitle(`Darsh's CumCoin`)
+            .setColor(0xFFFFFF)
+            .addField(`CumCoin`, `10000`, true)
+        message.channel.send({embed});
+    }
+
 
 
 
@@ -344,7 +352,7 @@ client.on('message', async message => {
             .addField(`!subf`, `Now can use !sub`, true)
             .addField(`!hbox`, `Added 1 new outcome`, true)
             .addField(`!calendar`, `Minor updates`, true)
-            .addField(`!quote`, `Added 7 new quotes`, true)
+            .addField(`!quote`, `Added 8 new quotes`, true)
             .addField(`!comic`, `Added 15 new comics`, true)
         message.channel.send({embed});
     }
@@ -690,7 +698,8 @@ client.on('message', async message => {
             `chandy's probably analyzed mario tennis more than federer has analyzed actual tennis`,
             `You can just call them hookers.`,
             `also thinking of doing a minor in us next year, dont know for sure though`,
-            `ive seen hbox he looks more like shrek in person than you ever imagined`];
+            `ive seen hbox he looks more like shrek in person than you ever imagined`,
+            `My falco dairs so early girls be tryin to wife me`];
 
         var r = Math.floor((Math.random() * quotes.length));
 
@@ -2103,7 +2112,7 @@ client.on('message', async message => {
 
     //Silverhand
 
-    if (command === `SILVER` || command === `SILVERHAND`) {
+    if (command === `SILVER` || command === `SILVERHAND` || sCommand === `ILVER` || sCommand === `LVER`) {
         var s = [`wanna play guilty gear`,
                 `wanna play melty`,
                 `wanna play unist`,
@@ -2138,7 +2147,7 @@ client.on('message', async message => {
 
     //structuremole
 
-    if (command === `STRUC` || command === `STRUCTURE` || command === `STRUCTUREMOLE` || command === `MOLE`) {
+    if (command === `STRUC` || command === `STRUCTURE` || command === `STRUCTUREMOLE` || command === `MOLE` || command === `PEEPEE` || command === `POOPOO` || command === `PEEPEEPOOPOO` || command === `PIPI` || command === `PUPU` || command === `PIPIPUPU`) {
         var s = [`J.D. from scrubs`,
                 `Dr. House from House`,
                 `Bones from StarTrek`,
