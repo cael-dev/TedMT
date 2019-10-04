@@ -45,7 +45,7 @@ client.on('message', async message => {
     if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
         var r = (Math.random() * 100);
 
-        if (r >= 99) {
+        if (r >= 98.5) {
             var costumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
                 `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
                 `https://i.pinimg.com/originals/f3/b1/b0/f3b1b045c3e1d50b5d7f4b931165fd15.jpg`,
@@ -67,7 +67,7 @@ client.on('message', async message => {
                 `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
                 `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLAmTQErzE1uoHF0n3NEwx0x1IFPUhhKL2QyDHoWFkmmz4Kapa`,
                 `https://i.imgur.com/E3wqRQi.png`,
-                `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2014/09/tumblr_mvhs34RztR1qei7a7o1_5001.jpg?resize=500%2C667&ssl=1`,
+                `https://i.imgur.com/hruNkRh.png`,
                 `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
                 `https://www.pedigreefoundation.org/wp-content/uploads/2016/10/elvis.jpg`,
                 `https://s.hdnux.com/photos/67/05/73/14442226/3/920x920.jpg`,
@@ -130,7 +130,7 @@ client.on('message', async message => {
                         return reaction.emoji.name === `🍬` && user.id != msg.author.id;
                     }
 
-                    const collector = msg.createReactionCollector(filter, { max:20, time: 10000 });
+                    const collector = msg.createReactionCollector(filter, { max:20, time: 15000 });
 
                     collector.on('collect', async (reaction, reactionCollector) => {
                         if(!alreadyRewarded.includes(reaction.users.last().id)) {
@@ -142,7 +142,7 @@ client.on('message', async message => {
                             var c = Math.floor(Math.random() * (max - min + 1)) + min;
 
                             await lvl.Fetch(reaction.users.last().id);
-                            await lvl.SetXp(reaction.users.last().id, 0);
+                            await lvl.SetXp(reaction.users.last().id, 1);
 
                             var output = await lvl.AddLevel(reaction.users.last().id, c);
 
@@ -150,7 +150,7 @@ client.on('message', async message => {
                         }
                     })
 
-                    msg.delete(10000)
+                    msg.delete(15000)
                 })
         } else {
             return;
@@ -281,7 +281,7 @@ client.on('message', async message => {
             })
     }
 
-    if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || sCommand === `CANDY` || sCommand === `CANDYBALANCE` || sCommand === `CANDYBAL` || sCommand === `CBAL`) {
+    if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS` || sCommand === `CANDY` || sCommand === `CANDYBALANCE` || sCommand === `CANDYBAL` || sCommand === `CBAL` || sCommand === `SWEETS` || sCommand === `TREATS`) {
         var output = await lvl.Fetch(message.author.id);
 
         const embed = new Discord.RichEmbed()
@@ -298,7 +298,8 @@ client.on('message', async message => {
 
 
     if (command === `LEADERBOARD` || command === `TOP` || sCommand === `LEADERBOARD` || sCommand === `TOP`) {
-        lvl.Leaderboard({ limit: 10 }).then(async users => {
+        await lvl.Leaderboard({ /*limit: 10*/ }).then(async users => {
+            console.log(users);
             if (users[0]) var firstplace = await client.fetchUser(users[0].userid);
             if (users[1]) var secondplace = await client.fetchUser(users[1].userid);
             if (users[2]) var thirdplace = await client.fetchUser(users[2].userid);
@@ -311,17 +312,27 @@ client.on('message', async message => {
             if (users[9]) var tenthplace = await client.fetchUser(users[9].userid);
 
             message.channel.send(`**Candy Leaderboard**
-1 - ${firstplace && firstplace.tag || 'Nobody Yet'}: ${users[0] && users[0].level || '0'}
-2 - ${secondplace && secondplace.tag || 'Nobody Yet'}: ${users[1] && users[1].level || '0'}
-3 - ${thirdplace && thirdplace.tag || 'Nobody Yet'}: ${users[2] && users[2].level || '0'}
-4 - ${fourthplace && fourthplace.tag || 'Nobody Yet'}: ${users[3] && users[3].level || '0'}
-5 - ${fifthplace && fifthplace.tag || 'Nobody Yet'}: ${users[4] && users[4].level || '0'}
-6 - ${sixthplace && sixthplace.tag || 'Nobody Yet'}: ${users[5] && users[5].level || '0'}
-7 - ${seventhplace && seventhplace.tag || 'Nobody Yet'}: ${users[6] && users[6].level || '0'}
-8 - ${eighthplace && eighthplace.tag || 'Nobody Yet'}: ${users[7] && users[7].level || '0'}
-9 - ${ninthplace && ninthplace.tag || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
-10 - ${tenthplace && tenthplace.tag || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}`)
+1 - ${firstplace && firstplace.username || 'Nobody Yet'}: ${users[0] && users[0].level || '0'}
+2 - ${secondplace && secondplace.username || 'Nobody Yet'}: ${users[1] && users[1].level || '0'}
+3 - ${thirdplace && thirdplace.username || 'Nobody Yet'}: ${users[2] && users[2].level || '0'}
+4 - ${fourthplace && fourthplace.username || 'Nobody Yet'}: ${users[3] && users[3].level || '0'}
+5 - ${fifthplace && fifthplace.username || 'Nobody Yet'}: ${users[4] && users[4].level || '0'}
+6 - ${sixthplace && sixthplace.username || 'Nobody Yet'}: ${users[5] && users[5].level || '0'}
+7 - ${seventhplace && seventhplace.username || 'Nobody Yet'}: ${users[6] && users[6].level || '0'}
+8 - ${eighthplace && eighthplace.username || 'Nobody Yet'}: ${users[7] && users[7].level || '0'}
+9 - ${ninthplace && ninthplace.username || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
+10 - ${tenthplace && tenthplace.username || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}`)
         })
+    }
+
+    if (command === `RANK` || command === `MYRANK`) {
+        var output = await lvl.Leaderboard({
+            search: message.author.id
+        });
+
+        var balance = await lvl.Fetch(message.author.id)
+
+        message.channel.send(`You are rank ${output} with ${balance.level} candies.`);
     }
 
     if(command === `EVENT` || command === `HALLOWEEN` || command === `EVENTFAQ` || command === `EVENTINFO`) {
@@ -336,6 +347,44 @@ client.on('message', async message => {
         message.channel.send({embed});
     }
 
+
+    if (command === 'TESTLEADERBOARD') {
+
+        if (message.mentions.users.first()) {
+            var output = await lvl.Leaderboard({
+                search: message.mentions.users.first().id
+            })
+            console.log(output.placement)
+            message.channel.send(`The user ${message.mentions.users.first().tag} is number ${output.placement} on my leaderboard!`);
+        } else {
+            lvl.Leaderboard({
+            limit: 3
+            }).then(async users => {
+            console.log(users);
+            console.log(users[0]);
+
+            if (users[0]) var firstplace = await client.fetchUser(users[0].userid)
+            if (users[1]) var secondplace = await client.fetchUser(users[1].userid)
+            if (users[2]) var thirdplace = await client.fetchUser(users[2].userid)
+
+            message.channel.send(`My leaderboard:
+
+            1 - ${firstplace && firstplace.tag || 'Nobody Yet'} : ${users[0] && users[0].level || 'None'} : ${users[0] && users[0].xp || 'None'}
+            2 - ${secondplace && secondplace.tag || 'Nobody Yet'} : ${users[1] && users[1].level || 'None'} : ${users[0] && users[0].xp || 'None'}
+            3 - ${thirdplace && thirdplace.tag || 'Nobody Yet'} : ${users[2] && users[2].level || 'None'} : ${users[0] && users[0].xp || 'None'}`)
+            })
+        }
+    }
+
+    if (command === `TESTFETCH`) {
+        var output = await lvl.Fetch(message.author.id);
+        console.log(output);
+    }
+
+    if (command === `CANDYFIX`) {
+        await lvl.SetXp(message.author.id, 1);
+        message.channel.send('Fixed.');
+    }
 
 
 
