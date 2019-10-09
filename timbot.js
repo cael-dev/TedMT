@@ -14,7 +14,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.1.1 Launched');
+    console.log('TimBot v1.2.1 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -65,7 +65,7 @@ client.on('message', async message => {
                 `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-halloween-costumes-1532555670.jpg`,
                 `https://media1.popsugar-assets.com/files/thumbor/CJEtk1U6VpB75o_qxfPAX6579r0/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/10/19/826/n/1922243/a00d1cad_edit_img_image_16686166_1444860712_12142682_526874914145470_1831035987_n/i/DIY-Halloween-Costumes-Dogs.jpg`,
                 `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
-                `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLAmTQErzE1uoHF0n3NEwx0x1IFPUhhKL2QyDHoWFkmmz4Kapa`,
+                `https://i.imgur.com/A5nyeDW.png`,
                 `https://i.imgur.com/E3wqRQi.png`,
                 `https://i.imgur.com/hruNkRh.png`,
                 `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
@@ -291,10 +291,10 @@ client.on('message', async message => {
         message.channel.send({embed});
     }
 
-    if (command === `CANDYRESET`) {
+    /*if (command === `CANDYRESET`) {
         var output = await lvl.SetLevel(message.author.id, 1);
         message.channel.send(`${message.member.displayName}\'s candy is now reset`);
-    }
+    }*/
 
 
     if (command === `LEADERBOARD` || command === `TOP` || sCommand === `LEADERBOARD` || sCommand === `TOP`) {
@@ -336,7 +336,7 @@ client.on('message', async message => {
     }
 
     if(command === `EVENT` || command === `HALLOWEEN` || command === `EVENTFAQ` || command === `EVENTINFO`) {
-        message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 5 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
+        message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 7 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
     }
 
     if(command === `CUMCOIN`) {
@@ -345,40 +345,6 @@ client.on('message', async message => {
             .setColor(0xFFFFFF)
             .addField(`CumCoin`, `10000`, true)
         message.channel.send({embed});
-    }
-
-
-    if (command === 'TESTLEADERBOARD') {
-
-        if (message.mentions.users.first()) {
-            var output = await lvl.Leaderboard({
-                search: message.mentions.users.first().id
-            })
-            console.log(output.placement)
-            message.channel.send(`The user ${message.mentions.users.first().tag} is number ${output.placement} on my leaderboard!`);
-        } else {
-            lvl.Leaderboard({
-            limit: 3
-            }).then(async users => {
-            console.log(users);
-            console.log(users[0]);
-
-            if (users[0]) var firstplace = await client.fetchUser(users[0].userid)
-            if (users[1]) var secondplace = await client.fetchUser(users[1].userid)
-            if (users[2]) var thirdplace = await client.fetchUser(users[2].userid)
-
-            message.channel.send(`My leaderboard:
-
-            1 - ${firstplace && firstplace.tag || 'Nobody Yet'} : ${users[0] && users[0].level || 'None'} : ${users[0] && users[0].xp || 'None'}
-            2 - ${secondplace && secondplace.tag || 'Nobody Yet'} : ${users[1] && users[1].level || 'None'} : ${users[0] && users[0].xp || 'None'}
-            3 - ${thirdplace && thirdplace.tag || 'Nobody Yet'} : ${users[2] && users[2].level || 'None'} : ${users[0] && users[0].xp || 'None'}`)
-            })
-        }
-    }
-
-    if (command === `TESTFETCH`) {
-        var output = await lvl.Fetch(message.author.id);
-        console.log(output);
     }
 
     if (command === `CANDYFIX`) {
@@ -392,7 +358,7 @@ client.on('message', async message => {
 
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.2.0 Patch Notes, 10/01/19`)
+            .setTitle(`TimBot v1.2.1 Patch Notes, 10/09/19`)
             .setColor(0xEB6123) //was 0x2d64f1, changed for halloween update
             .addField(`Halloween Event`, `!event for info`, true)
             .addField(`!candy`, `Shows your current candy amount`, true)
@@ -401,8 +367,8 @@ client.on('message', async message => {
             .addField(`!subf`, `Now can use !sub`, true)
             .addField(`!hbox`, `Added 1 new outcome`, true)
             .addField(`!calendar`, `Minor updates`, true)
-            .addField(`!quote`, `Added 8 new quotes`, true)
-            .addField(`!comic`, `Added 15 new comics`, true)
+            .addField(`!quote`, `Added 19 new quotes (11 since 1.2.0)`, true)
+            .addField(`!comic`, `Added 23 new comics (8 since 1.2.0)`, true)
         message.channel.send({embed});
     }
 
@@ -748,7 +714,18 @@ client.on('message', async message => {
             `You can just call them hookers.`,
             `also thinking of doing a minor in us next year, dont know for sure though`,
             `ive seen hbox he looks more like shrek in person than you ever imagined`,
-            `My falco dairs so early girls be tryin to wife me`];
+            `My falco dairs so early girls be tryin to wife me`,
+            `They're running Sloppy, oh no!`,
+            `I'm just thinking about wrapping Vish's tie around Chillin's arm, and I think you might not make it all the way`
+            `I'm starting to think Fiction is white SFAT`,
+            `I'm changing my tag to Martholomew`,
+            `oh, my macaroni!`,
+            `oh no, it's splooge mcduck!`,
+            `Bold as in all the text you read must be in bold so you can read it with your tiny brain`,
+            `Oh wait it's because we live under a fucking kleptocracy and the corrupt pedophile mods of this server have rigged the elections in their favor`,
+            `that was his dead ringer switch\nalso deleted his 3 TB storage of mario tennis footage and cag friendlies`,
+            `<:CaelMary:612899413152497683>\nfeels religious cael mang`,
+            `the midwest is just diet isreal`];
 
         var r = Math.floor((Math.random() * quotes.length));
 
@@ -1089,7 +1066,15 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612058753293877274/625796333340590100/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/625677522293489684/comic.png`,
                 `https://cdn.discordapp.com/attachments/612325624203182085/625375452185362442/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/624572989014540288/comic.png`];
+                `https://cdn.discordapp.com/attachments/612058753293877274/624572989014540288/comic.png`,
+                `https://cdn.discordapp.com/attachments/612325624203182085/631208391414513684/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/630879406897889300/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/629357532212887562/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/629066610262671362/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063895082762250/628996325123424269/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063895082762250/628995438887960617/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063895082762250/628995160960794674/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061367972790281/628788597000110090/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
