@@ -716,7 +716,7 @@ client.on('message', async message => {
             `ive seen hbox he looks more like shrek in person than you ever imagined`,
             `My falco dairs so early girls be tryin to wife me`,
             `They're running Sloppy, oh no!`,
-            `I'm just thinking about wrapping Vish's tie around Chillin's arm, and I think you might not make it all the way`
+            `I'm just thinking about wrapping Vish's tie around Chillin's arm, and I think you might not make it all the way`,
             `I'm starting to think Fiction is white SFAT`,
             `I'm changing my tag to Martholomew`,
             `oh, my macaroni!`,
