@@ -14,7 +14,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.2.1 Launched');
+    console.log('TimBot v1.3.0 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -78,7 +78,7 @@ client.on('message', async message => {
                 `https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-robin.jpg`,
                 `https://s.hdnux.com/photos/04/34/32/1164953/3/920x920.jpg`,
                 `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-12-at-4.12.06-PM1.png`,
-                `https://img-s-msn-com.akamaized.net/tenant/amp/entityid/AAeWnoY.img`,
+                `https://i.imgur.com/tn7bfQv.png`,
                 `https://i.imgur.com/ddFxviv.png`,
                 `https://static.businessinsider.com/image/5088501f6bb3f78664000002-750.jpg`,
                 `https://i.ytimg.com/vi/T0OHl7bbL1g/hqdefault.jpg`,
@@ -133,20 +133,22 @@ client.on('message', async message => {
                     const collector = msg.createReactionCollector(filter, { max:20, time: 15000 });
 
                     collector.on('collect', async (reaction, reactionCollector) => {
-                        if(!alreadyRewarded.includes(reaction.users.last().id)) {
-                            alreadyRewarded.push(reaction.users.last().id);
+                        var lastReactedId = reaction.users.last().id;
+                        var lastReactedName = reaction.users.last().username;
+                        if(!alreadyRewarded.includes(lastReactedId)) {
+                            alreadyRewarded.push(lastReactedId);
 
                             //Level them up here
                             var min = Math.ceil(3);
                             var max = Math.floor(5);
                             var c = Math.floor(Math.random() * (max - min + 1)) + min;
 
-                            await lvl.Fetch(reaction.users.last().id);
-                            await lvl.SetXp(reaction.users.last().id, 1);
+                            await lvl.Fetch(lastReactedId);
+                            await lvl.SetXp(lastReactedId, 1);
 
-                            var output = await lvl.AddLevel(reaction.users.last().id, c);
+                            var output = await lvl.AddLevel(lastReactedId, c);
 
-                            message.channel.send(`${reaction.users.last().username} won ${c} candies!`);
+                            message.channel.send(`${lastReactedName} won ${c} candies!`);
                         }
                     })
 
@@ -310,6 +312,7 @@ client.on('message', async message => {
             if (users[7]) var eighthplace = await client.fetchUser(users[7].userid);
             if (users[8]) var ninthplace = await client.fetchUser(users[8].userid);
             if (users[9]) var tenthplace = await client.fetchUser(users[9].userid);
+            if (users[21]) var twentysecondplace = await client.fetchUser(users[21].userid);
 
             message.channel.send(`**Candy Leaderboard**
 1 - ${firstplace && firstplace.username || 'Nobody Yet'}: ${users[0] && users[0].level || '0'}
@@ -321,7 +324,8 @@ client.on('message', async message => {
 7 - ${seventhplace && seventhplace.username || 'Nobody Yet'}: ${users[6] && users[6].level || '0'}
 8 - ${eighthplace && eighthplace.username || 'Nobody Yet'}: ${users[7] && users[7].level || '0'}
 9 - ${ninthplace && ninthplace.username || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
-10 - ${tenthplace && tenthplace.username || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}`)
+10 - ${tenthplace && tenthplace.username || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}
+22 - ${twentysecondplace && twentysecondplace.username || 'Nobody Yet'}: ${users[21] && users[21].level || '0'}`)
         })
     }
 
@@ -336,15 +340,7 @@ client.on('message', async message => {
     }
 
     if(command === `EVENT` || command === `HALLOWEEN` || command === `EVENTFAQ` || command === `EVENTINFO`) {
-        message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 7 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
-    }
-
-    if(command === `CUMCOIN`) {
-        const embed = new Discord.RichEmbed()
-            .setTitle(`Darsh's CumCoin`)
-            .setColor(0xFFFFFF)
-            .addField(`CumCoin`, `10000`, true)
-        message.channel.send({embed});
+        message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 7 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! (Thanks to Risc for helping sponsor the event!) Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
     }
 
     if (command === `CANDYFIX`) {
@@ -358,17 +354,25 @@ client.on('message', async message => {
 
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.2.1 Patch Notes, 10/09/19`)
+            .setTitle(`TimBot v1.3.0 Patch Notes, 10/19/19`)
             .setColor(0xEB6123) //was 0x2d64f1, changed for halloween update
             .addField(`Halloween Event`, `!event for info`, true)
             .addField(`!candy`, `Shows your current candy amount`, true)
             .addField(`!leaderboard`, `(WIP) Shows the top 10 candy leaderboard`, true)
-            .addField(`!coffee`, `Added a secret outcome ;)`, true)
-            .addField(`!subf`, `Now can use !sub`, true)
-            .addField(`!hbox`, `Added 1 new outcome`, true)
-            .addField(`!calendar`, `Minor updates`, true)
-            .addField(`!quote`, `Added 19 new quotes (11 since 1.2.0)`, true)
-            .addField(`!comic`, `Added 23 new comics (8 since 1.2.0)`, true)
+
+            .addField(`!crab`, `The crabs have gone away for a while, try !pumpkin (!crab still works though)`, true)
+            .addField(`!calendar`, `Added some birthdays`, true)
+            .addField(`!airplane`, `New command`, true)
+            .addField(`!banthacollie`, `New command`, true)
+            .addField(`!coriamon`, `Added additional outcomes`, true)
+            .addField(`!leffen`, `New command`, true)
+            .addField(`!loscar`, `Added additional outcomes`, true)
+            .addField(`!skrt`, `New command`, true)
+            .addField(`!soap`, `Complete rework`, true)
+            .addField(`!suggestionbox`, `New command, give suggestions for the bot`, true)
+            .addField(`!wub`, `Changed chance of certain outcomes`, true)
+            .addField(`!quote`, `Added 20 new quotes`, true)
+            .addField(`!comic`, `Added 14 new comics`, true)
         message.channel.send({embed});
     }
 
@@ -725,18 +729,38 @@ client.on('message', async message => {
             `Oh wait it's because we live under a fucking kleptocracy and the corrupt pedophile mods of this server have rigged the elections in their favor`,
             `that was his dead ringer switch\nalso deleted his 3 TB storage of mario tennis footage and cag friendlies`,
             `<:CaelMary:612899413152497683>\nfeels religious cael mang`,
-            `the midwest is just diet isreal`];
+            `the midwest is just diet isreal`,
+            `sugden hasn't gotten any in 2 days and he's still on top\nI haven't gotten any for 21 years, son`,
+            `I keep forgetting if you google "melee africa" it'll just come up with "violence erupted in the market today..."`,
+            `candy for the good boys\nand you can quote me on that`,
+            `They just to not to and I’ve not tried`,
+            `i was nerd not startstaewarwased need`,
+            `ALWAYS WITH THE WILD CHERRY FUCKIN G PEPSI`,
+            `IM MAKING FUCKINFG MAC AND CHEEZ\nAND NOBODY\nWILL STOP ME`,
+            `I'm trying to get to a point where people feel bad about themselves simply by gazing at me.`,
+            `Solid Ken's dad would beat Liquid Ken's dad in a fight`,
+            `Come for this\n:smirk:`,
+            `Ding dobg youre wrong soap`,
+            `.- .-.. .-- .- -.-- ... / -.-. ..- --`,
+            `>meme arrow\n"words in quotes"`,
+            `im a slut for blurberry poptarts`,
+            `next logical step is mullet hoes`,
+            `some girl  i hooked up with said her septim peircing smelled and it was weird kissing her after\nhad to hold my breath`,
+            `I wish peter griffins catchphrase was "family guy"`,
+            `do angry workouts yield better gains?\nI think aristotle asked that`,
+            `fun was fun, when I had fun`,
+            `SQL is easy. It's like googling but for databases`];
 
         var r = Math.floor((Math.random() * quotes.length));
 
         message.channel.send(quotes[r]);
     }
 
-    if (command === `CRAB`) {
+    if (command === `CRAB` || command === `PUMPKIN`) {
         var daily = await eco.Daily(sender.id);
 
         if (daily.updated) {
-            var c = [`the crab hits your face`,
+            /*var c = [`the crab hits your face`,
                     `the crab hits your face`,
                     `the crab grabs onto your arm and pinches it as it flies by`,
                     `the crab grabs onto your arm and pinches it as it flies by`,
@@ -751,7 +775,24 @@ client.on('message', async message => {
                     `you are not a puff main and your superior reflexes allow you to catch the crab`,
                     `you are not a puff main and your superior reflexes allow you to catch the crab`,
                     `the crab reverse fadeback fairs you`,
-                    `you use your copious amount of tech skill practice to jc crab and escape`];
+                    `you use your copious amount of tech skill practice to jc crab and escape`];*/
+
+            var c = [`the pumpkin smashes on your face and leaves you covered in pumpkin goop`,
+                    `the pumpkin smashes on your face, you smell like pumpkin for a week`,
+                    `the pumpkin knocks you out cold and you don't wake up until Halloween`,
+                    `the pumpkin knocks you out cold and you don't wake up until Halloween`,
+                    `the round, pink pumpkin back airs you`,
+                    `the pumpkin falling single hit uairs you`,
+                    `the pumpkin narrowly misses you`,
+                    `you barely manage to dodge the pumpkin`,
+                    `the pumpkin sails over your head`,
+                    `the pumpkin sails over your head, hitting an innocent bystander`,
+                    `the pumpkin misses its l-cancel and you punish with upsmash`,
+                    `you hit the pumpkin out of the air just before it reaches you`,
+                    `you are not a puff main and your superior reflexes allow you to catch the pumpkin`,
+                    `you are not a puff main and your superior reflexes allow you to catch the pumpkin`,
+                    `the pumpkin reverse fadeback fairs you`,
+                    `the pumpkin lands on your head, giving you a free Halloween costume`];
 
             var r = Math.floor((Math.random() * c.length));
 
@@ -937,6 +978,7 @@ client.on('message', async message => {
                 .addField('6/11', `Return of the DDT`, true)
                 .addField('6/12', `Sugden Netplay Day`, true)
                 .addField('6/24', `SPOTW Returns`, true)
+                .addField('6/27', `Coffee's Birthday`, true)
             message.channel.send({embed});
         } else if (m === 6) {
             var embed = new Discord.RichEmbed()
@@ -945,6 +987,7 @@ client.on('message', async message => {
                 .addField('7/04', `The Day Armada got Destroyed by Sugden`, true)
                 .addField('7/23', `WubWubWowzy's Birthday`, true)
                 .addField('7/24', `Skribbl.io Day`, true)
+                .addField('7/30', `Draco's Birthday`, true)
                 .addField('7/31', `UCFGate`, true)
             message.channel.send({embed});
         } else if (m === 7) {
@@ -1074,7 +1117,21 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612063895082762250/628996325123424269/comic.png`,
                 `https://cdn.discordapp.com/attachments/612063895082762250/628995438887960617/comic.png`,
                 `https://cdn.discordapp.com/attachments/612063895082762250/628995160960794674/comic.png`,
-                `https://cdn.discordapp.com/attachments/612061367972790281/628788597000110090/comic.png`];
+                `https://cdn.discordapp.com/attachments/612061367972790281/628788597000110090/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/634805823431770112/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/634528665610485790/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063656036925502/634522935482384394/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063656036925502/634522849658273792/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/634289364343455745/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633966962455740420/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633966732641304586/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633755357055025182/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633670096417587221/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633419631876374548/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633340878152269834/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/631932710197133312/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/631932546602500109/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/631932328981037056/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -1122,6 +1179,19 @@ client.on('message', async message => {
 
     if (command === `AHAMPSTER` || command === `HAMPSTER`) {
         message.channel.send(`??? - 2019\nBrutally murdered by a puff GIMR put on stream`);
+    }
+
+
+    //Airplane
+
+    if (command === `AIRPLANE` || command === `AEROPLANE`) {
+        var a = [`Welcome aboard ladies and gentleman, you are flying with Nair Canada`,
+            `Plays Doc because his parents are asian`,
+            `Once counterpicked Sheik vs a Mewtwo`];
+
+        var r = Math.floor((Math.random() * a.length));
+
+        message.channel.send(a[r]);
     }
 
 
@@ -1230,6 +1300,23 @@ client.on('message', async message => {
         var r = Math.floor((Math.random() * a.length));
 
         message.channel.send(a[r]);
+    }
+
+
+    //Bantha Collie
+
+    if (command === `BANTHACOLLIE` || command === `BANTHA`) {
+        var b = [`https://cdn.discordapp.com/attachments/612058753293877274/634836486373769216/Star-Wars-Bantha-Dog-Costume.png`,
+            `https://66.media.tumblr.com/2d4a24380c712b6cfd8cd146cce87bc2/tumblr_o5s4cjSJjK1rhdp6mo1_500.jpg`,
+            `https://images-na.ssl-images-amazon.com/images/I/41CWNxLvHcL.jpg`,
+            `https://i.ytimg.com/vi/t1k6xq68DqE/maxresdefault.jpg`,
+            `https://kiddingall.com/wp-content/uploads/2017/10/3numw28fl01x.jpg`,
+            `https://www.dailydot.com/wp-content/uploads/96e/c3/fd2e374a0d0ec02420f3efe46102ef70.jpg`,
+            `https://pbs.twimg.com/media/DqUavvTVYAEScUl.jpg`];
+
+        var r = Math.floor((Math.random() * b.length));
+
+        message.channel.send({file: b[r]});
     }
 
 
@@ -1626,7 +1713,14 @@ client.on('message', async message => {
     //Coriamon
 
     if (command === `CORI` || command === `CORIAMON`) {
-        message.channel.send(`Go to GOML.`);
+        var c = [`Go to GOML.`,
+            `Go to GOML.`,
+            `Falco lasers aren't even that good, eh?`,
+            `Falco lasers aren't even his best move`]
+
+        var r = Math.floor((Math.random() * c.length));
+
+        message.channel.send(c[r]);
     }
 
 
@@ -1658,6 +1752,17 @@ client.on('message', async message => {
         var r = Math.floor((Math.random() * c.length));
 
         message.channel.send(c[r]);
+    }
+
+
+    //CumCoin
+
+    if(command === `CUMCOIN`) {
+        const embed = new Discord.RichEmbed()
+            .setTitle(`Darsh's CumCoin`)
+            .setColor(0xFFFFFF)
+            .addField(`CumCoin`, `10000`, true)
+        message.channel.send({embed});
     }
 
 
@@ -1714,7 +1819,8 @@ client.on('message', async message => {
                 `im gay`,
                 `**diminnuendo** is typing...`,
                 `https://media.discordapp.net/attachments/612058753293877274/614814529641250816/ezgif-4-3e8037e6fc2f.gif`,
-                `im@gay`];
+                `im@gay`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/633728307065520129/8x1o66ghvtb01.jpg`];
 
         var r = Math.floor((Math.random() * d.length));
 
@@ -1936,6 +2042,19 @@ client.on('message', async message => {
     }
 
 
+    //Leffen
+
+    if (command === `LEFFEN`) {
+        var r = Math.random();
+
+        if (r > .5) {
+            message.channel.send(`Don't talk to me or my son ever again`, {file: `https://cdn.discordapp.com/attachments/612063895082762250/634026991347302431/IMG_20191011_082528.jpg`});
+        } else {
+            message.channel.send(`Leffen can still drop out!`);
+        }
+    }
+
+
     //Loscar
 
     if (command === `LOSCAR`) {
@@ -1967,7 +2086,11 @@ client.on('message', async message => {
                 `a trafffic jam`,
                 `the MarbleLympics`,
                 `the L'oscar Hotel in London`,
-                `Chandy's Tacos`];
+                `Chandy's Tacos`,
+                `Taco Bell`,
+                `a community outreach meeting`,
+                `the airport to go to Nigeria`,
+                `a Nigerian local`];
 
         var r = Math.floor((Math.random() * l.length));
 
@@ -2095,7 +2218,11 @@ client.on('message', async message => {
         message.channel.send(m[r]);
     }
 
+    //Muted
 
+    if (command === `MUTED` || command === `MUTE`) {
+        message.channel.send({file:`https://cdn.discordapp.com/attachments/612063946643472389/634597388773883933/society.png`});
+    }
 
     //Nanchoman
 
@@ -2172,10 +2299,58 @@ client.on('message', async message => {
     }
 
 
+    //Skrt
+
+    if (command === `SKRT`) {
+        message.channel.send(`No Johns.`);
+    }
+
+
     //Soap
 
     if (command === `SOAP`) {
-        message.channel.send(`though he is better, its some dummy high apm dumb shit`);
+        var sponsors = [`BOFA`,
+            `BOFA`,
+            `BOFA`,
+            `Swimmypants`,
+            `AFOB`,
+            `TSM`,
+            `Cloud 9`,
+            `Liquid`,
+            `EG`,
+            `Fnatic`,
+            `OpTic`,
+            `nV`,
+            `Dig`,
+            `FOX`,
+            `MVG`];
+
+        var name = [`Soap`,
+            `Soap`,
+            `soap`,
+            `soap`,
+            `sans`,
+            `Sans Undertale`];
+
+        var min = Math.ceil(1);
+        var max = Math.floor(4);
+        var numSponsors = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        var fullName = '';
+
+        for (var i = 0; i < numSponsors; i++) {
+
+            var r = Math.floor((Math.random() * sponsors.length));
+
+            fullName += sponsors[r];
+            fullName += ' | ';
+        }
+
+        var r2 = Math.floor((Math.random() * name.length));
+
+        fullName += name[r2];
+
+        message.channel.send(fullName);
     }
 
 
@@ -2328,6 +2503,13 @@ client.on('message', async message => {
         var r = Math.floor((Math.random() * f.length));
 
         message.channel.send(`The F stands for `+f[r]);
+    }
+
+
+    //Suggestion Box
+
+    if (command === `SUGGESTION` || command === `SUGGESTIONBOX`) {
+        message.channel.send(`Please fill out this form with any comments or suggestions about me :)\nhttps://forms.gle/6sesdfNuioYNT5hB7`);
     }
 
 
@@ -2688,7 +2870,7 @@ client.on('message', async message => {
     if (command === `WUB` || command === `WUBWUB` || command === `WUBWUBWOWZY`) {
         var r = Math.random() * 100;
 
-        if (r <= 40) {
+        if (r <= 10) {
             var b = [`purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC (Pedophile Courtcase)`,
                     `purchased a USB drive containing suspicious files`,
                     `gave Randy Pitchford $60`,
