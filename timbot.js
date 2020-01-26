@@ -6,6 +6,8 @@ const { token } = require('./config.json');
 const eco = require("discord-economy");
 const lvl = require("discord-leveling"); //Halloween Leveling
 const msglvl = require("discord-leveling-2");
+const snowlvl = require("discord-leveling-3");
+const MarkovGen = require("markov-generator");
 const client = new Discord.Client();
 const modRole = 'Illusion';
 const modRole2 = 'Illusion';
@@ -33,6 +35,32 @@ client.on('message', async message => {
     if (!message.author.bot) {
         await msglvl.AddLevel(sender.id, 1); //Add Message Level
         await msglvl.SetXp(sender.id, 1); //Set xp to default
+    }
+
+    //Christmas Event
+    if (!message.author.bot && message.channel.name == 'snowball-fight') {
+        let throwerTeam = fetchTeam(message.author.id);
+        let recipientTeam = 0;
+
+        message.channel.fetchMessages({ limit: 2}).then(async messages => {
+            let lastMessage = messages.last();
+            if (!lastMessage.author.bot && lastMessage.author.id != message.author.id) {
+                recipientTeam = fetchTeam(lastMessage.author.id);
+            }
+
+            if (recipientTeam != 0 && throwerTeam != recipientTeam) {
+                var teamLeader = fetchTeamFirstMember(throwerTeam);
+
+                if (teamLeader == 'Undefined Team') {
+                    console.log('Undefined team error');
+                } else {
+                    await snowlvl.AddLevel(teamLeader, 1);
+                    await snowlvl.SetXp(teamLeader, 1);
+
+                    lastMessage.react('653395361607581716');
+                }
+            }
+        })
     }
 
     var currencyName = `TimCoin`;
@@ -68,50 +96,92 @@ client.on('message', async message => {
         message.channel.send('Fuck you too!');
     }
 
-    if (command === `REWARD` || command === `PRIZE` || command === `GIMME`) {
-        var profile = await lvl.Fetch(message.author.id);
-
-        if (profile.xp == 1) {
-            await lvl.SetXp(message.author.id, 2); //Set as claimed
-            var results = await eco.AddToBalance(message.author.id, profile.level); //Give level to them in sbux
-
-            const embed = new Discord.RichEmbed() //Send message
-                .setTitle(`${message.member.displayName}\'s Balance`)
-                .setColor(0xF1C40F)
-                .addField(currencyName, `${results.newbalance}`, true)
-            message.channel.send({embed});
-        } else if (profile.xp == 2) {
-            message.channel.send(`Sorry, you've already claimed your reward.`);
-        }
-    }
-
     //Patch Notes
 
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.4.0 Patch Notes, 11/08/19`) //1.3.0 on 10/19/19
-            .setColor(0x2d64f1)
-            .addField(`!leaderboard`, `Now supports messages, defaults to this`, true)
-            .addField(`!rank`, `Now supports messages, defaults to this`, true)
-            .addField(`!tierlist`, `New command`, true)
-            .addField(`!tiermaker`, `New command, links tier list template`, true)
-            .addField(`!calendar`, `Added lots of stuff, can now specify month`, true)
-            .addField(`!newquote/!newq/!nq`, `New command, gives recent quote`, true)
-            .addField(`!chart`, `New command`, true)
-            .addField(`!halloween/!costume`, `Dogs from the Halloween event`, true)
-            .addField(`!fakecode`, `New command`, true)
-            .addField(`!legocoffeewoo`, `New command`, true)
-            .addField(`!yang/!data`, `Yang gang`, true)
-            .addField(`!al`, `Added new outcomes`, true)
-            .addField(`!bubbles`, `Changed outcome`, true)
-            .addField(`!cael`, `Added new outcomes`, true)
-            .addField(`!chu`, `Only on Chusday`, true)
-            .addField(`!quote`, `Added 59 new quotes`, true)
-            .addField(`!comic`, `Added 15 new comics`, true)
+            .setTitle(`TimBot v1.6.0 Patch Notes, The 500 Quote Update, 1/26/20`) //1.3.0 on 10/19/19, 1.4.0 on 11/08/19, 1.5.0 on 12/08/19, 1.5.1 on 12/20/19
+            .setColor(0x2d64f1) //0x2d64f1
+            .addField(`!risc`, `Reworked command`, true)
+            .addField(`!soap`, `Added several sponsors`, true)
+            .addField(`!goloche`, `New command`, true)
+            .addField(`!farmstink`, `New command`, true)
+            .addField(`!stream`, `New command`, true)
+            .addField(`!icemaster`, `New command`, true)
+            .addField(`!rootnut`, `New command`, true)
+            .addField(`!drew`, `Updated with new users`, true)
+            .addField(`!dimi`, `Added new outcome`, true)
+            .addField(`!calendar`, `Updated`, true)
+            .addField(`!quote`, `Added 52 new quotes, 500 TOTAL WOOOOOOOOO`, true)
+            .addField(`!comic`, `Added 8 new comics`, true)
+
+
+
+            /*.addField(`!event`, `The Christmas event has started!`, true)
+            .addField(`!team`, `Shows your team and rank for the Christmas event`, true)
+            .addField(`!leaderboard/!rank`, `Now work with 'snow', 'snowball', 'christmas', 'event', etc.`, true)
+            .addField(`!calendar`, `Updated`, true)
+            .addField(`!airplane`, `Added new outcomes`, true)
+            .addField(`!bobingy`, `New command`, true)
+            .addField(`!quote`, `Added 52 new quotes`, true)
+            .addField(`!comic`, `Added 15 new comics`, true)*/
+
+            //.addField(`!leaderboard`, `Now supports messages, defaults to this`, true)
+            //.addField(`!rank`, `Now supports messages, defaults to this`, true)
+            //.addField(`!tierlist`, `New command`, true)
+            //.addField(`!tiermaker`, `New command, links tier list template`, true)
+            //.addField(`!calendar`, `Added lots of stuff, can now specify month`, true)
+            //.addField(`!newquote/!newq/!nq`, `New command, gives recent quote`, true)
+            //.addField(`!chart`, `New command`, true)
+            //.addField(`!halloween/!costume`, `Dogs from the Halloween event`, true)
+            //.addField(`!fakecode`, `New command`, true)
+            //.addField(`!legocoffeewoo`, `New command`, true)
+            //.addField(`!yang/!data`, `Yang gang`, true)
+            //.addField(`!al`, `Added new outcomes`, true)
+            //.addField(`!bubbles`, `Changed outcome`, true)
+            //.addField(`!cael`, `Added new outcomes`, true)
+            //.addField(`!chu`, `Only on Chusday`, true)
+            //.addField(`!quote`, `Added 59 new quotes`, true)
+            //.addField(`!comic`, `Added 15 new comics`, true)
         message.channel.send({embed});
     }
 
+    //Temporary Event Stuff
+    if (command === `STARTEVENT`) {
+        if (message.author.id == 72734539834720256) {
+            await snowlvl.SetXp(72734539834720256, 1);
+            await snowlvl.SetXp(337284886039625728, 1);
+            await snowlvl.SetXp(202258713002639360, 1);
+            await snowlvl.SetXp(239503073586708481, 1);
+            await snowlvl.SetXp(212018836474560513, 1);
+            await snowlvl.SetXp(562824176700882964, 1);
+            await snowlvl.SetXp(177545664757104640, 1);
+            await snowlvl.SetXp(151811295711068161, 1);
+            await snowlvl.SetXp(177461438921703434, 1);
+            await snowlvl.SetXp(167375258012221441, 1);
+            await snowlvl.SetXp(368817136182886411, 1);
+            await snowlvl.SetXp(646446533407145986, 1);
+            await snowlvl.SetLevel(72734539834720256, 1);
+            await snowlvl.SetLevel(337284886039625728, 1);
+            await snowlvl.SetLevel(202258713002639360, 1);
+            await snowlvl.SetLevel(239503073586708481, 1);
+            await snowlvl.SetLevel(212018836474560513, 1);
+            await snowlvl.SetLevel(562824176700882964, 1);
+            await snowlvl.SetLevel(177545664757104640, 1);
+            await snowlvl.SetLevel(151811295711068161, 1);
+            await snowlvl.SetLevel(177461438921703434, 1);
+            await snowlvl.SetLevel(167375258012221441, 1);
+            await snowlvl.SetLevel(368817136182886411, 1);
+            await snowlvl.SetLevel(646446533407145986, 1);
+            message.channel.send('done');
+        } else {
+            message.channel.send('not for you, fuck off');
+        }
+    }
 
+    /*if(command === `EVENT` || command === `CHRISTMAS` || command === `EVENTFAQ` || command === `EVENTINFO`) {
+        message.channel.send(':snowball: Welcome to the 2019 TimCord Snowball Fight! :snowball:\n\nDuring the event, there will be a special snowball fight channel open. Any message sent in this channel will throw a snowball at the last person who sent a message. If this person is not on the same team as you (and isn\'t yourself) your team scores a point! Snowballs require time to make, so you have to space out your throws. To see what team you\'re on, type \'!team\', to see the overall rankings type \'!leaderboard snowball\'. Good luck and have fun!');
+    }*/
 
     //Help + Commands
     if (command === `HELP`) {
@@ -543,7 +613,111 @@ client.on('message', async message => {
             `FIRETRUCK YOU IDIOT\nYOU FUCKING BABOON\nYOU ACTUALLY MONKEY IDIOT`,
             `(Jaw drops to the floor. Eyes pop out. Sound effect of "AWOOOGA AWOOOOGA!!!" Places eyes and jaw back in place. Regains composure.) ... Eh hem, you look quite lovely.`,
             `sugden is it true that you d`,
-            `I wanna do traps`];
+            `I wanna do traps`,
+            `Yelling airplane moment during climax`,
+            `yooo fucking chicken noodle soupnyou dtupid gucking bitcj`,
+            `Ginger is like if a self help book became sentient`,
+            `best ultimate player in melee is Leffen :)`,
+            `Are you saying you want to fuck Bjork?`,
+            `baby doc doo doo do doo do doo`,
+            `Fiction losing to a ganon would be like god revealing himself to be real only to tell everyone that Shepherd Lima is a virgin and disappearing again.`,
+            `PM? More like Pee Ing`,
+            `🦧 welp im out`,
+            `i give darsh the benefit of the doubt because he uses big words I don't understand`,
+            `Hahahahahaha\nFalco is literally the same character as samus`,
+            `Imagine if you could cape peach in Mario golf\nShe would be like “fore” or w/e they yell\nThen u cape her and she hits the ball the wrong way like a big old dummy\nHaha dummy peach\nThen she sends you pictures of her feet afterwards that would be funny and epic :open_mouth:`,
+            `They do not deserve to be shot for shooting someone`,
+            `go to rtgw xtustmas nane agore`,
+            `He gets a half F from me, with the remainder to be paid out on confirmation of lost save.`,
+            `not to hornypost but i would fuck sheik`,
+            `he is just sitting there`,
+            `i pondered going as AnimeLover664 with a Sword for halloween but idk if thats legal`,
+            `I was thinking about theology and basically realized I was better than god`,
+            `you were too turnt from thinking about your happy life with lizzo`,
+            `imagine spitting on her and slapping her during sex until all the makeup gradually washes off and you're face to face with the fuking animal you call your wife`,
+            `eeeuuuuugggghhhh\nshe looks like she walks up stairs on all fours!`,
+            `Google destroyed\nstick to finding pie recipes for me, idiot corporation`,
+            `cool bug fact's: boginby`,
+            `What is wwii?  Is it like the wiiu?`,
+            `Why the fuck is shield so fast it's a god damn shine\nFuck this game`,
+            `am i disabled?`,
+            `"Man is least himself when he talks in his own character. Give him a Sheik, and he will tell you the truth."\n- loscar wilde`,
+            `i am nothing but correct takes`,
+            `I remember thinking that just typing 'boobs' on pictochat, to no one, was funny. Then worrying I'd get in trouble somehow`,
+            `i have the most attuned tastebuds on this server`,
+            `My parents gourde was set to like 55 when I was growing up`,
+            `no plate\nno god\njust me , a spoon and a can of tuna`,
+            `getting pissed at a dumb fucking fthrow fsmashing marth and spitting vodka into my cats mouth to let off steam`,
+            `Barron Trump is Cael`,
+            `halfway through november\nIdk if I'll make it.. swim practice starts next thursday`,
+            `I'm almost convinced that part of Drew's daily routine is going to the nearest pine tree and sucking the sap from it with his mouth`,
+            `im gonna spot dodge, wait for the STATE MANDATED MID TIER REPARATIONS PERIOD of 5 frames, then shine`,
+            `Why do women love murders so much`,
+            `the fuck do i need to know her name for lol`,
+            `you should lay a trap`,
+            `incael`,
+            `caelcel`,
+            `I respected women in history class today`,
+            `I don't bavr a lot of hwo`,
+            `When teacher says you smell like olive oil on penis inspection day :falcoS:`,
+            `sugden is it true that you d`,
+            `I can’t be a robot because I’m a cucumber`,
+            `I've got an ass to grind`,
+            `We still have a week though, right?`,
+            `"I still need to cum" -Sugden`,
+            `yoiu would only be able to find the right buttons to push if you had the whole monkey typewriters situation\nwhich also is kind of this discord i guess`, //LAST FROM 1.5.1
+            `I'm starting to hate link dude, he just feels like terrible falco`,
+            `more companies should look into moving into the simp sector`,
+            `I'm an incel for jesus`,
+            `Swedish beats hbox, hbox his girlfriend and I beat my meat\nWhats the difference?`,
+            `If youre from new zealand. ar eyou new zealous`,
+            `You are deluding yourself.`,
+            `You know if you eat jizz pineapple tastes better?`,
+            `shakespeare isn't meant to be read`,
+            `They bring four record players to the local and a full copy of Zaireeka which they restart before each match`,
+            `you little retard swiss miss bitch`,
+            `just saw a fox main call l canceling a bad mechanic and my vision instantly did the Doom FOV slider to 180 degrees`,
+            `Michael and Chu are hype af`,
+            `your beliefs are just incredibly advanced concern trolling`,
+            `Anyway my little sister just walked in on my parents probably having sex which is awesome`,
+            `i'll think of him every time i get sweet n sour sauce for my 4 for 43`,
+            `if his age is on the clock then he's old enough for a friendly discussion about mojang's hit video game Minecraft, released on PC, Xbox 360, PS3, Wii U, PS4, Xbox One, Nintendo Switch, Nintendo 3DS New, Gear VR, Fire TV.`,
+            `good game boyo, I got you this time but I know you'll be back stronger than ever. glad to see you still competing out there, the game is better with you in it`,
+            `see me on lan you fucking dweeb I'll kiss you`,
+            `The entire appeal of Sheik is that she's a three frame jump squat character with training wheels on her entire kit, so Fox mains can switch to her and feel like they're sick.`,
+            `*dad walking in on me surrounded by calipers and 3d models of watermelons* Are ya havin fun son?`,
+            `the only good personality test os the autism one`,
+            `would but im a popeyes`,
+            `just whisper suicide over and over like I do into my neighbor's vents every morning`,
+            `risc is like the server's jar jar binks`,
+            `im gonna go full bowflex on him if i see him at trader joes`,
+            `these guys poopin in the phone room...wtf`,
+            `did you just say he has hot balls`,
+            `I really wish people took a practical class like woodworking, instead of all these made-up pseudosciences like "quantum physics" or "women's studies"`,
+            `Hollow knight's subtle artistry slicks off your greasy, smooth, rubbery brain like raindrops on a duck's coat`,
+            `girls dont just buy beyblades for guys they aren't interested in`,
+            `Maybe she’s weird as fuck too`,
+            `What if she wants to beyblade with you`,
+            `Carl’s life is a movie`,
+            `I used to be into competitive beyblade in middle school`,
+            `Grabbing Fox is impossible for 90% of characters.`,
+            `and honestly can you imagine a Sudgen drinking moment without a ruleset?`,
+            `They say money can't buy everything, but memories are a pretty good purchase.`,
+            `I think this girl at school thinks I'm genuinely mentally disabled\nshe handed me a present right before the last class started\nand I just opened it and it's a beyblade`,
+            `You know what they say: hindsight is a 100%.`,
+            `ANNOUNCEMENT\n\nPlease read this carefully: A fair warning, Look out for a Discord user by the name of kris with the tag #1284. He is going around sending friend requests to random Discord users, and those who accept his friend requests will have their accounts oughed and their groups exposed with the members inside it becoming gay as well. Spread the word and send this to as many discord servers as you can. If you see this user, DO NOT accept his friend request and immediately block him.\n\n-Discord team\n\nCopy and paste this to all the servers you are in.\nI don't want anything bad happening to anyone's Discord account so I am attempting to raise awareness in any discord server I am in but I can't send this in the announcement channel.\n\nFriendly concern to everyone`,
+            `if this song didnt smell like cum it would be a nice little instrumental`,
+            `tbf farm, it's easier to fuck dogs because they're bigger than cats`,
+            `timcord is a wild animal dude\nit's a fools errand to try to bend it to your whims`,
+            `Me at 4 when watching the Grinch: "Maybe Christmas isn't bought in a store. Maybe Christmas... means a little bit more."`,
+            `merry woohoo\nto us all`,
+            `:sun_with_face: :dragon_face:`,
+            `:santa: This christmas we rip our dicks off :santa:`,
+            `I've been holding my poe for a while now and I've really had to go`,
+            `Receiving a gift is like receiving a homie stock`,
+            `Not SDing is a core gameplay skill\nIf your opponent SDs 4 times you outplayed them`,
+            `If you've had consensual sex you cannot be a gamer\nUnless she was in cosplay\nThen you're a certified gamer`,
+            `Fortunately, women are unable to give consent under the crushing weight of systemic patriarchal power structures crippling their autonomy.\nSo I have not had consensual sex.`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
             var min = (quotes.length - 100);
@@ -758,8 +932,11 @@ client.on('message', async message => {
             var embed = new Discord.RichEmbed()
                 .setTitle(`January Calendar`)
                 .setColor(0xafeeec)
+                .addField('1/02', `Risc's Birthday`, true)
                 .addField('1/09', `Cagliostro's Birthday`, true)
+                .addField('1/09', `Cuck Daddy's Birthday`, true)
                 .addField('1/10', `Silverhand's Birthday`, true)
+                .addField('1/17', `TISHD`, true)
             message.channel.send({embed});
         } else if (m === 1) {
             var embed = new Discord.RichEmbed()
@@ -791,6 +968,7 @@ client.on('message', async message => {
                 .addField('4/21', `Crab Day`, true)
                 .addField('4/22', `Chandy Blasts In`, true)
                 .addField('4/26', `Fuck GG Day`, true)
+                .addField('4/28', `Dimi's Birthday`, true)
                 .addField('4/29', `Brio's Birthday`, true)
             message.channel.send({embed});
         } else if (m === 4) {
@@ -810,6 +988,7 @@ client.on('message', async message => {
                 .addField('6/03', `Sugden Mod Coronation Day`, true)
                 .addField('6/11', `Return of the DDT`, true)
                 .addField('6/12', `Sugden Netplay Day`, true)
+                .addField('6/15', `Skrt's Birthday`, true)
                 .addField('6/24', `SPOTW Returns`, true)
                 .addField('6/26', `Soap's Fake Birthday`, true)
                 .addField('6/27', `Coffee's Birthday`, true)
@@ -821,6 +1000,7 @@ client.on('message', async message => {
                 .addField('7/04', `The Day Armada got Destroyed by Sugden`, true)
                 .addField('7/23', `WubWubWowzy's Birthday`, true)
                 .addField('7/24', `Skribbl.io Day`, true)
+                .addField('7/26', `Drew's Birthday`, true)
                 .addField('7/30', `Draco's Birthday`, true)
                 .addField('7/31', `UCFGate`, true)
             message.channel.send({embed});
@@ -863,12 +1043,19 @@ client.on('message', async message => {
                 .addField('11/03', `Mom found the olive oil :disappointed_relieved:`)
                 .addField('11/03', `Sugden 1-Up Day`)
                 .addField('11/04', `Tier List Day`, true)
+                .addField('11/08', `(Water)Melongate`, true)
+                .addField('11/16', `Sugden Appreciation Day`, true)
+                .addField('11/18', `Anti had a good take`, true)
+                .addField('11/23', `Timmy's Birthday`, true)
                 .addField('11/26', `Soap's Birthday`, true)
             message.channel.send({embed});
         } else if (m === 11) {
             var embed = new Discord.RichEmbed()
                 .setTitle(`December Calendar`)
-                .setColor(0xffffff)
+                .setColor(0xfdfdfd)
+                .addField('12/01', `Grotlecember Begins`, true)
+                .addField('12/09', `LOTR Day`, true)
+                .addField('12/17', `Measurement Day`, true)
                 .addField('12/25', `Timsmas`, true)
             message.channel.send({embed});
         }
@@ -986,7 +1173,30 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612058753293877274/636274574681571330/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/636274497137147904/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/636270862722400278/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/635326253397835776/comic.png`];
+                `https://cdn.discordapp.com/attachments/612058753293877274/635326253397835776/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063656036925502/654091194279788571/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063656036925502/654013632937459716/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063946643472389/651705369005129728/comic.png`,
+                `https://cdn.discordapp.com/attachments/612325624203182085/651499732077641735/comic.png`,
+                `https://cdn.discordapp.com/attachments/615454765886996481/651152484345053184/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/650609738442211358/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/647218197786918943/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/647184550803275776/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/647183667914997776/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/647182603455299584/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/647154136424644636/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/645833318771720192/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/645088756784693258/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/644882474379378688/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/644725109554282506/comic.png`, //LAST FROM 1.5.1
+                `https://cdn.discordapp.com/attachments/612325624203182085/668840704293994506/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/666834202548764692/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/666833140458979359/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/666148758647472150/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/663921542438060062/comic.png`,
+                `https://cdn.discordapp.com/attachments/612325624203182085/663569877944238090/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/662394652951052309/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/658639527057031195/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -1122,7 +1332,7 @@ client.on('message', async message => {
             `Cag's Sex Simulation - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641788902721585173/8pkAAAAASUVORK5CYII.png`,
             `Biggest Poo - Risc\nhttps://cdn.discordapp.com/attachments/612058753293877274/641786525113384970/Screenshot_20191107-005000.png`,
             `Uh oh, stinky - AL\nhttps://cdn.discordapp.com/attachments/612058753293877274/641785058222538762/1d7c5529-9792-4684-8860-f88781497bba.png`,
-            `Sex Simulation - Cag\nhttps://cdn.discordapp.com/attachments/612058753293877274/641783025364893727/unknown.png`,
+            `Sex Simulation - Cag\nhttps://cdn.discordapp.com/attachments/612058753293877274/641781717178384424/my-image_3.png`,
             `Sex - Cael\nhttps://cdn.discordapp.com/attachments/612058753293877274/641783025364893727/unknown.png`, //15
             `Ease of Placement - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641770807814520883/5c555d16-dc4e-4e2e-8e82-5407ad97eff7.png`,
             `Playstyle - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641764704972308480/179f6bf9-e782-4066-b773-d0f186f14aa5.png`,
@@ -1188,7 +1398,9 @@ client.on('message', async message => {
             `EU Countries - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612058753293877274/621459576897798154/9d91ca73-f02d-4971-a151-a71b3dfc2e60.png`,
             `Naruto - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612058753293877274/622722561087635476/Narutocord.png`,
             `Cartoons - Sugden\nhttps://cdn.discordapp.com/attachments/555176988562948116/577644325748473892/unknown.png`,
-            `Cartoons - Silver\nhttps://cdn.discordapp.com/attachments/555176988562948116/577644573577314305/9KuQTvO.png`];
+            `Cartoons - Silver\nhttps://cdn.discordapp.com/attachments/555176988562948116/577644573577314305/9KuQTvO.png`,
+            `Pokemon Types - Brio\nhttps://media.discordapp.net/attachments/612058753293877274/644098320884826112/Pokemontypetierlist.png?width=581&height=911`,
+            `Swiper - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/643319365122392075/my-image_1.png`];
 
         if (args[0] && args[0] != '') { //If no second command, randomize
             if (args[0] === `NUMBERS` || args[0] === `NUMBER`) {
@@ -1434,7 +1646,9 @@ client.on('message', async message => {
     //ADLP
 
     if (command === `ADLP`) {
-        message.channel.send(`COP ALERT!\nhttp://imgs.fyi/img/7skw.jpg`);
+        message.channel.send(`BABY LEGS!`, {
+            file: "https://media.discordapp.net/attachments/612058753293877274/668943743436455965/unknown.png"
+        });
     }
 
 
@@ -1451,7 +1665,13 @@ client.on('message', async message => {
         var a = [`Welcome aboard ladies and gentleman, you are flying with Nair Canada`,
             `Plays Doc because his parents are asian`,
             `Once counterpicked Sheik vs a Mewtwo`,
-            `once beat a gold puff`];
+            `once beat a gold puff`,
+            `a man torn between two low tier secondaries`,
+            `airplane moment...`,
+            `Airplane moment...`,
+            `Poob.`,
+            `*joins voice*\n\n*leaves voice*`,
+            `https://cdn.discordapp.com/attachments/612058753293877274/643274499445489664/airplane.PNG`];
 
         var r = Math.floor((Math.random() * a.length));
 
@@ -1483,7 +1703,8 @@ client.on('message', async message => {
                 `lol bubbles you saying that reminded me of one time i was playing with some of the older kids from my apartment and i was trying to stand up to them cause they wre picking on me so i said "i dont care what you call me, even if you call me shrimp" but they misheard and started calling me shrek which was 10x more fucked up`,
                 `https://cdn.discordapp.com/attachments/612063946643472389/637494850463203328/IMG_20191013_082122.jpg`,
                 `https://www.youtube.com/watch?time_continue=269&v=0lvwIW6Fvec&feature=emb_logo`,
-                `https://www.youtube.com/watch?v=-74jxaheG7I`];
+                `https://www.youtube.com/watch?v=-74jxaheG7I`,
+                `https://www.youtube.com/watch?v=wKnM_oUDg18`];
 
         var r = Math.floor((Math.random() * d1.length));
 
@@ -1649,6 +1870,16 @@ client.on('message', async message => {
         message.channel.send(b[r]);
     }
 
+    //Bobingy / Bogingy
+
+    if (command === `BOBINGY`) {
+        message.channel.send(`It's the phrase sweeping the nation. Bogingy.`);
+    }
+
+    if (command === `BOGINGY`) {
+        message.channel.send(`It's the phrase sweeping the nation. Bobingy.`);
+    }
+
 
     //Brio
 
@@ -1656,7 +1887,8 @@ client.on('message', async message => {
         var b = [`You know what this reminds me of? TF2 rocket jumping...`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
-                `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`];
+                `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`,
+                `BRIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`];
 
         var r = Math.floor((Math.random() * b.length));
 
@@ -1689,7 +1921,8 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612058753293877274/640758529397096459/oil.png`,
                 `mom also found the rosemary`,
                 `mom found the olive oil :disappointed_relieved:`,
-                `read the lenin quote I posted earlier`];
+                `read the lenin quote I posted earlier`,
+                `I was thinking about theology and basically realized I was better than god`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -1703,7 +1936,8 @@ client.on('message', async message => {
         var c = [`https://docs.google.com/document/d/13i9BclOxbtFM4yWVTI3vHBvlgBGyhTEVATd-B7hbLZ0/edit?usp=sharing`,
                 `https://docs.google.com/document/d/1FHU80Z9xMjJxrXcx95V7Q3LCkU3Syt2CWLLyQYQN4qk`,
                 `https://cdn.discordapp.com/attachments/598336899010003015/599294726817972231/image0.jpg`,
-                `bug catcher baby driver wants to battle!`];
+                `bug catcher baby driver wants to battle!`,
+                `https://cdn.discordapp.com/attachments/612063946643472389/642569001146515467/unknown.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -1972,7 +2206,7 @@ client.on('message', async message => {
         var onepercent = (Math.random() * 100);
 
         if (onepercent >= 99) {
-            message.channel.send('you see it');
+            message.channel.send('you see it', { file: `https://cdn.discordapp.com/attachments/612063946643472389/645138709519532042/EJcYwlBUcAA70SD.png` });
         } else {
             var c = [`you hate to see it`,
                     `you love to see it`];
@@ -2083,7 +2317,8 @@ client.on('message', async message => {
                 `wasting your money and time.`,
                 `convincing all of your friends to play a shitty game.`,
                 `being a metroidvania for marth mains.`,
-                `being such a safe space that not even the gameplay can get you.`];
+                `being such a safe space that not even the gameplay can get you.`,
+                `Dark Souls if Dark Souls was bad.`];
 
         var r = Math.floor((Math.random() * d.length));
 
@@ -2108,7 +2343,8 @@ client.on('message', async message => {
                 `**diminnuendo** is typing...`,
                 `https://media.discordapp.net/attachments/612058753293877274/614814529641250816/ezgif-4-3e8037e6fc2f.gif`,
                 `im@gay`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/633728307065520129/8x1o66ghvtb01.jpg`];
+                `https://cdn.discordapp.com/attachments/612058753293877274/633728307065520129/8x1o66ghvtb01.jpg`,
+                `<:popperga:659868423551189012> :pinching_hand: <a:dimi:614821651812581403>`];
 
         var r = Math.floor((Math.random() * d.length));
 
@@ -2153,12 +2389,16 @@ client.on('message', async message => {
                 `SubjectiveF`,
                 `Sub`,
                 `ADLP`,
+                `Airplane`,
                 `anime lover`,
                 `Antiprompt`,
                 `Brio`,
-                `Cagliostro`,
+                `Bubbles`,
+                `Cael`,
+                `Cag`,
                 `Chandy`,
                 `Coffee`,
+                `Coriamon`,
                 `Cuck Daddy`,
                 `Darsh`,
                 `dimi`,
@@ -2168,16 +2408,23 @@ client.on('message', async message => {
                 `Zimwit`,
                 `Draco`,
                 `DuckNumbers`,
-                `Cael`,
+                `Farmstink`,
+                `Goiter`,
+                `Goloche`,
+                `IceMaster`,
                 `Loscar`,
                 `midnight`,
+                `Risc`,
                 `Rognut`,
+                `Rootnut`,
                 `Silver`,
+                `Skrt`,
+                `Soap`,
+                `Stream Mommy`,
                 `Struc`,
                 `Sugden`,
                 `Winnarly`,
-                `Wub`,
-                `Risc`];
+                `Wub`];
 
         var r = Math.floor((Math.random() * d.length));
 
@@ -2197,6 +2444,28 @@ client.on('message', async message => {
 
     if (command === `DUCKFUCKINGNUMBERS`) {
         message.channel.send(`**DUCK** \n**FUCKING** \n**NUMBERS**`);
+    }
+
+
+    //Farmstink
+
+    if (command === `FARMSTINK` || command === `FARM` || command === `STINK`) {
+        var f = [`“Now you’re really going to get punished for those f smashes you little bitch”`,
+            `Darsh stomps his way over to the timid falco player, unbuttoning his pants as he moves.`,
+            `Darsh finished undressing, revealing his rock hard musculature. Anti notices that something else is hard too, and can’t help but become aroused himself. His lust only grows as Darsh moonwalks closer.`,
+            `Darsh now towers above anti, his sweat dripping onto the smaller man’s pale skin. “Goiter showed me this move,” Darsh bellows. In an instant, Darsh throws Anti up onto his bed and begins to drill his virgin ass.`,
+            `This mixup confuses Anti at first. “Darsh just walked in here and started drilling my ass and I CAN’T do ANYTHING” he thinks.`,
+            `In this euphoric state, his mind wonders and his consciousness grows. He becomes falco, and Darsh is sheik full hopping at him. He knows - no, understands - that there is nothing he can do. That total loss of control only makes him desire Darsh more.`,
+            `For Darsh, it was never about the sex. He could get laid anytime he wanted. Granted, he could never keep up with Goiters appetite, but sex was never hard to come by.`,
+            `Something about seeing Anti’s twink ass bouncing against him was different. It felt good, of course. God did it feel good. But there was also something else. This wasn’t just sex, it was a demonstration.`,
+            `Anti’s ass became his world, and Darsh needed to show the world how sick he was.`,
+            `Darsh came without warning, filling Anti’s ass with his warm coom. “That was a crazy mixup,” Anti thought to himself. He knew he could never say it out loud.`,
+            `He liked getting fucked by Darsh, and Darsh liked fucking him. But to acknowledge this would be to ruin it, and they both knew it. Instead, they would go back to playing their games. Darsh, the masculine champion of the people, and Anti, the insubordinate twink.`,
+            `Darsh pulled away and watched his viscous coom slowly drip out of Anti’s ass. “Stand up,” he said with a surprising amount of affection. “I’ll show you how to sticky walk.”`];
+
+            var r = Math.floor((Math.random() * f.length));
+
+            message.channel.send(f[r]);
     }
 
 
@@ -2225,6 +2494,13 @@ client.on('message', async message => {
         var r = Math.floor((Math.random() * g.length));
 
         message.channel.send(g[r]);
+    }
+
+
+    //Goloche
+
+    if (command === `GOLOCHE`) {
+        message.channel.send(`Theres nothing worth saying`);
     }
 
 
@@ -2323,7 +2599,21 @@ client.on('message', async message => {
                 `infinite Boomers Defend Wackery`,
                 `if Boomer, Drown Well`,
                 `ionic Bonding Destroys Walls`,
-                `i Be Docking Weiners`];
+                `i Be Docking Weiners`,
+                `i Be Shittin`];
+
+        var r = Math.floor((Math.random() * i.length));
+
+        message.channel.send(i[r]);
+    }
+
+
+    //IceMaster
+
+    if (command === `ICE` || command === `ICEMASTER`) {
+        var i = [`I've decided that in tournament as Marf, my tag is Scotty-Doo, because he just do, ya know?\nBut when I enter as Falco... my tag will be Scotty-Flex.\n\nIt's perfect.`,
+            `And the marfs in the cradle and the silver spoon... Hungrybox is the tru man-on-da-moon. When we gonna mm I don't know when... but I'll put a stop him thennn, I said I'm gonna stop him right thenn`,
+            `Do you think "Onion Bless" is a slightly charming, yet overall pretty cool name?`];
 
         var r = Math.floor((Math.random() * i.length));
 
@@ -2379,7 +2669,8 @@ client.on('message', async message => {
                 `Taco Bell`,
                 `a community outreach meeting`,
                 `the airport to go to Nigeria`,
-                `a Nigerian local`];
+                `a Nigerian local`,
+                `a WoW raid`];
 
         var r = Math.floor((Math.random() * l.length));
 
@@ -2552,7 +2843,7 @@ client.on('message', async message => {
 
     //Risc
 
-    if (command === `RISC` || command === `BESTDK`) {
+    if (command === `RISC` || command === `BESTDK` || command === `SCHEDULE`) {
         //message.channel.send(`7:00 - we wake up to eat breakfast together, no cornflakes because cornflakes suck\n8:00 - we shower in shared bathrooms, except cael and airplane because they are minors. We all rub each others back for extra freshness\n8:30 - we pee together :)\n8:45 - uh oh, time for school and work! While cael and airplane go to preschool, we adults go to uni, college or work to make money and learn something new!\n13:00 - we have a collective skype session with lunch. Cael and airplane get some applesauce, sugden throws his vegetables off of his plate, darsh has a protein bar and the rest eats a sandwhich!\n13:30 - uh oh! Naptime for airplane and cael! We sing a lullaby for them so they fall asleep through skype and we start studying and working again.\n16:00 - its time to go home for a good session of lame melee, coffee and anti have been looking forward for this the whole day whole Darsh has prepared his sheik spiel against soap! Its wonderful! \n18:30 - its time for dinner, after which we watch sesame street together and have a lot of fun :)\n19:30 - airplane and cael will brush their teeth and go to bed while the rest are in a heated discussion which sesame street member has the most sex\n20:00 - it is clear that big bird has the most sex. We start playing melee again!\n22:30 - the non degens are slowly getting to bed, while Brio, A, Loscar, Anti and strucc are going to play a "couple" of dota games. Sugden stays awake to.try and convince them.to play melee, but alas, luckily soap is able to play sugden and they have the best (fd banned!) Fox dittos they could ask for`);
 
         /*var events = [`We eat breakfast together, no cornflakes because cornflakes suck.`,
@@ -2645,7 +2936,171 @@ client.on('message', async message => {
           schedule += events[r];
       }*/
 
-      message.channel.send('Creeper? Aww man');
+      //message.channel.send('Creeper? Aww man');
+
+      var input = ["7:00 - we wake up to eat breakfast together, no cornflakes because cornflakes suck ",
+"8:00 - we shower in shared bathrooms, except cael and airplane because they are minors. We all rub each others back for extra freshness ",
+"8:30 - we pee together :)",
+"8:45 - uh oh, time for school and work! While cael and airplane go to preschool, we adults go to uni, college or work to make money and learn something new!",
+"13:00 - we have a collective skype session with lunch. Cael and airplane get some applesauce, sugden throws his vegetables off of his plate, darsh has a protein bar and the rest eats a sandwhich!",
+"13:30 - uh oh! Naptime for airplane and cael! We sing a lullaby for them so they fall asleep through skype and we start studying and working again.",
+"16:00 - its time to go home for a good session of lame melee, coffee and anti have been looking forward for this the whole day whole Darsh has prepared his sheik spiel against soap! Its wonderful!",
+"18:30 - its time for dinner, after which we watch sesame street together and have a lot of fun :)",
+"19:30 - airplane and cael will brush their teeth and go to bed while the rest are in a heated discussion which sesame street member has the most sex",
+"20:00 - it is clear that big bird has the most sex. We start playing melee again!",
+"22:30 - the non degens are slowly getting to bed, while Brio, A, Loscar, Anti and strucc are going to play a \"couple\" of dota games. Sugden stays awake to.try and convince them.to play melee, but alas, luckily soap is able to play sugden and they have the best (fd banned!) Fox dittos they could ask for",
+"6:00 - AL fishing for halloween dogs to show up :point_down: :dog2:",
+"6:30 - ALL DAY BABY",
+"7:00 - Chandy trying to explain to TimCord while Mario Tennis is actually the best mario ever created",
+"7:30 - soap :slight_smile: ing to hide the pain of maining a boring character as sheik",
+"8:00 - Silver planning the next movienight whilst TimCord doesnt pay attention",
+"8:30 - Darsh jerking himself off how cool his fadeback fairing ganon is",
+"9:00 - Cag having sex with the 8th bitch of this week",
+"9:30 - Loscar is teaching the children how to do drugs",
+"10:00 - Airplane has locked himself in the bathroom and won’t come out",
+"10:30 - Risc is arrested for doing racist impressions on the front lawn of the TimMansion",
+"11:00 - we take Timmy and Sunny for a walk",
+"11:30 - art time! we make our own memes :)",
+"12:00 - we eat a late breakfast",
+"12:30 - we take the zoomers on a field trip to the zoo",
+"12:00 - we take extra time on the toilet to poo together as well",
+"12:00 - AL is showing predatory behaviours towards weebs and burns down a Japanese village",
+"12:00 - we die :)",
+"13:00 - Sugden holds spotw voting",
+"13:30 - we all go to wendy’s and get the 4 for 43",
+"12:00 - Darsh gives advice to go the gym",
+"12:00 - Darsh goes to the gym and secretly eats 3 cakes and cries",
+"12:00 - Silver creates another event which immediately gets shot down",
+"12:00 - Cael schedules his weekly MM and his boxx malfunctions",
+"0:00 - Sugden swears he will sleep in a bit to stay awake for another 5 hours",
+"3:30 - Sugden has been awake for 46 hours trying to fix his sleep schedule",
+"14:00 - we play minecraft and stream mommy builds more dirt towers :)",
+"19:30 - Sugden has been awake for roughly 6 days now to finish his Minecraft base",
+"21:00 - bjartskular turns up for the timcord tourney to never be seen ever again",
+"18:30 - airplane leaves timcord",
+"18:31 - airplane joins timcord",
+"15:00 - CPU fights! Sugden still hasn’t downloaded 20XX",
+"5:25 - loscar joins voice chat while partying in a gay strip club",
+"14:30 - AL invents a new word and it becomes a meme",
+"13:00 - Risc meets a cute monky",
+"15:30 - Sugden goes on a date but maintains his stance that he will never cum",
+"16:00 - Sugden rants about how we should never cum and never do drugs",
+"16:30 - we have pizza for dinner but airplane drops his on the floor, airplane moment!",
+"14:00 - Loscar and Risc have life sciences club",
+"14:01 - Loscar decides Life Sciences club was a bad idea",
+"14:02 - Loscar leaves Life Sciences club",
+"14:03 - Loscar Leaves Life",
+"16:20 - We calculate the amount of Oreo'Os that fit in a coffee cup, it’s 216",
+"18:00 - We eat an healthy dinner because airplane's mom cooked us some delicious rice :)",
+"19:00 - Darsh and SubjectiveF reunite and talk about the good ol days",
+"14:00 - Cael shows Timcord his new super deluxe beyblade and rips it like bubbles rips them underneath the sheets",
+"22:30 - Darsh and SubjectiveF are drunk prank calling chandy about Starfox 64",
+"23:00 - adlp is called to investigate drunk and dissorderly Boomers.",
+"18:30 - we argue if falco laser is good, coriamon still says no",
+"9:20 - /r/nwordsafespace is created",
+"9:21 - /r/nwordsafespace is quarantined by reddit admins",
+"12:00 - 3 more subreddits dedicated to calling out Draconitix as annoying are found",
+"19:30 - we collectively shit on leffen for his latest tweet",
+"20:00 - Mango wins a tournament! MANGO MANGO MANGO WOOOOOOO",
+"16:00 - Darsh changes his spiel from Sheik to Fox to Coffee back to Sheik",
+"22:30 - KARAOKE TIME WITH THE BOYS",
+"23:00 - we all read worm together :)",
+"9999:00 - we all finish reading worm",
+"9999:01 - heat death of the universe",
+"14:00 - MPGR top 40 is released, not the rankings the top 40 songs that PTAS likes",
+"17:33 - Silver changes mains to Doc and changes his tag to Pillusion",
+"44:12 - Chat is moving so fast no one will see I’m not gay anymore thanks to obama the healing power of jesus christ. (same guy)",
+"14:88 - Nico, nico, ni****",
+"1:00 - lole",
+"2:00 - :geg:",
+"2:00 - :grab2: :geg:",
+"2:00 - :yey:",
+"2:00 - :eye:",
+"2:00 - :yey: :eye::yey:",
+"2:30 - stream mommy has a hot take",
+"Never - stream mommy has a good take",
+"3:15 - Sugden has the flu",
+"3:00 - Midnight hangs out with Sam and PJ",
+"3:10 - Sam Leaves",
+"3:15 - Sam Wilson is heard on Brio’s Mic",
+"3:20 - Winnarly is heard telling Brio that they have to go to Midnights",
+"3:25 - Brio is too busy on a gungeon run and stays",
+"3:30 - Winnarly can be heard on Midnight’s Mic with PJ",
+"3:40 - Midnight is heard on Brio’s Mic asking where Winnarly is",
+"3:50 - Silver is heard on Midnight’s mic and tells Brio that Midnight is looking for him",
+"4:00 - Brio starts eating pizza",
+"5:00 - Brio is halfway done eating pizza",
+"6:00 - dimi comes back online but he is in france again because Paris has his heart",
+"8:00 - dimi realizes he can’t afford france and has to live in Nice",
+"9:00 - Drew asks about mixtape signups, he’s already signed up five times",
+"9:10 - a joke goes over Drew’s head",
+"10:00 - Rootnut finally snaps and murders his roommate for Rocket Leaguing too loudly",
+"11:00 - adlp and rootnut cover up the murder",
+"12:00 - Rootnut gets the best sleep of his life",
+"11:11 - Coriamon has no comment about the Nightmare situation",
+"17:00 - Risc is planning yet another TimCord meetup, no one attends",
+"13:50 - Cael and Rognut make a porno uh oh stinky",
+"15:30 - Project cancelled because cael’s internet is shut off by his parents",
+"15:45 - Project M is cancelled again",
+"16:00 - soap is caught stealing candy from airplane! Oh no!",
+"10:00 - DeadCord",
+"10:00 - Sorry, we just had a big lunch! :slight_smile: :+1:",
+"18:00 - ||you hate to see it||",
+"16:30 - Silver starts another candy event and half the server ~~leaves~~ dies",
+"23:30 - IceMaster joins voice chat",
+"8:50 - IceMaster stays on voice chat for 19 hours and says nothing ",
+"19:30 - IceMaster crabs after a month of absence, he rolls a 10.",
+"7:15 - we all do our morning crab :)",
+"3:45 - AL is unhackable because he runs linux like an idiot",
+"3:46 - AL installs windows so he can netplay",
+"3:47 - AL gets hacked",
+"5:45 - airplane joins voice, asks if anyone is playing, and leaves after 2 seconds",
+"4:00 - Loscar becomes unhackable because he switches to system33",
+"6:15 - we watch the stream of the first nigerian melee tournament!",
+"3:59 - Loscar is unhackable because he is homeless because he spends all day shitposting",
+"8:15 - a group of spies raid the Tederal Reserve and all TedCoin is lost",
+"8:20 - Ted deletes a random discord server",
+"8:30 - funds sent towards the first nigerian melee tournament get lost because they do not accept TimCoin as a valid currency.",
+"18:00 - we make a second Sugden Appreciation Server :)",
+"11:15 - a girl at school gives cael a tamagotchi",
+"14:30 - cael wins his first beyblade tournament",
+"17:20 - cael goes 0-2 at a beyblade local",
+"16:30 - Coffee goes to a local and loses to 2 random fox mains",
+"17:00 - protests are held to disband the dictatorship which is TimCord. It fails, horribly.",
+"21:37 - Goloche is forgotten to be included in the !risc command",
+"16:10 - cael's mom finds the olive oil",
+"14:00 - RootNut is streaming PoE, but no one watches.",
+"20:20 - Sugden fell down a well! oh no!",
+"21:00 - uh oh, stinky!",
+"23:15 - stream mommy starts a semantics argument",
+"0:30 - Sugden is outed as a white nationalist"];
+
+
+
+        var finalOutput = '';
+
+        var min = Math.ceil(5);
+        var max = Math.floor(15);
+        var r = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        //var r = Math.floor((Math.random() * 14));
+
+        for (var i = 0; i < r; i++) {
+            var min2 = Math.ceil(5);
+            var max2 = Math.floor(25);
+            var r2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+
+            let markov = new MarkovGen({
+                input: input,
+                minLength: r2
+            });
+
+            var result = markov.makeChain();
+            finalOutput += result;
+            finalOutput += '\n';
+        }
+
+        message.channel.send(''+finalOutput);
     }
 
 
@@ -2656,10 +3111,28 @@ client.on('message', async message => {
     }
 
 
+    //Rootnut
+
+    if (command === `ROOT` || command === `ROOTNUT` || command === `NUT`) {
+        var min2 = Math.ceil(15);
+        var max2 = Math.floor(99);
+        var r2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+
+        message.channel.send(`Has made `+r2+` PoE builds and counting this league\n\nThey're all facebreakers`);
+    }
+
+
     //Sailormercury
 
     if (command === `REPLYGUY` || command === `:REPLYGUY:` || command === `SM` || command === `MERCURY` || command === `SAILOR` || command === `SAILORMERCURY` || command === `REDSHEIK`) {
         message.channel.send(`I MADE THE FUCKING POST\nFUCK you. I **FUCKING** HATE YOU. FUCK you.\nFUCK YOU.`);
+    }
+
+
+    //SFAT
+
+    if (command === `SFAT`) {
+        message.channel.send(`https://cdn.discordapp.com/attachments/612063670297427978/650057908851179553/unknown.png`);
     }
 
 
@@ -2719,7 +3192,16 @@ client.on('message', async message => {
             `Big Time Rush`,
             `BTR`,
             `dummy high apm`,
-            `APM`];
+            `APM`,
+            `Big Lunch`,
+            `Nice list :)`,
+            `Slight Smile`,
+            `:slight_smile:`,
+            `this`,
+            `all of my this`,
+            `Big Time Lunch`,
+            `chick-fil-a`,
+            `CFA`];
 
         var name = [`Soap`,
             `Soap`,
@@ -2747,6 +3229,13 @@ client.on('message', async message => {
         fullName += name[r2];
 
         message.channel.send(fullName);
+    }
+
+
+    //Stream mommy
+
+    if (command === `STREAM` || command === `STREAMMO` || command === `STREAMMOMENTUM` || command === `STREAMOMENTUM` || command === `MOMMY` || command === `STREAMMOMMY`) {
+        message.channel.send(`Okay I said some dumb shit`);
     }
 
 
@@ -3030,7 +3519,8 @@ client.on('message', async message => {
                 `lgl will actually hurt amsa and ultimate2king too? we should only be trying to target hbox here, ok?`,
                 `78% of black people live underground and only come up after sundown.`,
                 `in the PAL version of Super Smash Bros. Melee, Marth, Roy, Link, and Young Link had their swords completely removed from the game?`,
-                `the claps in Death Grips 'Spread Eagle Across the Block' are actually skateboard wheels hitting pavement?`];
+                `the claps in Death Grips 'Spread Eagle Across the Block' are actually skateboard wheels hitting pavement?`,
+                `Filipino's are the most powerful race in the world?`];
 
         var t = [`Wow!`,
                 `It's true!`,
@@ -3578,6 +4068,8 @@ client.on('message', async message => {
                 board = 'halloween';
             } else if (args[0] === `MESSAGE` || args[0] === `MESSAGES` || args[0] === `MSG` || args[0] === `MSGS`) {
                 board = 'messages';
+            } else if (args[0] === `SNOW` || args[0] === `SNOWBALL` || args[0] === `SNOWBALLS` || args[0] === `CHRISTMAS` || args[0] === `XMAS` || args[0] === `EVENT`) {
+                board = 'christmas';
             }
         }
 
@@ -3608,6 +4100,49 @@ client.on('message', async message => {
 9 - ${ninthplace && ninthplace.username || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
 10 - ${tenthplace && tenthplace.username || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}
 22 - ${twentysecondplace && twentysecondplace.username || 'Nobody Yet'}: ${users[21] && users[21].level || '0'}`)
+            })
+        } else if (board === 'christmas') {
+            await snowlvl.Leaderboard({ }).then(async users => {
+                console.log(users);
+                if (users[0]) var firstplace = await client.fetchUser(users[0].userid);
+                if (users[1]) var secondplace = await client.fetchUser(users[1].userid);
+                if (users[2]) var thirdplace = await client.fetchUser(users[2].userid);
+                if (users[3]) var fourthplace = await client.fetchUser(users[3].userid);
+                if (users[4]) var fifthplace = await client.fetchUser(users[4].userid);
+                if (users[5]) var sixthplace = await client.fetchUser(users[5].userid);
+                if (users[6]) var seventhplace = await client.fetchUser(users[6].userid);
+                if (users[7]) var eighthplace = await client.fetchUser(users[7].userid);
+                if (users[8]) var ninthplace = await client.fetchUser(users[8].userid);
+                if (users[9]) var tenthplace = await client.fetchUser(users[9].userid);
+                if (users[10]) var eleventhplace = await client.fetchUser(users[10].userid);
+                if (users[11]) var twelfthplace = await client.fetchUser(users[11].userid);
+
+                let firstteam = fetchTeamName(fetchTeam(users[0].userid));
+                let secondteam = fetchTeamName(fetchTeam(users[1].userid));
+                let thirdteam = fetchTeamName(fetchTeam(users[2].userid));
+                let fourthteam = fetchTeamName(fetchTeam(users[3].userid));
+                let fifthteam = fetchTeamName(fetchTeam(users[4].userid));
+                let sixthteam = fetchTeamName(fetchTeam(users[5].userid));
+                let seventhteam = fetchTeamName(fetchTeam(users[6].userid));
+                let eigthteam = fetchTeamName(fetchTeam(users[7].userid));
+                let ninthteam = fetchTeamName(fetchTeam(users[8].userid));
+                let tenthteam = fetchTeamName(fetchTeam(users[9].userid));
+                let eleventhteam = fetchTeamName(fetchTeam(users[10].userid));
+                let twelfthteam = fetchTeamName(fetchTeam(users[11].userid));
+
+                message.channel.send(`**Snowball Fight Leaderboard**
+1 - ${firstteam}: ${users[0] && users[0].level || '0'}
+2 - ${secondteam}: ${users[1] && users[1].level || '0'}
+3 - ${thirdteam}: ${users[2] && users[2].level || '0'}
+4 - ${fourthteam}: ${users[3] && users[3].level || '0'}
+5 - ${fifthteam}: ${users[4] && users[4].level || '0'}
+6 - ${sixthteam}: ${users[5] && users[5].level || '0'}
+7 - ${seventhteam}: ${users[6] && users[6].level || '0'}
+8 - ${eigthteam}: ${users[7] && users[7].level || '0'}
+9 - ${ninthteam}: ${users[8] && users[8].level || '0'}
+10 - ${tenthteam}: ${users[9] && users[9].level || '0'}
+11 - ${eleventhteam}: ${users[10] && users[10].level || '0'}
+12 - ${twelfthteam}: ${users[11] && users[11].level || '0'}`)
             })
         } else if (board === 'messages' || board === 'default') {
             await msglvl.Leaderboard({ /*limit: 10*/ }).then(async users => {
@@ -3645,6 +4180,8 @@ client.on('message', async message => {
                 rank = 'halloween';
             } else if (args[0] === `MESSAGE` || args[0] === `MESSAGES` || args[0] === `MSG` || args[0] === `MSGS`) {
                 rank = 'messages';
+            } else if (args[0] === `SNOW` || args[0] === `SNOWBALL` || args[0] === `SNOWBALLS` || args[0] === `CHRISTMAS` || args[0] === `XMAS` || args[0] === `EVENT`) {
+                rank = 'christmas';
             }
         }
 
@@ -3656,6 +4193,15 @@ client.on('message', async message => {
             var balance = await lvl.Fetch(message.author.id)
 
             message.channel.send(`You are rank ${output} with ${balance.level} candies.`);
+        } else if (rank === 'christmas') {
+            var output = await snowlvl.Leaderboard({
+                search: fetchTeamFirstMember(fetchTeam(message.author.id))
+            });
+
+            var balance = await snowlvl.Fetch(fetchTeamFirstMember(fetchTeam(message.author.id)));
+            var teamName = fetchTeamName(fetchTeam(message.author.id));
+
+            message.channel.send(`${teamName} is rank ${output} with a score of ${balance.level}.`);
         } else if (rank === 'messages' || rank === 'default') {
             var output = await msglvl.Leaderboard({
                 search: message.author.id
@@ -3667,10 +4213,23 @@ client.on('message', async message => {
         }
     }
 
+    if (command === `TEAM`) {
+        var teamId = fetchTeam(message.author.id);
+        console.log('Team ID: '+teamId);
+        var output = await snowlvl.Leaderboard({
+            search: fetchTeamFirstMember(teamId)
+        });
+
+        var balance = await snowlvl.Fetch(fetchTeamFirstMember(teamId));
+        var teamName = fetchTeamName(teamId);
+
+        message.channel.send(`You are a part of ${teamName} and are rank ${output} with a score of ${balance.level}.`);
+    }
+
 
     //Netplay
 
-    if(command === `NETPLAY`) {
+    if(command === `NETPLAY` || command === `PLAY`) {
         var netplayMessage = `${sender.username} would like to play! `;
 
         if (message.member.roles.find(`name`, `VS-NW`)) {
@@ -3894,14 +4453,14 @@ client.on('message', async message => {
     }
 
     if (command === `MESSAGEADD`) {
-        /*if (!message.member.roles.find("name", modRole2)) {
+        if (!message.member.roles.find("name", modRole2)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
                 .setDescription('This command requires the ' + modRole2 + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
-        }*/
+        }
 
         let firstMentioned = message.mentions.users.first();
 
@@ -4137,6 +4696,191 @@ client.on('message', async message => {
     }
 
     //Leaderboards and leveling
+
+    /*if (command === `ADMINUPDATESCORES`) {
+        if (message.author.id == 72734539834720256) {
+            await snowlvl.AddLevel(72734539834720256, 54);
+                await snowlvl.AddLevel(337284886039625728, 89);
+                    await snowlvl.AddLevel(177545664757104640, 63);
+                        await snowlvl.AddLevel(562824176700882964, 58);
+                            await snowlvl.AddLevel(239503073586708481, 49);
+                                await snowlvl.AddLevel(212018836474560513, 23);
+                                    await snowlvl.AddLevel(202258713002639360, 2);
+                                        await snowlvl.AddLevel(167375258012221441, 2);
+                                            await snowlvl.AddLevel(177461438921703434, 2);
+            message.channel.send('done');
+        } else {
+            message.channel.send('not for you, fuck off');
+        }
+    }*/
+
+    if (command === `TEAMS` || command === `TEAMMEMBERS`) {
+        var team1 = await msglvl.Leaderboard({
+            search: 72734539834720256
+        });
+
+        var team2 = await msglvl.Leaderboard({
+            search: 337284886039625728
+        });
+
+        var team3 = await msglvl.Leaderboard({
+            search: 202258713002639360
+        });
+
+        var team4 = await msglvl.Leaderboard({
+            search: 239503073586708481
+        });
+
+        var team5 = await msglvl.Leaderboard({
+            search: 212018836474560513
+        });
+
+        var team6 = await msglvl.Leaderboard({
+            search: 562824176700882964
+        });
+
+        var team7 = await msglvl.Leaderboard({
+            search: 177545664757104640
+        });
+
+        var team8 = await msglvl.Leaderboard({
+            search: 151811295711068161
+        });
+
+        var team9 = await msglvl.Leaderboard({
+            search: 177461438921703434
+        });
+
+        var team10 = await msglvl.Leaderboard({
+            search: 167375258012221441
+        });
+
+        var team11 = await msglvl.Leaderboard({
+            search: 368817136182886411
+        });
+
+        var team12 = await msglvl.Leaderboard({
+            search: 646446533407145986
+        });
+
+        message.channel.send(`**${fetchTeamName(1)}:** Soap, Risc, and Silver\n**${fetchTeamName(2)}:** Sugden, AL, and Dimi\n**${fetchTeamName(3)}:** Midnight, Brio, and Winnarly\n**${fetchTeamName(4)}:** Farmstink, Bubbles, and Icemaster\n**${fetchTeamName(5)}:** Airplane, Skrt, and Coriamon\n**${fetchTeamName(6)}:** Coffee, Cael, and Rognut\n**${fetchTeamName(7)}:** Draco, Wub, and Darsh\n**${fetchTeamName(8)}:** Cag, Stream, and Zeno\n**${fetchTeamName(9)}:** Loscar, Goiter, and SubF\n**${fetchTeamName(10)}:** ADLP, Rootnut, and Cuck\n**${fetchTeamName(11)}:** Drew, Struc, and Ted\n**${fetchTeamName(12)}:** Goloche, Resting, and Bjart`);
+    }
+
+    function fetchTeam(userId) {
+        if (userId == 72734539834720256 || userId == 174695854924365824 || userId == 185839155438157832) { //silver, soap, risc
+            return 1;
+        } else if (userId == 337284886039625728 || userId == 343953414335496195 || userId == 324723893635907584) { //sugden, al, dimi
+            return 2;
+        } else if (userId == 202258713002639360 || userId == 129820441014435840 || userId == 80434004188200960) { //midnight, brio, winnarly
+            return 3;
+        } else if (userId == 239503073586708481 || userId == 172862174979555331 || userId == 407120766459707392) { //farmstink, bubbles, icemaster
+            return 4;
+        } else if (userId == 212018836474560513 || userId == 276110325575843840 || userId == 136999091354861569) { //airplane, skrt, cori
+            return 5;
+        } else if (userId == 562824176700882964 || userId == 247185195692720128 || userId == 253204535433101323) { //coffee, cael, rognut
+            return 6;
+        } else if (userId == 177545664757104640 || userId == 91304895465926656 || userId == 151073927798587394) { //draco, wub, darsh
+            return 7;
+        } else if (userId == 151811295711068161 || userId == 262665230406909953 || userId == 183963049512796160) { //cag, stream, zeno
+            return 8;
+        } else if (userId == 177461438921703434 || userId == 602985157061771333 || userId == 196333675460296704) { //loscar, goiter, subf
+            return 9;
+        } else if (userId == 167375258012221441 || userId == 480605174759686164 || userId == 175333417481666571) { //adlp, rootnut, cuck
+            return 10;
+        } else if (userId == 368817136182886411 || userId == 437179896813584387 || userId == 246994286145437696) { //drew, struc, ted
+            return 11;
+        } else if (userId == 646446533407145986 || userId == 566828080576987156 || userId == 197027859238354944) { //goloche, resting, bjart
+            return 12;
+        } else if (userId == 434764602623000576) { //Test acct
+            return 13;
+        } else { //Not in cluded
+            console.log('Undefined user - '+userId);
+            return 14;
+        }
+    }
+
+    function fetchTeamFirstMember(teamId) {
+        if (teamId == 1) {
+            return 72734539834720256;
+        } else if (teamId == 2) {
+            return 337284886039625728;
+        } else if (teamId == 3) {
+            return 202258713002639360;
+        } else if (teamId == 4) {
+            return 239503073586708481;
+        } else if (teamId == 5) {
+            return 212018836474560513;
+        } else if (teamId == 6) {
+            return 562824176700882964;
+        } else if (teamId == 7) {
+            return 177545664757104640;
+        } else if (teamId == 8) {
+            return 151811295711068161;
+        } else if (teamId == 9) {
+            return 177461438921703434;
+        } else if (teamId == 10) {
+            return 167375258012221441;
+        } else if (teamId == 11) {
+            return 368817136182886411;
+        } else if (teamId == 12) {
+            return 646446533407145986;
+        } else {
+            console.log(`Undefined team - first member `+teamId);
+            return 'Undefined Team';
+        }
+    }
+
+    function fetchTeamName(teamId) {
+        if (teamId == 1) {
+            return 'Arctic Monkeys :slight_smile: :thumbsup:';
+        } else if (teamId == 2) {
+            return 'ough...';
+        } else if (teamId == 3) {
+            return 'Starkville Stanglers';
+        } else if (teamId == 4) {
+            return 'team cool dudes only ok';
+        } else if (teamId == 5) {
+            return 'Team Canada';
+        } else if (teamId == 6) {
+            return ':sun_with_face: :dragon_face:';
+        } else if (teamId == 7) {
+            return 'Team 7';
+        } else if (teamId == 8) {
+            return 'The Astros';
+        } else if (teamId == 9) {
+            return 'Team Loscar';
+        } else if (teamId == 10) {
+            return 'Mormon Jamz';
+        } else if (teamId == 11) {
+            return 'Team Toxic Gamers';
+        } else if (teamId == 12) {
+            return 'Team Netplay';
+        } else {
+            console.log(`Undefined team - team name`);
+            return 'Undefined Team';
+        }
+    }
+
+    if (command === `TEAMTEST`) {
+        message.channel.send(returnTeam(message.author.id));
+    }
+
+    if (command === `REWARD` || command === `PRIZE` || command === `GIMME`) {
+        var profile = await lvl.Fetch(message.author.id);
+
+        if (profile.xp == 1) {
+            await lvl.SetXp(message.author.id, 2); //Set as claimed
+            var results = await eco.AddToBalance(message.author.id, profile.level); //Give level to them in sbux
+
+            const embed = new Discord.RichEmbed() //Send message
+                .setTitle(`${message.member.displayName}\'s Balance`)
+                .setColor(0xF1C40F)
+                .addField(currencyName, `${results.newbalance}`, true)
+            message.channel.send({embed});
+        } else if (profile.xp == 2) {
+            message.channel.send(`Sorry, you've already claimed your reward.`);
+        }
+    }
 
 
     //TedCoin
