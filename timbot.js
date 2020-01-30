@@ -17,7 +17,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.4.0 Launched');
+    console.log('TimBot v1.6.1 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -100,7 +100,7 @@ client.on('message', async message => {
 
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.6.0 Patch Notes, The 500 Quote Update, 1/26/20`) //1.3.0 on 10/19/19, 1.4.0 on 11/08/19, 1.5.0 on 12/08/19, 1.5.1 on 12/20/19
+            .setTitle(`TimBot v1.6.1 Patch Notes, The 500 Quote Update, 1/29/20`) //1.3.0 on 10/19/19, 1.4.0 on 11/08/19, 1.5.0 on 12/08/19, 1.5.1 on 12/20/19, 1.6.0 on 1/26/20
             .setColor(0x2d64f1) //0x2d64f1
             .addField(`!risc`, `Reworked command`, true)
             .addField(`!soap`, `Added several sponsors`, true)
@@ -112,7 +112,7 @@ client.on('message', async message => {
             .addField(`!drew`, `Updated with new users`, true)
             .addField(`!dimi`, `Added new outcome`, true)
             .addField(`!calendar`, `Updated`, true)
-            .addField(`!quote`, `Added 52 new quotes, 500 TOTAL WOOOOOOOOO`, true)
+            .addField(`!quote`, `Added 63 new quotes, 500 TOTAL WOOOOOOOOO (11 since 1.6.0)`, true)
             .addField(`!comic`, `Added 8 new comics`, true)
 
 
@@ -717,7 +717,18 @@ client.on('message', async message => {
             `Receiving a gift is like receiving a homie stock`,
             `Not SDing is a core gameplay skill\nIf your opponent SDs 4 times you outplayed them`,
             `If you've had consensual sex you cannot be a gamer\nUnless she was in cosplay\nThen you're a certified gamer`,
-            `Fortunately, women are unable to give consent under the crushing weight of systemic patriarchal power structures crippling their autonomy.\nSo I have not had consensual sex.`];
+            `Fortunately, women are unable to give consent under the crushing weight of systemic patriarchal power structures crippling their autonomy.\nSo I have not had consensual sex.`, //LAST FROM 1.6.0
+            `Slavery was the original chaingrabbing`,
+            `slave waging is the modern day sheik tech chase`,
+            `If Hitler were real he would be soyfacing over his own funko pop`,
+            `Falco is the floaty mid tier of fast fallers`,
+            `what a monster jam by pussylicker69!`,
+            `bbbddxvxxx\nroman e-girl stating her body count ^^^^`,
+            `I used to put marker caps on my fingers and pretend to be mewtwo`,
+            `:woman_with_headscarf: :arrow_right: :kaaba: :arrow_left: :woman_health_worker: \n:woman_police_officer: :arrow_upper_right: :arrow_up: :arrow_upper_left: :woman_student: \n:woman_office_worker: :arrow_heading_up: :woman_astronaut:`,
+            `the midichlorian is the power house of the cell`,
+            `life is a series of god playing <:geg:659862247702528055> with me`,
+            `I'm gonna go chug some vodka and drive my car`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
             var min = (quotes.length - 100);
@@ -1671,7 +1682,8 @@ client.on('message', async message => {
             `Airplane moment...`,
             `Poob.`,
             `*joins voice*\n\n*leaves voice*`,
-            `https://cdn.discordapp.com/attachments/612058753293877274/643274499445489664/airplane.PNG`];
+            `https://cdn.discordapp.com/attachments/612058753293877274/643274499445489664/airplane.PNG`,
+            `Once pill camped a bowser and still lost`];
 
         var r = Math.floor((Math.random() * a.length));
 
@@ -1704,7 +1716,8 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612063946643472389/637494850463203328/IMG_20191013_082122.jpg`,
                 `https://www.youtube.com/watch?time_continue=269&v=0lvwIW6Fvec&feature=emb_logo`,
                 `https://www.youtube.com/watch?v=-74jxaheG7I`,
-                `https://www.youtube.com/watch?v=wKnM_oUDg18`];
+                `https://www.youtube.com/watch?v=wKnM_oUDg18`,
+                `wise fwom youw gwave`];
 
         var r = Math.floor((Math.random() * d1.length));
 
@@ -3520,7 +3533,8 @@ client.on('message', async message => {
                 `78% of black people live underground and only come up after sundown.`,
                 `in the PAL version of Super Smash Bros. Melee, Marth, Roy, Link, and Young Link had their swords completely removed from the game?`,
                 `the claps in Death Grips 'Spread Eagle Across the Block' are actually skateboard wheels hitting pavement?`,
-                `Filipino's are the most powerful race in the world?`];
+                `Filipino's are the most powerful race in the world?`,
+                `if you laid all of sugden's posts out lengthwise, they'd stretch over 15 miles! That's more than FIVE football fields!`];
 
         var t = [`Wow!`,
                 `It's true!`,
