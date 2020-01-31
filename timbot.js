@@ -17,7 +17,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.6.1 Launched');
+    console.log('TimBot v1.6.2 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -100,20 +100,22 @@ client.on('message', async message => {
 
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.6.1 Patch Notes, The 500 Quote Update, 1/29/20`) //1.3.0 on 10/19/19, 1.4.0 on 11/08/19, 1.5.0 on 12/08/19, 1.5.1 on 12/20/19, 1.6.0 on 1/26/20
+            .setTitle(`TimBot v1.6.2 Patch Notes, The Sugden Gets Off His Ass and Makes the Sickest Quality of Life Changes You'll Ever See Update, 1/29/20`) //1.3.0 on 10/19/19, 1.4.0 on 11/08/19, 1.5.0 on 12/08/19, 1.5.1 on 12/20/19, 1.6.0 on 1/26/20
             .setColor(0x2d64f1) //0x2d64f1
-            .addField(`!risc`, `Reworked command`, true)
-            .addField(`!soap`, `Added several sponsors`, true)
-            .addField(`!goloche`, `New command`, true)
-            .addField(`!farmstink`, `New command`, true)
-            .addField(`!stream`, `New command`, true)
-            .addField(`!icemaster`, `New command`, true)
-            .addField(`!rootnut`, `New command`, true)
-            .addField(`!drew`, `Updated with new users`, true)
-            .addField(`!dimi`, `Added new outcome`, true)
-            .addField(`!calendar`, `Updated`, true)
-            .addField(`!quote`, `Added 63 new quotes, 500 TOTAL WOOOOOOOOO (11 since 1.6.0)`, true)
-            .addField(`!comic`, `Added 8 new comics`, true)
+            .addField(`Most Commands`, `Added extra command phrases, i.e. !brioooooooo`, true)
+            .addField(`Like every image command`, `Adjusted so the link doesn't show`, true)
+            .addField(`About half of the commands that have both text and images`, `Split into two parts with eight adjusted so the link doesn't show`, true)
+            .addField(`!AL`, `Added 1 new outcome`, true)
+            .addField(`!cael`, `Added 1 new outcome`, true)
+            .addField(`!chillin`, `Drastically increased the odds of chillinposting`, true)
+            .addField(`!cuck`, `split into two commands, !cuck for clapping and !ciaran for momposting`, true)
+            .addField(`!subf`, `Added 1 new outcome`, true)
+            .addField(`!ted`, `Added 1 new outcome`, true)
+            .addField(`!tierlist`, `Added 26 new tier lists`, true)
+            .addField(`!tierlist`, `Added specific tier list commands for literally every single tier list in the bot`, true)
+            .addField(`!tiermaker`, `Added specific tier list commands for the player, commentator and projectile tier lists`, true)
+            .addField(`!quote`, `Added 10 new quotes`, true)
+            .addField(`!comic`, `Added 6 new comics`, true)
 
 
 
@@ -727,6 +729,16 @@ client.on('message', async message => {
             `I used to put marker caps on my fingers and pretend to be mewtwo`,
             `:woman_with_headscarf: :arrow_right: :kaaba: :arrow_left: :woman_health_worker: \n:woman_police_officer: :arrow_upper_right: :arrow_up: :arrow_upper_left: :woman_student: \n:woman_office_worker: :arrow_heading_up: :woman_astronaut:`,
             `the midichlorian is the power house of the cell`,
+            `"It's hard to lose as fox when you throw out moves like a fucking monkey"\n- Hax$`,
+            `I don't do reactions, I'm more of a reads based poster.`,
+            `stop quote reacting dumb shit (I know you're about to do it to this message)`,
+            `observe me whip and doth nae nae unto solver's corpse`,
+            `subbagubba mute da bubba`,
+            `the thing that really throws me off about women is just how many there are`,
+            `sigden your gay\nbackred by scuence`,
+            `mother fucker just wasted half my buzz on semantics, I just got subjected like a mother Fer`,
+            `<:Popoga:648637180964634642> HHUUUUUUAAAAAAAAAHHHHHHHH`,
+            `<:Popoga:648637180964634642> DUUUOOOOOOHOHOHOOOOHOH`,
             `life is a series of god playing <:geg:659862247702528055> with me`,
             `I'm gonna go chug some vodka and drive my car`];
 
@@ -1206,12 +1218,18 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612058753293877274/666148758647472150/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/663921542438060062/comic.png`,
                 `https://cdn.discordapp.com/attachments/612325624203182085/663569877944238090/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/662394652951052309/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/658639527057031195/comic.png`];
+                `https://cdn.discordapp.com/attachments/612058753293877274/662394652951052309/comic.png`, //LAST FROM 1.6.1
+                `https://cdn.discordapp.com/attachments/612058753293877274/672565894337265694/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/672560642355363846/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061367972790281/672204642603499540/comic.png`,
+                `https://cdn.discordapp.com/attachments/612065359285059615/671191644342845440/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/658639527057031195/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/672830450741411850/comic.png`
+                `https://cdn.discordapp.com/attachments/612065359285059615/672841909517025293/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
-        message.channel.send(c[r]);
+        message.channel.send({file: c[r]});
     }
 
     if (command === `CHART`) {
@@ -1266,7 +1284,7 @@ client.on('message', async message => {
 
             var r = Math.floor((Math.random() * charts.length));
 
-            message.channel.send(charts[r]);
+            message.channel.send({file: charts[r]});
     }
 
     if (command === `COSTUME` || command === `COSTUMES` || command === `COSTUMEDOG` || command === `HALLOWEENDOG` || command === `HALLOWEEN`) {
@@ -1325,7 +1343,7 @@ client.on('message', async message => {
 
         var r = Math.floor((Math.random() * costumes.length));
 
-        message.channel.send(costumes[r]);
+        message.channel.send({file: costumes[r]});
     }
 
     if (command === `TIERLIST` || command === `TIER` || command === `TIERLISTS`) {
@@ -1335,7 +1353,7 @@ client.on('message', async message => {
             `How nice people are to Soap - Soap\nhttps://cdn.discordapp.com/attachments/612061367972790281/641858999888904202/my-image_3.png`,
             `Drunk/Bunk Blazed/Lazed - Struc\nhttps://cdn.discordapp.com/attachments/612058753293877274/641815062373466143/unknown.png`,
             `Schwasted - AL\nhttps://cdn.discordapp.com/attachments/612058753293877274/641812280505532427/8a57e010-d6c4-4b5e-ac01-21e8eabd5612.png`, //5
-            `Pepsi - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/641809428030685184/where_they_drink_their_pepsi_from_tier_list.png`,
+            `Pepsi Drinking Vessels - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/641809428030685184/where_they_drink_their_pepsi_from_tier_list.png`,
             `Stubbed Toe - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/641799073665515520/my-image_2.png`,
             `Gamers - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641796630357606400/3Wy3c0zL8NU49mElvmIVidjTvK2zqGprCecRQAABBBBAAAEEEEAAAQQaBXLOjRV9Hi9hCOWiAtaMljLzj9pwAAAABJRU5ErkJggg.png`,
             `Typos - Struc\nhttps://cdn.discordapp.com/attachments/612058753293877274/641795027948929024/unknown.png`,
@@ -1348,16 +1366,16 @@ client.on('message', async message => {
             `Ease of Placement - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641770807814520883/5c555d16-dc4e-4e2e-8e82-5407ad97eff7.png`,
             `Playstyle - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641764704972308480/179f6bf9-e782-4066-b773-d0f186f14aa5.png`,
             `PeePeePooPoo - Struc\nhttps://cdn.discordapp.com/attachments/612058753293877274/641763872855818241/unknown.png`,
-            `Holy Style - Rog\nhttps://cdn.discordapp.com/attachments/612058753293877274/641762890956668938/20191106_171745.jpg`,
+            `Holy Style - Rog\nhttps://cdn.discordapp.com/attachments/608818247877525526/672641875487883307/unknown.png`,
             `AntiPrompt Be Like - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641761002916020233/236836ae-676d-4f7f-b8a9-b0eecd7f74e7.png`, //20
             `Political Alignment - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641758194024316939/my-image-1.png`,
             `OGs - Drew\nhttps://cdn.discordapp.com/attachments/612058753293877274/641750141753098240/Screen_Shot_2019-11-06_at_1.25.27_PM.png`,
             `Bird Spouses - Cael\nhttps://cdn.discordapp.com/attachments/612058753293877274/641747409793187860/unknown.png`,
             `Text Chat - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641746299552530433/5c68af65-9ff3-4b46-ab2b-8ddf5f7ffc71.png`,
-            `Bird Spouses - Rog\nhttps://cdn.discordapp.com/attachments/612058753293877274/641737618631032842/20191106_150510.jpg`, //25
+            `Bird Spouses - Rog\nhttps://cdn.discordapp.com/attachments/608818247877525526/672650364046147594/unknown.png`, //25
             `Bird Spouses - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641737676273352725/c19fe0e9-1569-4e68-9e78-23982f691ce5.png`,
             `Selfie Blasters - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641723955664650243/8fae1bbf-6025-4e6c-827a-4da81c7e5a5e.png`,
-            `N Word - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/641315763034128404/image0.png`,
+            `How Good People Actually are at Melee - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612061766830260244/668817072054206464/a80ba2df-f00d-4322-abc2-6b10a83d49a4.png`,
             `Legs - Rog\nhttps://cdn.discordapp.com/attachments/612058753293877274/641419566458732557/20191105_183423.jpg`,
             `Cute PFPs - Rog\nhttps://cdn.discordapp.com/attachments/612058753293877274/641416615765868571/20191105_182248.jpg`, //30
             `PFPs - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641404980498268173/4f201937-4c2c-4ed7-ac6e-9ef09e2603fd.png`,
@@ -1385,7 +1403,7 @@ client.on('message', async message => {
             `Morning People - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641264213297201172/timcord-204703-1572959676.png`,
             `Anal Ingestion - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/641131983032025089/image0.png`,
             `Faces - Loscar\nhttps://cdn.discordapp.com/attachments/612058753293877274/641130738393022464/unknown.png`, //55
-            `Zombie Apocalypse - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/641129859065708576/image0.png`,
+            `Zombie Apocalypse - Coffee\nhttps://cdn.discordapp.com/attachments/608818247877525526/672629542950535200/unknown.png`,
             `Contrarians - Struc\nhttps://cdn.discordapp.com/attachments/612058753293877274/641127550667587594/unknown.png`,
             `Elements - Brio\nhttps://i.gyazo.com/thumb/1200/3f96e10572478f58dd9403ac479418d2-png.jpg`,
             `Southern Values - Midnight\nhttps://cdn.discordapp.com/attachments/612058753293877274/641124601698713601/D8xr9jAAeSqiQAAAABJRU5ErkJggg.png`,
@@ -1402,69 +1420,405 @@ client.on('message', async message => {
             `Boomers and Zoomers - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641099378043650088/timcord-204703-1572920364.png`, //70
             `Emotes - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/641998514833981440/Sugdens_TimCord_Emote_Tier_List_09-20-19.png`,
             `Alignment Chart - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/641998696103411722/timcord_alignment_chart.png`,
-            `Chads - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/641998720388431910/timcord_chad_tier_list.png`,
+            `Chads - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612058753293877274/641998720388431910/timcord_chad_tier_list.png`,
             `Numbers - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612058753293877274/641999035636514826/TimCord_Numbers_1-100_Tier_List.png`,
             `PFPs - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/641999192394432533/timcord_pfp_tier_list_v1.png`, //75
             `Civil War - Silver\nhttps://cdn.discordapp.com/attachments/612058753293877274/641999666648711181/TimCord_Civil_War.png`,
             `EU Countries - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612058753293877274/621459576897798154/9d91ca73-f02d-4971-a151-a71b3dfc2e60.png`,
             `Naruto - Crowdfunded\nhttps://cdn.discordapp.com/attachments/612058753293877274/622722561087635476/Narutocord.png`,
             `Cartoons - Sugden\nhttps://cdn.discordapp.com/attachments/555176988562948116/577644325748473892/unknown.png`,
-            `Cartoons - Silver\nhttps://cdn.discordapp.com/attachments/555176988562948116/577644573577314305/9KuQTvO.png`,
+            `Cartoons - Silver\nhttps://cdn.discordapp.com/attachments/555176988562948116/577644573577314305/9KuQTvO.png`, //80
             `Pokemon Types - Brio\nhttps://media.discordapp.net/attachments/612058753293877274/644098320884826112/Pokemontypetierlist.png?width=581&height=911`,
-            `Swiper - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/643319365122392075/my-image_1.png`];
+            `Mixtape Vol. 1&2 Album Covers - Sugden\nhttps://cdn.discordapp.com/attachments/612063858911346700/672598635019501578/Mixtape_Vol_12_Cover_Tier_List.png`,
+            `Mixtape Vol. 2 - Drew\nhttps://cdn.discordapp.com/attachments/608818247877525526/672627030411706378/unknown.png`,
+            `Cheesy Pictures - Silver\nhttps://cdn.discordapp.com/attachments/612063895082762250/667184766759600139/idIcyjmUdhYAAAAASUVORK5CYII.png`,
+            `Official:tm: Bit Tier List - Sugden, Silver, Wub, Dimi\nhttps://cdn.discordapp.com/attachments/612058753293877274/661236924861775876/Top_50_TimCord_Bits_of_the_Decade.png`, //85
+            `-oomer - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/660196283453276181/image0.png`,
+            `Undertale OST - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/659100827449032734/Undertale_OST_Tier_List.png`,
+            `Christmas Names - Drew\nhttps://cdn.discordapp.com/attachments/608818247877525526/672640878023540796/unknown.png`,
+            `Reading Capability - Stream Mommy\nhttps://cdn.discordapp.com/attachments/611202965558132747/672641355763286016/unknown.png`,
+            `Irony -> Sincerity, Top to bottom - AL\nhttps://cdn.discordapp.com/attachments/612058753293877274/648581409337770008/my-image_2.png`, //90
+            `No. of Comic Appearances [OBJECTIVELY TRUE] - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/647178872948916283/72911bde-fcde-4c31-84fe-7fc2dc0bbf67.png`,
+            `Likeliness to be IceMaster - Cael\nhttps://cdn.discordapp.com/attachments/612058753293877274/646682256081158154/my-image_4.png`,
+            `Shorts in the Dark - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/646369049265307661/aefdd622-307f-4ae7-a348-3343e95a642d.png`,
+            `Dad/Sheik Being Lame - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/646373138652987403/b50dd12a-0109-4b9f-9350-6e15877d7d59.png`,
+            `What the fuck is this even supposed to be - Cael\nhttps://media.discordapp.net/attachments/612058753293877274/646147606543728640/chart_filled.png?width=645&height=676`, //95
+            `NEETs - Loscar\nhttps://media.discordapp.net/attachments/612063946643472389/646060565004812298/AKmoRNf97zIIAAAAAElFTkSuQmCC.png`,
+            `Grilled Cheese vs PB&J, d1-lamb vs jamz - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/646066248655962133/973a286e-ef2f-496a-8f41-b5cdc1b7815e.png`,
+            `Tits or Ass, Pogeyman or Digiman - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/646062078804885504/2e891ddc-17ce-460e-8b4b-c8dc1ffcf6c2.png`,
+            `Sugden's Really Epic Candy Tier List he got from the Candy Event - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/645705117731127315/Event_Candy_Tier_List.png`,
+            `Commands - Sugden\nhttps://media.discordapp.net/attachments/612058753293877274/644559837052796937/Unordered_Commands_Tier_List.png?width=1442&height=563`, //100
+            `Likeliness to have a Child - Cael\nhttps://media.discordapp.net/attachments/612058753293877274/644511248213344256/my-image3.png`,
+            `Handsome Boys - Silver\nhttps://images-ext-2.discordapp.net/external/13iu1PMBQPT5k2fRQbRRxSqMraAx6PKwoKEnjRpHPyY/https/i.imgur.com/D0Dswha.png`,
+            `Swiper - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/643319365122392075/my-image_1.png`,
+            `Fifth Grade Museum Field Trip - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/672845218004992020/image0.png`,
+            `Pooping in the Woods - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672839903435816971/image0.png`, //105
+            `Impossible Homework - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672844424597995555/image0.png`,
+            `Pizza Party - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672852937185165312/image0.png`,
+            `some PoE class bullshit idk - Silver\nhttps://cdn.discordapp.com/attachments/612063670297427978/672881039286337536/397b9419-e875-41a1-bb81-d6b346f37cf4.png`];
 
         if (args[0] && args[0] != '') { //If no second command, randomize
-            if (args[0] === `NUMBERS` || args[0] === `NUMBER`) {
-                message.channel.send(lists[74]);
-            } else if (args[0] === `NARUTO`) {
-                message.channel.send(lists[78]);
+            if (args[0] === `NETPLAYGREETINGS` || args[0] === `GREETINGS`) {
+                var split = lists[0].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SNEEZESOUNDS` || args[0] === `SNEEZE`) {
+                var split = lists[1].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `KISS` || args[0] === `FLUSHED` || args[0] === `GAYYYYLMAOOOOOOOOOOOO`) {
+                var split = lists[2].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `NICETOSOAP`) {
+                var split = lists[3].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `DRUNK` || args[0] === `BUNK` || args[0] === `BLAZED` || args[0] === `LAZED` || args[0] === `BLAZEDLAZED` || args[0] === `DRUNKBUNK`) {
+                var split = lists[4].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SCHWASTED` || args[0] === `SHWASTED` || args[0] === `WASTED`) {
+                var split = lists[5].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CUPS` || args[0] === `PEPSI` || args[0] === `PEPSICUP`) {
+                var split = lists[6].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `STUBBEDTOE` || args[0] === `STUBBED` || args[0] === `TOE`) {
+                var split = lists[7].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `GAMER` || args[0] === `GAMERS`) {
-                message.channel.send(lists[8]);
+                var split = lists[8].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `TYPO` || args[0] === `TYPOS`) {
+                var split = lists[9].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `TECH` || args[0] === `TECHNOLOGY`) {
-                message.channel.send(lists[10]);
-            } else if (args[0] === `SEXSIM` || args[0] === `SEXSIMULATION`) {
-                message.channel.send(lists[14]);
+                var split = lists[10].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SEXSIM2` || args[0] === `SEXSIMULATION2`) {
+                var split = lists[11].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `POO` || args[0] === `BIGGESTPOO` || args[0] === `POOP` || args[0] === `BIGGESTPOOP`) {
+                var split = lists[12].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `STINKY` || args[0] === `UHOH` || args[0] === `UHOHSTINKY`) {
+                var split = lists[13].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SEXSIM` || args[0] === `SEXSIMULATION` || args[0] === `METNALSIMULATION` || args[0] === `MENTALSIM`) {
+                var split = lists[14].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SEX`) {
+                var split = lists[15].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `EASEOFPLACEMENT`) {
+                var split = lists[16].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `PLAYSTLE` || args[0] === `DPS` || args[0] === `TANK`) {
-                message.channel.send(lists[17]);
-            } else if (args[0] === `OLIVEOIL` || args[0] === `CLOSET`) {
-                message.channel.send(lists[68]);
+                var split = lists[17].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PEEPEEPOOPOO` || args[0] === `PIPIPUPU`) {
+                var split = lists[18].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `HOLYSTLE` || args[0] === `HOLY` || args[0] === `STYLEGRACE` || args[0] === `THISKONGHASAFUNNYFACE`) {
+                var split = lists[19].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `ANTIPROMPT` || args[0] === `ANTIPROMPTBELIKE`) {
+                var split = lists[20].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `POLITICS` || args[0] === `POLITICAL` || args[0] === `POLITICALALIGNMENT` || args[0] === `POLITICALCOMPASS`) {
+                var split = lists[21].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `OGS` || args[0] === `OG` || args[0] === `ORIGINALS` || args[0] === `ORIGINAL` || args[0] === `OLDBOYS`) {
+                var split = lists[22].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BIRDCAEL` || args[0] === `BIRDSCAEL`) {
+                var split = lists[23].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `MESSAGES` || args[0] === `TEXTCHAT` || args[0] === `POSTS`) {
+                var split = lists[24].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BIRDROG` || args[0] === `BIRDSPOUSES` || args[0] === `BIRD` || args[0] === `SPOUSE` || args[0] === `BIRDS` || args[0] === `BIRDSROG`) {
+                var split = lists[25].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BIRDSILVER` || args[0] === `BIRDSSILVER`) {
+                var split = lists[26].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SELFIE` || args[0] === `SELFIEBLAST` || args[0] === `SELFIEBLASTING` || args[0] === `SELFIEPOSTS` || args[0] === `SELFIEPOST` || args[0] === `SELFIEPOSTING` || args[0] === `SELFIEBLASTS` || args[0] === `SELFIES`) {
+                var split = lists[27].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PR` || args[0] === `SKILL` || args[0] === `RANKING` || args[0] === `POWERRANKING` || args[0] === `POWERRANK` || args[0] === `GOOD`) {
+                var split = lists[28].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `LEGS` || args[0] === `NUMBEROFLEGS` || args[0] === `LEG`) {
+                var split = lists[29].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CUTE` || args[0] === `CUTEPFPS` || args[0] === `CUTEPROFILEPICS`) {
+                var split = lists[30].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PFPSSILVER` || args[0] === `PFPSILVER`) {
+                var split = lists[31].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `DEADCORD` || args[0] === `DEDCORD` || args[0] === `DEADASSCORD`) {
-                message.channel.send(lists[32]);
-            } else if (args[0] === `COLORS` || args[0] === `COLOR`) {
-                message.channel.send(lists[39]);
+                var split = lists[32].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BOWSER` || args[0] === `BOWSERTALK` || args[0] === `BOWSERMENTIONS`) {
+                var split = lists[33].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `OWN` || args[0] === `-OWN` || args[0] === `BROWN` || args[0] === `BLOWN` || args[0] === `CROWN` || args[0] === `DOWNTOWN`) {
+                var split = lists[34].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `LAB` || args[0] === `CHADBRAD` || args[0] === `BRAD` || args[0] === `DADDY` || args[0] === `LABBY` || args[0] === `LABBYDADDY`) {
+                var split = lists[35].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `NOOFBITS` || args[0] === `BITSNUMBER` || args[0] === `NUMBEROFBITS`) {
+                var split = lists[36].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `DEADASS` || args[0] === `NOCAP` || args[0] === `DEADASSNOCAP`) {
+                var split = lists[37].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PFPSROG` || args[0] === `PFPSROGNUT` || args[0] === `PFPROG`) {
+                var split = lists[38].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `COLORS` || args[0] === `COLOR` || args[0] === `COLOUR` || args[0] === `COLOURS`) {
+                var split = lists[39].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `MAFIA` || args[0] === `MAFIAROLES`) {
+                var split = lists[40].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `HUMANDANCER` || args[0] === `HUMANROBOT` || args[0] === `HUMANDANCERROBOT` || args[0] === `HUMANROBOTDANCER` || args[0] === `DANCER`) {
-                message.channel.send(lists[41]);
+                var split = lists[41].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `WUB`) {
+                var split = lists[42].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `WIZARD` || args[0] === `MAGIC` || args[0] === `WIZARDS`) {
-                message.channel.send(lists[43]);
+                var split = lists[43].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `AUTISM` || args[0] === `AUTIST` || args[0] === `AUTISTS` || args[0] === `TISM`) {
-                message.channel.send(lists[44]);
+                var split = lists[44].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `COOL` || args[0] === `COOLNESS`) {
-                message.channel.send(lists[45]);
+                var split = lists[45].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CHOCCYMILK` || args[0] === `CHOCCY` || args[0] === `CHOCOLATEMILK`) {
+                var split = lists[46].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `COMMITMENT`) {
+                var split = lists[47].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SPOTW`) {
+                var split = lists[48].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `FORTNITE` || args[0] === `FORTNITEDANCE` || args[0] === `FORTNITEDANCING`) {
+                var split = lists[49].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `NWORD` || args[0] === `NWORDS`) {
+                var split = lists[50].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `GEOGRAPHY` || args[0] === `MAP` || args[0] === `WHEREYOUAT`) {
-                message.channel.send(lists[51]);
+                var split = lists[51].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `MAIN` || args[0] === `MAINS`) {
+                var split = lists[52].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `MORNING` || args[0] === `MORNINGPEOPLE`) {
+                var split = lists[53].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `ASS` || args[0] === `EATASS` || args[0] === `EATINGASS` || args[0] === `ANALINGESTION`) {
-                message.channel.send(lists[54]);
+                var split = lists[54].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `FACES`) {
+                var split = lists[55].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `ZOMBIE` || args[0] === `ZOMBIES` || args[0] === `ZOMBIEAPOCALYPSE` || args[0] === `APOCALYPSE`) {
+                var split = lists[56].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CONTRARIAN` || args[0] === `CONTRARIANS`) {
+                var split = lists[57].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `ELEMENTS` || args[0] === `ELEMENT` || args[0] === `ELEMENTAL`) {
+                var split = lists[58].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SOUTH` || args[0] === `SOUTHERN` || args[0] === `SOUTHERVALUES` || args[0] === `THESOUTHWILLRISEAGAIN`) {
+                var split = lists[59].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SIMILARITY` || args[0] === `SIMILARITIES` || args[0] === `LIKENESS`) {
+                var split = lists[60].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `VIBE` || args[0] === `VIBES` || args[0] === `VIBECHECK`) {
+                var split = lists[61].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `COFFEE` || args[0] === `YOUHATETOSEEIT` || args[0] === `HATETOSEEIT` || args[0] === `HATE`) {
+                var split = lists[62].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `WEST` || args[0] === `WESTCOAST` || args[0] === `WESTCOASTHOURS`) {
+                var split = lists[63].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `DRUGS` || args[0] === `DRUG` || args[0] === `DONTDODRUGS`) {
+                var split = lists[64].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `HORNY` || args[0] === `HORNYNESS` || args[0] === `HORNYPOSTING` || args[0] === `HORNYPOST`) {
+                var split = lists[65].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `GFY` || args[0] === `GFYCAT` || args[0] === `GFYCATABLE`) {
+                var split = lists[66].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `COMBO` || args[0] === `FUNTOCOMBO`) {
+                var split = lists[67].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `OLIVEOIL` || args[0] === `CLOSET`) {
+                var split = lists[68].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SHEIK` || args[0] === `SHIEK`) {
+                var split = lists[69].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `BOOMER` || args[0] === `BOOMERS` || args[0] === `ZOOMER` || args[0] === `ZOOMERS` || args[0] === `BOOM` || args[0] === `ZOOM` || args[0] === `BOOMZOOM` || args[0] === `BOOMERZOOMER` || args[0] === `ZOOMERBOOMER`) {
-                message.channel.send(lists[70]);
+                var split = lists[70].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `EMOTES` || args[0] === `EMOTE`) {
+                var split = lists[71].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `ALIGNMENT`) {
-                message.channel.send(lists[72]);
+                var split = lists[72].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `CHAD` || args[0] === `CHADS`) {
-                message.channel.send(lists[73]);
+                var split = lists[73].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `NUMBERS` || args[0] === `NUMBER`) {
+                var split = lists[74].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PFP` || args[0] === `PFPS` || args[0] === `PFPSUGDEN` || args[0] === `PFPSSUGDEN`) {
+                var split = lists[75].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `CIVILWAR`) {
-                message.channel.send(lists[76]);
+                var split = lists[76].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `EU` || args[0] === `COUNTRIES` || args[0] === `EUCOUNTRIES`) {
+                var split = lists[77].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `NARUTO`) {
+                var split = lists[78].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CARTOON` || args[0] === `CARTOONS` || args[0] === `CARTOONSUGDEN` || args[0] === `CARTOONSSUGDEN`) {
+                var split = lists[79].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CARTOONSILVER` || args[0] === `CARTOONSSILVER`) {
+                var split = lists[80].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `POKEMON` || args[0] === `POKEMONTYPE` || args[0] === `POKEMONTYPES` || args[0] === `TYPE` || args[0] === `TYPES`) {
+                var split = lists[81].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `MIXTAPECOVERS` || args[0] === `COVERS` || args[0] === `ALBUMCOVERS`) {
+                var split = lists[82].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `MIXTAPEDREW` || args[0] === `MIXTAPESDREW`) {
+                var split = lists[83].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CHEESY` || args[0] === `CHEESYPICS` || args[0] === `CHEESYPICTURES` || args[0] === `CHEESYPIC` || args[0] === `CHEESYPICTURE`) {
+                var split = lists[84].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BIT` || args[0] === `BITS` || args[0] === `OFFICIALBITTIERLIST`) {
+                var split = lists[85].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `OOMER` || args[0] === `DOOMER` || args[0] === `BLOOMER`) {
+                var split = lists[86].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `UNDERTALEOST` || args[0] === `UNDERTALE` || args[0] === `OST` || args[0] === `STUPIDFUCKINGPISSBABYGAME`) {
+                var split = lists[87].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CHRISTMAS` || args[0] === `CHRISTMASNAMES`) {
+                var split = lists[88].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `READING` || args[0] === `COMPREHENSION` || args[0] === `READ` || args[0] === `CANTREAD`) {
+                var split = lists[89].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `IRONY` || args[0] === `SINCERITY` || args[0] === `IRONYSINCERITY`) {
+                var split = lists[90].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `COMICS` || args[0] === `COMIC` || args[0] === `COMICAPPEARANCES` || args[0] === `COMICAPPEARANCE`) {
+                var split = lists[91].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `ICEMASTER` || args[0] === `ICE` || args[0] === `ICEMASTER3000`) {
+                var split = lists[92].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SHORTS` || args[0] === `JEANS` || args[0] === `DARK` || args[0] === `LIGHTSON` || args[0] === `JEANSHORTS` || args[0] === `JORTS`) {
+                var split = lists[93].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `DAD` || args[0] === `UNCLE` || args[0] === `SHEIKLAME` || args[0] === `SHEIKCOOL`) {
+                var split = lists[94].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CAEL` || args[0] === `WTF` || args[0] === `RETARD` || args[0] === `WHATTHEFUCK`) {
+                var split = lists[95].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `NEET` || args[0] === `NEETS`) {
+                var split = lists[96].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `GRILLEDCHEESE` || args[0] === `PBNJ` || args[0] === `PB&J` || args[0] === `JAMZ` || args[0] === `D1LAMB` || args[0] === `D1-LAMB`) {
+                var split = lists[97].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `TITS` || args[0] === `TITSORASS` || args[0] === `DIGIMON` || args[0] === `POKEMON`) {
+                var split = lists[98].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CANDY` || args[0] === `EVENTCANDY` || args[0] === `SUGDENCANDY`) {
+                var split = lists[99].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `COMMAND` || args[0] === `COMMANDS`) {
+                var split = lists[100].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `CHILD` || args[0] === `KID` || args[0] === `HAVEACHILD`) {
+                var split = lists[101].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `HANDSOME` || args[0] === `BOYS` || args[0] === `HANDSOMEBOYS`) {
+                var split = lists[102].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SWIPER` || args[0] === `SWIPERNOSWIPING` || args[0] === `DORA`) {
+                var split = lists[103].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `FIFTHGRADE` || args[0] === `MUSEUM` || args[0] === `FIELDTRIP`) {
+                var split = lists[104].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `POOPING` || args[0] === `WOODS` || args[0] === `POOPINGINTHEWOODS`) {
+                var split = lists[105].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `HOMEWORK` || args[0] === `IMPOSSIBLE` || args[0] === `IMPOSSIBLEHOMEWORK`) {
+                var split = lists[106].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PIZZAPARTY` || args[0] === `PIZZA`) {
+                var split = lists[107].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `POECLASSES` || args[0] === `POE`) {
+                var split = lists[108].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else {
                 message.channel.send(`Specified tier list not found.`);
             }
         } else { //randomize
             var r = Math.floor((Math.random() * lists.length));
 
-            message.channel.send(lists[r]);
+            var splitstring = lists[r].split(`\n`);
+
+            message.channel.send(splitstring[0], {file: splitstring[1]});
         }
     }
 
     if (command === `TIERMAKER`) {
-        message.channel.send(`https://tiermaker.com/create/timcord-204703`);
+        var tms = [`https://tiermaker.com/create/melee-projectiles-v3-204742`, //SILVER CHECK THIS <--------------
+            `https://tiermaker.com/create/ssbm-commentator-tier-list-252311`,
+            `https://tiermaker.com/create/melee-players-204703`];
+
+        if (args[0] && args[0] != '') { //If no second command, randomize
+            if (args[0] === `PROJECTILES` || args[0] === `PROJECTILES`) {
+                message.channel.send(tms[0]);
+            } else if (args[0] === `COMMENTATORS`) {
+                message.channel.send(tms[1]);
+            } else if (args[0] === `PLAYERS` || args[0] === `TOPPLAYERS`) {
+                message.channel.send(tms[2]);
+            } else {
+                message.channel.send(`Specified tier list not found.`);
+            }
+
+        } else { //randomize
+
+            message.channel.send(`https://tiermaker.com/create/timcord-204703`);
+        }
     }
+    
 
     if (command === `CHU` || command === `CHUDAT` || command === `CHUSDAY`) {
         var d = new Date();
@@ -1479,7 +1833,7 @@ client.on('message', async message => {
         message.channel.send('', { file: `https://cdn.discordapp.com/attachments/612061198288027796/636288862829805598/image0.jpg` });
     }
 
-    if (command === `NETPIAY` || command === `METPLAY` || command === `NETPLAU` || command === `FAKECODE` || command === `CODEGEN`) {
+    if (command === `NETPIAY` || command === `METPLAY` || command === `NTPLY` || command === `NETPLY` || command === `NTPLAY` || command === `NETPLAU` || command === `NETPLAYY` || command === `NETPLAT` || command === `NETGAY` || command === `NWTPLAY` || command === `NETPKAY` || command === `NTPLAY` || command === `EPICCODE` || command === `NETOLAY` || command === `NETPLEY` || command === `NWTPLAU` || command === `NRTPLAY` || command === `NETPLSY` || command === `NEYPLAY` || command === `FAKECODE` || command === `CODEGEN`) {
         var result           = '';
         var characters       = '0123456789abcdef';
         var charactersLength = characters.length;
@@ -1656,7 +2010,7 @@ client.on('message', async message => {
 
     //ADLP
 
-    if (command === `ADLP`) {
+    if (command === `ADLP` || command === `ACAB` || command === `COP`) {
         message.channel.send(`BABY LEGS!`, {
             file: "https://media.discordapp.net/attachments/612058753293877274/668943743436455965/unknown.png"
         });
@@ -1672,7 +2026,7 @@ client.on('message', async message => {
 
     //Airplane
 
-    if (command === `AIRPLANE` || command === `AEROPLANE`) {
+    if (command === `AIRPLANE` || command === `AEROPLANE` || command === `POOB`) {
         var a = [`Welcome aboard ladies and gentleman, you are flying with Nair Canada`,
             `Plays Doc because his parents are asian`,
             `Once counterpicked Sheik vs a Mewtwo`,
@@ -1693,35 +2047,46 @@ client.on('message', async message => {
 
     //Animelover
 
-    if (command === `AL` || command === `ANIMELOVER`) {
-        var d1 = [`I know what you're thinking: "Do NOT lamb D1." Well guess what? According to my calculations that wasn't really calculated, I have decided that it is the appropriate time for me to make a hard read and lamb the fuck out of that person. I'm a lambing GOD, and I'm 99.9% sure this person is mafia. If not, that's okay cause I'll be dead anyways. I'm sorry if I failed you, town. 3, 2, 1.`,
-                `Oh, just 🥩 succulent, tender 💦 HNG 💦 Just 🥩 Just a lil' 🥩🥩 I'm just preparing 🧂 That's it 💦 JUS'- 💦 Getting my 🐑 ready is all 🥩🥩 Oh JUST A BIT 💦 🧂🥩🥩🥩🧂 A LITTLE SAAAAAALT 🧂 SOME S-S-SPICE 🌶️🌶️ AHHHHHhhhhhh JUST 💦💦 GETTING MY 🐑🐑🐑🐑 ON 💯💯💯`,
-                `rr bitch`,
-                `im villi btw`,
-                `♿ D1 LAMB COMING THRU ♿`,
-                `eh heh.... sorry, didnt mean to fall on you and palm both of your double d sweater stretchers 😅`,
-                `drop trou`,
-                `you stoopid`,
-                `what's nine plus ten`,
-                `what's ten plus ten`,
-                `oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo`,
-                `br br deng br br deng`,
-                `https://tenor.com/view/pakistan-mcdonalds-commercial-tails-gif-8861168`,
-                `uh oh \nstinky`,
-                `https://cdn.discordapp.com/attachments/566411042738143242/602660150599352320/IMG_20190715_065010.jpg`,
-                `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`,
-                `I sexually identify as the “I sexually identify as the “I sexually identify as an attack helicopter” joke” joke. Ever since u/Lazerc0bra posted 8 hours ago, I’ve dreamed of browsing reddit, shitposting on the unsuspecting comedy gods of r/copypasta. People say to me “oh for the love of god” and “please don’t let this be a thing”, but I don’t care, I’m meta as fuck. I’m having a plastic surgeon install an implant shaped like an upvote into my penis. From now on I want you guys to call me “leech” and respect my right to karma whore on a dead sub. If you can’t accept me you’re a normie and need to check your neckbeard privileges. Thank you for being so understanding.`,
-                `Hello my fellow townspeople, it is me, slugbait. I regret to inform you that my role in this game is the Clown, which is actually quite ironic because it reflects how I am in real life, however it is a role belonging to the mafia. I do not wish to cause harm to the innocents in the town, so I would please ask if you would kindly lynch me on this day. Thank you for your cooperation.`,
-                `lol bubbles you saying that reminded me of one time i was playing with some of the older kids from my apartment and i was trying to stand up to them cause they wre picking on me so i said "i dont care what you call me, even if you call me shrimp" but they misheard and started calling me shrek which was 10x more fucked up`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/637494850463203328/IMG_20191013_082122.jpg`,
-                `https://www.youtube.com/watch?time_continue=269&v=0lvwIW6Fvec&feature=emb_logo`,
-                `https://www.youtube.com/watch?v=-74jxaheG7I`,
-                `https://www.youtube.com/watch?v=wKnM_oUDg18`,
-                `wise fwom youw gwave`];
+    if (command === `AL` || command === `ANIMELOVER` || command === `ANIMELOVER664`) {
+        var r = Math.random() * 25;
 
-        var r = Math.floor((Math.random() * d1.length));
+        if (r <= 4) {
+            var m = [`https://cdn.discordapp.com/attachments/612063946643472389/637494850463203328/IMG_20191013_082122.jpg`,
+                    `https://tenor.com/view/pakistan-mcdonalds-commercial-tails-gif-8861168`,
+                    `https://cdn.discordapp.com/attachments/566411042738143242/602660150599352320/IMG_20190715_065010.jpg`
+                    `https://media.discordapp.net/attachments/612058753293877274/672564438892544011/unknown.png`];
 
-        message.channel.send(d1[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var d1 = [`I know what you're thinking: "Do NOT lamb D1." Well guess what? According to my calculations that wasn't really calculated, I have decided that it is the appropriate time for me to make a hard read and lamb the fuck out of that person. I'm a lambing GOD, and I'm 99.9% sure this person is mafia. If not, that's okay cause I'll be dead anyways. I'm sorry if I failed you, town. 3, 2, 1.`,
+                    `Oh, just 🥩 succulent, tender 💦 HNG 💦 Just 🥩 Just a lil' 🥩🥩 I'm just preparing 🧂 That's it 💦 JUS'- 💦 Getting my 🐑 ready is all 🥩🥩 Oh JUST A BIT 💦 🧂🥩🥩🥩🧂 A LITTLE SAAAAAALT 🧂 SOME S-S-SPICE 🌶️🌶️ AHHHHHhhhhhh JUST 💦💦 GETTING MY 🐑🐑🐑🐑 ON 💯💯💯`,
+                    `rr bitch`,
+                    `im villi btw`,
+                    `♿ D1 LAMB COMING THRU ♿`,
+                    `eh heh.... sorry, didnt mean to fall on you and palm both of your double d sweater stretchers 😅`,
+                    `drop trou`,
+                    `you stoopid`,
+                    `what's nine plus ten`,
+                    `what's ten plus ten`,
+                    `oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo`,
+                    `br br deng br br deng`,
+                    `uh oh \nstinky`,
+                    `aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`,
+                    `I sexually identify as the “I sexually identify as the “I sexually identify as an attack helicopter” joke” joke. Ever since u/Lazerc0bra posted 8 hours ago, I’ve dreamed of browsing reddit, shitposting on the unsuspecting comedy gods of r/copypasta. People say to me “oh for the love of god” and “please don’t let this be a thing”, but I don’t care, I’m meta as fuck. I’m having a plastic surgeon install an implant shaped like an upvote into my penis. From now on I want you guys to call me “leech” and respect my right to karma whore on a dead sub. If you can’t accept me you’re a normie and need to check your neckbeard privileges. Thank you for being so understanding.`,
+                    `Hello my fellow townspeople, it is me, slugbait. I regret to inform you that my role in this game is the Clown, which is actually quite ironic because it reflects how I am in real life, however it is a role belonging to the mafia. I do not wish to cause harm to the innocents in the town, so I would please ask if you would kindly lynch me on this day. Thank you for your cooperation.`,
+                    `lol bubbles you saying that reminded me of one time i was playing with some of the older kids from my apartment and i was trying to stand up to them cause they wre picking on me so i said "i dont care what you call me, even if you call me shrimp" but they misheard and started calling me shrek which was 10x more fucked up`,
+                    `https://www.youtube.com/watch?time_continue=269&v=0lvwIW6Fvec&feature=emb_logo`,
+                    `https://www.youtube.com/watch?v=-74jxaheG7I`,
+                    `https://www.youtube.com/watch?v=wKnM_oUDg18`,
+                    `wise fwom youw gwave`];
+
+            var r = Math.floor((Math.random() * d1.length));
+
+            message.channel.send(d1[r]);
+        }
     }
 
 
@@ -1826,14 +2191,14 @@ client.on('message', async message => {
 
     //Beywiz
 
-    if (command === `BEYWIZ` || command === `BEY`) {
+    if (command === `BEYWIZ` || command === `BEY` || command === `BEYBEY`) {
         message.channel.send(`Fuck I woulda thrown a whole ass lobster`);
     }
 
 
     //Bobby big ballz
 
-    if (command === `BBB` || command === `BOBBY` || command === `BOBBYBIGBALLZ`) {
+    if (command === `BBB` || command === `BOBBY` || command === `BOBBYBIGBALLZ` || command === `BOOBY`) {
         var b = [`https://www.youtube.com/watch?v=_deBAhQ06zk`,
                 `https://www.youtube.com/watch?v=zoSHfRDsptU`,
                 `https://www.youtube.com/watch?v=36JUiqRnrXk`,
@@ -1896,7 +2261,7 @@ client.on('message', async message => {
 
     //Brio
 
-    if (command === `BRIO` || command === `BRANDON`) {
+    if (command === `BRIO` || command === `BRANDON` || command === `BRIOO` || command === `BRIOOO` || command === `BRIOOOO` || command === `BRIOOOOO` || command === `BRIOOOOOO` || command === `BRIOOOOOOO` || command === `BRIOOOOOOOO` || command === `BRIOOOOOOOOO` || command === `BRIOOOOOOOOOO` || command === `BRIOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`) {
         var b = [`You know what this reminds me of? TF2 rocket jumping...`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
@@ -1911,50 +2276,71 @@ client.on('message', async message => {
 
     //Bubbles
 
-    if (command === `BUBBLES`) {
+    if (command === `BUBBLES` || command === `BUBBLE` || command === `BUBLE` || command === `BUBL`) {
         message.channel.send(`(Jaw drops to the floor. Eyes pop out. Sound effect of "AWOOOGA AWOOOOGA!!!" Places eyes and jaw back in place. Regains composure.) ... Eh hem, you look quite lovely.`);
     }
 
 
     //Cael
 
-    if (command === `CAEL` || command === `KALE`) {
-        var c = [`~~Still waiting on his b0xx. He'll be so good once he starts playing on it, you'll see.~~ \nNEVERMIND HE GOT IT WOOOOOOOOOOOOOOOO`,
-                `The b0xx manifesto is only like half the length of Capital volume 1`,
-                `Has switched mains 37 times this year and counting`,
-                `thinks Kirby's Dream Course should've won the video game tournament`,
-                `women my age are kinda low tier\nfucking someone so young would feel kinda pedophilic`,
-                `was there a big armada/mango rivalry?`,
-                `I think that listening to rage against the machine is the fastest way to improve short term as pichu`,
-                `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`,
-                `ok`,
-                `Doesn't know who Milkman is, despite Milkman being the 4th best player in his region`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/620757496352604202/unknown.png`,
-                `I should do octo nut october\n8 times a day`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/640758529397096459/oil.png`,
-                `mom also found the rosemary`,
-                `mom found the olive oil :disappointed_relieved:`,
-                `read the lenin quote I posted earlier`,
-                `I was thinking about theology and basically realized I was better than god`];
+    if (command === `CAEL` || command === `KALE` || command === `THEDUDEFROMPOKEMONRSE`) {
+        var r = Math.random() * 18;
 
-        var r = Math.floor((Math.random() * c.length));
+        if (r <= 3) {
+            var m = [`https://cdn.discordapp.com/attachments/612063946643472389/620757496352604202/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/640758529397096459/oil.png`,
+                    `https://media.discordapp.net/attachments/612058753293877274/672564446710988810/unknown.png`];
 
-        message.channel.send(c[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`~~Still waiting on his b0xx. He'll be so good once he starts playing on it, you'll see.~~ \nNEVERMIND HE GOT IT WOOOOOOOOOOOOOOOO`,
+                    `The b0xx manifesto is only like half the length of Capital volume 1`,
+                    `Has switched mains 37 times this year and counting`,
+                    `thinks Kirby's Dream Course should've won the video game tournament`,
+                    `women my age are kinda low tier\nfucking someone so young would feel kinda pedophilic`,
+                    `was there a big armada/mango rivalry?`,
+                    `I think that listening to rage against the machine is the fastest way to improve short term as pichu`,
+                    `zizek really is just hegelfag lobsterman but his video where he rails against political correctness and how his black friends giving him the n word pass are useful for decoverting to be nazi imageboard users`,
+                    `ok`,
+                    `Doesn't know who Milkman is, despite Milkman being the 4th best player in his region`,
+                    `I should do octo nut october\n8 times a day`,
+                    `mom also found the rosemary`,
+                    `mom found the olive oil :disappointed_relieved:`,
+                    `read the lenin quote I posted earlier`,
+                    `I was thinking about theology and basically realized I was better than god`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
 
 
     //Cagliostro
 
-    if (command === `CAG` || command === `CAGLIOSTRO` || command === `CAGLIO`) {
-        var c = [`https://docs.google.com/document/d/13i9BclOxbtFM4yWVTI3vHBvlgBGyhTEVATd-B7hbLZ0/edit?usp=sharing`,
-                `https://docs.google.com/document/d/1FHU80Z9xMjJxrXcx95V7Q3LCkU3Syt2CWLLyQYQN4qk`,
-                `https://cdn.discordapp.com/attachments/598336899010003015/599294726817972231/image0.jpg`,
-                `bug catcher baby driver wants to battle!`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/642569001146515467/unknown.png`];
+    if (command === `CAG` || command === `CAGLIOSTRO` || command === `CAGLIO` || command === `MENTALSIMULATION` || command === `MENTALSIM`) {
+        var r = Math.random() * 5;
 
-        var r = Math.floor((Math.random() * c.length));
+        if (r <= 2) {
+            var m = [`https://cdn.discordapp.com/attachments/598336899010003015/599294726817972231/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/642569001146515467/unknown.png`];
 
-        message.channel.send(c[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`https://docs.google.com/document/d/13i9BclOxbtFM4yWVTI3vHBvlgBGyhTEVATd-B7hbLZ0/edit?usp=sharing`,
+                    `https://docs.google.com/document/d/1FHU80Z9xMjJxrXcx95V7Q3LCkU3Syt2CWLLyQYQN4qk`,
+                    `bug catcher baby driver wants to battle!`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
 
 
@@ -2086,130 +2472,140 @@ client.on('message', async message => {
     //Chillindude
 
     if (command === `CHILLIN` || command === `BIGCHILLIN` || command === `CHILLINDUDE` || command === `MYB` || command === `CHILLINDUDE829` || command === `CHILLINDUDE82MUCH`) {
-        var c = [`I'm not lawful, make this pussy stop talking`,
-                `You're not one of the gods, you're one of the god-awfuls`,
-                `We all gawkin' when looking at your Fox`,
-                `Bitch, stick to Smash 4 and losing by four stocks`,
-                `Not a fan of your style`,
-                `You ain't standing your ground`,
-                `Get wins while kicking a man when he's down`,
-                `Like, "I beat Mango, I'm the favorite if he chokes! As far as Armada goes, I'll just wait 'til he's a host."`,
-                `Ain't no telling how foolish you'll be lookin'`,
-                `Evidence.zip can't contain the ass whooping`,
-                `Right when we realize the money match is over`,
-                `That'll be your cue to throw your controller`,
-                `Expose you as a fraud yeah I'll be blowing you up`,
-                `Who said you were a god?`,
-                `I know it wasn't Plup`,
-                `Been here ten years and you know I'm showing up`,
-                `For a man of many words, I think you've said enough`,
-                `But, the only way to make you hush`,
-                `First I'll body bag your Fox then .zip it shut`,
-                `'Imma put you in your place kid, you a disgrace`,
-                `Get killed quick like that missile hit you in the face`,
-                `After all of this you'll be watching your mouth`,
-                `Ain't no telling who'll be calling you out`,
-                `Salty Suite goes down, you better come correct`,
-                `Until you win a major show your elders some respect`,
-                `P.S. Leffen, I ain't done yet`,
-                `I'm the underdog so place your bets`,
-                `Whoever want to see Leffen looking dumb`,
-                `Throw your money on the line cause I'm making some`,
-                `Gotta say bro you're looking awfully weak`,
-                `Wait and see what happens at the Salty Suite`,
-                `Vanilla Fox don't suit you so go find another`,
-                `Teach you a lesson and take back my color`,
-                `Stepping to Mike, repping it right`,
-                `Killing in dubs like Leffen and Ice`,
-                `Losing to Eikelmann, guessing you aight`,
-                `Talking to Hugo, you stepped in the fight`,
-                `Yo, Mike's not even ready for that though. Check it.`,
-                `Your boy, Liquid Chillin, flows smooth as ice`,
-                `I smell bullshitting, that must be Mike`,
-                `When I start spitting, why, it sounds so nice`,
-                `Your frees prewritten, that's that shit I don't like`,
-                `Mike always having trouble staying on the beat`,
-                `And he having trouble playing Connor's Sheik`,
-                `Damn, gotta say you looking awfully weak`,
-                `Screaming getting wobbled, only time I hear you speak`,
-                `I guess they sponsor people now for being a choker`,
-                `You went from Brawl to Melee, still mediocre`,
-                `FatGoku ain't the the hard part, took your ass to game 5`,
-                `Maybe with a smart Marth, you could have beaten BladeWise`,
-                `Gotta keep it real, you know it's all love, bro`,
-                `No way you can beat me if you're dropping sets to Spud though`,
-                `Trying different angles, man, stick to one`,
-                `Yeah I got 5-0'd, you lost 6 to n0ne`,
-                `P.S. Mike, I ain't done yet`,
-                `Why we still waiting on your top 8 set?`,
-                `Yep, it looks like you got a nice stream`,
-                `But why I get more viewers on my BRB screen?`,
-                `Please keep it fresh man, 9th getting old`,
-                `No one catching on like when Ice read your roll`,
-                `This the only time that you get to be on stage`,
-                `And I don't play Jiggs, but I rest my case`,
-                `Yo Hugo? That's my dog... But I gotta hit a sub goal tho`,
-                `It's been a while, it's time for a new flow`,
-                `I'm Chillin, that's too cold, I'm taking a shot at Hugo`,
-                `How in the fuck you still losing to Drephen`,
-                `It's truly upsettin', I've been stomping that dude since '07`,
-                `And we got Faceroll, HAT, Alex and ChuDat`,
-                `I'm leavin' them dudes flat, you can't even do that`,
-                `Don't get me wrong we ain't talking bad players`,
-                `But you can't even sleep without nightmares of YAYUHZZ`,
-                `Pull it back, hit you with the slow flow`,
-                `Make the comeback like two stocks with SoPo`,
-                `Get back to labbing if you spent some time playing it`,
-                `You might stop losing to Falcon and maybe even to Ganon`,
-                `I still have faith, get back to the big stage`,
-                `Before that you gotta learn to beat KJH`,
-                `Why you out here making cakes of my face`,
-                `Try beating Tafo, that's a piece of cake`,
-                `Kira and Reno, why they still bop you`,
-                `My man still out here losing to Gahtzu`,
-                `HugS this year looking real shaky son`,
-                `How many Ganons you beat lately? n0ne`,
-                `You need to reflect like Alex19`,
-                `Maybe even need to practice on your stream`,
-                `I think all that BrainGear's bad for your head`,
-                `Why the fuck you on camera shavin' your legs?`,
-                `Shit gettin' heavy man, I feel kinda bad`,
-                `Maybe I should stop... Nah, fuck that`,
-                `Ready to go in, man, gimme the drop`,
-                `HugS whole year been getting bibbity bopped`,
-                `Can't say I expected it, it's really a shock`,
-                `That Samus so sloppy, man gimme a mop`,
-                `Guess you can't teach an old dog new tricks`,
-                `Who hasn't whoopedu hugs86?`,
-                `Placing 9th at locals, he must be feeling free`,
-                `But HugS will be fine, he got Social Security`,
-                `At this point, I guess it's pretty clear`,
-                `HugS really wishin' it was back to last year`,
-                `Maryland-Virginia, we fill his heart with fear`,
-                `Might be bad at Smash but at least he knows his beer`,
-                `P.S. Hugo, I find it kinda odd`,
-                `Got swept by SmashG0D, got swept by lloD`,
-                `Couple bad losses, maybe coulda shook it off`,
-                `Unranked Falco? That's Far from a good loss`,
-                `20th rank, but your skills might be fadin'`,
-                `My man lost to Plank, yeah that rank is outdated`,
-                `Might be top 50 but I'm tryna be nice \nAccurately speaking maybe 129th`,
-                `Das my dawwwwwg`,
-                `Dag mah, the heck?`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/622237508276584458/local_man_claims_to_have_evidence_of_The_Sasquatch.jpg`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/622237622206464030/oh_i_am_leffin.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236526742601729/1545247849891.png`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236598150365193/B_L_A_C_K_E_D.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236644153491524/big_chillin_breaks_the_stream.webm`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236737002799124/chillin_buttstomps_the_stream.webm`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236804178771968/chillin_dab.webm`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236874987143208/chillin_is_hungry.webm`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/622236900312350760/Chillstar_Depths.jpg`,
-                `My B`];
+        var r = Math.random() * 119;
 
-        var r = Math.floor((Math.random() * c.length));
+        if (r <= 45) {
+            var m = [`https://cdn.discordapp.com/attachments/611202965558132747/622237508276584458/local_man_claims_to_have_evidence_of_The_Sasquatch.jpg`,
+                    `https://cdn.discordapp.com/attachments/611202965558132747/622237622206464030/oh_i_am_leffin.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236526742601729/1545247849891.png`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236598150365193/B_L_A_C_K_E_D.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236644153491524/big_chillin_breaks_the_stream.webm`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236737002799124/chillin_buttstomps_the_stream.webm`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236804178771968/chillin_dab.webm`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236874987143208/chillin_is_hungry.webm`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/622236900312350760/Chillstar_Depths.jpg`];
 
-        message.channel.send(c[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`I'm not lawful, make this pussy stop talking`,
+                    `You're not one of the gods, you're one of the god-awfuls`,
+                    `We all gawkin' when looking at your Fox`,
+                    `Bitch, stick to Smash 4 and losing by four stocks`,
+                    `Not a fan of your style`,
+                    `You ain't standing your ground`,
+                    `Get wins while kicking a man when he's down`,
+                    `Like, "I beat Mango, I'm the favorite if he chokes! As far as Armada goes, I'll just wait 'til he's a host."`,
+                    `Ain't no telling how foolish you'll be lookin'`,
+                    `Evidence.zip can't contain the ass whooping`,
+                    `Right when we realize the money match is over`,
+                    `That'll be your cue to throw your controller`,
+                    `Expose you as a fraud yeah I'll be blowing you up`,
+                    `Who said you were a god?`,
+                    `I know it wasn't Plup`,
+                    `Been here ten years and you know I'm showing up`,
+                    `For a man of many words, I think you've said enough`,
+                    `But, the only way to make you hush`,
+                    `First I'll body bag your Fox then .zip it shut`,
+                    `'Imma put you in your place kid, you a disgrace`,
+                    `Get killed quick like that missile hit you in the face`,
+                    `After all of this you'll be watching your mouth`,
+                    `Ain't no telling who'll be calling you out`,
+                    `Salty Suite goes down, you better come correct`,
+                    `Until you win a major show your elders some respect`,
+                    `P.S. Leffen, I ain't done yet`,
+                    `I'm the underdog so place your bets`,
+                    `Whoever want to see Leffen looking dumb`,
+                    `Throw your money on the line cause I'm making some`,
+                    `Gotta say bro you're looking awfully weak`,
+                    `Wait and see what happens at the Salty Suite`,
+                    `Vanilla Fox don't suit you so go find another`,
+                    `Teach you a lesson and take back my color`,
+                    `Stepping to Mike, repping it right`,
+                    `Killing in dubs like Leffen and Ice`,
+                    `Losing to Eikelmann, guessing you aight`,
+                    `Talking to Hugo, you stepped in the fight`,
+                    `Yo, Mike's not even ready for that though. Check it.`,
+                    `Your boy, Liquid Chillin, flows smooth as ice`,
+                    `I smell bullshitting, that must be Mike`,
+                    `When I start spitting, why, it sounds so nice`,
+                    `Your frees prewritten, that's that shit I don't like`,
+                    `Mike always having trouble staying on the beat`,
+                    `And he having trouble playing Connor's Sheik`,
+                    `Damn, gotta say you looking awfully weak`,
+                    `Screaming getting wobbled, only time I hear you speak`,
+                    `I guess they sponsor people now for being a choker`,
+                    `You went from Brawl to Melee, still mediocre`,
+                    `FatGoku ain't the the hard part, took your ass to game 5`,
+                    `Maybe with a smart Marth, you could have beaten BladeWise`,
+                    `Gotta keep it real, you know it's all love, bro`,
+                    `No way you can beat me if you're dropping sets to Spud though`,
+                    `Trying different angles, man, stick to one`,
+                    `Yeah I got 5-0'd, you lost 6 to n0ne`,
+                    `P.S. Mike, I ain't done yet`,
+                    `Why we still waiting on your top 8 set?`,
+                    `Yep, it looks like you got a nice stream`,
+                    `But why I get more viewers on my BRB screen?`,
+                    `Please keep it fresh man, 9th getting old`,
+                    `No one catching on like when Ice read your roll`,
+                    `This the only time that you get to be on stage`,
+                    `And I don't play Jiggs, but I rest my case`,
+                    `Yo Hugo? That's my dog... But I gotta hit a sub goal tho`,
+                    `It's been a while, it's time for a new flow`,
+                    `I'm Chillin, that's too cold, I'm taking a shot at Hugo`,
+                    `How in the fuck you still losing to Drephen`,
+                    `It's truly upsettin', I've been stomping that dude since '07`,
+                    `And we got Faceroll, HAT, Alex and ChuDat`,
+                    `I'm leavin' them dudes flat, you can't even do that`,
+                    `Don't get me wrong we ain't talking bad players`,
+                    `But you can't even sleep without nightmares of YAYUHZZ`,
+                    `Pull it back, hit you with the slow flow`,
+                    `Make the comeback like two stocks with SoPo`,
+                    `Get back to labbing if you spent some time playing it`,
+                    `You might stop losing to Falcon and maybe even to Ganon`,
+                    `I still have faith, get back to the big stage`,
+                    `Before that you gotta learn to beat KJH`,
+                    `Why you out here making cakes of my face`,
+                    `Try beating Tafo, that's a piece of cake`,
+                    `Kira and Reno, why they still bop you`,
+                    `My man still out here losing to Gahtzu`,
+                    `HugS this year looking real shaky son`,
+                    `How many Ganons you beat lately? n0ne`,
+                    `You need to reflect like Alex19`,
+                    `Maybe even need to practice on your stream`,
+                    `I think all that BrainGear's bad for your head`,
+                    `Why the fuck you on camera shavin' your legs?`,
+                    `Shit gettin' heavy man, I feel kinda bad`,
+                    `Maybe I should stop... Nah, fuck that`,
+                    `Ready to go in, man, gimme the drop`,
+                    `HugS whole year been getting bibbity bopped`,
+                    `Can't say I expected it, it's really a shock`,
+                    `That Samus so sloppy, man gimme a mop`,
+                    `Guess you can't teach an old dog new tricks`,
+                    `Who hasn't whoopedu hugs86?`,
+                    `Placing 9th at locals, he must be feeling free`,
+                    `But HugS will be fine, he got Social Security`,
+                    `At this point, I guess it's pretty clear`,
+                    `HugS really wishin' it was back to last year`,
+                    `Maryland-Virginia, we fill his heart with fear`,
+                    `Might be bad at Smash but at least he knows his beer`,
+                    `P.S. Hugo, I find it kinda odd`,
+                    `Got swept by SmashG0D, got swept by lloD`,
+                    `Couple bad losses, maybe coulda shook it off`,
+                    `Unranked Falco? That's Far from a good loss`,
+                    `20th rank, but your skills might be fadin'`,
+                    `My man lost to Plank, yeah that rank is outdated`,
+                    `Might be top 50 but I'm tryna be nice \nAccurately speaking maybe 129th`,
+                    `Das my dawwwwwg`,
+                    `Dag mah, the heck?`,
+                    `My B`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
 
 
@@ -2242,12 +2638,13 @@ client.on('message', async message => {
 
             var r = Math.floor((Math.random() * memes.length));
 
-            message.channel.send(memes[r]);
+            message.channel.send({file: memes[r]});
     }
+
 
     //Coriamon
 
-    if (command === `CORI` || command === `CORIAMON`) {
+    if (command === `CORI` || command === `CORIAMON` || command === `CORYAMON`) {
         var c = [`Go to GOML.`,
             `Go to GOML.`,
             `Falco lasers aren't even that good, eh?`,
@@ -2261,13 +2658,8 @@ client.on('message', async message => {
 
     //Cuck Daddy
 
-    if (command === `CUCK` || command === `CUCKDADDY`) {
-        var c = [`I *told* you to stop drinking alone, Ciaran!`,
-                `Go get some friends, Ciaran!`,
-                `Get off Grailed and go outside, Ciaran!`,
-                `Stop wobbling people, Ciaran, that's mean!`,
-                `Pick a cooler character, Ciaran!`,
-                `https://tenor.com/view/ariana-grande-gif-10730095`,
+    if (command === `CUCK` || command === `CUCKDADDY` || command === `MARGE` || command === `LARGEMARGE` || command === `CUCKDADDY420`) {
+        var c = [`https://tenor.com/view/ariana-grande-gif-10730095`,
                 `https://tenor.com/view/applause-clapping-gif-5833390`,
                 `https://tenor.com/view/clapping-batman-joker-heathledger-clap-gif-5026817`,
                 `https://tenor.com/view/minion-minions-clap-clapping-gif-5135454`,
@@ -2281,7 +2673,19 @@ client.on('message', async message => {
                 `https://tenor.com/view/iwould-like-to-see-it-smug-meme-monique-gif-13196153`,
                 `https://tenor.com/view/kermit-tea-sip-gif-4973668`,
                 `https://tenor.com/view/hmm-oops-dang-okaythen-kandi-gif-4596607`,
-                `https://tenor.com/view/girl-sure-jan-sarcastic-brady-bunch-gif-11590179`,
+                `https://tenor.com/view/girl-sure-jan-sarcastic-brady-bunch-gif-11590179`];
+
+        var r = Math.floor((Math.random() * c.length));
+
+        message.channel.send({file: c[r]});
+    }
+
+    if (command === `CIARAN`) {
+        var c = [`I *told* you to stop drinking alone, Ciaran!`,
+                `Go get some friends, Ciaran!`,
+                `Get off Grailed and go outside, Ciaran!`,
+                `Stop wobbling people, Ciaran, that's mean!`,
+                `Pick a cooler character, Ciaran!`,
                 `PM is for weiners, Ciaran, play Melee!`];
 
         var r = Math.floor((Math.random() * c.length));
@@ -2303,11 +2707,11 @@ client.on('message', async message => {
 
     //Darsh/Stephen
 
-    if (command === `DARSH` || command === `GANON` || command === `GANONDORF`) {
+    if (command === `DARSH` || command === `GANON` || command === `GANONDORF` || command === `LION`) {
         message.channel.send(`My advice?\nGo to the gym.`);
     }
 
-    if (command === `STEPHEN`) {
+    if (command === `STEPHEN` || command === `STEPHENMCTOWELIE`) {
         var d = [`navigating a shitty maze slowly.`,
                 `playing a game just to be able to argue about it with your friends.`,
                 `a big maze of right angles instead of levels.`,
@@ -2367,7 +2771,7 @@ client.on('message', async message => {
 
     //DJ Nintendo
 
-    if (command === `DJ` || command === `DJNINTENDO` || command === `DJMUTENDO`) {
+    if (command === `DJ` || command === `DJNINTENDO` || command === `DJMUTENDO` || command === `KICKS` || command === `SHLICE` || command === `PAPAYASMACK` || command === `SCHMOOVIN`) {
         var d = [`KICKS`,
                 `SCHLICE`,
                 `Yup! That's a thing!`,
@@ -2390,14 +2794,14 @@ client.on('message', async message => {
 
     //Draconitix
 
-    if (command === `DRACO` || command === `DRACONITIX`) {
+    if (command === `DRACO` || command === `DRACONITIX` || command === `JEBAITEDU`) {
         message.channel.send(`wanna do netplay`);
     }
 
 
     //Drew
 
-    if (command === `DREW` || command === `ZMWIVD`) {
+    if (command === `DREW` || command === `ZMWIVD` || command === `ZIMWIT` || command === `ZIMMY` || command === `ZMWIVDDISHFSHJGHIEANIJMAETJNOTIMDRSHODMJORSJMN`) {
         var d = [`SubF`,
                 `SubjectiveF`,
                 `Sub`,
@@ -2426,16 +2830,18 @@ client.on('message', async message => {
                 `Goloche`,
                 `IceMaster`,
                 `Loscar`,
-                `midnight`,
+                `Midnight`,
                 `Risc`,
                 `Rognut`,
                 `Rootnut`,
                 `Silver`,
+                `Illusion`,
                 `Skrt`,
                 `Soap`,
                 `Stream Mommy`,
                 `Struc`,
                 `Sugden`,
+                `Sugden_`,
                 `Winnarly`,
                 `Wub`];
 
@@ -2509,70 +2915,113 @@ client.on('message', async message => {
         message.channel.send(g[r]);
     }
 
+    if (command === `GIMR` || command === `GIMZ` || command === `GODISMYROCK`) {
+        var r = Math.random() * 18;
+
+        if (r <= 1) {
+            message.channel.send({ file: `https://cdn.discordapp.com/attachments/612058753293877274/612091314770673675/gimr_lol.jpg` });
+
+        } else {
+            var h = [`Greed Is My Reason`,
+                    `offline`,
+                    `offline`,
+                    `still offline`,
+                    `GIMR Is My Rock`,
+                    `GIMR Is Melee's Richardnixon`,
+                    `Glock In My Rari`,
+                    `Gayness In My Rectum`,
+                    `Get Ingots, Melee RIP`,
+                    `Garbage Idiot Making Ruin`,
+                    `Goal: Invalidate Melee's Relevance`,
+                    `Get In My Rump`,
+                    `Gold Is My Reward`,
+                    `Gosh, I'm Mad Retarded`,
+                    `Gets Impotent Meleestream Routers`,
+                    `God's In My Rectum`,
+                    `GIMR Instinctively Murders Rats`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
+    }
+
+
 
     //Goloche
 
-    if (command === `GOLOCHE`) {
+    if (command === `GOLOCHE` || command === `STUPIDFRENCHIDIOT`) {
         message.channel.send(`Theres nothing worth saying`);
     }
 
 
     //hungrybox
 
-    if (command === `HBOX` || command === `HGOD` || command === `HUNGRYBOX` || command === `HJESUS` || command === `CLUTCHBOX` || command === `CLUTCHGOD` || command === `JUANTRUEGOD` || command === `HGAWD` || command === `HLEGEND` || command === `HBITCH`) {
-        var h = [`I was really disappointed to see everyone in the chat and the crowd at CEO yelling “fuck hbox”. Say what you want about his character, hbox is a smart player. You don’t achieve the title of #1 by being a braindead player who sticks to one gimmick. There needs to be more respect for Hbox as a person. Right after the Axe vs. Wizzy grand finals at Smash Summit 8, when Hbox presented Axe the 1st place award, Hbox begins a heartfelt speech to Axe by saying “you know, I won this award last summit..” and starts breaking up. Immediately, Twitch chat starts saying “wow typical hungrybox making it all about himself.” Its absolutely amazing how everyone automatically assumes the worst and has never bothered to give the benefit of the doubt. If you go back and read /u/iamhungrybox comment on the Mango ama from 5 years ago, it’s really very awful how he’s been vilified in the community. Reminds me of Ken when he decided he wanted to retire. Everyone was rooting against him because he was the best, and he couldn’t handle the pressure. It’d be a fucking shame to see a talent like Hbox do the same. \nHbox if you see this, you’re fuckin sick at melee. Play the game for as long as you want to, but never feel pressured to keep going if its unhealthy. The internet and these communities suck ass when it comes to recognizing the pressure people in your position are in and the shit you’ve had to endure to get to where you are. \nYou’re great, man. Keep it up, proud of you.`,
-                `Puff fucking sucks. I never wanna hear any shit again from any Fox player complaining about Puff. Like suck my fucking dick if you think - no, honest to god - if you think, if you think, if you think, if you ever complain, if you're a Fox player and you ever complain about Puff, you need to reevaluate where you fucking stand. Because like, come on dude. That shit is not easy. Are you kidding me? I die from a grab up-throw up-air at like what, 45 on Yoshi's? If I land a rest on a platform, on a side-platform, at 32 percent I'm fucking dead? And people are giving me shit? Come on now, dude. No! No dude. I just got like wobbled. If you're gonna play this character with this infuriating infinite and I'm so done with ICs, oh dude, I just want, I hope every single game from here on out goes to 8 minutes. I hope every single time. And I'll taunt the fuck out of Sopo, every single time. I'm just, I'm so done with it, you know.`,
-                `Fuck this community man. All you guys ever do is look for ways to give me shit over any tiny thing. All 12 years of me playing Melee has been full of it. \nI’m literally mocked by my peers, my competitors, and community figureheads on a daily basis. \nLike what’s the point anymore`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613460838740787200/image0.jpg`,
-                `For being the best player in the world, you're pretty immature. I think it's dumb you didn't even shake my hand after I beat you at NCR or even opt to take a picture with me and PPU for the results thread. \nMaybe I'm just bitter that you single-handedly turned an entire community against me and used your popularity to defame me and give people a completely wrong idea of me. It's weird that people on facebook still message me saying, "Dude you're actually a really nice person, everyone told me you were an asshole or something lawl". \nNow you've got the community in an even greater hold with your cult-esque fervor we call Mango Nation. You're the only person who can literally ride his own dick and people encourage you even more when you do it. If I was to even say a tenth of the self-promoting claims you make online, I'd have a brigade of hate lined up on top of the massive amount I already do. \nI don't have to go into how you treated me when I housed you and picked you up from the airport and the degrading and disgusting stuff you did and said about my mom. You think I don't remember? Not to mention saying similar things about my now ex-girlfriend. I really wanted to sock you in the fucking face so many times. \nBut I wouldn't stoop to that level. \nThe reality is, and the worst part is, that I have too much respect for you as a player. You've taken my favorite game and past-time to new levels and you constantly awe me with your advancing of the Melee meta-game. It keeps me on my feet and encourages me and countless others to keep playing. Everyone knows that, and no one can take that away from you.`,
-                `I have applauded your victories at EVERY tournament we've both been at. Every last once. I've shaken your hand and applauded you even after our sets. Even after Genesis 2, when you taunted me Game 3 as you were approaching a 4-stock on me. Even EVO, with the world watching. I took the approach of the bigger man, in hopes that maybe it would inspire you to do the same. And I was very wrong. \nThe thing is, now that the entire fighting game community knows of you, you have all the leverage you need to get your points across. You're the end-all for knowledge of the game and community. \nYou've gotten better about your attitude towards me, at least subtly. With Armada retired and with our tournament records in full display, I'm ranked #2 or #3 in the world behind you. Even still, you make it seem like I'm a joke for ever playing this game. \nAll I'd like is for you to just stop this nonsense and have at least an ounce of sportsmanship towards me. It's the least you could do after some of the things you've put me through that I won't mention. And don't just label off your actions as jokes. Yeah, you're a funny guy. But it's not nice being on the end of the stick for four years. \nMan up and be the representative this community actually needs.`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/612090137337397319/traitorcheck.png`,
-                `https://cdn.discordapp.com/attachments/567417652331413544/610957102453751809/unknown.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/610566498137800747/JPEG_20190812_131107.jpg`,
-                `I was gonna do celebration stream, but uh, I thought it would be funnier if I created a new category on Twitch, called "DAN". So, "Doing Absolutely Nothing". So, if I was to go on Twitch on Tuesday, sit in front of my TV screen and literally absolutely nothing except stare in the webcam, for 3 hours, I wonder how many viewers that would get? Can we make a, new catgory? Can we make it uh, DAN? So if anyone wants to see me- if anyone wants to see me DAN on Tuesday, I think I'm gonna do it`,
-                `Y'know my goal here wasn't actually to win. It was for me to, uh, try, making friends again, with the top players in the community. It was like, for me to stop being the guy to talk so often and actually listen a little more. Honestly the best thing you can do for yourself I don't care what you do, just let go of your damn ego.`,
-                `hbox hit my car and laughed and when i tryed to call triple a he snapped my phone in half and yelled "LETS FUCKING GO"`,
-                `Someone asked me "like, great win, but why do you get so angry when that happens?" And I said "It's probably unhealthy, but I treat eveery single game here like life or death". Like I treat it like there's a revolver behind my head, and I have to win.`,
-                `Also this whole "ban wobbling" argument, w-when's the last time ICs won a supernational? I-I'lll wait. I can't think of one actually. It's weird that we wanna ban the 8th best character's number 1 tool to actually win, it's kind of strange to me. No-one likes getting wobbled - I hate getting wobbled, but if you are that salty that where everytime you get wobbled, if- every time you get wobbled, maybe don't get grabbed, don't get set up, maybe just get good for once in your life and actually stop blaming the fucking character.`,
-                `I'll tell the story. I was just a fan who was excited to meet and challenge Hbox to a $5 puff ditto best of 5 on dreamland. In the middle of game 1 he punched me in the liver and walked off with my wallet and JP White controller. Now I have to play melee through a straw.`,
-                `I told hbox it was nice to meet one of the best players in melee. He said "one of the best"? and started crying and popping off for some reason.`,
-                `PC is a \_\_\_\_\_\_\_\_\_\_`,
-                `hbox is p cool honestly. the last time i asked him for an autograph he didnt even spit on me like all the other times. i was discreetly escorted out of the venue by the security detail in his liquid entourage and given a coupon for 10% off liquid merch(pretty sweet!!)`,
-                `I was actually a mod on Hbox's twitch for a while- I met him at the Evo pool party and offered to buy him a drink, after I handed him the drink he turned his back on me mid-sentence and started talking to crunch instead`,
-                `I saw Hungrybox at a grocery store in Los Angeles yesterday. I told him how cool it was to meet him in person, but I didn’t want to be a douche and bother him and ask him for photos or anything. \nHe said, “Oh, like you’re doing now?” \nI was taken aback, and all I could say was “Huh?” but he kept cutting me off and going “huh? huh? huh?” and closing his hand shut in front of my face. I walked away and continued with my shopping, and I heard him chuckle as I walked off. When I came to pay for my stuff up front I saw him trying to walk out the doors with like fifteen Milky Ways in his hands without paying. \nThe girl at the counter was very nice about it and professional, and was like “Sir, you need to pay for those first.” At first he kept pretending to be tired and not hear her, but eventually turned back around and brought them to the counter. \nWhen she took one of the bars and started scanning it multiple times, he stopped her and told her to scan them each individually “to prevent any electrical infetterence,” and then turned around and winked at me. I don’t even think that’s a word. After she scanned each bar and put them in a bag and started to say the price, he kept interrupting her by yawning really loudly.`,
-                `I used to work at a sears and hbox came in to buy a memory foam mattress and he paid for it entirely in dimes and twitch bits that only work on his channel`,
-                `i read a rumor that hbox went to a cfl local with the flu once just so he could shake colbol's hands and infect him`,
-                `at smash n splash i went in the bathroom and someone was taking forever and it smelled AWFUL and who else comes out of the stall but hbox. his shit smelled so bad i legit went in another bathroom instead`,
-                `heard Hbox literally sees Jiggs backair as a metaphor for his penis and imagines himself pounding furry fox buttholes for days`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284515256041492/1522006502236.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284791014883329/HGOD_DABS_ON_THE_FOX_MAINS.jpg`,
-                `Hbox was behind me in line at Chick-Fil-A a few months ago. I was just waiting to be served when I heard some commotion behind me. I turn around to see Hbox walking in the door. "Hey, do y'all mind if I cut to the front of the line? I'm kind of in a hurry." Of course everyone agrees and he walks up to the counter. He orders 20 fucking chicken sandwiches. 20. I was still in shock from seeing him, but I try and strike up a conversation while he waits for his food. \"S- so, how do you feel about Chick-Fil-A and the gay rights controversy.\" He turns to me and says \"motherfucker, I come here BECAUSE I hate the gays!\" I'm stunned as the cashier brings Hbox his food. He picks up the tray, slams it on the ground, yells \"CLEAN IT UP\" at the cashier and walked out.`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284902365003776/who_will_stand_up_to_this_man.png`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284756407681046/dedbox.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284717492928532/hbox_gets_redpilled.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284695912972328/hbox_boomer.png`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284654594883586/hbox_daberoni.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610283520522190861/maxresdefault.png`,
-                `The "H" in Hbox stands for Harvey Weinstein`,
-                `I use a B0XX so hbox doesnt meta read my DI`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/610270280685977613/EBuoEXdXoAEJXdF.png`,
-                `Every single tournament Hbox wins, I always immediately check these threads to read every angry post. It's like crack to me. I can not get enough of this. \nIt's like you people don't realise just how amazing HungryBox really is at this game. \nYou are so simple-minded that you can't fathom that ''muh tech skill'' isn't all that Melee has to offer. Hbox has a deeper understanding of the game than any other player. His spacing and mindgames are simply off the chart when it comes to pure depth. \nAll these people playing literally the most OP character in the game can't do shit against Hbox's smart play. He's literally picking all of them apart and doing so much mental damage that they start second doubting themselves and throwing games. That's some powerful play. \nI love watching Melee. Not only do I get to see my all-time favourite player destroy everyone, but I also get to see you faggots bitch and whine about what's essentially a mid tier. Keep crying though, but it won't change anything. \nGood games, Hbox! Will be rooting for you next time as well. Not that you'll need it. Wouldn't expect anything less from the #1 ranked Melee player!`,
-                `And this weekend a miracle happened. I sat down to play Armada, I blinked, and my goal was suddenly behind me. A glass trophy in my hand with the official title written on it. Cameras flashing. Overwhelming emotion, disbelief, euphoria, and relief. Out of nowhere I played the best I have in my life while coming from losers. \nThe outpouring of congratulations I received was more than I ever would have imagined. It was a very beautiful experience to get to have that. And for that I'm very thankful. \nHowever, as expected there were some communities that don't see eye to eye on things. Like this subreddit, half of CFL Melee (my home community), and many others. And that's alright. That's reality. \nI'll never really understand why certain people don't realize what I put into this game. It might be the character I play. It might be my polarizing personality. But what I've learned is that you really can't focus on these things if you want to win. When I was on that stage I fell in love with Melee all over again. Just like I did when I attended my first very tournament in Florida and got 2nd to last place out of 40. \nI've had very difficult times reading things on this subreddit about me, but after this weekend I'm ready to move on from it. I proved to the world what I wanted to prove. I know I won't be able to change minds now or ever of that many people. But I respect your opinions and I encourage you to have them. I simply think it would be healthier for me to distance myself from it to continue performing at the level I want to. \nKeep playing Melee, keep cheering on your favorite player. Just love this game always. It's the best thing that's happened to me in a lot of ways, and I hope it's the same for you. \n-hungrybox`,
-                `Every time Hbox pulls through, and he does every time, I always make sure to check these threads immediately. You virgins are the source of some premium salt. \n \nKeep in mind that Hbox is playing Jigglypuff, essentially a mid tier character, in a meta where 50% of all top 100 players are maining Fox, which is Puff's absolutely worst MU sitting at 70-30 in Fox's favour. You're all just fucking scrubs who can't accept that HungryBox is the single best player to ever have touched a GC controller. This is undeniable facts at this point. \n \nNo one else has managed to prove again and again that my skill reigns supreme. Year after year of consistent wins over every single opponent. Taking tourney after tourney. \n \nStay mad, bitches. He'll keep winning.`,
-                `Hello /r/ssbm, \n \n I've read many, many, many things on this subreddit. A lot of them make me wonder about the backgrounds you all have had in competitive melee. My assumption is that most of you have at least attended/participated in one tournament and that you know a good bit about the history of the game. \n \nIf you have competed in the game, you're aware of what it's like to be in a hot seat. To have to think on the spot, adapt on the fly, cope with horrible losses, deal with salt, etc. \n \nMost of you (I think) understand what Melee is at its core. A phenomenal, unfathomably deep fighting game unlike any that's been created. It's why we love it and analyze it and have it as our passion. \n \nI've been competing for 10 years now. A lot of things have changed in this community. We almost didn't exist at one point when Brawl came out. We all had to pull a lot of weight to make sure we weren't forgotten and it's beautiful to see where we've gotten today. \n \nOnce Melee became a thriving, living community again it was a good time for me to focus on my own gameplay and not just the growth of the community. From 2013 to 2016 was probably my biggest era of growth both as a person maturing and as a Melee player. I obtained some much-needed discipline and learned more about myself from every event I attended. \n \nI yearned for the World Title. A massive goal for myself. And goals are something everyone here has - whether it's in Melee or outside of it. So I did everything I could to obtain that goal as soon as possible. I prioritized Melee for a summer, I got my best friend to be a sponsored coach for me, I became active in the Netplay community; Hell, I even took any chance to spread memes or information on social media about Smash. Because I love the community and I love what its given me.`,
-                `You know what, I admit it: I don't like HBox. At a fundamental level, I know it's not rational, but let me tell you what I do know: I don't like it when his slow, broken character dunks on my favorite players and kills my excitement. I don't like it when he grandstands during interviews and looks so fake and disingenuous. I don't like it when I have to watch everything I find awesome about this game get back-aired off stage or up-tilt rested time an time again until I don't feel anything anymore`,
-                `Yeah hfam we did it XD I'm literally DABBING on ALL the hbox haters in chat with my HFam right now LOL!`,
-                `Juan wakes up at 5:43 AM, before his morning alarm, ready to begin his typical Saturday morning ritual. Crunch is still asleep in the bed next to him, his body still warm where they touched. Juan violently shakes him awake yelling "LET'S FUCKING GO! IT'S TIME!" Crunch sluggishly rolls out of bed and says "Let... let me at least get ready first." Juan sits pouting on the edge of the bed while his coach uses the restroom, he hears a faint "What am I doing with my life...?" behind the closed door, but decides to ignore it.\n\nCrunch returns, and turns on the TV. Juan perks up, giddy with excitement. His adviser fumbles through loading up a PowerPoint presentation, but after a few minutes he's finally prepared. "Ready to start, Juan?" he says, and the answer is obvious. The first picture comes on the screen, a tweet from Mang0 at 2:23 AM the previous night.\n\n> got too wasted, not playing tomorrow\n> \n> good luck big leff\n> \n> ROFL\n> \n> GO EAGLES\n\n"FUUUUCK YEEEESSSS!" comes the inevitable scream from Juan, surely waking up the people in the neighboring hotel rooms. "FUCK THAT STUPID DRUNK IDIOT, NOW HIS FANS WI-"\n\n"Hooold up" Crunch cuts him off, "don't get carried away, there's more." Juan stares at the TV silently, his hands in a praying position. Crunch flips over to the next image. It's from Leffen.\n\n> feeling too sick to play, but might as well enter ultimate\n> \n> I'm tired of lying to you guys, the game is just easier. I'll definitely play melee at the next one, I promise.\n\n"YEEEEEEEESSSSSSSSS!!! FUCKING FUCK!!!!!" Juan shouts, tears coming to his eyes. "THEY HAVE TO GIVE ME #1 NOW! Tell me they'll give it to me again, Crunch."\n\n"Well, we'll have to wait and see. It's likely." Crunch replies, already afraid of Juan's response.\n\n"What do you mean wait and see? Who can stop me now? This is the most important tournament left! I'll have too many wins!" Juan is talking more quickly, becoming pink in the face like his signature character. Crunch just silently looks at him, and goes to the final picture. It's Zain's twitter.\n\n> Feeling great, see you guys tomorrow!\n\nJuan instinctively, almost preemptively lunges forward off the bed and brings both his fists down, smashing the TV. "Aw, come on man, not again..." comes a voice from the doorway. It's The Crimson Blur.`];
+    if (command === `HBOX` || command === `HGOD` || command === `HUNGRYBOX` || command === `HJESUS` || command === `CLUTCHBOX` || command === `CLUTCHGOD` || command === `JUANTRUEGOD` || command === `HGAWD` || command === `HLEGEND` || command === `HBITCH` || command === `JUAN` || command === `JUANDIBIEDMA` || command === `HCHRIST`) {
+        var r = Math.random() * 43;
 
-        var r = Math.floor((Math.random() * h.length));
+        if (r <= 13) {
+            var m = [`https://cdn.discordapp.com/attachments/608818247877525526/610284902365003776/who_will_stand_up_to_this_man.png`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284756407681046/dedbox.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/613460838740787200/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284515256041492/1522006502236.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284791014883329/HGOD_DABS_ON_THE_FOX_MAINS.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284717492928532/hbox_gets_redpilled.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284695912972328/hbox_boomer.png`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284654594883586/hbox_daberoni.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610283520522190861/maxresdefault.png`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/612090137337397319/traitorcheck.png`,
+                    `https://cdn.discordapp.com/attachments/567417652331413544/610957102453751809/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/610566498137800747/JPEG_20190812_131107.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/610270280685977613/EBuoEXdXoAEJXdF.png`];
 
-        message.channel.send(h[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`I was really disappointed to see everyone in the chat and the crowd at CEO yelling “fuck hbox”. Say what you want about his character, hbox is a smart player. You don’t achieve the title of #1 by being a braindead player who sticks to one gimmick. There needs to be more respect for Hbox as a person. Right after the Axe vs. Wizzy grand finals at Smash Summit 8, when Hbox presented Axe the 1st place award, Hbox begins a heartfelt speech to Axe by saying “you know, I won this award last summit..” and starts breaking up. Immediately, Twitch chat starts saying “wow typical hungrybox making it all about himself.” Its absolutely amazing how everyone automatically assumes the worst and has never bothered to give the benefit of the doubt. If you go back and read /u/iamhungrybox comment on the Mango ama from 5 years ago, it’s really very awful how he’s been vilified in the community. Reminds me of Ken when he decided he wanted to retire. Everyone was rooting against him because he was the best, and he couldn’t handle the pressure. It’d be a fucking shame to see a talent like Hbox do the same. \nHbox if you see this, you’re fuckin sick at melee. Play the game for as long as you want to, but never feel pressured to keep going if its unhealthy. The internet and these communities suck ass when it comes to recognizing the pressure people in your position are in and the shit you’ve had to endure to get to where you are. \nYou’re great, man. Keep it up, proud of you.`,
+                    `Puff fucking sucks. I never wanna hear any shit again from any Fox player complaining about Puff. Like suck my fucking dick if you think - no, honest to god - if you think, if you think, if you think, if you ever complain, if you're a Fox player and you ever complain about Puff, you need to reevaluate where you fucking stand. Because like, come on dude. That shit is not easy. Are you kidding me? I die from a grab up-throw up-air at like what, 45 on Yoshi's? If I land a rest on a platform, on a side-platform, at 32 percent I'm fucking dead? And people are giving me shit? Come on now, dude. No! No dude. I just got like wobbled. If you're gonna play this character with this infuriating infinite and I'm so done with ICs, oh dude, I just want, I hope every single game from here on out goes to 8 minutes. I hope every single time. And I'll taunt the fuck out of Sopo, every single time. I'm just, I'm so done with it, you know.`,
+                    `Fuck this community man. All you guys ever do is look for ways to give me shit over any tiny thing. All 12 years of me playing Melee has been full of it. \nI’m literally mocked by my peers, my competitors, and community figureheads on a daily basis. \nLike what’s the point anymore`,
+                    `For being the best player in the world, you're pretty immature. I think it's dumb you didn't even shake my hand after I beat you at NCR or even opt to take a picture with me and PPU for the results thread. \nMaybe I'm just bitter that you single-handedly turned an entire community against me and used your popularity to defame me and give people a completely wrong idea of me. It's weird that people on facebook still message me saying, "Dude you're actually a really nice person, everyone told me you were an asshole or something lawl". \nNow you've got the community in an even greater hold with your cult-esque fervor we call Mango Nation. You're the only person who can literally ride his own dick and people encourage you even more when you do it. If I was to even say a tenth of the self-promoting claims you make online, I'd have a brigade of hate lined up on top of the massive amount I already do. \nI don't have to go into how you treated me when I housed you and picked you up from the airport and the degrading and disgusting stuff you did and said about my mom. You think I don't remember? Not to mention saying similar things about my now ex-girlfriend. I really wanted to sock you in the fucking face so many times. \nBut I wouldn't stoop to that level. \nThe reality is, and the worst part is, that I have too much respect for you as a player. You've taken my favorite game and past-time to new levels and you constantly awe me with your advancing of the Melee meta-game. It keeps me on my feet and encourages me and countless others to keep playing. Everyone knows that, and no one can take that away from you.`,
+                    `I have applauded your victories at EVERY tournament we've both been at. Every last once. I've shaken your hand and applauded you even after our sets. Even after Genesis 2, when you taunted me Game 3 as you were approaching a 4-stock on me. Even EVO, with the world watching. I took the approach of the bigger man, in hopes that maybe it would inspire you to do the same. And I was very wrong. \nThe thing is, now that the entire fighting game community knows of you, you have all the leverage you need to get your points across. You're the end-all for knowledge of the game and community. \nYou've gotten better about your attitude towards me, at least subtly. With Armada retired and with our tournament records in full display, I'm ranked #2 or #3 in the world behind you. Even still, you make it seem like I'm a joke for ever playing this game. \nAll I'd like is for you to just stop this nonsense and have at least an ounce of sportsmanship towards me. It's the least you could do after some of the things you've put me through that I won't mention. And don't just label off your actions as jokes. Yeah, you're a funny guy. But it's not nice being on the end of the stick for four years. \nMan up and be the representative this community actually needs.`,
+                    `I was gonna do celebration stream, but uh, I thought it would be funnier if I created a new category on Twitch, called "DAN". So, "Doing Absolutely Nothing". So, if I was to go on Twitch on Tuesday, sit in front of my TV screen and literally absolutely nothing except stare in the webcam, for 3 hours, I wonder how many viewers that would get? Can we make a, new catgory? Can we make it uh, DAN? So if anyone wants to see me- if anyone wants to see me DAN on Tuesday, I think I'm gonna do it`,
+                    `Y'know my goal here wasn't actually to win. It was for me to, uh, try, making friends again, with the top players in the community. It was like, for me to stop being the guy to talk so often and actually listen a little more. Honestly the best thing you can do for yourself I don't care what you do, just let go of your damn ego.`,
+                    `hbox hit my car and laughed and when i tryed to call triple a he snapped my phone in half and yelled "LETS FUCKING GO"`,
+                    `Someone asked me "like, great win, but why do you get so angry when that happens?" And I said "It's probably unhealthy, but I treat eveery single game here like life or death". Like I treat it like there's a revolver behind my head, and I have to win.`,
+                    `Also this whole "ban wobbling" argument, w-when's the last time ICs won a supernational? I-I'lll wait. I can't think of one actually. It's weird that we wanna ban the 8th best character's number 1 tool to actually win, it's kind of strange to me. No-one likes getting wobbled - I hate getting wobbled, but if you are that salty that where everytime you get wobbled, if- every time you get wobbled, maybe don't get grabbed, don't get set up, maybe just get good for once in your life and actually stop blaming the fucking character.`,
+                    `I'll tell the story. I was just a fan who was excited to meet and challenge Hbox to a $5 puff ditto best of 5 on dreamland. In the middle of game 1 he punched me in the liver and walked off with my wallet and JP White controller. Now I have to play melee through a straw.`,
+                    `I told hbox it was nice to meet one of the best players in melee. He said "one of the best"? and started crying and popping off for some reason.`,
+                    `PC is a \_\_\_\_\_\_\_\_\_\_`,
+                    `hbox is p cool honestly. the last time i asked him for an autograph he didnt even spit on me like all the other times. i was discreetly escorted out of the venue by the security detail in his liquid entourage and given a coupon for 10% off liquid merch(pretty sweet!!)`,
+                    `I was actually a mod on Hbox's twitch for a while- I met him at the Evo pool party and offered to buy him a drink, after I handed him the drink he turned his back on me mid-sentence and started talking to crunch instead`,
+                    `I saw Hungrybox at a grocery store in Los Angeles yesterday. I told him how cool it was to meet him in person, but I didn’t want to be a douche and bother him and ask him for photos or anything. \nHe said, “Oh, like you’re doing now?” \nI was taken aback, and all I could say was “Huh?” but he kept cutting me off and going “huh? huh? huh?” and closing his hand shut in front of my face. I walked away and continued with my shopping, and I heard him chuckle as I walked off. When I came to pay for my stuff up front I saw him trying to walk out the doors with like fifteen Milky Ways in his hands without paying. \nThe girl at the counter was very nice about it and professional, and was like “Sir, you need to pay for those first.” At first he kept pretending to be tired and not hear her, but eventually turned back around and brought them to the counter. \nWhen she took one of the bars and started scanning it multiple times, he stopped her and told her to scan them each individually “to prevent any electrical infetterence,” and then turned around and winked at me. I don’t even think that’s a word. After she scanned each bar and put them in a bag and started to say the price, he kept interrupting her by yawning really loudly.`,
+                    `I used to work at a sears and hbox came in to buy a memory foam mattress and he paid for it entirely in dimes and twitch bits that only work on his channel`,
+                    `i read a rumor that hbox went to a cfl local with the flu once just so he could shake colbol's hands and infect him`,
+                    `at smash n splash i went in the bathroom and someone was taking forever and it smelled AWFUL and who else comes out of the stall but hbox. his shit smelled so bad i legit went in another bathroom instead`,
+                    `heard Hbox literally sees Jiggs backair as a metaphor for his penis and imagines himself pounding furry fox buttholes for days`,
+                    `Hbox was behind me in line at Chick-Fil-A a few months ago. I was just waiting to be served when I heard some commotion behind me. I turn around to see Hbox walking in the door. "Hey, do y'all mind if I cut to the front of the line? I'm kind of in a hurry." Of course everyone agrees and he walks up to the counter. He orders 20 fucking chicken sandwiches. 20. I was still in shock from seeing him, but I try and strike up a conversation while he waits for his food. \"S- so, how do you feel about Chick-Fil-A and the gay rights controversy.\" He turns to me and says \"motherfucker, I come here BECAUSE I hate the gays!\" I'm stunned as the cashier brings Hbox his food. He picks up the tray, slams it on the ground, yells \"CLEAN IT UP\" at the cashier and walked out.`,
+                    `The "H" in Hbox stands for Harvey Weinstein`,
+                    `I use a B0XX so hbox doesnt meta read my DI`,
+                    `Every single tournament Hbox wins, I always immediately check these threads to read every angry post. It's like crack to me. I can not get enough of this. \nIt's like you people don't realise just how amazing HungryBox really is at this game. \nYou are so simple-minded that you can't fathom that ''muh tech skill'' isn't all that Melee has to offer. Hbox has a deeper understanding of the game than any other player. His spacing and mindgames are simply off the chart when it comes to pure depth. \nAll these people playing literally the most OP character in the game can't do shit against Hbox's smart play. He's literally picking all of them apart and doing so much mental damage that they start second doubting themselves and throwing games. That's some powerful play. \nI love watching Melee. Not only do I get to see my all-time favourite player destroy everyone, but I also get to see you faggots bitch and whine about what's essentially a mid tier. Keep crying though, but it won't change anything. \nGood games, Hbox! Will be rooting for you next time as well. Not that you'll need it. Wouldn't expect anything less from the #1 ranked Melee player!`,
+                    `And this weekend a miracle happened. I sat down to play Armada, I blinked, and my goal was suddenly behind me. A glass trophy in my hand with the official title written on it. Cameras flashing. Overwhelming emotion, disbelief, euphoria, and relief. Out of nowhere I played the best I have in my life while coming from losers. \nThe outpouring of congratulations I received was more than I ever would have imagined. It was a very beautiful experience to get to have that. And for that I'm very thankful. \nHowever, as expected there were some communities that don't see eye to eye on things. Like this subreddit, half of CFL Melee (my home community), and many others. And that's alright. That's reality. \nI'll never really understand why certain people don't realize what I put into this game. It might be the character I play. It might be my polarizing personality. But what I've learned is that you really can't focus on these things if you want to win. When I was on that stage I fell in love with Melee all over again. Just like I did when I attended my first very tournament in Florida and got 2nd to last place out of 40. \nI've had very difficult times reading things on this subreddit about me, but after this weekend I'm ready to move on from it. I proved to the world what I wanted to prove. I know I won't be able to change minds now or ever of that many people. But I respect your opinions and I encourage you to have them. I simply think it would be healthier for me to distance myself from it to continue performing at the level I want to. \nKeep playing Melee, keep cheering on your favorite player. Just love this game always. It's the best thing that's happened to me in a lot of ways, and I hope it's the same for you. \n-hungrybox`,
+                    `Every time Hbox pulls through, and he does every time, I always make sure to check these threads immediately. You virgins are the source of some premium salt. \n \nKeep in mind that Hbox is playing Jigglypuff, essentially a mid tier character, in a meta where 50% of all top 100 players are maining Fox, which is Puff's absolutely worst MU sitting at 70-30 in Fox's favour. You're all just fucking scrubs who can't accept that HungryBox is the single best player to ever have touched a GC controller. This is undeniable facts at this point. \n \nNo one else has managed to prove again and again that my skill reigns supreme. Year after year of consistent wins over every single opponent. Taking tourney after tourney. \n \nStay mad, bitches. He'll keep winning.`,
+                    `Hello /r/ssbm, \n \n I've read many, many, many things on this subreddit. A lot of them make me wonder about the backgrounds you all have had in competitive melee. My assumption is that most of you have at least attended/participated in one tournament and that you know a good bit about the history of the game. \n \nIf you have competed in the game, you're aware of what it's like to be in a hot seat. To have to think on the spot, adapt on the fly, cope with horrible losses, deal with salt, etc. \n \nMost of you (I think) understand what Melee is at its core. A phenomenal, unfathomably deep fighting game unlike any that's been created. It's why we love it and analyze it and have it as our passion. \n \nI've been competing for 10 years now. A lot of things have changed in this community. We almost didn't exist at one point when Brawl came out. We all had to pull a lot of weight to make sure we weren't forgotten and it's beautiful to see where we've gotten today. \n \nOnce Melee became a thriving, living community again it was a good time for me to focus on my own gameplay and not just the growth of the community. From 2013 to 2016 was probably my biggest era of growth both as a person maturing and as a Melee player. I obtained some much-needed discipline and learned more about myself from every event I attended. \n \nI yearned for the World Title. A massive goal for myself. And goals are something everyone here has - whether it's in Melee or outside of it. So I did everything I could to obtain that goal as soon as possible. I prioritized Melee for a summer, I got my best friend to be a sponsored coach for me, I became active in the Netplay community; Hell, I even took any chance to spread memes or information on social media about Smash. Because I love the community and I love what its given me.`,
+                    `You know what, I admit it: I don't like HBox. At a fundamental level, I know it's not rational, but let me tell you what I do know: I don't like it when his slow, broken character dunks on my favorite players and kills my excitement. I don't like it when he grandstands during interviews and looks so fake and disingenuous. I don't like it when I have to watch everything I find awesome about this game get back-aired off stage or up-tilt rested time an time again until I don't feel anything anymore`,
+                    `Yeah hfam we did it XD I'm literally DABBING on ALL the hbox haters in chat with my HFam right now LOL!`,
+                    `Juan wakes up at 5:43 AM, before his morning alarm, ready to begin his typical Saturday morning ritual. Crunch is still asleep in the bed next to him, his body still warm where they touched. Juan violently shakes him awake yelling "LET'S FUCKING GO! IT'S TIME!" Crunch sluggishly rolls out of bed and says "Let... let me at least get ready first." Juan sits pouting on the edge of the bed while his coach uses the restroom, he hears a faint "What am I doing with my life...?" behind the closed door, but decides to ignore it.\n\nCrunch returns, and turns on the TV. Juan perks up, giddy with excitement. His adviser fumbles through loading up a PowerPoint presentation, but after a few minutes he's finally prepared. "Ready to start, Juan?" he says, and the answer is obvious. The first picture comes on the screen, a tweet from Mang0 at 2:23 AM the previous night.\n\n> got too wasted, not playing tomorrow\n> \n> good luck big leff\n> \n> ROFL\n> \n> GO EAGLES\n\n"FUUUUCK YEEEESSSS!" comes the inevitable scream from Juan, surely waking up the people in the neighboring hotel rooms. "FUCK THAT STUPID DRUNK IDIOT, NOW HIS FANS WI-"\n\n"Hooold up" Crunch cuts him off, "don't get carried away, there's more." Juan stares at the TV silently, his hands in a praying position. Crunch flips over to the next image. It's from Leffen.\n\n> feeling too sick to play, but might as well enter ultimate\n> \n> I'm tired of lying to you guys, the game is just easier. I'll definitely play melee at the next one, I promise.\n\n"YEEEEEEEESSSSSSSSS!!! FUCKING FUCK!!!!!" Juan shouts, tears coming to his eyes. "THEY HAVE TO GIVE ME #1 NOW! Tell me they'll give it to me again, Crunch."\n\n"Well, we'll have to wait and see. It's likely." Crunch replies, already afraid of Juan's response.\n\n"What do you mean wait and see? Who can stop me now? This is the most important tournament left! I'll have too many wins!" Juan is talking more quickly, becoming pink in the face like his signature character. Crunch just silently looks at him, and goes to the final picture. It's Zain's twitter.\n\n> Feeling great, see you guys tomorrow!\n\nJuan instinctively, almost preemptively lunges forward off the bed and brings both his fists down, smashing the TV. "Aw, come on man, not again..." comes a voice from the doorway. It's The Crimson Blur.`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
+
 
 
     //iBDW
 
-    if (command === `IBDW` || command === `CODY`) {
+    if (command === `IBDW` || command === `CODY` || command === `IBBW` || command === `IBDSM` || command === `INSFW` || command === `CODYSCHWAB`) {
         var i = [`i Be Destroying Waterclosets`,
                 `i Blow Dude Weiners`,
                 `i Binge Drink Weekly`,
@@ -2623,7 +3072,7 @@ client.on('message', async message => {
 
     //IceMaster
 
-    if (command === `ICE` || command === `ICEMASTER`) {
+    if (command === `ICE` || command === `ICEMASTER` || command === `SCOTTYDOO` || command === `ICEMASTER3000` || command === `ICEMASTER3K` || command === `POPEYE` || command === `ONIONBLESS` || command === `SCOTTYFLEX` || command === `ICEDADDY` || command === `ICEDAD`) {
         var i = [`I've decided that in tournament as Marf, my tag is Scotty-Doo, because he just do, ya know?\nBut when I enter as Falco... my tag will be Scotty-Flex.\n\nIt's perfect.`,
             `And the marfs in the cradle and the silver spoon... Hungrybox is the tru man-on-da-moon. When we gonna mm I don't know when... but I'll put a stop him thennn, I said I'm gonna stop him right thenn`,
             `Do you think "Onion Bless" is a slightly charming, yet overall pretty cool name?`];
@@ -2636,7 +3085,7 @@ client.on('message', async message => {
 
     //Leffen
 
-    if (command === `LEFFEN`) {
+    if (command === `LEFFEN` || command === `LEFFEB` || command === `LEFF` || command === `YUNGLEFF`) {
         var r = Math.random();
 
         if (r > .5) {
@@ -2649,7 +3098,7 @@ client.on('message', async message => {
 
     //Loscar
 
-    if (command === `LOSCAR`) {
+    if (command === `LOSCAR` || command === `LOSCARLOS` || command === `CARLOS`) {
         var l = [`a bar`,
                 `a bar`,
                 `a bar`,
@@ -2694,44 +3143,56 @@ client.on('message', async message => {
     //Mango
 
     if (command === `MANGO` || command === `MANG0`) {
-        var m = [`LMAOOOOOOOOOOOOO \ni can say that i have grown up a lot in the last 2 years .. and i waited to shake ur hand at ncr but you were crying or whatever and i was gonna wait till you were finished \nAnd ive been more civil to you outside of smash for sure but when it comes to the game itself i have 0 respect for ur " skill " . I think ur a disgrace to the game and i think ur god awful. You learned 1 gimmick and abused it .. You never adapt to anything .. Ur just bad at the game and if you wanna shut me up. Beat me consistently dude and it will change .. Until then get off of reddit and go practice`,
-                `I won pound three =D \n \nim cocky so what \nEAT A \\*\\*\\*\\* PEOPLE \ncept the community <333`,
-                `Just post what ud rather do then play/watch brawl \n=D \n \nId Rather watch mikehaze run around shirtless in slowmotion ( mike <33 ) \nId rather tear off my own hands just so theres no chance i ever have \n2 play brawl .... but then get metal ones that only allow me 2 play melee =D \nId rather have lost pound three then brawl being made =/ lol \nId rather have pyschomidget ACTUALLY eat a \\*\\*\\*\\* then him play brawl lololol \n( socal melee community joke <33 ) \n!!!! \n\\*\\*\\*\\* thread`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/613475440505389067/unknown.png`,
-                `**USA** \n**USA** \n**USA**`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/613476344361123867/unknown.png`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/613475625574989936/unknown.png`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/613472979082543134/unknown.png`,
-                `1. My iq is as probably as high as your smash skill \nwhich probably isnt VERY HIGH \n2. You can suck my \\*\\*\\*\\* \n3 You can suck my \\*\\*\\*\\* \n4. Ima pro roulette player i came to gamble \n5. ummmmmmmmmmm i dunno \n6. Sup \n=D<3`,
-                `god ur sooooooo \\*\\*\\*\\* gay`,
-                `............ i really hate that \n\\*\\*\\*\\*\\*\\* \\*\\*\\* \\*\\*\\*\\*\\* peice of \\*\\*\\*\\* \n \nedit - im cool as \\*\\*\\*\\* in person \nsuck it`,
-                `=(((((((((((((((((((((((((((((((((((((((`,
-                `**silent wolf rapes** \n \nsilent wolf rapes`,
-                `loooooooooooooooooooooooooooooooooool`,
-                `Also the \\*\\*\\*\\* american version is wayyyy better \nand the \\*\\*\\*\\*ty euro version is a peice of \\*\\*\\*\\* \ni would \\*\\*\\*\\* that game also \nit wouldnt change ne thing cept \nlife looks alot easier in the euro version \nalot less gay \\*\\*\\*\\* \nWHICH U GUYS NEED \nIF U HAVE NE CHANCE OF BEATING ME \n \nAmerica baby`,
-                `your black \n \ngg`,
-                `what a black joke \n \n\\*\\*\\*\\* black mother fukers`,
-                `i agree lets ban puff`,
-                `america rapes \neveryone else sucks \n \nso much \\*\\*\\*\\*`,
-                `coming again to save the mother \\*\\*\\*\\*n day \narmada ur game is thru \ncause now u have to answer to \n \namerIIiIIcCcaAaaAA \n \nso lick my fox's \\*\\*\\* suck my falcons ballllllllllls`,
-                `*dances \n \n..... \ni pop a hoes cherry then i pop ma colllar`,
-                `\\*\\*\\* so big i told her look back at itttttttttttttttt`,
-                `noob mentality \n \ntrue champs wanna beat people at their best... \nI never feel good when I beat someone when they OBVIOUSLY do not play NOT UP 2 PAR \n \nnvm \n*FRANCE MENTALITY \nLMAOAO \nfreedom fries motha \\*\\*\\*\\*er`,
-                `SupPPpPpPPp`,
-                `^^^^^^ my point EXACTLY \nk im done posting here \nCYA GUYS <3 <--- for my fans everyone else can fall in a hole`,
-                `Suppppppppppppppppppppppppppppppppppppppppppp : 3`,
-                `ajp deeeeeeeeeeeeeeeeeeez nuttttts ROFLLL`,
-                `i never did homework in high school too busy winning pound 3 and such \n:)`,
-                `LMAOO \n=]`,
-                `id deff say im old school and new school mixed \n \nme and m2k had our first set/1 match at evo LMAOOO in 07 ( i won : 3 )\n \nPRETTY OLD SCHOOL IF U ASK ME \n \n \nand if this happens id rather be on the old school team\n \n\\*\\*\\*\\* the new school`,
-                `havent even said a word to hbox the last like 3 tourneys ROFLL`,
-                `<<<<<<<< #1 \n \nin case u were wondering \n \n \n \nLMAOOO`,
-                `whos tryna money match THE KID \n<--- the kid`];
+        var r = Math.random() * 33;
 
-        var r = Math.floor((Math.random() * m.length));
+        if (r <= 4) {
+            var m = [`https://cdn.discordapp.com/attachments/611202965558132747/613475440505389067/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/611202965558132747/613476344361123867/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/611202965558132747/613475625574989936/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/611202965558132747/613472979082543134/unknown.png`,];
 
-        message.channel.send(m[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: c[r]});
+
+        } else {
+            var w = [`LMAOOOOOOOOOOOOO \ni can say that i have grown up a lot in the last 2 years .. and i waited to shake ur hand at ncr but you were crying or whatever and i was gonna wait till you were finished \nAnd ive been more civil to you outside of smash for sure but when it comes to the game itself i have 0 respect for ur " skill " . I think ur a disgrace to the game and i think ur god awful. You learned 1 gimmick and abused it .. You never adapt to anything .. Ur just bad at the game and if you wanna shut me up. Beat me consistently dude and it will change .. Until then get off of reddit and go practice`,
+                    `I won pound three =D \n \nim cocky so what \nEAT A \\*\\*\\*\\* PEOPLE \ncept the community <333`,
+                    `Just post what ud rather do then play/watch brawl \n=D \n \nId Rather watch mikehaze run around shirtless in slowmotion ( mike <33 ) \nId rather tear off my own hands just so theres no chance i ever have \n2 play brawl .... but then get metal ones that only allow me 2 play melee =D \nId rather have lost pound three then brawl being made =/ lol \nId rather have pyschomidget ACTUALLY eat a \\*\\*\\*\\* then him play brawl lololol \n( socal melee community joke <33 ) \n!!!! \n\\*\\*\\*\\* thread`,
+                    `**USA** \n**USA** \n**USA**`,
+                    `1. My iq is as probably as high as your smash skill \nwhich probably isnt VERY HIGH \n2. You can suck my \\*\\*\\*\\* \n3 You can suck my \\*\\*\\*\\* \n4. Ima pro roulette player i came to gamble \n5. ummmmmmmmmmm i dunno \n6. Sup \n=D<3`,
+                    `god ur sooooooo \\*\\*\\*\\* gay`,
+                    `............ i really hate that \n\\*\\*\\*\\*\\*\\* \\*\\*\\* \\*\\*\\*\\*\\* peice of \\*\\*\\*\\* \n \nedit - im cool as \\*\\*\\*\\* in person \nsuck it`,
+                    `=(((((((((((((((((((((((((((((((((((((((`,
+                    `**silent wolf rapes** \n \nsilent wolf rapes`,
+                    `loooooooooooooooooooooooooooooooooool`,
+                    `Also the \\*\\*\\*\\* american version is wayyyy better \nand the \\*\\*\\*\\*ty euro version is a peice of \\*\\*\\*\\* \ni would \\*\\*\\*\\* that game also \nit wouldnt change ne thing cept \nlife looks alot easier in the euro version \nalot less gay \\*\\*\\*\\* \nWHICH U GUYS NEED \nIF U HAVE NE CHANCE OF BEATING ME \n \nAmerica baby`,
+                    `your black \n \ngg`,
+                    `what a black joke \n \n\\*\\*\\*\\* black mother fukers`,
+                    `i agree lets ban puff`,
+                    `america rapes \neveryone else sucks \n \nso much \\*\\*\\*\\*`,
+                    `coming again to save the mother \\*\\*\\*\\*n day \narmada ur game is thru \ncause now u have to answer to \n \namerIIiIIcCcaAaaAA \n \nso lick my fox's \\*\\*\\* suck my falcons ballllllllllls`,
+                    `*dances \n \n..... \ni pop a hoes cherry then i pop ma colllar`,
+                    `\\*\\*\\* so big i told her look back at itttttttttttttttt`,
+                    `noob mentality \n \ntrue champs wanna beat people at their best... \nI never feel good when I beat someone when they OBVIOUSLY do not play NOT UP 2 PAR \n \nnvm \n*FRANCE MENTALITY \nLMAOAO \nfreedom fries motha \\*\\*\\*\\*er`,
+                    `SupPPpPpPPp`,
+                    `^^^^^^ my point EXACTLY \nk im done posting here \nCYA GUYS <3 <--- for my fans everyone else can fall in a hole`,
+                    `Suppppppppppppppppppppppppppppppppppppppppppp : 3`,
+                    `ajp deeeeeeeeeeeeeeeeeeez nuttttts ROFLLL`,
+                    `i never did homework in high school too busy winning pound 3 and such \n:)`,
+                    `LMAOO \n=]`,
+                    `id deff say im old school and new school mixed \n \nme and m2k had our first set/1 match at evo LMAOOO in 07 ( i won : 3 )\n \nPRETTY OLD SCHOOL IF U ASK ME \n \n \nand if this happens id rather be on the old school team\n \n\\*\\*\\*\\* the new school`,
+                    `havent even said a word to hbox the last like 3 tourneys ROFLL`,
+                    `<<<<<<<< #1 \n \nin case u were wondering \n \n \n \nLMAOOO`,
+                    `whos tryna money match THE KID \n<--- the kid`];
+
+            var r = Math.floor((Math.random() * w.length));
+
+            message.channel.send(w[r]);
+        }
     }
+
+
 
 
     //Me, you and SPOTW
@@ -2795,20 +3256,21 @@ client.on('message', async message => {
 
     //Mmuller87
 
-    if (command === `MMULLER` || command === `MMUELLER` || command === `MMU`) {
-        var m = [`https://cdn.discordapp.com/attachments/608818247877525526/610284791014883329/HGOD_DABS_ON_THE_FOX_MAINS.jpg`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/610284654594883586/hbox_daberoni.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/615589309411753991/emoji.png`,
-                `Dab on em`,
-                `Dab on em`,
-                `Dab on em`,
-                `Dab on em`,
-                `Dab on em`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`];
+    if (command === `MMULLER` || command === `MMUELLER` || command === `MMU` || command === `DAB` || command === `DABONEM`) {
+        var r = Math.random() * 9;
 
-        var r = Math.floor((Math.random() * m.length));
+        if (r <= 4) {
+            var m = [`https://cdn.discordapp.com/attachments/608818247877525526/610284791014883329/HGOD_DABS_ON_THE_FOX_MAINS.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/610284654594883586/hbox_daberoni.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/615589309411753991/emoji.png`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`];
 
-        message.channel.send(m[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: c[r]});
+        } else {
+            message.channel.send(`Dab on em`);
+        }
     }
 
     //Muted
@@ -2819,7 +3281,7 @@ client.on('message', async message => {
 
     //Nanchoman
 
-    if (command === `NANCH` || command === `NANCHOMAN`) {
+    if (command === `NANCH` || command === `NANCHOMAN` || command === `BIGNANCH`) {
         message.channel.send(`Hello there! Ha! Just a little prequel meme humor for ya`);
     }
 
@@ -2856,7 +3318,7 @@ client.on('message', async message => {
 
     //Risc
 
-    if (command === `RISC` || command === `BESTDK` || command === `SCHEDULE`) {
+    if (command === `RISC` || command === `BESTDK` || command === `SCHEDULE` || command === `MONKEY` || command === `MONKY` || command === `MONKAY` || command === `SHMONKEY`) {
         //message.channel.send(`7:00 - we wake up to eat breakfast together, no cornflakes because cornflakes suck\n8:00 - we shower in shared bathrooms, except cael and airplane because they are minors. We all rub each others back for extra freshness\n8:30 - we pee together :)\n8:45 - uh oh, time for school and work! While cael and airplane go to preschool, we adults go to uni, college or work to make money and learn something new!\n13:00 - we have a collective skype session with lunch. Cael and airplane get some applesauce, sugden throws his vegetables off of his plate, darsh has a protein bar and the rest eats a sandwhich!\n13:30 - uh oh! Naptime for airplane and cael! We sing a lullaby for them so they fall asleep through skype and we start studying and working again.\n16:00 - its time to go home for a good session of lame melee, coffee and anti have been looking forward for this the whole day whole Darsh has prepared his sheik spiel against soap! Its wonderful! \n18:30 - its time for dinner, after which we watch sesame street together and have a lot of fun :)\n19:30 - airplane and cael will brush their teeth and go to bed while the rest are in a heated discussion which sesame street member has the most sex\n20:00 - it is clear that big bird has the most sex. We start playing melee again!\n22:30 - the non degens are slowly getting to bed, while Brio, A, Loscar, Anti and strucc are going to play a "couple" of dota games. Sugden stays awake to.try and convince them.to play melee, but alas, luckily soap is able to play sugden and they have the best (fd banned!) Fox dittos they could ask for`);
 
         /*var events = [`We eat breakfast together, no cornflakes because cornflakes suck.`,
@@ -3126,7 +3588,7 @@ client.on('message', async message => {
 
     //Rootnut
 
-    if (command === `ROOT` || command === `ROOTNUT` || command === `NUT`) {
+    if (command === `ROOT` || command === `ROOTNUT` || command === `NUT` || command === `DESVELATE`) {
         var min2 = Math.ceil(15);
         var max2 = Math.floor(99);
         var r2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
@@ -3144,32 +3606,42 @@ client.on('message', async message => {
 
     //SFAT
 
-    if (command === `SFAT`) {
-        message.channel.send(`https://cdn.discordapp.com/attachments/612063670297427978/650057908851179553/unknown.png`);
+    if (command === `SFAT` || command === `ZAC`) {
+        message.channel.send({ file: `https://cdn.discordapp.com/attachments/612063670297427978/650057908851179553/unknown.png` });
     }
 
 
     //Silverhand
 
-    if (command === `SILVER` || command === `SILVERHAND` || command === `ILVER` || command === `LVER`) {
-        var s = [`wanna play guilty gear`,
-                `wanna play melty`,
-                `wanna play unist`,
-                `https://i.imgur.com/VBB57cT.png`,
-                `https://i.imgur.com/U5RNamy.png`,
-                `OK I'm starting an Ultra Fight Da! Kyanta 2 league. You guys should join in \ntype in \` t!ultrafightdakyanta2league \` to join`,
-                `**\*Loud typing noises\***`,
-                `**\*Loud Fightstick noises\***`,
-                `Nooo don't shut down the bot your so sexy aha`,
-                `Long overdue, but I think it's time for me to unsubscribe from this server.`,
-                `What if Silver sex Ky Kiske from the new Guilty Gear trailer`,
-                `Hi, at the time of you reading this I am taking an indefinite break from the scene and taking this puff along with me. I'll get straight to the point, Leffen has been an asshole to me and my character countless times, and shows no remorse or effort to change. I'm sure he or someone else will try to spin my absence as being about what happened right before I got eliminated, or some other small thing, but that was just the straw that broke the clutchgod's back. He is a hurtful person to be around, and has gone so far as blatantly saying so. A point he made the day I'm writing this that really pushed me towards leaving is that he doesn't single me out, he's just like this to everyone. I don't think any of you deserve to be around people like that. Leaving was a very hard decision to make, as I've spent a lot of my time with this scene the past decade, and if it were just the rest of you I'd love to continue to do so. However, people defending someone who is that awful to be around outweighs the other benefits of being in this community, at least to me. I hope that something can change, whether that is Leffen showing real effort to change as a person and be nicer to people, or him leaving the server. If not, it's been nice knowing the rest of you, and my DMs are open if anyone wants to get in touch with me. \n \n-Hungrybox`,
-                `Hi, at the time of you reading this I am taking an indefinite break from the server and taking this bot along with me. I'll get straight to the point, SubjectiveF has been an asshole to me and my friends countless times, and shows no remorse or effort to change. I'm sure he or someone else will try to spin my absence as being about what happened right before I left, or some other small thing, but that was just the straw that broke the camel's back. He is a hurtful person to be around, and has gone so far as blatantly saying so. A point he made the day I'm writing this that really pushed me towards leaving is that he doesn't single me out, he's just like this to everyone. I don't think any of you deserve to be around people like that. Leaving was a very hard decision to make, as I've spent a lot of my time with this server the past few months, and if it were just the rest of you I'd love to continue to do so. However, people defending someone who is that awful to be around outweighs the other benefits of being in this community, at least to me. I hope that something can change, whether that is Subjective showing real effort to change as a person and be nicer to people, or him leaving the server. If not, it's been nice knowing the rest of you, and my DMs are open if anyone wants to get in touch with me. \n \n-I'm gay`,
-                `wanna play tekken`];
+    if (command === `SILVER` || command === `SILVERHAND` || command === `ILVER` || command === `LVER` || command === `ILLUSION`) {
+        var r = Math.random() * 14;
 
-        var r = Math.floor((Math.random() * s.length));
+        if (r <= 2) {
+            var m = [`https://i.imgur.com/VBB57cT.png`,
+                    `https://i.imgur.com/U5RNamy.png`];
 
-        message.channel.send(s[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`wanna play guilty gear`,
+                    `wanna play melty`,
+                    `wanna play unist`,
+                    `OK I'm starting an Ultra Fight Da! Kyanta 2 league. You guys should join in \ntype in \` t!ultrafightdakyanta2league \` to join`,
+                    `**\*Loud typing noises\***`,
+                    `**\*Loud Fightstick noises\***`,
+                    `Nooo don't shut down the bot your so sexy aha`,
+                    `Long overdue, but I think it's time for me to unsubscribe from this server.`,
+                    `What if Silver sex Ky Kiske from the new Guilty Gear trailer`,
+                    `Hi, at the time of you reading this I am taking an indefinite break from the scene and taking this puff along with me. I'll get straight to the point, Leffen has been an asshole to me and my character countless times, and shows no remorse or effort to change. I'm sure he or someone else will try to spin my absence as being about what happened right before I got eliminated, or some other small thing, but that was just the straw that broke the clutchgod's back. He is a hurtful person to be around, and has gone so far as blatantly saying so. A point he made the day I'm writing this that really pushed me towards leaving is that he doesn't single me out, he's just like this to everyone. I don't think any of you deserve to be around people like that. Leaving was a very hard decision to make, as I've spent a lot of my time with this scene the past decade, and if it were just the rest of you I'd love to continue to do so. However, people defending someone who is that awful to be around outweighs the other benefits of being in this community, at least to me. I hope that something can change, whether that is Leffen showing real effort to change as a person and be nicer to people, or him leaving the server. If not, it's been nice knowing the rest of you, and my DMs are open if anyone wants to get in touch with me. \n \n-Hungrybox`,
+                    `Hi, at the time of you reading this I am taking an indefinite break from the server and taking this bot along with me. I'll get straight to the point, SubjectiveF has been an asshole to me and my friends countless times, and shows no remorse or effort to change. I'm sure he or someone else will try to spin my absence as being about what happened right before I left, or some other small thing, but that was just the straw that broke the camel's back. He is a hurtful person to be around, and has gone so far as blatantly saying so. A point he made the day I'm writing this that really pushed me towards leaving is that he doesn't single me out, he's just like this to everyone. I don't think any of you deserve to be around people like that. Leaving was a very hard decision to make, as I've spent a lot of my time with this server the past few months, and if it were just the rest of you I'd love to continue to do so. However, people defending someone who is that awful to be around outweighs the other benefits of being in this community, at least to me. I hope that something can change, whether that is Subjective showing real effort to change as a person and be nicer to people, or him leaving the server. If not, it's been nice knowing the rest of you, and my DMs are open if anyone wants to get in touch with me. \n \n-I'm gay`,
+                    `wanna play tekken`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
 
     if (command === `ULTRAFIGHTDAKYANTA2LEAGUE`) {
@@ -3289,7 +3761,7 @@ client.on('message', async message => {
 
     //SubF
 
-    if (command === `SUBF` || command === `SUBJECTIVE` || command === `SUBJECTIVEF` || command === `SUB`) {
+    if (command === `SUBF` || command === `SUBJECTIVE` || command === `SUBJECTIVEF` || command === `SUB` || command === `RESTINPEACE` || command === `RIP`) {
         var f = [`Fox`,
             `Fun`,
             `Fucking stop tagging me on reddit dot com`,
@@ -3396,6 +3868,7 @@ client.on('message', async message => {
             `Firefox`,
             `Facts don't care about your feelings`,
             `can'tgobackwardsinstarFox64`,
+            `Fuuuuuck please come back pleasepleasepleaseplease`
             `you stupid bitch, you stupid fucking bitch, you stupid Fucking bitch`];
 
         var r = Math.floor((Math.random() * f.length));
@@ -3406,14 +3879,14 @@ client.on('message', async message => {
 
     //Suggestion Box
 
-    if (command === `SUGGESTION` || command === `SUGGESTIONBOX`) {
+    if (command === `SUGGESTION` || command === `SUGGESTIONBOX` || command === `FEEDBACK`) {
         message.channel.send(`Please fill out this form with any comments or suggestions about me :)\nhttps://forms.gle/6sesdfNuioYNT5hB7`);
     }
 
 
     //Ted
 
-    if (command === `TED` || command === `EMPTY` || command === `TEDEMPTY`) {
+    if (command === `TED` || command === `EMPTY` || command === `TEDEMPTY` || command === `TEDWARD`) {
         var t = [`Traitor.`,
                   `Fuckboi.`,
                   `Bitch.`,
@@ -3421,6 +3894,7 @@ client.on('message', async message => {
                   `Incel.`,
                   `Loser.`,
                   `Virgin.`,
+                  `Coward.`,
                   `Scumbag.`,
                   `Troll.`];
 
@@ -3432,24 +3906,34 @@ client.on('message', async message => {
 
     //Vro
 
-    if (command === `VRO` || command === `RATTAIL`) {
-        var v = [`I like seeing vro commentate because it reminds me that even if you look like a scumbag and are innately annoying you can still be successful`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/625272358583926784/unknown.png`,
-                `https://cdn.discordapp.com/attachments/611202965558132747/625328138414718978/EBo4sqp.png`,
-                `Imagine being someone who's played melee for 3 or 4 years. You're not the greatest player ever, but you can do some things and all your homies think you're sick. \n \nYou head on out to beautiful Worcester MA for Shine. For some reason, your round 1 pool match gets called to be on stream. You think to yourself how cool it'll be to have a real commentator talk about your melee play. "Maybe Armada will commentate my pool and I'll learn something," you think. "Or maybe it'll be The Cheat, he's pretty funny and that'll be something I can go back to for a laugh." \n \nYou make your way on stage, passing by the commentators. You didn't even realize it, but you've been smiling this whole time. You turn your head to check out the commentators. There's one guy you don't really recognize - "that's alright," you think - then you look to his right. It's Vro. \n \nYour smile fades. A new pain appears in your left wrist. You lose 4 GALINT off your ledgedashes. \n \nMaybe it's time for you to take a break from melee.`,
-                `*picking hairs off my rattail* He vros me, he vros me not....`,
-                `Vro, Vro, Vro your boat \nGently close the stream`,
-                `WHATS up Vrochachos iiiiits ya boiii Cary here coming atcha with another hot steamy Melee Blast straight outta my vroZONE. You know we like to keep it crankin out sweetness with 100% natural Stevia over at Melee Everyday, but now that we're DOUBLE HQd from the L.A reeg we can hit you twice as many Care-y packages. Like your Mommy sending you pop-tarts and optimistic condoms to the dorms, we've got TWICE the commie blocks, TWICE the content and HALF the clout of Gimr. Rest up and Bless ⬆️ on this glorious day, and if you want to reach me you Chan always slide into my DMs for business inquiries.`,
-                `Vruh`,
-                `Vro \nis \nBAD`,
-                `The 3 W’s of Life: Women, Wisdom, and Whining about how bad Vro is on commentary`,
-                `https://www.youtube.com/watch?v=4HkaW0zVH7E`,
-                `https://www.youtube.com/watch?v=Lx4k-0RFaaQ`,
-                `Two Vros diverged in a yellow wood \nAnd I'm sorry I could not mute them both`];
+    if (command === `VRO` || command === `RATTAIL` || command === `SHITCOMMENTARY`) {
+        var r = Math.random() * 13;
 
-        var r = Math.floor((Math.random() * v.length));
+        if (r <= 2) {
+            var m = [`https://cdn.discordapp.com/attachments/611202965558132747/625272358583926784/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/611202965558132747/625328138414718978/EBo4sqp.png`];
 
-        message.channel.send(v[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`I like seeing vro commentate because it reminds me that even if you look like a scumbag and are innately annoying you can still be successful`,
+                    `Imagine being someone who's played melee for 3 or 4 years. You're not the greatest player ever, but you can do some things and all your homies think you're sick. \n \nYou head on out to beautiful Worcester MA for Shine. For some reason, your round 1 pool match gets called to be on stream. You think to yourself how cool it'll be to have a real commentator talk about your melee play. "Maybe Armada will commentate my pool and I'll learn something," you think. "Or maybe it'll be The Cheat, he's pretty funny and that'll be something I can go back to for a laugh." \n \nYou make your way on stage, passing by the commentators. You didn't even realize it, but you've been smiling this whole time. You turn your head to check out the commentators. There's one guy you don't really recognize - "that's alright," you think - then you look to his right. It's Vro. \n \nYour smile fades. A new pain appears in your left wrist. You lose 4 GALINT off your ledgedashes. \n \nMaybe it's time for you to take a break from melee.`,
+                    `*picking hairs off my rattail* He vros me, he vros me not....`,
+                    `Vro, Vro, Vro your boat \nGently close the stream`,
+                    `WHATS up Vrochachos iiiiits ya boiii Cary here coming atcha with another hot steamy Melee Blast straight outta my vroZONE. You know we like to keep it crankin out sweetness with 100% natural Stevia over at Melee Everyday, but now that we're DOUBLE HQd from the L.A reeg we can hit you twice as many Care-y packages. Like your Mommy sending you pop-tarts and optimistic condoms to the dorms, we've got TWICE the commie blocks, TWICE the content and HALF the clout of Gimr. Rest up and Bless ⬆️ on this glorious day, and if you want to reach me you Chan always slide into my DMs for business inquiries.`,
+                    `Vruh`,
+                    `Vro \nis \nBAD`,
+                    `The 3 W’s of Life: Women, Wisdom, and Whining about how bad Vro is on commentary`,
+                    `https://www.youtube.com/watch?v=4HkaW0zVH7E`,
+                    `https://www.youtube.com/watch?v=Lx4k-0RFaaQ`,
+                    `Two Vros diverged in a yellow wood \nAnd I'm sorry I could not mute them both`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
 
 
@@ -3658,111 +4142,121 @@ client.on('message', async message => {
     //Sugden / Cum
 
     if (command === `SUGDEN` || command === `SUG` || command === `CHAZZ` || command === `CHAZ` || command === `CHAZZDEN` || command === `SUGDEEZY` || command === `SUGDEB` || command === `DOG` || command === `CUM`) {
-        var s = [`https://i.imgur.com/YtYweuz.png`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/615577924783046656/unknown.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/619592892234858516/1567789137645.png`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/618975820156764173/corn.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/618344161225211936/69473515_10219276880943119_7832993335324180480_n.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616846521392168974/received_780188335732851.jpeg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/617558724898324657/JPEG_20190831_201749.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/617443605983920215/JPEG_20190831_124022.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/615952645609357332/JPEG_20190827_175534.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/617397856029900800/IMG_20190831_173826.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/617101653388296278/JPEG_20190830_220100.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/616925518025064481/JPEG_20190830_102128.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/619100351013847040/JPEG_20190905_102330.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/619087599876833280/JPEG_20190905_093240.jpg`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/618913601851228171/JPEG_20190904_220124.jpg`,
-                `https://media.discordapp.net/attachments/612061198288027796/614471733197668388/IMG-20190812-WA0005.jpg?width=507&height=676`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/615560160676675595/IMG_20190826_1055292.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/614471173492703242/JPEG_20190823_154853.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/614471100491104286/JPEG_20190823_154829.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613779410809651213/JPEG_20190821_175958.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613779172455743525/JPEG_20190821_175842.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613415798572056597/IMG_20190820_175249.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/613034163418824922/JPEG_20190819_163804.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/612978436817813554/JPEG_20190819_125658.jpg`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/612338727749943297/JPEG_20190817_183511.jpg`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/612338128161734734/JPEG_20190817_183246.jpg`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/612253861364629514/JPEG_20190817_125800.jpg`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615248249481199748/emoji.gif`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615244724504231988/Z.png`,
-                `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/611563402283712552/IMG_20190815_151426.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/611506900852277248/JPEG_20190815_112939.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/610835186329845810/IMG_20190813_150028.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/588448339566002195/image0.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/588442510062256139/image2.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/588442509248692259/image0.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/588442508812615680/image1.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/609224595832307722/IMG_20190808_232043359.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/609223357166256147/received_687242161793112.jpeg`,
-                `https://i.imgur.com/Tf9QJaA.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/605540736271777831/Screenshot_20190729-172231_Instagram.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/604435328610336778/timmy.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/605540868459593748/Screenshot_20190729-172303_Instagram.jpg`,
-                `https://media.discordapp.net/attachments/555176988562948116/600003486087905281/unknown.png?width=934&height=640`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/603256016632676362/JPEG_20190723_170352.jpg`,
-                `https://i.imgur.com/dqdUUZt.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/603428017863131164/JPEG_20190724_042706.jpg`,
-                `https://i.imgur.com/BvXGg7I.png`,
-                `https://media.discordapp.net/attachments/566411042738143242/600061732135764003/D-RI0IdW4AQg5Oj.png?width=640&height=640`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600003058323423233/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600003345767202818/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600003486087905281/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600067265987346432/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600067494463406090/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600067651313729546/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600067685019156518/IMG_20181001_122428.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600069530353532948/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600069573932351496/20190508_173330.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/600070030293467136/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602172803609001994/JPEG_20190720_103000.jpg`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602172885888663552/IMG_20190718_193205.jpg`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602172886807085087/IMG_20190718_193115.jpg`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602172966729416735/JPEG_20190720_163446.jpg`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602207672137285633/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602207713757364233/20180429_191241.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602207743058771975/FullSizeR.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602207763224985600/red_and_blue.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602207790387298311/1449118552328.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602208807552024577/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602209495325737006/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602209552989159424/Snapchat-825518123.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602209741372129280/unknown.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/602210191877865502/unknown.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/596392410913832970/JPEG_20190704_103028.jpg`,
-                `https://cdn.discordapp.com/attachments/567417652331413544/601222330865156097/IMG_20190622_142738926.jpg`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/605898887491878956/dog.png`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/605898903086170147/dog_2.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/605539691571314718/JPEG_20190728_090311.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/605540018982748172/mq8eny9u3da31.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/604802387756056707/image0.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/604682716482633758/JPEG_20190727_153253.jpg`,
-                `https://cdn.discordapp.com/attachments/555176988562948116/606140681353691166/unknown.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/606138286091665451/image.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/606113989956730901/JPEG_20190731_142006.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/606095855841443850/JPEG_20190731_130813.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/607189046015426560/JPEG_20190803_133207.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/607188105207873537/JPEG_20190803_132820.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/606559419605581834/IMG-20180831-WA0002.jpg`,
-                `https://cdn.discordapp.com/attachments/598336899010003015/606270930641223693/IMG_20190731_194403770.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/606138286091665451/image.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/607210695876149248/image0.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/607210812594978826/image0.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/607211749984174110/image0.jpg`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/607222944317571073/Screenshot_20190803-164652.png`,
-                `https://cdn.discordapp.com/attachments/542142763693768731/605540431043756033/20190729_172103.jpg`,
-                `https://cdn.discordapp.com/attachments/542494706932645918/598248990638735370/image0.jpg`,
-                `https://i.imgur.com/vnY6qBY.jpg`,
-                `https://cdn.discordapp.com/attachments/542494706932645918/598248832144375959/image0.jpg`,
-                `Never cum`,
-                `PSA: Don't do drugs`,
-                `https://cdn.discordapp.com/attachments/608818247877525526/615578318540111922/unknown.png`];
+        var r = Math.random() * 101;
 
-        var r = Math.floor((Math.random() * s.length));
+        if (r <= 99) {
+            var m = [`https://i.imgur.com/YtYweuz.png`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/615577924783046656/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/619592892234858516/1567789137645.png`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/618975820156764173/corn.png`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/618344161225211936/69473515_10219276880943119_7832993335324180480_n.png`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/616846521392168974/received_780188335732851.jpeg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/617558724898324657/JPEG_20190831_201749.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/617443605983920215/JPEG_20190831_124022.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/615952645609357332/JPEG_20190827_175534.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/617397856029900800/IMG_20190831_173826.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/617101653388296278/JPEG_20190830_220100.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/616925518025064481/JPEG_20190830_102128.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/619100351013847040/JPEG_20190905_102330.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/619087599876833280/JPEG_20190905_093240.jpg`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/618913601851228171/JPEG_20190904_220124.jpg`,
+                    `https://media.discordapp.net/attachments/612061198288027796/614471733197668388/IMG-20190812-WA0005.jpg?width=507&height=676`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/615560160676675595/IMG_20190826_1055292.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/614471173492703242/JPEG_20190823_154853.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/614471100491104286/JPEG_20190823_154829.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/613779410809651213/JPEG_20190821_175958.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/613779172455743525/JPEG_20190821_175842.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/613415798572056597/IMG_20190820_175249.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/613034163418824922/JPEG_20190819_163804.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/612978436817813554/JPEG_20190819_125658.jpg`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/612338727749943297/JPEG_20190817_183511.jpg`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/612338128161734734/JPEG_20190817_183246.jpg`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/612253861364629514/JPEG_20190817_125800.jpg`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/615248249481199748/emoji.gif`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/615244724504231988/Z.png`,
+                    `https://cdn.discordapp.com/attachments/612063946643472389/615231847688962049/sugden.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/611563402283712552/IMG_20190815_151426.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/611506900852277248/JPEG_20190815_112939.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/610835186329845810/IMG_20190813_150028.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/588448339566002195/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/588442510062256139/image2.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/588442509248692259/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/588442508812615680/image1.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/609224595832307722/IMG_20190808_232043359.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/609223357166256147/received_687242161793112.jpeg`,
+                    `https://i.imgur.com/Tf9QJaA.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/605540736271777831/Screenshot_20190729-172231_Instagram.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/604435328610336778/timmy.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/605540868459593748/Screenshot_20190729-172303_Instagram.jpg`,
+                    `https://media.discordapp.net/attachments/555176988562948116/600003486087905281/unknown.png?width=934&height=640`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/603256016632676362/JPEG_20190723_170352.jpg`,
+                    `https://i.imgur.com/dqdUUZt.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/603428017863131164/JPEG_20190724_042706.jpg`,
+                    `https://i.imgur.com/BvXGg7I.png`,
+                    `https://media.discordapp.net/attachments/566411042738143242/600061732135764003/D-RI0IdW4AQg5Oj.png?width=640&height=640`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600003058323423233/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600003345767202818/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600003486087905281/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600067265987346432/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600067494463406090/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600067651313729546/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600067685019156518/IMG_20181001_122428.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600069530353532948/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600069573932351496/20190508_173330.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/600070030293467136/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602172803609001994/JPEG_20190720_103000.jpg`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602172885888663552/IMG_20190718_193205.jpg`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602172886807085087/IMG_20190718_193115.jpg`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602172966729416735/JPEG_20190720_163446.jpg`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602207672137285633/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602207713757364233/20180429_191241.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602207743058771975/FullSizeR.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602207763224985600/red_and_blue.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602207790387298311/1449118552328.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602208807552024577/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602209495325737006/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602209552989159424/Snapchat-825518123.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602209741372129280/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/602210191877865502/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/596392410913832970/JPEG_20190704_103028.jpg`,
+                    `https://cdn.discordapp.com/attachments/567417652331413544/601222330865156097/IMG_20190622_142738926.jpg`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/605898887491878956/dog.png`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/605898903086170147/dog_2.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/605539691571314718/JPEG_20190728_090311.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/605540018982748172/mq8eny9u3da31.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/604802387756056707/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/604682716482633758/JPEG_20190727_153253.jpg`,
+                    `https://cdn.discordapp.com/attachments/555176988562948116/606140681353691166/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/606138286091665451/image.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/606113989956730901/JPEG_20190731_142006.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/606095855841443850/JPEG_20190731_130813.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/607189046015426560/JPEG_20190803_133207.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/607188105207873537/JPEG_20190803_132820.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/606559419605581834/IMG-20180831-WA0002.jpg`,
+                    `https://cdn.discordapp.com/attachments/598336899010003015/606270930641223693/IMG_20190731_194403770.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/606138286091665451/image.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/607210695876149248/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/607210812594978826/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/607211749984174110/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/607222944317571073/Screenshot_20190803-164652.png`,
+                    `https://cdn.discordapp.com/attachments/542142763693768731/605540431043756033/20190729_172103.jpg`,
+                    `https://cdn.discordapp.com/attachments/542494706932645918/598248990638735370/image0.jpg`,
+                    `https://i.imgur.com/vnY6qBY.jpg`,
+                    `https://cdn.discordapp.com/attachments/542494706932645918/598248832144375959/image0.jpg`,
+                    `https://cdn.discordapp.com/attachments/608818247877525526/615578318540111922/unknown.png`];
 
-        message.channel.send(s[r]);
+            var r = Math.floor((Math.random() * m.length));
+
+            message.channel.send({file: m[r]});
+
+        } else {
+            var h = [`Never cum`,
+                    `PSA: Don't do drugs`];
+
+            var r = Math.floor((Math.random() * h.length));
+
+            message.channel.send(h[r]);
+        }
     }
 
 
