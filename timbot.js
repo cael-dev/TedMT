@@ -10,7 +10,6 @@ const snowlvl = require("discord-leveling-3");
 const MarkovGen = require("markov-generator");
 const client = new Discord.Client();
 const modRole = 'Illusion';
-const modRole2 = 'Illusion';
 const banRole = 'useless bitch';
 const sql = require('sqlite');
 sql.open('Storage/userData.sqlite');
@@ -35,32 +34,6 @@ client.on('message', async message => {
     if (!message.author.bot) {
         await msglvl.AddLevel(sender.id, 1); //Add Message Level
         await msglvl.SetXp(sender.id, 1); //Set xp to default
-    }
-
-    //Christmas Event
-    if (!message.author.bot && message.channel.name == 'snowball-fight') {
-        let throwerTeam = fetchTeam(message.author.id);
-        let recipientTeam = 0;
-
-        message.channel.fetchMessages({ limit: 2}).then(async messages => {
-            let lastMessage = messages.last();
-            if (!lastMessage.author.bot && lastMessage.author.id != message.author.id) {
-                recipientTeam = fetchTeam(lastMessage.author.id);
-            }
-
-            if (recipientTeam != 0 && throwerTeam != recipientTeam) {
-                var teamLeader = fetchTeamFirstMember(throwerTeam);
-
-                if (teamLeader == 'Undefined Team') {
-                    console.log('Undefined team error');
-                } else {
-                    await snowlvl.AddLevel(teamLeader, 1);
-                    await snowlvl.SetXp(teamLeader, 1);
-
-                    lastMessage.react('653395361607581716');
-                }
-            }
-        })
     }
 
     var currencyName = `TimCoin`;
@@ -92,15 +65,10 @@ client.on('message', async message => {
         message.channel.send('Fuck you!');
     }
 
-    if (command === `PING`) {
-        message.channel.send('Fuck you too!');
-    }
-
     //Patch Notes
-
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.6.2 Patch Notes, The Sugden Gets Off His Ass and Makes the Sickest Quality of Life Changes You'll Ever See Update, 1/29/20`) //1.3.0 on 10/19/19, 1.4.0 on 11/08/19, 1.5.0 on 12/08/19, 1.5.1 on 12/20/19, 1.6.0 on 1/26/20
+            .setTitle(`TimBot v1.6.1 Patch Notes, The Sugden Gets Off His Ass and Makes the Sickest Quality of Life Changes You'll Ever See Update, 1/29/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20
             .setColor(0x2d64f1) //0x2d64f1
             .addField(`Most Commands`, `Added extra command phrases, i.e. !brioooooooo`, true)
             .addField(`Like every image command`, `Adjusted so the link doesn't show`, true)
@@ -114,72 +82,12 @@ client.on('message', async message => {
             .addField(`!tierlist`, `Added 26 new tier lists`, true)
             .addField(`!tierlist`, `Added specific tier list commands for literally every single tier list in the bot`, true)
             .addField(`!tiermaker`, `Added specific tier list commands for the player, commentator and projectile tier lists`, true)
-            .addField(`!quote`, `Added 10 new quotes`, true)
-            .addField(`!comic`, `Added 6 new comics`, true)
-
-
-
-            /*.addField(`!event`, `The Christmas event has started!`, true)
-            .addField(`!team`, `Shows your team and rank for the Christmas event`, true)
-            .addField(`!leaderboard/!rank`, `Now work with 'snow', 'snowball', 'christmas', 'event', etc.`, true)
-            .addField(`!calendar`, `Updated`, true)
-            .addField(`!airplane`, `Added new outcomes`, true)
-            .addField(`!bobingy`, `New command`, true)
-            .addField(`!quote`, `Added 52 new quotes`, true)
-            .addField(`!comic`, `Added 15 new comics`, true)*/
-
-            //.addField(`!leaderboard`, `Now supports messages, defaults to this`, true)
-            //.addField(`!rank`, `Now supports messages, defaults to this`, true)
-            //.addField(`!tierlist`, `New command`, true)
-            //.addField(`!tiermaker`, `New command, links tier list template`, true)
-            //.addField(`!calendar`, `Added lots of stuff, can now specify month`, true)
-            //.addField(`!newquote/!newq/!nq`, `New command, gives recent quote`, true)
-            //.addField(`!chart`, `New command`, true)
-            //.addField(`!halloween/!costume`, `Dogs from the Halloween event`, true)
-            //.addField(`!fakecode`, `New command`, true)
-            //.addField(`!legocoffeewoo`, `New command`, true)
-            //.addField(`!yang/!data`, `Yang gang`, true)
-            //.addField(`!al`, `Added new outcomes`, true)
-            //.addField(`!bubbles`, `Changed outcome`, true)
-            //.addField(`!cael`, `Added new outcomes`, true)
-            //.addField(`!chu`, `Only on Chusday`, true)
-            //.addField(`!quote`, `Added 59 new quotes`, true)
-            //.addField(`!comic`, `Added 15 new comics`, true)
+            .addField(`!quote`, `Added 62 new quotes (10 since 1.6.0)`, true)
+            .addField(`!comic`, `Added 14 new comics (8 since 1.6.0)`, true)
         message.channel.send({embed});
     }
 
     //Temporary Event Stuff
-    if (command === `STARTEVENT`) {
-        if (message.author.id == 72734539834720256) {
-            await snowlvl.SetXp(72734539834720256, 1);
-            await snowlvl.SetXp(337284886039625728, 1);
-            await snowlvl.SetXp(202258713002639360, 1);
-            await snowlvl.SetXp(239503073586708481, 1);
-            await snowlvl.SetXp(212018836474560513, 1);
-            await snowlvl.SetXp(562824176700882964, 1);
-            await snowlvl.SetXp(177545664757104640, 1);
-            await snowlvl.SetXp(151811295711068161, 1);
-            await snowlvl.SetXp(177461438921703434, 1);
-            await snowlvl.SetXp(167375258012221441, 1);
-            await snowlvl.SetXp(368817136182886411, 1);
-            await snowlvl.SetXp(646446533407145986, 1);
-            await snowlvl.SetLevel(72734539834720256, 1);
-            await snowlvl.SetLevel(337284886039625728, 1);
-            await snowlvl.SetLevel(202258713002639360, 1);
-            await snowlvl.SetLevel(239503073586708481, 1);
-            await snowlvl.SetLevel(212018836474560513, 1);
-            await snowlvl.SetLevel(562824176700882964, 1);
-            await snowlvl.SetLevel(177545664757104640, 1);
-            await snowlvl.SetLevel(151811295711068161, 1);
-            await snowlvl.SetLevel(177461438921703434, 1);
-            await snowlvl.SetLevel(167375258012221441, 1);
-            await snowlvl.SetLevel(368817136182886411, 1);
-            await snowlvl.SetLevel(646446533407145986, 1);
-            message.channel.send('done');
-        } else {
-            message.channel.send('not for you, fuck off');
-        }
-    }
 
     /*if(command === `EVENT` || command === `CHRISTMAS` || command === `EVENTFAQ` || command === `EVENTINFO`) {
         message.channel.send(':snowball: Welcome to the 2019 TimCord Snowball Fight! :snowball:\n\nDuring the event, there will be a special snowball fight channel open. Any message sent in this channel will throw a snowball at the last person who sent a message. If this person is not on the same team as you (and isn\'t yourself) your team scores a point! Snowballs require time to make, so you have to space out your throws. To see what team you\'re on, type \'!team\', to see the overall rankings type \'!leaderboard snowball\'. Good luck and have fun!');
@@ -202,10 +110,6 @@ client.on('message', async message => {
     if (command === `COMMAND` || command === `COMMANDS`) {
         message.channel.send("**Commands List (Up-to-date):** \n \n**IMPORTANT COMMANDS** \n**!q**  - quotes \n**!sugden** - Tedcord pet pics \n**!precrab** - practice on dodging crabs, unlimited use \n**!crab** - !precrab but the real deal, roll for daily rewards depending on the crab outcome \n**!help** - Instructions on currency-based commands \n**!commands** - this command, ya dingus \n \n**TEDCORD USER-BASED COMMANDS** \n!adlp, !ahampster, !al or !animelover, !anti, !beywiz, !brio, !bubbles, !cael, !cag, !coffee, !cori, !cuck, !darsh, !dimi, !draco, !drew, !duck, !loscar, !midnight, !mmuller, !risc, !sm, !silver, !soap, !subf, !ted, !wub \n \n**NETPLAY COMMANDS** \n**!netplay - @'s anyone signed up to regions you want to play against, the summoning call of TimCord** \n**!opt-in** - signs you up for a specific netplay role, i.e. !opt-in N-NE makes it so you will be @'ed every time someone wants to netplay vs NE, and !opt-in VS-NE will make it so whenever you use !netplay, N-NE roles will be @'ed. \n**!opt-out** - akes away a specifc netplay role from you, i.e. !opt-out N-NE takes the N-NE role away from you. \n \n**MISC. COMMANDS** \n**!calendar** - for a calendar detailing events happening this month \n**!comic** - roll for a comic that's been saved across TimCord history \n**!askgoiter** - for an accurate fortune-telling \n**!hbox** - for wise words, teachings and history from the Juan True God \n**!mango** - for teachings and history on Satan himself \n**!axe, !bbb or !bobbybigballz, !chacha, !chillin, !dj, !gimr, !ibdw, !minecraft, !never, !vro, !xavier**");
     }
-
-
-
-
 
 
     //General
@@ -753,7 +657,8 @@ client.on('message', async message => {
         message.channel.send(quotes[r]);
     }
 
-    if (command === `CRAB` || command === `PUMPKIN`) {
+    //Crab
+    if (command === `CRAB`) {
         var daily = await eco.Daily(sender.id);
 
         if (daily.updated) {
@@ -891,7 +796,6 @@ client.on('message', async message => {
 
 
     //Pre-Crab
-
     if (command === `PRECRAB`) {
         var c = [`the crab hits your face`,
                 `the crab hits your face`,
@@ -915,7 +819,7 @@ client.on('message', async message => {
         message.channel.send(c[r]);
     }
 
-
+    //Calendar
     if (command === `CALENDAR` || command === `HOLIDAY` || command === `HOLIDAYS`) {
         if (args[0] && args[0] != '') {
             if (args[0] == 'JANUARY' || args[0] == 'JAN' || args[0] == 1) {
@@ -1088,6 +992,7 @@ client.on('message', async message => {
         }
     }
 
+    //Comic
     if (command === `COMIC` || command === `COMICS` || command === `FUNNY`) {
         var c = [`https://cdn.discordapp.com/attachments/612058753293877274/621812880983064627/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/621563099408891927/comic.png`,
@@ -1224,7 +1129,7 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612061367972790281/672204642603499540/comic.png`,
                 `https://cdn.discordapp.com/attachments/612065359285059615/671191644342845440/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/658639527057031195/comic.png`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/672830450741411850/comic.png`
+                `https://cdn.discordapp.com/attachments/612058753293877274/672830450741411850/comic.png`,
                 `https://cdn.discordapp.com/attachments/612065359285059615/672841909517025293/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
@@ -1232,6 +1137,7 @@ client.on('message', async message => {
         message.channel.send({file: c[r]});
     }
 
+    //Chart
     if (command === `CHART`) {
         var charts = [`https://cdn.discordapp.com/attachments/612063946643472389/641603621955305482/chart.png`,
             `https://cdn.discordapp.com/attachments/612325624203182085/640978083029057536/chart.png`,
@@ -1287,6 +1193,7 @@ client.on('message', async message => {
             message.channel.send({file: charts[r]});
     }
 
+    //Costume / HalloweenDog
     if (command === `COSTUME` || command === `COSTUMES` || command === `COSTUMEDOG` || command === `HALLOWEENDOG` || command === `HALLOWEEN`) {
         var costumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
             `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
@@ -1346,6 +1253,7 @@ client.on('message', async message => {
         message.channel.send({file: costumes[r]});
     }
 
+    //Tierlist
     if (command === `TIERLIST` || command === `TIER` || command === `TIERLISTS`) {
         var lists = [`Netplay Greetings - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/641867089996414987/netplay_greeding_tier_list.png`, //0
             `Sneeze Sounds - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/641864531676626954/my-image_3.png`,
@@ -1782,7 +1690,7 @@ client.on('message', async message => {
             } else if (args[0] === `PIZZAPARTY` || args[0] === `PIZZA`) {
                 var split = lists[107].split(`\n`);
                 message.channel.send(split[0], {file: split[1]});
-            } else if (args[0] === `POECLASSES` || args[0] === `POE`) {
+            } else if (args[0] === `POECLASSES` || args[0] === `POE` || args[0] === `ASCENDANCY`) {
                 var split = lists[108].split(`\n`);
                 message.channel.send(split[0], {file: split[1]});
             } else {
@@ -1797,42 +1705,32 @@ client.on('message', async message => {
         }
     }
 
+    //Tiermaker
     if (command === `TIERMAKER`) {
-        var tms = [`https://tiermaker.com/create/melee-projectiles-v3-204742`, //SILVER CHECK THIS <--------------
+        var tms = [`https://tiermaker.com/create/melee-projectiles-v3-204742`,
             `https://tiermaker.com/create/ssbm-commentator-tier-list-252311`,
-            `https://tiermaker.com/create/melee-players-204703`];
+            `https://tiermaker.com/create/melee-players-204703`,
+            `https://tiermaker.com/create/timcord-204703`];
 
-        if (args[0] && args[0] != '') { //If no second command, randomize
+        if (args[0] && args[0] != '') {
             if (args[0] === `PROJECTILES` || args[0] === `PROJECTILES`) {
                 message.channel.send(tms[0]);
             } else if (args[0] === `COMMENTATORS`) {
                 message.channel.send(tms[1]);
             } else if (args[0] === `PLAYERS` || args[0] === `TOPPLAYERS`) {
                 message.channel.send(tms[2]);
+            } else if (args[0] === `TIMCORD`) {
+                message.channel.send(tms[3]);
             } else {
                 message.channel.send(`Specified tier list not found.`);
             }
 
-        } else { //randomize
-
+        } else {
             message.channel.send(`https://tiermaker.com/create/timcord-204703`);
         }
     }
-    
 
-    if (command === `CHU` || command === `CHUDAT` || command === `CHUSDAY`) {
-        var d = new Date();
-
-        if(d.getDay() == 2)
-            message.channel.send('', { file: `https://cdn.discordapp.com/attachments/612063895082762250/628989768776286209/image0.jpg` });
-        else
-            message.channel.send(`Come back on Chusday, bitch.`);
-    }
-
-    if (command === `YANG` || command === `YANGGANG` || command === `DATA`) {
-        message.channel.send('', { file: `https://cdn.discordapp.com/attachments/612061198288027796/636288862829805598/image0.jpg` });
-    }
-
+    //FakeCode
     if (command === `NETPIAY` || command === `METPLAY` || command === `NTPLY` || command === `NETPLY` || command === `NTPLAY` || command === `NETPLAU` || command === `NETPLAYY` || command === `NETPLAT` || command === `NETGAY` || command === `NWTPLAY` || command === `NETPKAY` || command === `NTPLAY` || command === `EPICCODE` || command === `NETOLAY` || command === `NETPLEY` || command === `NWTPLAU` || command === `NRTPLAY` || command === `NETPLSY` || command === `NEYPLAY` || command === `FAKECODE` || command === `CODEGEN`) {
         var result           = '';
         var characters       = '0123456789abcdef';
@@ -1844,188 +1742,21 @@ client.on('message', async message => {
     }
 
 
-
-
-
-
-
-
-
-    //Holiday Commands
-    /* 4th of July
-    if (command === `FIREWORK` || command === `FIREWORKS`) {
-        var c = [`the firework explodes in your face`,
-                `the firework sails over your head`,
-                `the firework narrowly misses you`,
-                `the firework burns the hair off your arm as it flies by`,
-                `you are not a puff main and your superior reflexes allow you to catch the firework and throw it at someone else`,
-                `the firework flies where it's supposed to and looks pretty`,
-                `the firework lands on the ground right in front of you`];
-
-        var r = Math.floor((Math.random() * c.length));
-
-        message.channel.send(c[r]);
-    } */
-
-    /*if(command === `EVENT` || command === `HALLOWEEN` || command === `EVENTFAQ` || command === `EVENTINFO`) {
-        message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 7 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! (Thanks to Risc for helping sponsor the event!) Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
-    }*/
-
-    /*if (command === `CANDYFIX`) {
-        await lvl.SetXp(message.author.id, 1);
-        message.channel.send('Fixed.');
-    }*/
-
-    //Halloween Event
-    /*if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
-        var r = (Math.random() * 100);
-
-        if (r >= 98.5) {
-            var costumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
-                `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
-                `https://i.pinimg.com/originals/f3/b1/b0/f3b1b045c3e1d50b5d7f4b931165fd15.jpg`,
-                `https://media.phillyvoice.com/media/images/01_102417_HalloweenDogs_Carroll.2e16d0ba.fill-735x490.jpg`,
-                `https://purewows3.imgix.net/images/articles/2019_08/dog_halloween_costumes.jpg`,
-                `https://i.ytimg.com/vi/hdxKJsTvvxQ/hqdefault.jpg`,
-                `https://media1.popsugar-assets.com/files/thumbor/JQUUCOeO9YTIkYrVplfJchnodek/0x0:2003x2003/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/28/858/n/24155406/931e6e6c5d66d798a36ba9.34935958_/i/Dogs-Halloween-Costumes.jpg`,
-                `https://diy.sndimg.com/content/dam/images/diy/fullset/2014/6/9/0/CI-Brian-Brainerd_bull-dog-in-ballerina-Halloween-costume_v.jpg.rend.hgtvcom.616.822.suffix/1420778852478.jpeg`,
-                `https://www.simplemost.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-21-at-11.37.56-AM-750x500.png`,
-                `https://static01.nyt.com/images/2014/10/30/t-magazine/30viewfinder-hirsch-slide-TWGN/30viewfinder-hirsch-slide-TWGN-videoLarge.jpg`,
-                `https://dogtime.com/assets/uploads/2018/09/unhappy-dogs-in-costume-2-1280x720.png`,
-                `https://media1.popsugar-assets.com/files/thumbor/hIev4EBak4afdOeJGaGyuzxX-HE/248x0:1454x1206/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2019/09/05/937/n/1922243/4236cd385d717e527c8e79.13418759_/i/Disney-Dog-Costumes.jpg`,
-                `http://trupanion.com/blog/wp-content/uploads/2017/11/edit_IMG_7241.jpg`,
-                `https://www.thepubliceditor.com/wp-content/uploads/2018/09/Dogs_Scary_Halloween_Costume.jpg`,
-                `https://cdn.fashionmagazine.com/wp-content/uploads/2017/10/Screen-Shot-2018-10-30-at-9.58.49-AM-480x320-c-top.png`,
-                `https://i.imgur.com/JO2lNCl.jpg`,
-                `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-halloween-costumes-1532555670.jpg`,
-                `https://media1.popsugar-assets.com/files/thumbor/CJEtk1U6VpB75o_qxfPAX6579r0/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/10/19/826/n/1922243/a00d1cad_edit_img_image_16686166_1444860712_12142682_526874914145470_1831035987_n/i/DIY-Halloween-Costumes-Dogs.jpg`,
-                `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
-                `https://i.imgur.com/A5nyeDW.png`,
-                `https://i.imgur.com/E3wqRQi.png`,
-                `https://i.imgur.com/hruNkRh.png`,
-                `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
-                `https://www.pedigreefoundation.org/wp-content/uploads/2016/10/elvis.jpg`,
-                `https://s.hdnux.com/photos/67/05/73/14442226/3/920x920.jpg`,
-                `https://i.pinimg.com/originals/2e/a0/cd/2ea0cd6333d77d49334fd638d8f1bc28.jpg`,
-                `http://www.dogtagart.com/sites/default/files/blog/dogscostume.jpg`,
-                `https://i.imgur.com/DQJjEMV.jpg`,
-                `https://i.pinimg.com/originals/7e/85/d0/7e85d05973c3b487c9d45c63df55d431.jpg`,
-                `https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-robin.jpg`,
-                `https://s.hdnux.com/photos/04/34/32/1164953/3/920x920.jpg`,
-                `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-12-at-4.12.06-PM1.png`,
-                `https://i.imgur.com/tn7bfQv.png`,
-                `https://i.imgur.com/ddFxviv.png`,
-                `https://static.businessinsider.com/image/5088501f6bb3f78664000002-750.jpg`,
-                `https://i.ytimg.com/vi/T0OHl7bbL1g/hqdefault.jpg`,
-                `https://hips.hearstapps.com/rbk.h-cdn.co/assets/cm/14/50/548969e457d0e_-_top-paw-basketball-player-costume-for-dogslgn.gif`,
-                `https://static.fabfitfun.com/magazine/wp-content/uploads/2018/10/09170644/dog.png`,
-                `https://i.imgur.com/LzcvHfl.png`,
-                `https://purewows3.imgix.net/images/articles/2017_09/Princess-Leia-dog-costume-for-Halloween.jpg`,
-                `https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2010/7/27/0/Halloween-UGC_Foleyboy-alien-dog-costumes_s4x3.jpg.rend.hgtvcom.616.462.suffix/1400947976466.jpeg`,
-                `https://www.wweek.com/resizer/b5st6q0nx-4BE81x0TdZzJ2198Y=/1200x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/wweek/wp-content/uploads/2017/10/26171017/Cowboy-Dog.jpg`,
-                `https://media.healthday.com/Images/icimages/dog_costume1026.jpg`,
-                `https://www.telegraph.co.uk/content/dam/Pets/2015-09/30oct/dogcrab.jpg`,
-                `https://purewows3.imgix.net/images/articles/2017_09/Dog-dressed-up-for-Halloween-in-spider-costume.jpg`,
-                `https://petcube.com/blog/content/images/2018/10/dog-pumpkin-halloween-costume.jpg`,
-                `https://i.imgur.com/0UJXND1.jpg`,
-                `https://cdn1-www.cattime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-cerberus.jpg`,
-                `https://costumesjoy.com/wp-content/uploads/2018/08/Dogbaby-Halloween-Costumes-Pet-Clothing-Funny-Guitar-Dog-Clothes-Pet-Puppy-Coats-For-Puppy-Dog-French.jpg`,
-                `https://static-blog.fabfitfun.com/magazine/wp-content/uploads/2018/10/09164347/spider-pup-costume.png`,
-                `https://i.imgur.com/djUHSvl.png`,
-                `https://sitterforyourcritter.com/wp-content/uploads/2017/10/dogs-dressed-as-superheros.jpg`];
-
-            var messages = [`🎃👻🐶💀🍬`,
-                `🎃 Happy Halloween! 🎃`,
-                `👻 Happy Halloween! 👻`,
-                `🍬 Trick or Treat! 🍬`,
-                `🐶 Trick or Treat! 🐶`,
-                `🐶🐶🐶`,
-                `🎃🎃🎃`,
-                `👻👻👻`,
-                `💀💀💀`,
-                `🍬🍬🍬`,
-                `🎃 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🎃`,
-                `👻 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 👻`,
-                `🐶 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🐶`,
-                `💀 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 💀`,
-                `🍬 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🍬`];
-
-            var r1 = Math.floor((Math.random() * costumes.length));
-
-            var r2 = Math.floor((Math.random() * messages.length));
-
-            message.channel.send(messages[r2], { file: `${costumes[r1]}` })
-                .then(async msg => {
-                    msg.react(`🍬`)
-
-                    var alreadyRewarded = new Array();
-
-
-                    const filter = (reaction, user) => {
-                        return reaction.emoji.name === `🍬` && user.id != msg.author.id;
-                    }
-
-                    const collector = msg.createReactionCollector(filter, { max:20, time: 15000 });
-
-                    collector.on('collect', async (reaction, reactionCollector) => {
-                        var lastReactedId = reaction.users.last().id;
-                        var lastReactedName = reaction.users.last().username;
-                        if(!alreadyRewarded.includes(lastReactedId)) {
-                            alreadyRewarded.push(lastReactedId);
-
-                            //Level them up here
-                            var min = Math.ceil(3);
-                            var max = Math.floor(5);
-                            var c = Math.floor(Math.random() * (max - min + 1)) + min;
-
-                            await lvl.Fetch(lastReactedId);
-                            await lvl.SetXp(lastReactedId, 1);
-
-                            var output = await lvl.AddLevel(lastReactedId, c);
-
-                            message.channel.send(`${lastReactedName} won ${c} candies!`);
-                        }
-                    })
-
-                    msg.delete(15000)
-                })
-        } else {
-            return;
-        }
-    }*/
-
-    /*if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS` || command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS`) {
-        var output = await lvl.Fetch(message.author.id);
-
-        const embed = new Discord.RichEmbed()
-            .setTitle(`${message.member.displayName}\'s Trick or Treat Bag`)
-            .setColor(0xEB6123)
-            .addField(`Candies`, `${output.level}`, true)
-        message.channel.send({embed});
-    }*/
-
-
-    //People Commands
-
+    //Specific Commands / People Commands
 
     //ADLP
-
     if (command === `ADLP` || command === `ACAB` || command === `COP`) {
         message.channel.send(`BABY LEGS!`, {
             file: "https://media.discordapp.net/attachments/612058753293877274/668943743436455965/unknown.png"
         });
     }
 
-
     //Ahampster
-
     if (command === `AHAMPSTER` || command === `HAMPSTER`) {
         message.channel.send(`??? - 2019\nBrutally murdered by a puff GIMR put on stream`);
     }
 
-
     //Airplane
-
     if (command === `AIRPLANE` || command === `AEROPLANE` || command === `POOB`) {
         var a = [`Welcome aboard ladies and gentleman, you are flying with Nair Canada`,
             `Plays Doc because his parents are asian`,
@@ -2044,16 +1775,13 @@ client.on('message', async message => {
         message.channel.send(a[r]);
     }
 
-
     //Animelover
-
     if (command === `AL` || command === `ANIMELOVER` || command === `ANIMELOVER664`) {
         var r = Math.random() * 25;
 
         if (r <= 4) {
             var m = [`https://cdn.discordapp.com/attachments/612063946643472389/637494850463203328/IMG_20191013_082122.jpg`,
-                    `https://tenor.com/view/pakistan-mcdonalds-commercial-tails-gif-8861168`,
-                    `https://cdn.discordapp.com/attachments/566411042738143242/602660150599352320/IMG_20190715_065010.jpg`
+                    `https://cdn.discordapp.com/attachments/566411042738143242/602660150599352320/IMG_20190715_065010.jpg`,
                     `https://media.discordapp.net/attachments/612058753293877274/672564438892544011/unknown.png`];
 
             var r = Math.floor((Math.random() * m.length));
@@ -2081,7 +1809,8 @@ client.on('message', async message => {
                     `https://www.youtube.com/watch?time_continue=269&v=0lvwIW6Fvec&feature=emb_logo`,
                     `https://www.youtube.com/watch?v=-74jxaheG7I`,
                     `https://www.youtube.com/watch?v=wKnM_oUDg18`,
-                    `wise fwom youw gwave`];
+                    `wise fwom youw gwave`,
+                    `https://tenor.com/view/pakistan-mcdonalds-commercial-tails-gif-8861168`];
 
             var r = Math.floor((Math.random() * d1.length));
 
@@ -2089,9 +1818,7 @@ client.on('message', async message => {
         }
     }
 
-
     //Antiprompt
-
     if (command === `ANTI` || command === `ANTIPROMPT`) {
         //https://cdn.discordapp.com/attachments/612061367972790281/638159668606140417/antiprompt_vs_the_world.png
 
@@ -2128,9 +1855,7 @@ client.on('message', async message => {
         message.channel.send(`What if `+a[r]+` sex `+a[r2]);
     }
 
-
     //AskGoiter
-
     if (command === `GOITER` || command === `ASKGOITER`) {
         var g = [`It is certain.`,
                 `It is decidedly so.`,
@@ -2158,9 +1883,7 @@ client.on('message', async message => {
         message.channel.send(g[r]);
     }
 
-
     //Axe
-
     if (command === `AXE` || command === `EXA`) {
         var a = [`AXE WON SUMMIT!!`,
                 `pizza time`,
@@ -2171,9 +1894,7 @@ client.on('message', async message => {
         message.channel.send(a[r]);
     }
 
-
     //Bantha Collie
-
     if (command === `BANTHACOLLIE` || command === `BANTHA`) {
         var b = [`https://cdn.discordapp.com/attachments/612058753293877274/634836486373769216/Star-Wars-Bantha-Dog-Costume.png`,
             `https://66.media.tumblr.com/2d4a24380c712b6cfd8cd146cce87bc2/tumblr_o5s4cjSJjK1rhdp6mo1_500.jpg`,
@@ -2188,16 +1909,12 @@ client.on('message', async message => {
         message.channel.send({file: b[r]});
     }
 
-
     //Beywiz
-
     if (command === `BEYWIZ` || command === `BEY` || command === `BEYBEY`) {
         message.channel.send(`Fuck I woulda thrown a whole ass lobster`);
     }
 
-
     //Bobby big ballz
-
     if (command === `BBB` || command === `BOBBY` || command === `BOBBYBIGBALLZ` || command === `BOOBY`) {
         var b = [`https://www.youtube.com/watch?v=_deBAhQ06zk`,
                 `https://www.youtube.com/watch?v=zoSHfRDsptU`,
@@ -2249,7 +1966,6 @@ client.on('message', async message => {
     }
 
     //Bobingy / Bogingy
-
     if (command === `BOBINGY`) {
         message.channel.send(`It's the phrase sweeping the nation. Bogingy.`);
     }
@@ -2258,9 +1974,7 @@ client.on('message', async message => {
         message.channel.send(`It's the phrase sweeping the nation. Bobingy.`);
     }
 
-
     //Brio
-
     if (command === `BRIO` || command === `BRANDON` || command === `BRIOO` || command === `BRIOOO` || command === `BRIOOOO` || command === `BRIOOOOO` || command === `BRIOOOOOO` || command === `BRIOOOOOOO` || command === `BRIOOOOOOOO` || command === `BRIOOOOOOOOO` || command === `BRIOOOOOOOOOO` || command === `BRIOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOOOO` || command === `BRIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`) {
         var b = [`You know what this reminds me of? TF2 rocket jumping...`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
@@ -2273,16 +1987,12 @@ client.on('message', async message => {
         message.channel.send(b[r]);
     }
 
-
     //Bubbles
-
     if (command === `BUBBLES` || command === `BUBBLE` || command === `BUBLE` || command === `BUBL`) {
         message.channel.send(`(Jaw drops to the floor. Eyes pop out. Sound effect of "AWOOOGA AWOOOOGA!!!" Places eyes and jaw back in place. Regains composure.) ... Eh hem, you look quite lovely.`);
     }
 
-
     //Cael
-
     if (command === `CAEL` || command === `KALE` || command === `THEDUDEFROMPOKEMONRSE`) {
         var r = Math.random() * 18;
 
@@ -2318,9 +2028,7 @@ client.on('message', async message => {
         }
     }
 
-
     //Cagliostro
-
     if (command === `CAG` || command === `CAGLIOSTRO` || command === `CAGLIO` || command === `MENTALSIMULATION` || command === `MENTALSIM`) {
         var r = Math.random() * 5;
 
@@ -2343,9 +2051,7 @@ client.on('message', async message => {
         }
     }
 
-
     //Cha Cha Slide
-
     if (command === `CHA` || command === `CHACHA` || command === `CHACHASLIDE`) {
         var c = [`Yeah, do that stuff`,
                 `I'm out here y'all, peace!`,
@@ -2391,9 +2097,7 @@ client.on('message', async message => {
         message.channel.send(c[r]);
     }
 
-
     //Chandy
-
     if (command === `CHANDY` || command === `CHANMAN` || command === `CHANDYMAN` || command === `CHANCORE` || command === `CHANSTER` || command === `CHANDLER` || command === `CHANBLASTER` || command === `CHANBLASTERS`|| command === `CHANDYBLASTER` || command === `CHANDYBLASTERS` || command === `BLASTERS` || command === `MT64` || command === `TENNIS`) {
         var c = [`so yeah it's a tricky mix-up, but there are characters with the tools to mitigate its effectiveness and courts that invalidate bowser completely based on the match-up`,
                 `again, the fact that there's no color trail on some of those top spin chance balls means that (against a human player), judging the right amount of charge to apply can be a total crapshoot`,
@@ -2468,9 +2172,7 @@ client.on('message', async message => {
         message.channel.send(c[r]);
     }
 
-
     //Chillindude
-
     if (command === `CHILLIN` || command === `BIGCHILLIN` || command === `CHILLINDUDE` || command === `MYB` || command === `CHILLINDUDE829` || command === `CHILLINDUDE82MUCH`) {
         var r = Math.random() * 119;
 
@@ -2608,9 +2310,17 @@ client.on('message', async message => {
         }
     }
 
+    //Chusday
+    if (command === `CHU` || command === `CHUDAT` || command === `CHUSDAY`) {
+        var d = new Date();
+
+        if(d.getDay() == 2)
+            message.channel.send('', { file: `https://cdn.discordapp.com/attachments/612063895082762250/628989768776286209/image0.jpg` });
+        else
+            message.channel.send(`Come back on Chusday, bitch.`);
+    }
 
     //Coffee
-
     if (command === `COFFEE` || command === `SDDL`) {
         var onepercent = (Math.random() * 100);
 
@@ -2641,9 +2351,7 @@ client.on('message', async message => {
             message.channel.send({file: memes[r]});
     }
 
-
     //Coriamon
-
     if (command === `CORI` || command === `CORIAMON` || command === `CORYAMON`) {
         var c = [`Go to GOML.`,
             `Go to GOML.`,
@@ -2655,9 +2363,7 @@ client.on('message', async message => {
         message.channel.send(c[r]);
     }
 
-
     //Cuck Daddy
-
     if (command === `CUCK` || command === `CUCKDADDY` || command === `MARGE` || command === `LARGEMARGE` || command === `CUCKDADDY420`) {
         var c = [`https://tenor.com/view/ariana-grande-gif-10730095`,
                 `https://tenor.com/view/applause-clapping-gif-5833390`,
@@ -2677,7 +2383,7 @@ client.on('message', async message => {
 
         var r = Math.floor((Math.random() * c.length));
 
-        message.channel.send({file: c[r]});
+        message.channel.send(c[r]);
     }
 
     if (command === `CIARAN`) {
@@ -2693,9 +2399,7 @@ client.on('message', async message => {
         message.channel.send(c[r]);
     }
 
-
     //CumCoin
-
     if(command === `CUMCOIN`) {
         const embed = new Discord.RichEmbed()
             .setTitle(`Darsh's CumCoin`)
@@ -2704,9 +2408,7 @@ client.on('message', async message => {
         message.channel.send({embed});
     }
 
-
     //Darsh/Stephen
-
     if (command === `DARSH` || command === `GANON` || command === `GANONDORF` || command === `LION`) {
         message.channel.send(`My advice?\nGo to the gym.`);
     }
@@ -2742,9 +2444,7 @@ client.on('message', async message => {
         message.channel.send(`Hollow Knight's a game about `+d[r]);
     }
 
-
     //Diminnuendo
-
     if (command === `DIMI` || command === `DIMINNUENDO`) {
         var d = [`Who knew New Jersey had a botched foreskin problem?`,
                 `im gay`,
@@ -2768,9 +2468,7 @@ client.on('message', async message => {
         message.channel.send(d[r]);
     }
 
-
     //DJ Nintendo
-
     if (command === `DJ` || command === `DJNINTENDO` || command === `DJMUTENDO` || command === `KICKS` || command === `SHLICE` || command === `PAPAYASMACK` || command === `SCHMOOVIN`) {
         var d = [`KICKS`,
                 `SCHLICE`,
@@ -2791,16 +2489,12 @@ client.on('message', async message => {
         message.channel.send(d[r]);
     }
 
-
     //Draconitix
-
     if (command === `DRACO` || command === `DRACONITIX` || command === `JEBAITEDU`) {
         message.channel.send(`wanna do netplay`);
     }
 
-
     //Drew
-
     if (command === `DREW` || command === `ZMWIVD` || command === `ZIMWIT` || command === `ZIMMY` || command === `ZMWIVDDISHFSHJGHIEANIJMAETJNOTIMDRSHODMJORSJMN`) {
         var d = [`SubF`,
                 `SubjectiveF`,
@@ -2850,9 +2544,7 @@ client.on('message', async message => {
         message.channel.send(`No matter how you try easing people in here, they're gonna meet `+d[r]+` at some point.`);
     }
 
-
     //Duck fucking numbers
-
     if (command === `DUCK`) {
         message.channel.send(`*Watch this.*`);
     }
@@ -2865,9 +2557,7 @@ client.on('message', async message => {
         message.channel.send(`**DUCK** \n**FUCKING** \n**NUMBERS**`);
     }
 
-
     //Farmstink
-
     if (command === `FARMSTINK` || command === `FARM` || command === `STINK`) {
         var f = [`“Now you’re really going to get punished for those f smashes you little bitch”`,
             `Darsh stomps his way over to the timid falco player, unbuttoning his pants as he moves.`,
@@ -2887,34 +2577,7 @@ client.on('message', async message => {
             message.channel.send(f[r]);
     }
 
-
     //GIMR
-
-    if (command === `GIMR`) {
-        var g = [`Greed Is My Reason`,
-                `offline`,
-                `offline`,
-                `still offline`,
-                `https://cdn.discordapp.com/attachments/612058753293877274/612091314770673675/gimr_lol.jpg`,
-                `GIMR Is My Rock`,
-                `GIMR Is Melee's Richardnixon`,
-                `Glock In My Rari`,
-                `Gayness In My Rectum`,
-                `Get Ingots, Melee RIP`,
-                `Garbage Idiot Making Ruin`,
-                `Goal: Invalidate Melee's Relevance`,
-                `Get In My Rump`,
-                `Gold Is My Reward`,
-                `Gosh, I'm Mad Retarded`,
-                `Gets Impotent Meleestream Routers`,
-                `God's In My Rectum`,
-                `GIMR Instinctively Murders Rats`];
-
-        var r = Math.floor((Math.random() * g.length));
-
-        message.channel.send(g[r]);
-    }
-
     if (command === `GIMR` || command === `GIMZ` || command === `GODISMYROCK`) {
         var r = Math.random() * 18;
 
@@ -2946,17 +2609,12 @@ client.on('message', async message => {
         }
     }
 
-
-
     //Goloche
-
     if (command === `GOLOCHE` || command === `STUPIDFRENCHIDIOT`) {
         message.channel.send(`Theres nothing worth saying`);
     }
 
-
     //hungrybox
-
     if (command === `HBOX` || command === `HGOD` || command === `HUNGRYBOX` || command === `HJESUS` || command === `CLUTCHBOX` || command === `CLUTCHGOD` || command === `JUANTRUEGOD` || command === `HGAWD` || command === `HLEGEND` || command === `HBITCH` || command === `JUAN` || command === `JUANDIBIEDMA` || command === `HCHRIST`) {
         var r = Math.random() * 43;
 
@@ -3017,10 +2675,7 @@ client.on('message', async message => {
         }
     }
 
-
-
     //iBDW
-
     if (command === `IBDW` || command === `CODY` || command === `IBBW` || command === `IBDSM` || command === `INSFW` || command === `CODYSCHWAB`) {
         var i = [`i Be Destroying Waterclosets`,
                 `i Blow Dude Weiners`,
@@ -3069,9 +2724,7 @@ client.on('message', async message => {
         message.channel.send(i[r]);
     }
 
-
     //IceMaster
-
     if (command === `ICE` || command === `ICEMASTER` || command === `SCOTTYDOO` || command === `ICEMASTER3000` || command === `ICEMASTER3K` || command === `POPEYE` || command === `ONIONBLESS` || command === `SCOTTYFLEX` || command === `ICEDADDY` || command === `ICEDAD`) {
         var i = [`I've decided that in tournament as Marf, my tag is Scotty-Doo, because he just do, ya know?\nBut when I enter as Falco... my tag will be Scotty-Flex.\n\nIt's perfect.`,
             `And the marfs in the cradle and the silver spoon... Hungrybox is the tru man-on-da-moon. When we gonna mm I don't know when... but I'll put a stop him thennn, I said I'm gonna stop him right thenn`,
@@ -3082,22 +2735,20 @@ client.on('message', async message => {
         message.channel.send(i[r]);
     }
 
-
     //Leffen
-
     if (command === `LEFFEN` || command === `LEFFEB` || command === `LEFF` || command === `YUNGLEFF`) {
         var r = Math.random();
 
-        if (r > .5) {
+        if (r <= .33) {
             message.channel.send(`Don't talk to me or my son ever again`, {file: `https://cdn.discordapp.com/attachments/612063895082762250/634026991347302431/IMG_20191011_082528.jpg`});
-        } else {
+        } else if (r <= .66) {
             message.channel.send(`Leffen can still drop out!`);
+        } else {
+            message.channel.send({file: `https://i.imgur.com/CXAndrQ.jpg`});
         }
     }
 
-
     //Loscar
-
     if (command === `LOSCAR` || command === `LOSCARLOS` || command === `CARLOS`) {
         var l = [`a bar`,
                 `a bar`,
@@ -3139,9 +2790,7 @@ client.on('message', async message => {
         message.channel.send(`Currently on discord at `+l[r]);
     }
 
-
     //Mango
-
     if (command === `MANGO` || command === `MANG0`) {
         var r = Math.random() * 33;
 
@@ -3192,11 +2841,7 @@ client.on('message', async message => {
         }
     }
 
-
-
-
-    //Me, you and SPOTW
-
+    //Me
     if (command === `ME`) {
         message.delete(100);
         message.channel.send(`it was me :)`);
@@ -3207,13 +2852,7 @@ client.on('message', async message => {
         message.channel.send(`it was you :)`);
     }
 
-    if (command === `SPOTW`) {
-        message.channel.send(`haha yo check out this post bro it's really funny haha its a good post bro pls look at it haha\n<@!337284886039625728>`);
-    }
-
-
     //Midnight
-
     if (command === `MIDNIGHT` || command === `MIDNIGHTLIFTER`) {
         var m = [`*fadeback upsmashes*`,
                 `*reverse fadeback upsmashes*`,
@@ -3231,9 +2870,7 @@ client.on('message', async message => {
         message.channel.send(m[r]);
     }
 
-
     //Minecraft
-
     if (command === `MINECRAFT` || command === `MC`) {
         var m = [`That's not Minecraft, that's my wife!`,
                 `GET THE FUCK OUT OF MY ROOM I'M PLAYING MINECRAAAFT`,
@@ -3253,9 +2890,7 @@ client.on('message', async message => {
         message.channel.send(m[r]);
     }
 
-
     //Mmuller87
-
     if (command === `MMULLER` || command === `MMUELLER` || command === `MMU` || command === `DAB` || command === `DABONEM`) {
         var r = Math.random() * 9;
 
@@ -3274,20 +2909,16 @@ client.on('message', async message => {
     }
 
     //Muted
-
     if (command === `MUTED` || command === `MUTE`) {
         message.channel.send({file:`https://cdn.discordapp.com/attachments/612063946643472389/634597388773883933/society.png`});
     }
 
     //Nanchoman
-
     if (command === `NANCH` || command === `NANCHOMAN` || command === `BIGNANCH`) {
         message.channel.send(`Hello there! Ha! Just a little prequel meme humor for ya`);
     }
 
-
     //Never Cum
-
     if (command === `NEVER` || command === `NEVERCUM`) {
         var n = [`Never cum`,
                 `Never cum`,
@@ -3304,9 +2935,7 @@ client.on('message', async message => {
         message.channel.send(n[r]);
     }
 
-
     //Poo
-
     if (command === `POO` || command === `PEE`) {
         //368817136182886411 Drew's ID
         //246994286145437696 Ted's ID
@@ -3315,105 +2944,9 @@ client.on('message', async message => {
         message.channel.send('peepeepoopoo');
     }
 
-
     //Risc
-
     if (command === `RISC` || command === `BESTDK` || command === `SCHEDULE` || command === `MONKEY` || command === `MONKY` || command === `MONKAY` || command === `SHMONKEY`) {
-        //message.channel.send(`7:00 - we wake up to eat breakfast together, no cornflakes because cornflakes suck\n8:00 - we shower in shared bathrooms, except cael and airplane because they are minors. We all rub each others back for extra freshness\n8:30 - we pee together :)\n8:45 - uh oh, time for school and work! While cael and airplane go to preschool, we adults go to uni, college or work to make money and learn something new!\n13:00 - we have a collective skype session with lunch. Cael and airplane get some applesauce, sugden throws his vegetables off of his plate, darsh has a protein bar and the rest eats a sandwhich!\n13:30 - uh oh! Naptime for airplane and cael! We sing a lullaby for them so they fall asleep through skype and we start studying and working again.\n16:00 - its time to go home for a good session of lame melee, coffee and anti have been looking forward for this the whole day whole Darsh has prepared his sheik spiel against soap! Its wonderful! \n18:30 - its time for dinner, after which we watch sesame street together and have a lot of fun :)\n19:30 - airplane and cael will brush their teeth and go to bed while the rest are in a heated discussion which sesame street member has the most sex\n20:00 - it is clear that big bird has the most sex. We start playing melee again!\n22:30 - the non degens are slowly getting to bed, while Brio, A, Loscar, Anti and strucc are going to play a "couple" of dota games. Sugden stays awake to.try and convince them.to play melee, but alas, luckily soap is able to play sugden and they have the best (fd banned!) Fox dittos they could ask for`);
-
-        /*var events = [`We eat breakfast together, no cornflakes because cornflakes suck.`,
-            `We shower in shared bathrooms, except cael and airplane because they are minors.`,
-            `we pee together :)`,
-            `uh oh, time for school and work! While cael and airplane go to preschool, we adults go to uni, college or work to make money and learn something new!`,
-            `We have a collective skype session with lunch. Cael and airplane get some applesauce, sugden throws his vegetables off of his plate, darsh has a protein bar and the rest eats a sandwich!`];
-        var events2 = [``,
-            `We all rub each others back for extra freshness.`,
-            ``,
-            ``,
-            ``];
-
-        var validity = [`1`,  //4 binary checks for morning/afternoon/night, and if there's a second part ex: 0101 for afternoon only with a part 2 or 1234 includes
-            `134`,
-            `123`,
-            `1`,
-            `2`];
-
-        var schedule = ``;
-
-        var ri6 = Math.random();
-        var ri6p = 0.5;
-        var ri7 = Math.random();
-        var ri7p = 0.9;
-        var ri8 = Math.random();
-        var ri8p = 0.9;
-        var ri9 = Math.random();
-        var ri9p = 0.7;
-        var ri10 = Math.random();
-        var ri10p = 0.5;
-        var ri11 = Math.random();
-        var ri11p = 0.3;
-        var ri12 = Math.random();
-        var ri12p = 0.8;
-        var ri13 = Math.random();
-        var ri13p = 0.8;
-        var ri14 = Math.random();
-        var ri14p = 0.25;
-        var ri15 = Math.random();
-        var ri15p = 0.3;
-        var ri16 = Math.random();
-        var ri16p = 0.6;
-        var ri17 = Math.random();
-        var ri17p = 0.7;
-        var ri18 = Math.random();
-        var ri18p = 0.9;
-        var ri19 = Math.random();
-        var ri19p = 0.9;
-        var ri20 = Math.random();
-        var ri20p = 0.8;
-        var ri21 = Math.random();
-        var ri21p = 0.4;
-        var ri22 = Math.random();
-        var ri22p = 0.8;
-        var ri23 = Math.random();
-        var ri23p = 0.9;
-        var ri24 = Math.random();
-        var ri24p = 0.5;
-        var ri1 = Math.random();
-        var ri1p = 0.2;
-        var ri2 = Math.random();
-        var ri2p = 0.2;
-
-        if (ri6 < ri6p) {
-          schedule += `6:00 - `;
-
-          schedule += `We wake up early. `;
-
-          var r = 0;
-          while (var i = false) {
-            r = Math.random();
-            i = validity[r].includes('1') //if valid for morning
-          }
-          schedule += events[r];
-        }
-
-        if (ri7 < ri7p) {
-          schedule += `7:00 -`;
-
-          if (ri6 > ri6p) {
-            schedule += `We wake up. `;
-          }
-
-          var r = 0;
-          while (var i = false) {
-            r = Math.random();
-            i = validity[r].includes('1') //if valid for morning
-          }
-          schedule += events[r];
-      }*/
-
-      //message.channel.send('Creeper? Aww man');
-
-      var input = ["7:00 - we wake up to eat breakfast together, no cornflakes because cornflakes suck ",
+        var input = ["7:00 - we wake up to eat breakfast together, no cornflakes because cornflakes suck ",
 "8:00 - we shower in shared bathrooms, except cael and airplane because they are minors. We all rub each others back for extra freshness ",
 "8:30 - we pee together :)",
 "8:45 - uh oh, time for school and work! While cael and airplane go to preschool, we adults go to uni, college or work to make money and learn something new!",
@@ -3550,8 +3083,6 @@ client.on('message', async message => {
 "23:15 - stream mommy starts a semantics argument",
 "0:30 - Sugden is outed as a white nationalist"];
 
-
-
         var finalOutput = '';
 
         var min = Math.ceil(5);
@@ -3578,16 +3109,12 @@ client.on('message', async message => {
         message.channel.send(''+finalOutput);
     }
 
-
     //Rognut
-
     if (command === `ROGNUT` || command === `ROG` || command === `ROGCHAMP`) {
         message.channel.send(`rog would love to be cucked way more than midnight`);
     }
 
-
     //Rootnut
-
     if (command === `ROOT` || command === `ROOTNUT` || command === `NUT` || command === `DESVELATE`) {
         var min2 = Math.ceil(15);
         var max2 = Math.floor(99);
@@ -3596,23 +3123,17 @@ client.on('message', async message => {
         message.channel.send(`Has made `+r2+` PoE builds and counting this league\n\nThey're all facebreakers`);
     }
 
-
     //Sailormercury
-
     if (command === `REPLYGUY` || command === `:REPLYGUY:` || command === `SM` || command === `MERCURY` || command === `SAILOR` || command === `SAILORMERCURY` || command === `REDSHEIK`) {
         message.channel.send(`I MADE THE FUCKING POST\nFUCK you. I **FUCKING** HATE YOU. FUCK you.\nFUCK YOU.`);
     }
 
-
     //SFAT
-
     if (command === `SFAT` || command === `ZAC`) {
         message.channel.send({ file: `https://cdn.discordapp.com/attachments/612063670297427978/650057908851179553/unknown.png` });
     }
 
-
     //Silverhand
-
     if (command === `SILVER` || command === `SILVERHAND` || command === `ILVER` || command === `LVER` || command === `ILLUSION`) {
         var r = Math.random() * 14;
 
@@ -3648,16 +3169,12 @@ client.on('message', async message => {
         message.channel.send("if ur reading this ur gay lol");
     }
 
-
     //Skrt
-
     if (command === `SKRT`) {
         message.channel.send(`No Johns.`);
     }
 
-
     //Soap
-
     if (command === `SOAP`) {
         var sponsors = [`BOFA`,
             `BOFA`,
@@ -3716,16 +3233,17 @@ client.on('message', async message => {
         message.channel.send(fullName);
     }
 
+    //SPOTW
+    if (command === `SPOTW`) {
+        message.channel.send(`haha yo check out this post bro it's really funny haha its a good post bro pls look at it haha\n<@!337284886039625728>`);
+    }
 
     //Stream mommy
-
     if (command === `STREAM` || command === `STREAMMO` || command === `STREAMMOMENTUM` || command === `STREAMOMENTUM` || command === `MOMMY` || command === `STREAMMOMMY`) {
         message.channel.send(`Okay I said some dumb shit`);
     }
 
-
     //structuremole
-
     if (command === `STRUC` || command === `STRUCTURE` || command === `STRUCTUREMOLE` || command === `MOLE` || command === `PEEPEE` || command === `POOPOO` || command === `PEEPEEPOOPOO` || command === `PIPI` || command === `PUPU` || command === `PIPIPUPU`) {
         var s = [`J.D. from scrubs`,
                 `Dr. House from House`,
@@ -3758,9 +3276,7 @@ client.on('message', async message => {
         message.channel.send(`Became a doctor to be like `+s[r]);
     }
 
-
     //SubF
-
     if (command === `SUBF` || command === `SUBJECTIVE` || command === `SUBJECTIVEF` || command === `SUB` || command === `RESTINPEACE` || command === `RIP`) {
         var f = [`Fox`,
             `Fun`,
@@ -3868,7 +3384,7 @@ client.on('message', async message => {
             `Firefox`,
             `Facts don't care about your feelings`,
             `can'tgobackwardsinstarFox64`,
-            `Fuuuuuck please come back pleasepleasepleaseplease`
+            `Fuuuuuck please come back pleasepleasepleaseplease`,
             `you stupid bitch, you stupid fucking bitch, you stupid Fucking bitch`];
 
         var r = Math.floor((Math.random() * f.length));
@@ -3876,16 +3392,12 @@ client.on('message', async message => {
         message.channel.send(`The F stands for `+f[r]);
     }
 
-
     //Suggestion Box
-
     if (command === `SUGGESTION` || command === `SUGGESTIONBOX` || command === `FEEDBACK`) {
         message.channel.send(`Please fill out this form with any comments or suggestions about me :)\nhttps://forms.gle/6sesdfNuioYNT5hB7`);
     }
 
-
     //Ted
-
     if (command === `TED` || command === `EMPTY` || command === `TEDEMPTY` || command === `TEDWARD`) {
         var t = [`Traitor.`,
                   `Fuckboi.`,
@@ -3903,9 +3415,7 @@ client.on('message', async message => {
         message.channel.send(t[r]);
     }
 
-
     //Vro
-
     if (command === `VRO` || command === `RATTAIL` || command === `SHITCOMMENTARY`) {
         var r = Math.random() * 13;
 
@@ -3936,9 +3446,7 @@ client.on('message', async message => {
         }
     }
 
-
     //Winnarly
-
     if (command === `WINNARLY` || command === `WINNAR`) {
         var w = [`Final Destination has no platforms?`,
                 `cum sounds like come?`,
@@ -4041,9 +3549,7 @@ client.on('message', async message => {
         message.channel.send(`Did you know... that `+w[r]+`\n`+t[r2]);
     }
 
-
     //Xavier
-
     if (command === `XAVIER` || command === `XAV` || command === `XAVIERRENEGEADEANGEL`) {
         var x = [`I'm a survivor. We're a dying breed.`,
                 `[scoffs] Powers are for the weak. I have no powers. I mean, unless you count the power to blow minds with my weapons-grade philosophical insights.`,
@@ -4138,9 +3644,7 @@ client.on('message', async message => {
         message.channel.send(x[r]);
     }
 
-
     //Sugden / Cum
-
     if (command === `SUGDEN` || command === `SUG` || command === `CHAZZ` || command === `CHAZ` || command === `CHAZZDEN` || command === `SUGDEEZY` || command === `SUGDEB` || command === `DOG` || command === `CUM`) {
         var r = Math.random() * 101;
 
@@ -4259,13 +3763,11 @@ client.on('message', async message => {
         }
     }
 
-
     //Wub Wub Wowzy
-
     if (command === `WUB` || command === `WUBWUB` || command === `WUBWUBWOWZY`) {
         var r = Math.random() * 100;
 
-        if (r <= 10) {
+        if (r <= 5) {
             var b = [`purchased Borderlands 3 for the PS4, Google Stadia, Xbox One and PC (Pedophile Courtcase)`,
                     `purchased a USB drive containing suspicious files`,
                     `gave Randy Pitchford $60`,
@@ -4567,6 +4069,12 @@ client.on('message', async message => {
         }
     }
 
+    //Yang
+    if (command === `YANG` || command === `YANGGANG` || command === `DATA`) {
+        message.channel.send('', { file: `https://cdn.discordapp.com/attachments/612061198288027796/636288862829805598/image0.jpg` });
+    }
+
+
     //Leaderboards
 
     if (command === `LEADERBOARD` || command === `TOP` || command === `LEADERBOARD` || command === `TOP`) {
@@ -4814,13 +4322,14 @@ client.on('message', async message => {
         }
     }
 
+
     //Messages
 
-    if (command === `MESSAGEINIT`) {
-        if (!message.member.roles.find("name", modRole2)) {
+    /*if (command === `MESSAGEINIT`) {
+        if (!message.member.roles.find("name", modRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole2 + ' role.')
+                .setDescription('This command requires the ' + modRole + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
@@ -4958,13 +4467,13 @@ client.on('message', async message => {
         //Winnarly
         await msglvl.AddLevel(80434004188200960, 666);
         await msglvl.SetXp(80434004188200960, 1);
-    }
+    }*/
 
     if (command === `MESSAGEADD`) {
-        if (!message.member.roles.find("name", modRole2)) {
+        if (!message.member.roles.find("name", modRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole2 + ' role.')
+                .setDescription('This command requires the ' + modRole + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
@@ -4980,7 +4489,6 @@ client.on('message', async message => {
     }
 
 
-
     //Silverbux / TimCoin
 
     if (command === `BALANCE` || command === `BAL` || command === `MONEY` || command === `SILVERBUX` || command === `TIMCOIN` || command === `SBUX` || command === `BUX`) {
@@ -4994,10 +4502,10 @@ client.on('message', async message => {
     }
 
     if (command === `CHECKBAL`) {
-        if (!message.member.roles.find("name", modRole2)) {
+        if (!message.member.roles.find("name", modRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole2 + ' role.')
+                .setDescription('This command requires the ' + modRole + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
@@ -5009,10 +4517,10 @@ client.on('message', async message => {
     }
 
     if (command === `INIT`) {
-        if (!message.member.roles.find("name", modRole2)) {
+        if (!message.member.roles.find("name", modRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole2 + ' role.')
+                .setDescription('This command requires the ' + modRole + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
@@ -5034,7 +4542,7 @@ client.on('message', async message => {
             const embed = new Discord.RichEmbed()
                 .setTitle(`${defineduser.username}\'s Balance`)
                 .setColor(0xF1C40F)
-                .addField('SilverBux', `${results.balance}`, true)
+                .addField(currencyName, `${results.balance}`, true)
             message.channel.send({embed});
         } else { //User already has a balance
             message.channel.send(`Error: This user already has a balance`);
@@ -5043,10 +4551,10 @@ client.on('message', async message => {
 
     if (command === `ADD`) {
         //Check for better mod
-        if (!message.member.roles.find("name", modRole2)) {
+        if (!message.member.roles.find("name", modRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole2 + ' role.')
+                .setDescription('This command requires the ' + modRole + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
@@ -5085,16 +4593,16 @@ client.on('message', async message => {
         const embed = new Discord.RichEmbed()
             .setTitle(`${defineduser.username}\'s Balance`)
             .setColor(0xF1C40F)
-            .addField('SilverBux', `${results.newbalance}`, true)
+            .addField(currencyName, `${results.newbalance}`, true)
         message.channel.send({embed});
     }
 
     if (command === `SUBTRACT`) {
         //Check for better mod
-        if (!message.member.roles.find("name", modRole2)) {
+        if (!message.member.roles.find("name", modRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole2 + ' role.')
+                .setDescription('This command requires the ' + modRole + ' role.')
                 .setColor(0xFF0000)
             message.channel.send({embed});
             return;
@@ -5133,7 +4641,7 @@ client.on('message', async message => {
         const embed = new Discord.RichEmbed()
             .setTitle(`${defineduser.username}\'s Balance`)
             .setColor(0xF1C40F)
-            .addField('SilverBux', `${results.newbalance}`, true)
+            .addField(currencyName, `${results.newbalance}`, true)
         message.channel.send({embed});
     }
 
@@ -5203,7 +4711,233 @@ client.on('message', async message => {
         message.channel.send({embed});
     }
 
-    //Leaderboards and leveling
+    if (command === `REWARD` || command === `PRIZE` || command === `GIMME`) {
+        var profile = await lvl.Fetch(message.author.id);
+
+        if (profile.xp == 1) {
+            await lvl.SetXp(message.author.id, 2); //Set as claimed
+            var results = await eco.AddToBalance(message.author.id, profile.level); //Give level to them in sbux
+
+            const embed = new Discord.RichEmbed() //Send message
+                .setTitle(`${message.member.displayName}\'s Balance`)
+                .setColor(0xF1C40F)
+                .addField(currencyName, `${results.newbalance}`, true)
+            message.channel.send({embed});
+        } else if (profile.xp == 2) {
+            message.channel.send(`Sorry, you've already claimed your reward.`);
+        }
+    }
+
+    //Holiday Commands
+    /* 4th of July
+    if (command === `FIREWORK` || command === `FIREWORKS`) {
+        var c = [`the firework explodes in your face`,
+                `the firework sails over your head`,
+                `the firework narrowly misses you`,
+                `the firework burns the hair off your arm as it flies by`,
+                `you are not a puff main and your superior reflexes allow you to catch the firework and throw it at someone else`,
+                `the firework flies where it's supposed to and looks pretty`,
+                `the firework lands on the ground right in front of you`];
+
+        var r = Math.floor((Math.random() * c.length));
+
+        message.channel.send(c[r]);
+    } */
+
+    /*if(command === `EVENT` || command === `HALLOWEEN` || command === `EVENTFAQ` || command === `EVENTINFO`) {
+        message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 7 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! (Thanks to Risc for helping sponsor the event!) Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
+    }*/
+
+    /*if (command === `CANDYFIX`) {
+        await lvl.SetXp(message.author.id, 1);
+        message.channel.send('Fixed.');
+    }*/
+
+    //Halloween Event
+    /*if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
+        var r = (Math.random() * 100);
+
+        if (r >= 98.5) {
+            var costumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
+                `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
+                `https://i.pinimg.com/originals/f3/b1/b0/f3b1b045c3e1d50b5d7f4b931165fd15.jpg`,
+                `https://media.phillyvoice.com/media/images/01_102417_HalloweenDogs_Carroll.2e16d0ba.fill-735x490.jpg`,
+                `https://purewows3.imgix.net/images/articles/2019_08/dog_halloween_costumes.jpg`,
+                `https://i.ytimg.com/vi/hdxKJsTvvxQ/hqdefault.jpg`,
+                `https://media1.popsugar-assets.com/files/thumbor/JQUUCOeO9YTIkYrVplfJchnodek/0x0:2003x2003/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/28/858/n/24155406/931e6e6c5d66d798a36ba9.34935958_/i/Dogs-Halloween-Costumes.jpg`,
+                `https://diy.sndimg.com/content/dam/images/diy/fullset/2014/6/9/0/CI-Brian-Brainerd_bull-dog-in-ballerina-Halloween-costume_v.jpg.rend.hgtvcom.616.822.suffix/1420778852478.jpeg`,
+                `https://www.simplemost.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-21-at-11.37.56-AM-750x500.png`,
+                `https://static01.nyt.com/images/2014/10/30/t-magazine/30viewfinder-hirsch-slide-TWGN/30viewfinder-hirsch-slide-TWGN-videoLarge.jpg`,
+                `https://dogtime.com/assets/uploads/2018/09/unhappy-dogs-in-costume-2-1280x720.png`,
+                `https://media1.popsugar-assets.com/files/thumbor/hIev4EBak4afdOeJGaGyuzxX-HE/248x0:1454x1206/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2019/09/05/937/n/1922243/4236cd385d717e527c8e79.13418759_/i/Disney-Dog-Costumes.jpg`,
+                `http://trupanion.com/blog/wp-content/uploads/2017/11/edit_IMG_7241.jpg`,
+                `https://www.thepubliceditor.com/wp-content/uploads/2018/09/Dogs_Scary_Halloween_Costume.jpg`,
+                `https://cdn.fashionmagazine.com/wp-content/uploads/2017/10/Screen-Shot-2018-10-30-at-9.58.49-AM-480x320-c-top.png`,
+                `https://i.imgur.com/JO2lNCl.jpg`,
+                `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-halloween-costumes-1532555670.jpg`,
+                `https://media1.popsugar-assets.com/files/thumbor/CJEtk1U6VpB75o_qxfPAX6579r0/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/10/19/826/n/1922243/a00d1cad_edit_img_image_16686166_1444860712_12142682_526874914145470_1831035987_n/i/DIY-Halloween-Costumes-Dogs.jpg`,
+                `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
+                `https://i.imgur.com/A5nyeDW.png`,
+                `https://i.imgur.com/E3wqRQi.png`,
+                `https://i.imgur.com/hruNkRh.png`,
+                `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
+                `https://www.pedigreefoundation.org/wp-content/uploads/2016/10/elvis.jpg`,
+                `https://s.hdnux.com/photos/67/05/73/14442226/3/920x920.jpg`,
+                `https://i.pinimg.com/originals/2e/a0/cd/2ea0cd6333d77d49334fd638d8f1bc28.jpg`,
+                `http://www.dogtagart.com/sites/default/files/blog/dogscostume.jpg`,
+                `https://i.imgur.com/DQJjEMV.jpg`,
+                `https://i.pinimg.com/originals/7e/85/d0/7e85d05973c3b487c9d45c63df55d431.jpg`,
+                `https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-robin.jpg`,
+                `https://s.hdnux.com/photos/04/34/32/1164953/3/920x920.jpg`,
+                `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-12-at-4.12.06-PM1.png`,
+                `https://i.imgur.com/tn7bfQv.png`,
+                `https://i.imgur.com/ddFxviv.png`,
+                `https://static.businessinsider.com/image/5088501f6bb3f78664000002-750.jpg`,
+                `https://i.ytimg.com/vi/T0OHl7bbL1g/hqdefault.jpg`,
+                `https://hips.hearstapps.com/rbk.h-cdn.co/assets/cm/14/50/548969e457d0e_-_top-paw-basketball-player-costume-for-dogslgn.gif`,
+                `https://static.fabfitfun.com/magazine/wp-content/uploads/2018/10/09170644/dog.png`,
+                `https://i.imgur.com/LzcvHfl.png`,
+                `https://purewows3.imgix.net/images/articles/2017_09/Princess-Leia-dog-costume-for-Halloween.jpg`,
+                `https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2010/7/27/0/Halloween-UGC_Foleyboy-alien-dog-costumes_s4x3.jpg.rend.hgtvcom.616.462.suffix/1400947976466.jpeg`,
+                `https://www.wweek.com/resizer/b5st6q0nx-4BE81x0TdZzJ2198Y=/1200x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/wweek/wp-content/uploads/2017/10/26171017/Cowboy-Dog.jpg`,
+                `https://media.healthday.com/Images/icimages/dog_costume1026.jpg`,
+                `https://www.telegraph.co.uk/content/dam/Pets/2015-09/30oct/dogcrab.jpg`,
+                `https://purewows3.imgix.net/images/articles/2017_09/Dog-dressed-up-for-Halloween-in-spider-costume.jpg`,
+                `https://petcube.com/blog/content/images/2018/10/dog-pumpkin-halloween-costume.jpg`,
+                `https://i.imgur.com/0UJXND1.jpg`,
+                `https://cdn1-www.cattime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-cerberus.jpg`,
+                `https://costumesjoy.com/wp-content/uploads/2018/08/Dogbaby-Halloween-Costumes-Pet-Clothing-Funny-Guitar-Dog-Clothes-Pet-Puppy-Coats-For-Puppy-Dog-French.jpg`,
+                `https://static-blog.fabfitfun.com/magazine/wp-content/uploads/2018/10/09164347/spider-pup-costume.png`,
+                `https://i.imgur.com/djUHSvl.png`,
+                `https://sitterforyourcritter.com/wp-content/uploads/2017/10/dogs-dressed-as-superheros.jpg`];
+
+            var messages = [`🎃👻🐶💀🍬`,
+                `🎃 Happy Halloween! 🎃`,
+                `👻 Happy Halloween! 👻`,
+                `🍬 Trick or Treat! 🍬`,
+                `🐶 Trick or Treat! 🐶`,
+                `🐶🐶🐶`,
+                `🎃🎃🎃`,
+                `👻👻👻`,
+                `💀💀💀`,
+                `🍬🍬🍬`,
+                `🎃 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🎃`,
+                `👻 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 👻`,
+                `🐶 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🐶`,
+                `💀 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 💀`,
+                `🍬 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🍬`];
+
+            var r1 = Math.floor((Math.random() * costumes.length));
+
+            var r2 = Math.floor((Math.random() * messages.length));
+
+            message.channel.send(messages[r2], { file: `${costumes[r1]}` })
+                .then(async msg => {
+                    msg.react(`🍬`)
+
+                    var alreadyRewarded = new Array();
+
+
+                    const filter = (reaction, user) => {
+                        return reaction.emoji.name === `🍬` && user.id != msg.author.id;
+                    }
+
+                    const collector = msg.createReactionCollector(filter, { max:20, time: 15000 });
+
+                    collector.on('collect', async (reaction, reactionCollector) => {
+                        var lastReactedId = reaction.users.last().id;
+                        var lastReactedName = reaction.users.last().username;
+                        if(!alreadyRewarded.includes(lastReactedId)) {
+                            alreadyRewarded.push(lastReactedId);
+
+                            //Level them up here
+                            var min = Math.ceil(3);
+                            var max = Math.floor(5);
+                            var c = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                            await lvl.Fetch(lastReactedId);
+                            await lvl.SetXp(lastReactedId, 1);
+
+                            var output = await lvl.AddLevel(lastReactedId, c);
+
+                            message.channel.send(`${lastReactedName} won ${c} candies!`);
+                        }
+                    })
+
+                    msg.delete(15000)
+                })
+        } else {
+            return;
+        }
+    }*/
+
+    /*if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS` || command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS`) {
+        var output = await lvl.Fetch(message.author.id);
+
+        const embed = new Discord.RichEmbed()
+            .setTitle(`${message.member.displayName}\'s Trick or Treat Bag`)
+            .setColor(0xEB6123)
+            .addField(`Candies`, `${output.level}`, true)
+        message.channel.send({embed});
+    }*/
+
+    //Christmas Event
+    /*if (!message.author.bot && message.channel.name == 'snowball-fight') {
+        let throwerTeam = fetchTeam(message.author.id);
+        let recipientTeam = 0;
+
+        message.channel.fetchMessages({ limit: 2}).then(async messages => {
+            let lastMessage = messages.last();
+            if (!lastMessage.author.bot && lastMessage.author.id != message.author.id) {
+                recipientTeam = fetchTeam(lastMessage.author.id);
+            }
+
+            if (recipientTeam != 0 && throwerTeam != recipientTeam) {
+                var teamLeader = fetchTeamFirstMember(throwerTeam);
+
+                if (teamLeader == 'Undefined Team') {
+                    console.log('Undefined team error');
+                } else {
+                    await snowlvl.AddLevel(teamLeader, 1);
+                    await snowlvl.SetXp(teamLeader, 1);
+
+                    lastMessage.react('653395361607581716');
+                }
+            }
+        })
+    }*/
+
+    /*if (command === `STARTEVENT`) {
+        if (message.author.id == 72734539834720256) {
+            await snowlvl.SetXp(72734539834720256, 1);
+            await snowlvl.SetXp(337284886039625728, 1);
+            await snowlvl.SetXp(202258713002639360, 1);
+            await snowlvl.SetXp(239503073586708481, 1);
+            await snowlvl.SetXp(212018836474560513, 1);
+            await snowlvl.SetXp(562824176700882964, 1);
+            await snowlvl.SetXp(177545664757104640, 1);
+            await snowlvl.SetXp(151811295711068161, 1);
+            await snowlvl.SetXp(177461438921703434, 1);
+            await snowlvl.SetXp(167375258012221441, 1);
+            await snowlvl.SetXp(368817136182886411, 1);
+            await snowlvl.SetXp(646446533407145986, 1);
+            await snowlvl.SetLevel(72734539834720256, 1);
+            await snowlvl.SetLevel(337284886039625728, 1);
+            await snowlvl.SetLevel(202258713002639360, 1);
+            await snowlvl.SetLevel(239503073586708481, 1);
+            await snowlvl.SetLevel(212018836474560513, 1);
+            await snowlvl.SetLevel(562824176700882964, 1);
+            await snowlvl.SetLevel(177545664757104640, 1);
+            await snowlvl.SetLevel(151811295711068161, 1);
+            await snowlvl.SetLevel(177461438921703434, 1);
+            await snowlvl.SetLevel(167375258012221441, 1);
+            await snowlvl.SetLevel(368817136182886411, 1);
+            await snowlvl.SetLevel(646446533407145986, 1);
+            message.channel.send('done');
+        } else {
+            message.channel.send('not for you, fuck off');
+        }
+    }*/
 
     /*if (command === `ADMINUPDATESCORES`) {
         if (message.author.id == 72734539834720256) {
@@ -5222,7 +4956,7 @@ client.on('message', async message => {
         }
     }*/
 
-    if (command === `TEAMS` || command === `TEAMMEMBERS`) {
+    /*if (command === `TEAMS` || command === `TEAMMEMBERS`) {
         var team1 = await msglvl.Leaderboard({
             search: 72734539834720256
         });
@@ -5371,278 +5105,7 @@ client.on('message', async message => {
 
     if (command === `TEAMTEST`) {
         message.channel.send(returnTeam(message.author.id));
-    }
-
-    if (command === `REWARD` || command === `PRIZE` || command === `GIMME`) {
-        var profile = await lvl.Fetch(message.author.id);
-
-        if (profile.xp == 1) {
-            await lvl.SetXp(message.author.id, 2); //Set as claimed
-            var results = await eco.AddToBalance(message.author.id, profile.level); //Give level to them in sbux
-
-            const embed = new Discord.RichEmbed() //Send message
-                .setTitle(`${message.member.displayName}\'s Balance`)
-                .setColor(0xF1C40F)
-                .addField(currencyName, `${results.newbalance}`, true)
-            message.channel.send({embed});
-        } else if (profile.xp == 2) {
-            message.channel.send(`Sorry, you've already claimed your reward.`);
-        }
-    }
-
-
-    //TedCoin
-    /*
-
-    //SQL Initialization
-    sql.get(`SELECT * FROM bank WHERE userID = "${message.author.id}"`).then(row => {
-        if (!row) {
-            sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [message.author.id, 0]);
-        }
-    }).catch(() => {
-        console.error; //Log errors to console
-        sql.run(`CREATE TABLE IF NOT EXISTS bank (userID TEXT, balance INTEGER)`).then( () => {
-            sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [message.author.id, 0]);
-        })
-    })
-
-    //Balance
-    if (command === `BALANCE` || command === `BAL` || command === `MONEY`) {
-        //Fetch balance from table
-        sql.get(`SELECT * FROM bank WHERE userID ="${message.author.id}"`).then(row => {
-            if (!row) return message.reply("Error: Unfortunately you do not have any TedCoin yet!");
-
-            //Format embed and send
-            const embed = new Discord.RichEmbed()
-                .setTitle(`${message.author.username}\'s Balance`)
-                .setColor(0xF1C40F)
-                .addField('TedCoin', `${row.balance}`, true)
-            message.channel.send({embed});
-        })
-    }
-
-    //Add to balance
-    if (command === `ADD`) {
-        //Check for admin
-        if (!message.member.roles.find("name", modRole) && !message.member.roles.find("name", modRole2)) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole + ' role.')
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Check if they defined an amount
-        if (!args[0]) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: no amount provided')
-                .setDescription(`This command requires an amount of TedCoin to add. \nExample: \`${prefix}add <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Make sure args[0] is a number
-        if (isNaN(args[0])) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: not a number')
-                .setDescription(`This command requires an amount of TedCoin to add. Example: \`${prefix}add <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Check if they defined a user
-        let defineduser = '';
-        if (!args[1]) { //If they didn't define anyone, add it to their own balance
-            defineduser = message.author.id;
-        } else { //If they define someone, run this
-            let firstMentioned = message.mentions.users.first();
-            defineduser = firstMentioned.id;
-        }
-
-        sql.get(`SELECT * FROM bank WHERE userID ="${defineduser}"`).then(row => {
-            if(!row) {
-                sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [defineduser, 0]);
-            } else {
-                //Add the points
-                sql.run(`UPDATE bank SET balance =${row.balance + parseInt(args[0])} WHERE userID ="${defineduser}"`);
-
-                //Let the user know
-                var mentioned = client.users.get(defineduser);
-                mentioned = mentioned.username;
-                const embed = new Discord.RichEmbed()
-                    .setTitle(`${args[0]} TedCoin added to ${mentioned}\'s Balance`)
-                    .setColor(0xF1C40F)
-                    .addField(`New Balance`, `${row.balance + parseInt(args[0])}`, true)
-                message.channel.send({embed});
-            }
-        }).catch(() => {
-            console.error;
-            sql.run(`CREATE TABLE IF NOT EXISTS bank (userID TEXT, balance INTEGER)`).then( () => {
-                sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [defineduser, 0]);
-            })
-        })
-    }
-
-    //Subtract from balance
-    /*if (command === `SUB` || command === `SUBTRACT`) {
-        //Check for admin
-        if (!message.member.roles.find("name", modRole) && !message.member.roles.find("name", modRole2)) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: incorrect permissions')
-                .setDescription('This command requires the ' + modRole + ' role.')
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Check if they defined an amount
-        if (!args[0]) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: no amount provided')
-                .setDescription(`This command requires an amount of TedCoin to subtract. \nExample: \`${prefix}sub <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Make sure args[0] is a number
-        if (isNaN(args[0])) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: no amount provided')
-                .setDescription(`This command requires an amount of TedCoin to subtract. Example: \`${prefix}sub <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Check if they defined a user
-        let defineduser = '';
-        if (!args[1]) { //If they didn't define anyone, add it to their own balance
-            defineduser = message.author.id;
-        } else { //If they define someone, run this
-            let firstMentioned = message.mentions.users.first();
-            defineduser = firstMentioned.id;
-        }
-
-        sql.get(`SELECT * FROM bank WHERE userID ="${defineduser}"`).then(row => {
-            if(!row) {
-                sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [defineduser, 0]);
-            } else {
-                //Subtract the points
-                sql.run(`UPDATE bank SET balance =${row.balance - parseInt(args[0])} WHERE userID ="${defineduser}"`);
-
-                //Let the user know
-                var mentioned = client.users.get(defineduser);
-                mentioned = mentioned.username;
-                const embed = new Discord.RichEmbed()
-                    .setTitle(`${args[0]} TedCoin subtracted from ${mentioned}\'s Balance`)
-                    .setColor(0xF1C40F)
-                    .addField(`New Balance`, `${row.balance - parseInt(args[0])}`, true)
-                message.channel.send({embed});
-            }
-        }).catch(() => {
-            console.error;
-            sql.run(`CREATE TABLE IF NOT EXISTS bank (userID TEXT, balance INTEGER)`).then( () => {
-                sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [defineduser, 0]);
-            })
-        })
     }*/
-    /*
-    if (command === 'GIVE' || command === 'PAY' || command === 'TIP') {
-        //Check if they defined an amount
-        if (!args[0]) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: no amount provided')
-                .setDescription(`This command requires an amount of TedCoin to give. \nExample: \`${prefix}give <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Make sure args[0] is a number
-        if (isNaN(args[0])) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: no amount provided')
-                .setDescription(`This command requires an amount of TedCoin to give. Example: \`${prefix}give <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        //Check if they defined a user
-        let defineduser = '';
-        if (!args[1]) { //If they didn't define anyone, give an error
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: no user defined')
-                .setDescription(`This command requires a user to give TedCoin to. Example: \`${prefix}give <amount> <user>\``)
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        } else { //If they define someone, run this
-            let firstMentioned = message.mentions.users.first();
-            defineduser = firstMentioned.id;
-        }
-
-        if (message.member.roles.find("name", banRole)) {
-            const embed = new Discord.RichEmbed()
-                .setTitle('Error: banned user')
-                .setDescription('You are banned from using the !give command')
-                .setColor(0xFF0000)
-            message.channel.send({embed});
-            return;
-        }
-
-        sql.get(`SELECT * FROM bank WHERE userID ="${defineduser}"`).then(row => {
-            if(!row) {
-                sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [defineduser, 0]);
-            } else {
-                //Subtract from sender
-                sql.get(`SELECT * FROM bank WHERE userID="${message.author.id}"`).then(row => {
-                    if(!row) {
-                        sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [message.author.id, 0]);
-                    }  if (args[0] > row.balance) {
-                        const embed = new Discord.RichEmbed()
-                            .setTitle('Error: balance too low')
-                            .setDescription(`You do not have enough TedCoin to complete this transaction. Use \`${prefix}bal\` to check your balance.`)
-                            .setColor(0xFF0000)
-                        message.channel.send({embed});
-                        args[0] = 0;
-                        return;
-                    } else {
-                        //Remove points from sender
-                        sql.run(`UPDATE bank SET balance =${row.balance - parseInt(args[0])} WHERE userID = "${message.author.id}"`);
-
-                        //Get receiver's info again
-                        sql.get(`SELECT * FROM bank WHERE userID ="${defineduser}"`).then(row=> {
-                            //Add points
-                            sql.run(`UPDATE bank SET balance =${row.balance + parseInt(args[0])} WHERE userID ="${defineduser}"`);
-                        })
-                    }
-                })
-
-                //Let the user know
-                var mentioned = client.users.get(defineduser);
-                mentioned = mentioned.username;
-                const embed = new Discord.RichEmbed()
-                    .setTitle(`${args[0]} TedCoin added to ${mentioned}\'s Balance`)
-                    .setColor(0xF1C40F)
-                    .addField(`New Balance`, `${row.balance + parseInt(args[0])}`, true)
-                message.channel.send({embed});
-            }
-        }).catch(() => {
-            console.error;
-            sql.run(`CREATE TABLE IF NOT EXISTS bank (userID TEXT, balance INTEGER)`).then( () => {
-                sql.run(`INSERT INTO bank (userID, balance) VALUES (?, ?)`, [defineduser, 0]);
-            })
-        })
-    }*/
-
-
-
-
 
 })
 
