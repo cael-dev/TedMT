@@ -72,6 +72,7 @@ client.on('message', async message => {
             .setColor(0x2d64f1) //0x2d64f1
             .addField(`!rognut`, `Reworked command`, true)
             .addField(`!tile`, `New command`, true)
+            .addField(`!cran`, `New command`, true)
             .addField(`!stream`, `Added 1 new outcome`, true)
             .addField(`!hbox`, `Added 1 new outcome`, true)
             .addField(`!sugden`, `Added 6 new outcomes`, true)
@@ -1039,6 +1040,16 @@ client.on('message', async message => {
         if (args[0] === `FULL`) { //Display all months
             //To-do
         }
+    }
+
+    if (command === `CRAN`) {
+        var c = [`https://media.discordapp.net/attachments/612065359285059615/673253433029165066/1121Cranberries_SC.jpg`,
+            `https://media.discordapp.net/attachments/612065359285059615/673253545302032384/cranberries-101-1296x728-feature.jpg`,
+            `https://media.discordapp.net/attachments/612065359285059615/673253645747224578/46db5147c16f7648.webp`];
+
+        var r = Math.floor((Math.random() * c.length));
+
+        message.channel.send({file: c[r]});
     }
 
     //Comic
