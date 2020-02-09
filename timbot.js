@@ -68,9 +68,21 @@ client.on('message', async message => {
     //Patch Notes
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.6.1 Patch Notes, The Sugden Gets Off His Ass and Makes the Sickest Quality of Life Changes You'll Ever See Update, 1/29/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20
+            .setTitle(`TimBot v1.6.2 Patch Notes 2/09/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20
             .setColor(0x2d64f1) //0x2d64f1
-            .addField(`Most Commands`, `Added extra command phrases, i.e. !brioooooooo`, true)
+            .addField(`!rognut`, `Reworked command`, true)
+            .addField(`!tile`, `New command`, true)
+            .addField(`!stream`, `Added 1 new outcome`, true)
+            .addField(`!hbox`, `Added 1 new outcome`, true)
+            .addField(`!sugden`, `Added 6 new outcomes`, true)
+            .addField(`!icemaster`, `Added 1 new outcome`, true)
+            .addField(`!tier`, `Added 15 new lists`, true)
+            .addField(`!quote`, `Added 98 new quotes (36 since 1.6.1)`, true)
+            .addField(`!comic`, `Added 15 new comics (1 since 1.6.1)`, true)
+            .addField(`Additional bug fixes`, `Also cleaned up the code, thanks silver, you're welcome silver`, true)
+
+
+            /*.addField(`Most Commands`, `Added extra command phrases, i.e. !brioooooooo`, true)
             .addField(`Like every image command`, `Adjusted so the link doesn't show`, true)
             .addField(`About half of the commands that have both text and images`, `Split into two parts with eight adjusted so the link doesn't show`, true)
             .addField(`!AL`, `Added 1 new outcome`, true)
@@ -83,7 +95,7 @@ client.on('message', async message => {
             .addField(`!tierlist`, `Added specific tier list commands for literally every single tier list in the bot`, true)
             .addField(`!tiermaker`, `Added specific tier list commands for the player, commentator and projectile tier lists`, true)
             .addField(`!quote`, `Added 62 new quotes (10 since 1.6.0)`, true)
-            .addField(`!comic`, `Added 14 new comics (8 since 1.6.0)`, true)
+            .addField(`!comic`, `Added 14 new comics (8 since 1.6.0)`, true)*/
         message.channel.send({embed});
     }
 
@@ -644,7 +656,43 @@ client.on('message', async message => {
             `<:Popoga:648637180964634642> HHUUUUUUAAAAAAAAAHHHHHHHH`,
             `<:Popoga:648637180964634642> DUUUOOOOOOHOHOHOOOOHOH`,
             `life is a series of god playing <:geg:659862247702528055> with me`,
-            `I'm gonna go chug some vodka and drive my car`];
+            `I'm gonna go chug some vodka and drive my car`,
+            `the thing that really throws me off about women is just how many there are`,
+            `sigden your gay`,
+            `backred by scuence`,
+            `oh shit fight with politics has turned from man vs society to man vs self`,
+            `mother fucker just wasted half my buzz on semantics, I just got subjected like a mother Fer`,
+            `Tell you what, my butt is full of doody right now.`,
+            `star explore my body`,
+            `when i was a kid my idea of my self was either a floating glowing orb or sephiroth`,
+            `good thing this server is only the equivalent of a middle school debate class then`,
+            `where you goin ?`,
+            `wome sport\nens`,
+            `"think piece"? No, think peace. :v:`,
+            `jeaus silv`,
+            `does that mean it's no longer immoral for me to watch futa rosalina hentai`,
+            `dimi is diogenes`,
+            `AZAW - All Zoomers Are Weebs`,
+            `Politics is power because of the money you can make people.`,
+            `What do you mean by murder`,
+            `What are historical facts`,
+            `Evolution is immoral`,
+            `i love ibdw because i have who looks just like him`,
+            `vanilla is not real melee`,
+            `As a sound adult I respect your choice to not drink, but as a college aged male I have to call you a pussy bitch`,
+            `sorry I'm kind of going cold turkey on reading`,
+            `:eggplant: :pregnant_woman: :sweat_drops: <:Popoga:648637180964634642>`,
+            `The beauty of my character is that you'll never know.`,
+            `>super mario bros\n>you control a person\n>legend of zelda\n>you control a person\n>anyone realize we're just buying the same games over and over??`,
+            `Gaming implies morality`,
+            `this argument is like a diamond-hard sieve`,
+            `They really do just have the sexiest kids.`,
+            `Italians are all pedophiles. This is known.`,
+            `they got half n half why dont they got whole n whole??`,
+            `Wow!! Aiden Jude, Martin Garrix or Avicii free sample pack nexus presets ree Dubstep Samples-Dubtropilis 220 Mb. Hip Hop Producer Pack 9 I know theres delay but it sounds like it needs some compression or a phaser to blend more with the song. Can I ask what drum pack youre using. I might have to expand on this and take more time than I did just farting around in FL studio to make the loop. Attempting to get a good idea for making dubstepfilth in Keywords: FL Studio 9 Full Version. Keywords: fl studio packs; fl studio drum kits; trap samples; fl studio sound packs; lex. Keywords: dink dubstep fl studio 19 minutes ago. Avicii Piano Tutorial TMAN FL Studio Produce Sound Sounds House. Kevwillows dubstep bass drum kicks beamer benz or bentley ami Buy, Download Best FL Studio Drum Samples for Trap, Hip Hop, EDM, Dubstep, Lex Luger Drum Kits, Royalty Free Loops, MIDI files, Soundfonts, Free sound Rankin Audio Female Dubstep Vocals WAV. Tom Cosm Ableton Live Packs. 9, 9 372. Arobas, guitar, pro, soundbanks, v 9063 Arobas Guitar Pro Soundbanks v6 0. 7. 9063 Addon. Native Instruments Abbey Road DRUMMER Series Studio Drummer KONTAKT. Valentino-Production Sound Effects Library fl studio 9 dubstep sound pack FL Studio Project with a cleverly designed track made with precision, power and with. 64 unique presets ideal for hip hop, trap, edm and dubstep. An amazing series of Construction Kits and presets for Sylenth1. Shocking Sounds 9 Jan 1, 2014. The dubstep kits are supplied as separate zip files, so youll need to. How to make a dubstep bass sound. November 28, 2013 at 9: 34am  BeatMaker iPhone App BeatPacks Sound Kits. Electro Trance Loops for ACID Pro, Soundtrack Pro,`,
+            `spoilers for aboriginal guy: ||white dudes are coming||`,
+            `Sheik is gay!!!`,
+            `I dont "play" fox. I puppeteer fox. I comandeer and embody fox. I sexually manipulate fox into my doing my bidding. I am fox.`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
             var min = (quotes.length - 100);
@@ -820,7 +868,7 @@ client.on('message', async message => {
     }
 
     //Calendar
-    if (command === `CALENDAR` || command === `HOLIDAY` || command === `HOLIDAYS`) {
+    if (command === `CALENDAR` || command === `HOLIDAY` || command === `HOLIDAYS` || command === `CAL`) {
         if (args[0] && args[0] != '') {
             if (args[0] == 'JANUARY' || args[0] == 'JAN' || args[0] == 1) {
                 var m = 0;
@@ -983,6 +1031,7 @@ client.on('message', async message => {
                 .addField('12/01', `Grotlecember Begins`, true)
                 .addField('12/09', `LOTR Day`, true)
                 .addField('12/17', `Measurement Day`, true)
+                .addField('12/22', `Sugden Hits 50k`, true)
                 .addField('12/25', `Timsmas`, true)
             message.channel.send({embed});
         }
@@ -1040,7 +1089,7 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612061367972790281/623603446389669897/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/623261047104733194/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/623260317346168865/comic.png`,
-                `https://media.discordapp.net/attachments/612058753293877274/623254857075130368/comic.png?width=676&height=676`,
+                `https://media.discordapp.net/attachments/612058753293877274/623254857075130368/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/623184917081096213/comic.png`,
                 `https://cdn.discordapp.com/attachments/612063946643472389/622955842853011497/comic.png`,
                 `https://cdn.discordapp.com/attachments/612063946643472389/622895923223199795/comic.png`,
@@ -1048,7 +1097,7 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612058753293877274/622437346884976640/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/622435775207964707/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/622249578997219359/comic.png`,
-                `https://media.discordapp.net/attachments/612058753293877274/622248490898030602/comic.png?width=676&height=676`,
+                `https://media.discordapp.net/attachments/612058753293877274/622248490898030602/comic.png`,
                 `https://cdn.discordapp.com/attachments/612063656036925502/613107131813462047/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/628335495176257547/comic.png`,
                 `https://cdn.discordapp.com/attachments/612061198288027796/628287072855261194/comic.png`,
@@ -1130,7 +1179,8 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612065359285059615/671191644342845440/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/658639527057031195/comic.png`,
                 `https://cdn.discordapp.com/attachments/612058753293877274/672830450741411850/comic.png`,
-                `https://cdn.discordapp.com/attachments/612065359285059615/672841909517025293/comic.png`];
+                `https://cdn.discordapp.com/attachments/612065359285059615/672841909517025293/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/675687243515428873/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -1363,7 +1413,22 @@ client.on('message', async message => {
             `Pooping in the Woods - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672839903435816971/image0.png`, //105
             `Impossible Homework - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672844424597995555/image0.png`,
             `Pizza Party - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672852937185165312/image0.png`,
-            `some PoE class bullshit idk - Silver\nhttps://cdn.discordapp.com/attachments/612063670297427978/672881039286337536/397b9419-e875-41a1-bb81-d6b346f37cf4.png`];
+            `PoE Ascendancies - Silver\nhttps://cdn.discordapp.com/attachments/612063670297427978/672881039286337536/397b9419-e875-41a1-bb81-d6b346f37cf4.png`,
+            `Favorite Holidays - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/672899466491330562/72ef2975-15af-4335-8b2b-185dfdf93467.png`,
+            `Bagel Chip - AL\nhttps://media.discordapp.net/attachments/612058753293877274/673377990234865684/Screenshot_20200201-173557.png`, //110
+            `Breakfast Drinks - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/674639162586038290/903313d2-b7b2-4232-84dd-627133f4ff58.png`,
+            `Pre-Industrial Jobs - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/674646058713874461/3c6051dc-59ad-4948-a56f-a55ca44697d3.png`,
+            `Droids - Coffee\nhttps://media.discordapp.net/attachments/612058753293877274/674646485253488650/image0.png`,
+            `Robot Alien Ninja Pirates - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/674642153565323284/7493fd51-0eb5-453d-8012-ea55959dada0.png`,
+            `When you bump into someone - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/674648939596873768/36e45da2-7ebf-47d3-b1a3-55e6af81a4a7.png`, //115
+            `Sandwich Meats - Coffee\nhttps://media.discordapp.net/attachments/612058753293877274/674650495930859551/image0.png`,
+            `Ice - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/674691080893235210/d33d69e8-7e45-4954-b86e-5ed4d14767e9.png`,
+            `Sports - Silver\nhttps://media.discordapp.net/attachments/612058753293877274/674693674453434388/d3ff44d8-2513-4070-b17f-2d0925093bd4.png`,
+            `McDonald's vs Wendy's - AL\nhttps://media.discordapp.net/attachments/612058753293877274/674751323073150986/my-image.png`,
+            `Dimi - Sugden\nhttps://media.discordapp.net/attachments/612058753293877274/674802487097688095/unknown.png`, //120
+            `Hentai - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/674825017971965953/unknown.png`,
+            `Hentai - Soap\nhttps://cdn.discordapp.com/attachments/612058753293877274/674831377228627968/my-image_7.png`,
+            `Mixtapes - Sugden\nhttps://media.discordapp.net/attachments/612058753293877274/675132439701487627/Mixtape_Vol._1__2_Tier_List.png`];
 
         if (args[0] && args[0] != '') { //If no second command, randomize
             if (args[0] === `NETPLAYGREETINGS` || args[0] === `GREETINGS`) {
@@ -1693,6 +1758,45 @@ client.on('message', async message => {
             } else if (args[0] === `POECLASSES` || args[0] === `POE` || args[0] === `ASCENDANCY`) {
                 var split = lists[108].split(`\n`);
                 message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `HOLIDAYS`) {
+                var split = lists[109].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BAGELCHIP`) {
+                var split = lists[110].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BREAKFASTDRINKS`) {
+                var split = lists[111].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `PREINDUSTRIAL` || args[0] === `PREINDUSTRIALJOBS`) {
+                var split = lists[112].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `DROIDS`) {
+                var split = lists[113].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `ROBOTALIENNINJAPIRATE`) {
+                var split = lists[114].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `BUMP` || args[0] === `BUMPINTOSOMEONE`) {
+                var split = lists[115].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SANDWICHMEAT` || args[0] === `SANDWICHMEATS`) {
+                var split = lists[116].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `ICE`) {
+                var split = lists[117].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `SPORTS`) {
+                var split = lists[118].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `DIMI`) {
+                var split = lists[120].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
+            } else if (args[0] === `HENTAI`) {
+                var min = 121;
+                var max = 122;
+                var r = Math.floor(Math.random() * (max - min + 1)) + min;
+                var split = lists[r].split(`\n`);
+                message.channel.send(split[0], {file: split[1]});
             } else {
                 message.channel.send(`Specified tier list not found.`);
             }
@@ -1994,11 +2098,12 @@ client.on('message', async message => {
 
     //Cael
     if (command === `CAEL` || command === `KALE` || command === `THEDUDEFROMPOKEMONRSE`) {
-        var r = Math.random() * 18;
+        var r = Math.random() * 19;
 
-        if (r <= 3) {
+        if (r <= 4) {
             var m = [`https://cdn.discordapp.com/attachments/612063946643472389/620757496352604202/unknown.png`,
                     `https://cdn.discordapp.com/attachments/612058753293877274/640758529397096459/oil.png`,
+                    `https://media.discordapp.net/attachments/612058753293877274/672564446710988810/unknown.png`,
                     `https://media.discordapp.net/attachments/612058753293877274/672564446710988810/unknown.png`];
 
             var r = Math.floor((Math.random() * m.length));
@@ -2616,9 +2721,9 @@ client.on('message', async message => {
 
     //hungrybox
     if (command === `HBOX` || command === `HGOD` || command === `HUNGRYBOX` || command === `HJESUS` || command === `CLUTCHBOX` || command === `CLUTCHGOD` || command === `JUANTRUEGOD` || command === `HGAWD` || command === `HLEGEND` || command === `HBITCH` || command === `JUAN` || command === `JUANDIBIEDMA` || command === `HCHRIST`) {
-        var r = Math.random() * 43;
+        var r = Math.random() * 44;
 
-        if (r <= 13) {
+        if (r <= 14) {
             var m = [`https://cdn.discordapp.com/attachments/608818247877525526/610284902365003776/who_will_stand_up_to_this_man.png`,
                     `https://cdn.discordapp.com/attachments/608818247877525526/610284756407681046/dedbox.jpg`,
                     `https://cdn.discordapp.com/attachments/612058753293877274/613460838740787200/image0.jpg`,
@@ -2631,7 +2736,8 @@ client.on('message', async message => {
                     `https://cdn.discordapp.com/attachments/612058753293877274/612090137337397319/traitorcheck.png`,
                     `https://cdn.discordapp.com/attachments/567417652331413544/610957102453751809/unknown.png`,
                     `https://cdn.discordapp.com/attachments/542142763693768731/610566498137800747/JPEG_20190812_131107.jpg`,
-                    `https://cdn.discordapp.com/attachments/542142763693768731/610270280685977613/EBuoEXdXoAEJXdF.png`];
+                    `https://cdn.discordapp.com/attachments/542142763693768731/610270280685977613/EBuoEXdXoAEJXdF.png`,
+                    `https://media.discordapp.net/attachments/612058753293877274/673616313603850271/unknown.png`];
 
             var r = Math.floor((Math.random() * m.length));
 
@@ -2728,7 +2834,8 @@ client.on('message', async message => {
     if (command === `ICE` || command === `ICEMASTER` || command === `SCOTTYDOO` || command === `ICEMASTER3000` || command === `ICEMASTER3K` || command === `POPEYE` || command === `ONIONBLESS` || command === `SCOTTYFLEX` || command === `ICEDADDY` || command === `ICEDAD`) {
         var i = [`I've decided that in tournament as Marf, my tag is Scotty-Doo, because he just do, ya know?\nBut when I enter as Falco... my tag will be Scotty-Flex.\n\nIt's perfect.`,
             `And the marfs in the cradle and the silver spoon... Hungrybox is the tru man-on-da-moon. When we gonna mm I don't know when... but I'll put a stop him thennn, I said I'm gonna stop him right thenn`,
-            `Do you think "Onion Bless" is a slightly charming, yet overall pretty cool name?`];
+            `Do you think "Onion Bless" is a slightly charming, yet overall pretty cool name?`,
+            `<:Popoga:648637180964634642>`];
 
         var r = Math.floor((Math.random() * i.length));
 
@@ -3111,7 +3218,18 @@ client.on('message', async message => {
 
     //Rognut
     if (command === `ROGNUT` || command === `ROG` || command === `ROGCHAMP`) {
-        message.channel.send(`rog would love to be cucked way more than midnight`);
+        var g = [`https://media.discordapp.net/attachments/612058753293877274/674681307518730286/JPEG_20200205_132305.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/674680777614688287/JPEG_20200205_132121.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/672610167602413599/JPEG_20200130_201313.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/672609418482941962/image0.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/672608673776009217/JPEG_20200130_200717.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/671794541635960832/20200128_141120.png`];
+
+        var r = Math.floor((Math.random() * g.length));
+
+        message.channel.send({file: g[r]});
+
+        //message.channel.send(`rog would love to be cucked way more than midnight`);
     }
 
     //Rootnut
@@ -3126,6 +3244,32 @@ client.on('message', async message => {
     //Sailormercury
     if (command === `REPLYGUY` || command === `:REPLYGUY:` || command === `SM` || command === `MERCURY` || command === `SAILOR` || command === `SAILORMERCURY` || command === `REDSHEIK`) {
         message.channel.send(`I MADE THE FUCKING POST\nFUCK you. I **FUCKING** HATE YOU. FUCK you.\nFUCK YOU.`);
+    }
+
+    //Tile
+    if (command === `TILE` || command === `FLOOR`) {
+        var t = [`https://media.discordapp.net/attachments/612061640694824960/673327572708491303/15806042302255384021958079595329.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673314105691734017/15806010195687221104511334223486.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673313842117476372/15806009543288308072310155686759.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673313479767228416/15806008702924131087890219342463.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673312890945667132/15806007287708778533342030841650.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673312512502005763/image0.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673312468533248000/15806006295215554648947677547880.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673312056832819212/15806005310116913964166639841313.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311824288153653/unknown.png`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311684034691077/15806004421144866487428552109326.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311617600978964/1580600426412741230542678767593.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311491935567872/15806003958987549145147463313617.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311380253835294/15806003684681025610078758264421.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311239367032892/15806003363483341304416884100057.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311168781221918/1580600319149275052331417400346.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673311106911174658/15806003049528534478934777921074.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673310990208860170/15806002750043341241351913281017.jpg`,
+            `https://media.discordapp.net/attachments/612061640694824960/673310880112574464/15806002498328475685968709642649.jpg`]
+
+        var r = Math.floor((Math.random() * t.length));
+
+        message.channel.send({file: t[r]});
     }
 
     //SFAT
@@ -3240,7 +3384,12 @@ client.on('message', async message => {
 
     //Stream mommy
     if (command === `STREAM` || command === `STREAMMO` || command === `STREAMMOMENTUM` || command === `STREAMOMENTUM` || command === `MOMMY` || command === `STREAMMOMMY`) {
-        message.channel.send(`Okay I said some dumb shit`);
+        var r = Math.random() * 100;
+        if (r >= 50) {
+            message.channel.send(`that's a meme`);
+        } else {
+            message.channel.send(`Okay I said some dumb shit`);
+        }
     }
 
     //structuremole
@@ -3747,7 +3896,13 @@ client.on('message', async message => {
                     `https://cdn.discordapp.com/attachments/542494706932645918/598248990638735370/image0.jpg`,
                     `https://i.imgur.com/vnY6qBY.jpg`,
                     `https://cdn.discordapp.com/attachments/542494706932645918/598248832144375959/image0.jpg`,
-                    `https://cdn.discordapp.com/attachments/608818247877525526/615578318540111922/unknown.png`];
+                    `https://cdn.discordapp.com/attachments/608818247877525526/615578318540111922/unknown.png`,
+                    `https://media.discordapp.net/attachments/612065359285059615/675209168629661696/received_157547255694133.jpeg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/675825038800322580/JPEG_20200208_170421.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/675825935966273567/20200131_130407.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/675826544194617344/q8lv9f01n1y01.jpg`,
+                    `https://media.discordapp.net/attachments/612065359285059615/675896385375174676/Screenshot_20200208-215044_Gallery.jpg`,
+                    `https://media.discordapp.net/attachments/612065359285059615/675901657938132992/image0.jpg`];
 
             var r = Math.floor((Math.random() * m.length));
 
