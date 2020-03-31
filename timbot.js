@@ -2252,37 +2252,43 @@ client.on('message', async message => {
     if (command === `ANTI` || command === `ANTIPROMPT`) {
         //https://cdn.discordapp.com/attachments/612061367972790281/638159668606140417/antiprompt_vs_the_world.png
 
-        var a = [`Mario`,
-                `Mario`,
-                `Luigi`,
-                `Bowser`,
-                `Peach`,
-                `Princess Peach`,
-                `Daisy`,
-                `Wario`,
-                `Toad`,
-                `Yoshi`,
-                `King Bob-omb`,
-                `King Boo`,
-                `Kamek`,
-                `a goomba`,
-                `Bowser Jr.`,
-                `Waluigi`,
-                `Donkey Kong`,
-                `Toadette`,
-                `Captain Toad`,
-                `Birdo`,
-                `Rosalina`,
-                `Boom Boom`,
-                `Dry Bowser`,
-                `Petey Piranha`,
-                `Piranha Plant`,
-                `Toadsworth`];
+        var r3 = Math.random() * 100;
 
-        var r = Math.floor((Math.random() * a.length));
-        var r2 = Math.floor((Math.random() * a.length));
+        if (r3 > 95) {
+            message.channel.send({file: `https://media.discordapp.net/attachments/571166424073240585/647274779266515000/npVqL8d.png`});
+        } else {
+            var a = [`Mario`,
+                    `Mario`,
+                    `Luigi`,
+                    `Bowser`,
+                    `Peach`,
+                    `Princess Peach`,
+                    `Daisy`,
+                    `Wario`,
+                    `Toad`,
+                    `Yoshi`,
+                    `King Bob-omb`,
+                    `King Boo`,
+                    `Kamek`,
+                    `a goomba`,
+                    `Bowser Jr.`,
+                    `Waluigi`,
+                    `Donkey Kong`,
+                    `Toadette`,
+                    `Captain Toad`,
+                    `Birdo`,
+                    `Rosalina`,
+                    `Boom Boom`,
+                    `Dry Bowser`,
+                    `Petey Piranha`,
+                    `Piranha Plant`,
+                    `Toadsworth`];
 
-        message.channel.send(`What if `+a[r]+` sex `+a[r2]);
+            var r = Math.floor((Math.random() * a.length));
+            var r2 = Math.floor((Math.random() * a.length));
+
+            message.channel.send(`What if `+a[r]+` sex `+a[r2]);
+        }
     }
 
     //AskGoiter
