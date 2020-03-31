@@ -72,6 +72,20 @@ client.on('message', async message => {
         message.channel.send('Fuck you!');
     }
 
+    if (command === `CORONA` || command === `CORONAVIRUS` || command === `COVID` || command === `COVID19` || command === `RONA`) {
+        message.channel.send(`**Coronavirus Leaderboard**
+1 - Drew
+2 - Draco
+3 - Struc
+4 - Farmstink
+5 - Goloche
+6 - AL
+7 - No one yet
+8 - No one yet
+9 - No one yet
+10 - No one yet`);
+    }
+
     //Patch Notes
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
