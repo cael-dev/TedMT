@@ -80,7 +80,7 @@ client.on('message', async message => {
 4 - Farmstink
 5 - Goloche
 6 - AL
-7 - No one yet
+7 - Silver
 8 - No one yet
 9 - No one yet
 10 - No one yet`);
@@ -89,24 +89,31 @@ client.on('message', async message => {
     //Patch Notes
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.7.1 Patch Notes 3/31/20 - The Silver what the fuck do we call this update Update`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20
+            .setTitle(`TimBot v1.7.1 Patch Notes 3/31/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20
             .setColor(0x2d64f1) //0x2d64f1
-            .addField(`!quote`, `Added 57 new quotes`, true)
-            .addField(`!comic`, `Added 25 new comics`, true)
+            .addField(`!quote`, `Added 59 new quotes`, true)
+            .addField(`!comic`, `Added 26 new comics`, true)
             .addField(`!tierlist`, `Added 10 new tier lists`, true)
             .addField(`!airplane`, `Added 1 new result`, true)
             .addField(`!AL`, `Added 2 new results`, true)
+            .addField(`!bubbles`, `Added 1 new result`, true)
             .addField(`!calendar`, `Added 3 events`, true)
+            .addField(`!corona`, `New command`, true)
+            .addField(`!darsh`, `Added secret outcomes`, true)
             .addField(`!dimi`, `Added 1 new results`, true)
+            .addField(`!faceroll`, `New command`, true)
+            .addField(`!flapo`, `New command`, true)
             .addField(`!hbox`, `Added 1 new result`, true)
             .addField(`!icemaster`, `Added 1 new result`, true)
             .addField(`!ibdw`, `Added 1 new result`, true)
             .addField(`!mango`, `Added 1 new result`, true)
+            .addField(`!midnight`, `Reworked command`, true)
             .addField(`!pickle`, `Added as a new command. only has 1 result for now, very barebones`, true)
-            .addField(`!soap`, `Added 3 new results`, true)
+            .addField(`!soap`, `Added 4 new results`, true)
+            .addField(`!stephen`, `Added 1 new result`, true)
             .addField(`!streammommy`, `Added 3 new results`, true)
             .addField(`!sugden`, `Added 13 new pics`, true)
-            
+
             //.addField(`!rognut`, `Reworked command`, true)
             //.addField(`!tile`, `New command`, true)
             //.addField(`!cran`, `New command`, true)
@@ -881,7 +888,7 @@ client.on('message', async message => {
             `I want to throw up looking at that \nLooks like how I imagine a socal local looks`, //HERE ONWARDS NOT INCLUDING LAST ONE
             `love those little specks of green bullshit`,
             `why is it called base64 if it goes over 64 characters lol stupid`,
-            //`McQuick :popperga: \nMcdonald's new even faster menu \nits like an oxygen tube in the drive through but it shoots compressed burger gasses into your mouth`,
+            `McQuick <:popperga:659868423551189012> \nMcdonald's new even faster menu \nits like an oxygen tube in the drive through but it shoots compressed burger gasses into your mouth`,
             `streamomentum \nI have something to talk to you about \npls respong`,
             `I opened the image editor and started making a popogao emote, then I stared at my hands until the urge to cause pain went away`,
             `Reading is gay but writing is fine \nI just type and never read what anyone else says`,
@@ -901,10 +908,9 @@ client.on('message', async message => {
             `Yeah  why do you are about being cut, what are you, Jewish?`,
             `charge fdmsfh call rhar anti prompf`,
             `If only there was an instrument that looked like smoking a cigarette`,
-            //`hhdhheehhe ehe he ehhee \n:gog:  hello professor? \n:POGGERS:  yes student \n:gog: im having a shit hahhhaa \n:JUST: omg why`,
             `I like playing Ganon more than I like playing melee.`,
             `I'm making a coherent argument, but before any of you get to hear it, Streamo clicks on his RETARD pedal and cranks it way up.`,
-            //`oh my god it's 72 and sunny out \n72 and :SunnerZ: out`,
+            `oh my god it's 72 and sunny out \n72 and <:SunnerZ:678445679110127646> out`,
             `You bitches like to listen to music while you read books, I listen to audiobooks while I read sheet music`,
             `my name is sugden and i'm here to say, i love shine spike in a major way`,
             `Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar, Olimar,`,
@@ -921,8 +927,8 @@ client.on('message', async message => {
             `I'm gonna screenshot again darsh bc I'm confused`,
             `2/3rds of everything Aristotle wrote have been lost to time. But experts believe all of it was on the subject of what Aristotle called 'χρόνος dimi', or dimi time.`,
             `Honestly, I'm unsure of the historical existence of like, George Washington, Aristotle is so far back he is literally a figure of myth`,
-            `dietpepis: im gonna post 30 0s in the chat \ndietpepis: 000000000000000000000000000000`,
-            //`:tcle:        |  :tcle:  :tcle:  \n-------------------- \n:tcle: :tcle: | :tcle: :eclit:`,
+            `im gonna post 30 0s in the chat \n000000000000000000000000000000`,
+            `<:tcle:624002030368981002>        |  <:tcle:624002030368981002>  <:tcle:624002030368981002>  \n-------------------- \n<:tcle:624002030368981002> <:tcle:624002030368981002> | <:tcle:624002030368981002> <:eclit:667942916924243978>`,
             `if you think about it, timcord is homestuck but with europeans instead of trolls`,
             `melee good game`,
             `calling your child meghan is like preregistering them for onlyfans`,
@@ -935,7 +941,10 @@ client.on('message', async message => {
             `divinity: original simp`,
             `I've never said anything.`,
             `the two loves of most mens' lives, titties and ghost ships`,
-            `Omg Stan soogdoon :heart_eyes: :heart_eyes: :heart_eyes:`];
+            `Omg Stan soogdoon :heart_eyes: :heart_eyes: :heart_eyes:`,
+            `Hey Faceroll. I don't know if you remember me. It would be weird if you did, because we've never met.\n\nIt's hard to tell when you're faced with life changing decisions. In the moment, the choice can seem insignificant. But years from now, you may look back on those small decisions and wonder what your life would have been like if you had only chosen differently. If you had only taken a chance.\n\nBear this in your mind as I extend to you one such small choice. A simple invitation to a simple discord. What lies beyond this invite, I cannot say. Nor can I say what ripples might extend outward from this decision into the water that is your life. I can only offer you the stone.\n\nhttps://discord.gg/PmaVCqd`,
+            `hhdhheehhe ehe he ehhee\n<:gog:675831685404950530>  hello professor?\n<:POGGERS:440658615880253440>  yes student\n<:gog:675831685404950530> im having a shit hahhhaa\n<:JUST:620761466038910976> omg why`,
+            `then I miss my punishes but the fact that I could hit my punishes is in their head, so that's cool`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
             var min = (quotes.length - 150); //was 100
@@ -1468,7 +1477,8 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612063656036925502/694618588358639616/comic.png`,
                 `https://cdn.discordapp.com/attachments/612063656036925502/694618690955640842/comic.png`,
                 `https://cdn.discordapp.com/attachments/612065359285059615/694629484686475264/comic.png`,
-                `https://media.discordapp.net/attachments/612063656036925502/687028905596682260/comic.png`];
+                `https://media.discordapp.net/attachments/612063656036925502/687028905596682260/comic.png`,
+                `https://media.discordapp.net/attachments/612063656036925502/694618588358639616/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -2409,7 +2419,12 @@ client.on('message', async message => {
 
     //Bubbles
     if (command === `BUBBLES` || command === `BUBBLE` || command === `BUBLE` || command === `BUBL`) {
-        message.channel.send(`(Jaw drops to the floor. Eyes pop out. Sound effect of "AWOOOGA AWOOOOGA!!!" Places eyes and jaw back in place. Regains composure.) ... Eh hem, you look quite lovely.`);
+        var r = Math.random() * 100;
+        if (r > 90) {
+            message.channel.send(`Awooga`, {file: 'https://media.discordapp.net/attachments/612061766830260244/694292678703054938/Awooga.png'});
+        } else {
+            message.channel.send(`(Jaw drops to the floor. Eyes pop out. Sound effect of "AWOOOGA AWOOOOGA!!!" Places eyes and jaw back in place. Regains composure.) ... Eh hem, you look quite lovely.`);
+        }
     }
 
     //Cael
@@ -2848,38 +2863,61 @@ client.on('message', async message => {
 
     //Darsh/Stephen
     if (command === `DARSH` || command === `GANON` || command === `GANONDORF` || command === `LION`) {
-        message.channel.send(`My advice?\nGo to the gym.`);
+        var r = Math.random() * 100;
+
+        if (r > 97 && r <= 99) {
+            var d = [`https://i.imgur.com/7OTDlmR.png`,
+                `https://i.imgur.com/YTCkvjk.png`,
+                `https://cdn.discordapp.com/attachments/672225366273818657/694599779791011870/unknown.png`];
+
+            var r2 = Math.floor((Math.random() * d.length));
+
+            message.channel.send({file: d[r2]});
+        } else if (r > 99) {
+            message.channel.send({file: `https://cdn.discordapp.com/attachments/612061198288027796/694630531953852516/IMG_20190506_214259.jpg`});
+            message.channel.send({file: `https://cdn.discordapp.com/attachments/612061198288027796/694630532616683540/IMG_20190507_002554.jpg`});
+        } else {
+            //message.channel.send(`My advice?\nGo to the gym.`);
+            message.channel.send(`My advice?\nWork out at home.`);
+        }
+
     }
 
     if (command === `STEPHEN` || command === `STEPHENMCTOWELIE`) {
-        var d = [`navigating a shitty maze slowly.`,
-                `playing a game just to be able to argue about it with your friends.`,
-                `a big maze of right angles instead of levels.`,
-                `The Hollow Knight being gay the whole time.`,
-                `being a slightly worse Metroid.`,
-                `not moving in the Z-axis.`,
-                `regressing from Dark Souls by removing an entire dimension.`,
-                `everything Darsh says being right.`,
-                `not having any control over the way you play.`,
-                `going through a place that actually exists and has a history.`,
-                `exploration that isn't even exploration.`,
-                `all the rooms looking the same.`,
-                `checking your map for open doors and going to them.`,
-                `no one being online to play netplay with you instead.`,
-                `dinosaurs.`,
-                `polish and mechanical innovations still not making metroidvanias any better.`,
-                `metroidvanias sucking my dick.`,
-                `being the literal best game of all time, as decided by some group of nerds.`,
-                `telling your friends your enlightened opinions.`,
-                `wasting your money and time.`,
-                `convincing all of your friends to play a shitty game.`,
-                `being a metroidvania for marth mains.`,
-                `being such a safe space that not even the gameplay can get you.`,
-                `Dark Souls if Dark Souls was bad.`];
+        var r2 = Math.random() * 100;
 
-        var r = Math.floor((Math.random() * d.length));
+        if (r > 95) {
+            message.channel.send(`Proof that Melee is nothing like Hollow Knight`, {file: `https://media.discordapp.net/attachments/612061367972790281/694244463844917368/Melee_vs_Hollow_Knight.png`});
+        } else {
+            var d = [`navigating a shitty maze slowly.`,
+                    `playing a game just to be able to argue about it with your friends.`,
+                    `a big maze of right angles instead of levels.`,
+                    `The Hollow Knight being gay the whole time.`,
+                    `being a slightly worse Metroid.`,
+                    `not moving in the Z-axis.`,
+                    `regressing from Dark Souls by removing an entire dimension.`,
+                    `everything Darsh says being right.`,
+                    `not having any control over the way you play.`,
+                    `going through a place that actually exists and has a history.`,
+                    `exploration that isn't even exploration.`,
+                    `all the rooms looking the same.`,
+                    `checking your map for open doors and going to them.`,
+                    `no one being online to play netplay with you instead.`,
+                    `dinosaurs.`,
+                    `polish and mechanical innovations still not making metroidvanias any better.`,
+                    `metroidvanias sucking my dick.`,
+                    `being the literal best game of all time, as decided by some group of nerds.`,
+                    `telling your friends your enlightened opinions.`,
+                    `wasting your money and time.`,
+                    `convincing all of your friends to play a shitty game.`,
+                    `being a metroidvania for marth mains.`,
+                    `being such a safe space that not even the gameplay can get you.`,
+                    `Dark Souls if Dark Souls was bad.`];
 
-        message.channel.send(`Hollow Knight's a game about `+d[r]);
+            var r = Math.floor((Math.random() * d.length));
+
+            message.channel.send(`Hollow Knight's a game about `+d[r]);
+        }
     }
 
     //Default Pizza
@@ -3012,6 +3050,11 @@ client.on('message', async message => {
         message.channel.send(`**DUCK** \n**FUCKING** \n**NUMBERS**`);
     }
 
+    //Faceroll
+    if (command === `FACEROLL`) {
+        message.channel.send(`Hey Faceroll. I don't know if you remember me. It would be weird if you did, because we've never met.\n\nIt's hard to tell when you're faced with life changing decisions. In the moment, the choice can seem insignificant. But years from now, you may look back on those small decisions and wonder what your life would have been like if you had only chosen differently. If you had only taken a chance.\n\nBear this in your mind as I extend to you one such small choice. A simple invitation to a simple discord. What lies beyond this invite, I cannot say. Nor can I say what ripples might extend outward from this decision into the water that is your life. I can only offer you the stone.\n\nhttps://discord.gg/PmaVCqd`);
+    }
+
     //Farmstink
     if (command === `FARMSTINK` || command === `FARM` || command === `STINK`) {
         var f = [`“Now you’re really going to get punished for those f smashes you little bitch”`,
@@ -3030,6 +3073,11 @@ client.on('message', async message => {
             var r = Math.floor((Math.random() * f.length));
 
             message.channel.send(f[r]);
+    }
+
+    //FloatyApologist
+    if (command === `FLOATYAPOLOGIST` || command === `FLOATY` || command === `FLAPO`) {
+        message.channel.send({file: `https://cdn.discordapp.com/attachments/612061766830260244/694343619368452187/unknown.png`});
     }
 
     //GIMR
@@ -3328,7 +3376,7 @@ client.on('message', async message => {
 
     //Midnight
     if (command === `MIDNIGHT` || command === `MIDNIGHTLIFTER`) {
-        var m = [`*fadeback upsmashes*`,
+        /*var m = [`*fadeback upsmashes*`,
                 `*reverse fadeback upsmashes*`,
                 `*just stands there and upsmashes*`,
                 `*triple upsmashes*`,
@@ -3337,7 +3385,20 @@ client.on('message', async message => {
                 `*disrespects women*`,
                 `*uptilts instead of upsmash*\n\n*then upsmashes anyways*`,
                 `shield pivot upsmashes`,
-                `*runs at you and upsmashes*`];
+                `*runs at you and upsmashes*`];*/
+
+        var m = [`tom you fucking idiot`,
+            `tom and danny are screwing the pooch right now`,
+            `oh my god there's already another recoupling`,
+            `they're not actors! they're real people!`,
+            `I love Curtis, he's like the best dude ever, but Amy SUCKS`,
+            `Arabella's way too hot to go home`,
+            `OH NO, AMY, YOU DUMB BITCH`,
+            `man, molly mae's got that booty`,
+            `Marvin's going home boys...`,
+            `CURTIS IS CUDDLING HER?! WHAAA`,
+            `Curtis has turned things back around, what a fantastic move`,
+            `Amber quit referring to yourself as "us"`];
 
         var r = Math.floor((Math.random() * m.length));
 
@@ -3730,7 +3791,8 @@ client.on('message', async message => {
             `cancer`,
             `cum`,
             `wheel of fortune`,
-            `first name`];
+            `first name`,
+            `bondage`];
 
         var name = [`Soap`,
             `Soap`,
