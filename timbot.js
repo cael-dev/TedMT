@@ -89,9 +89,18 @@ client.on('message', async message => {
     //Patch Notes
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.7.1 Patch Notes 3/31/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20
+            .setTitle(`TimBot v1.7.2 Patch Notes 4/04/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20, 1.7.1 on 3/31/20
             .setColor(0x2d64f1) //0x2d64f1
-            .addField(`!quote`, `Added 59 new quotes`, true)
+            .addField(`!quote`, `Added 16 new quotes`, true)
+            .addField(`!comic`, `Added 4 new comics`, true)
+            .addField(`!time/!dimitime`, `New command`, true)
+            .addField(`!cael`, `Added 2 new outcomes`, true)
+            .addField(`!drew`, `Added 5 new outcomes`, true)
+            .addField(`!faceroll`, `Randomized outcomes`, true)
+            .addField(`!hollowknight`, `Previously !stephen, added some outcomes`, true)
+            .addField(`!sugden`, `Added 5 new outcomes`, true)
+
+            /*.addField(`!quote`, `Added 59 new quotes`, true)
             .addField(`!comic`, `Added 26 new comics`, true)
             .addField(`!tierlist`, `Added 10 new tier lists`, true)
             .addField(`!airplane`, `Added 1 new result`, true)
@@ -112,35 +121,7 @@ client.on('message', async message => {
             .addField(`!soap`, `Added 4 new results`, true)
             .addField(`!stephen`, `Added 1 new result`, true)
             .addField(`!streammommy`, `Added 3 new results`, true)
-            .addField(`!sugden`, `Added 13 new pics`, true)
-
-            //.addField(`!rognut`, `Reworked command`, true)
-            //.addField(`!tile`, `New command`, true)
-            //.addField(`!cran`, `New command`, true)
-            //.addField(`!stream`, `Added 1 new outcome`, true)
-            //.addField(`!hbox`, `Added 1 new outcome`, true)
-            //.addField(`!sugden`, `Added 6 new outcomes`, true)
-            //.addField(`!icemaster`, `Added 1 new outcome`, true)
-            //.addField(`!tier`, `Added 15 new lists`, true)
-            //.addField(`!quote`, `Added 98 new quotes (36 since 1.6.1)`, true)
-            //.addField(`!comic`, `Added 15 new comics (1 since 1.6.1)`, true)
-            //.addField(`Additional bug fixes`, `Also cleaned up the code, thanks silver, you're welcome silver`, true)
-
-
-            /*.addField(`Most Commands`, `Added extra command phrases, i.e. !brioooooooo`, true)
-            .addField(`Like every image command`, `Adjusted so the link doesn't show`, true)
-            .addField(`About half of the commands that have both text and images`, `Split into two parts with eight adjusted so the link doesn't show`, true)
-            .addField(`!AL`, `Added 1 new outcome`, true)
-            .addField(`!cael`, `Added 1 new outcome`, true)
-            .addField(`!chillin`, `Drastically increased the odds of chillinposting`, true)
-            .addField(`!cuck`, `split into two commands, !cuck for clapping and !ciaran for momposting`, true)
-            .addField(`!subf`, `Added 1 new outcome`, true)
-            .addField(`!ted`, `Added 1 new outcome`, true)
-            .addField(`!tierlist`, `Added 26 new tier lists`, true)
-            .addField(`!tierlist`, `Added specific tier list commands for literally every single tier list in the bot`, true)
-            .addField(`!tiermaker`, `Added specific tier list commands for the player, commentator and projectile tier lists`, true)
-            .addField(`!quote`, `Added 62 new quotes (10 since 1.6.0)`, true)
-            .addField(`!comic`, `Added 14 new comics (8 since 1.6.0)`, true)*/
+            .addField(`!sugden`, `Added 13 new pics`, true)*/
         message.channel.send({embed});
     }
 
@@ -944,7 +925,23 @@ client.on('message', async message => {
             `Omg Stan soogdoon :heart_eyes: :heart_eyes: :heart_eyes:`,
             `Hey Faceroll. I don't know if you remember me. It would be weird if you did, because we've never met.\n\nIt's hard to tell when you're faced with life changing decisions. In the moment, the choice can seem insignificant. But years from now, you may look back on those small decisions and wonder what your life would have been like if you had only chosen differently. If you had only taken a chance.\n\nBear this in your mind as I extend to you one such small choice. A simple invitation to a simple discord. What lies beyond this invite, I cannot say. Nor can I say what ripples might extend outward from this decision into the water that is your life. I can only offer you the stone.\n\nhttps://discord.gg/PmaVCqd`,
             `hhdhheehhe ehe he ehhee\n<:gog:675831685404950530>  hello professor?\n<:POGGERS:440658615880253440>  yes student\n<:gog:675831685404950530> im having a shit hahhhaa\n<:JUST:620761466038910976> omg why`,
-            `then I miss my punishes but the fact that I could hit my punishes is in their head, so that's cool`];
+            `then I miss my punishes but the fact that I could hit my punishes is in their head, so that's cool`,
+            `no furry but if you won't admit that isabelle is kinda cute doe you're lying`,
+            `It's for us that the Timcord exists, for the dispossessed of the world; not for melee, not for the selfless pursuit of game knowledge, not for any of the reasons that you hear. We give out the reasons, and we let a few of the ordinary ones in, those that would do in the world; but that's just protective coloration. Like the church in the Middle Ages, which didn't give a damn about the laity or even about God, we have our pretenses in order to survive. And we shall survive—because we have to.`,
+            `I type like a genius who's been captured`,
+            `fox has to earn his wins more than any other top tier`,
+            `netplay is an abomination against god and nature and because of that it is based`,
+            `but 9/11 was a meme event`,
+            `It's crazy to me that people are unfunny dicks on here`,
+            `:clap: their :clap: applause :clap: wasn't :clap: genuine :clap:`,
+            `Sex work is real work.\nAnd children should be allowed to work.`,
+            `H\nH\nH\nH\nH\nH\nH\nH\nfunney ladder lole`,
+            `isabelle does not look like a dog if you ignore the fur and tail`,
+            `"Bronze 1 is the gulag of melee, the peak of the dunning Kruger effect" - Coffee\n"I'm bronze 1 and I actually know a lot about the game so I'm going to have to disagree with you. When I get into my flow state I can really do a lot, and my rank doesn't reflect that." - streamo`,
+            `This is why we need self walking shoes.`,
+            `here's a fun tip to help you remember how to spell sheik\nshe (like a girl which sheik is) + ik (the noise u make when you see a girl. icky!!)`,
+            `barter economies must have sucked for sex workers trying to pay for abortions`,
+            `"fox grab destroys peach" -coffee`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
             var min = (quotes.length - 150); //was 100
@@ -1478,7 +1475,11 @@ client.on('message', async message => {
                 `https://cdn.discordapp.com/attachments/612063656036925502/694618690955640842/comic.png`,
                 `https://cdn.discordapp.com/attachments/612065359285059615/694629484686475264/comic.png`,
                 `https://media.discordapp.net/attachments/612063656036925502/687028905596682260/comic.png`,
-                `https://media.discordapp.net/attachments/612063656036925502/694618588358639616/comic.png`];
+                `https://media.discordapp.net/attachments/612063656036925502/694618588358639616/comic.png`,
+                `https://media.discordapp.net/attachments/670154973505519646/694996154416365628/comic.png`,
+                `https://media.discordapp.net/attachments/638438136921456640/695362540229886074/comic.png`,
+                `https://media.discordapp.net/attachments/612061198288027796/695406995687342170/comic.png`,
+                `https://media.discordapp.net/attachments/612061367972790281/695649710089830471/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -2435,14 +2436,15 @@ client.on('message', async message => {
 
     //Cael
     if (command === `CAEL` || command === `KALE` || command === `THEDUDEFROMPOKEMONRSE`) {
-        var r = Math.random() * 24;
+        var r = Math.random() * 26;
 
-        if (r <= 5) {
+        if (r <= 6) {
             var m = [`https://cdn.discordapp.com/attachments/612063946643472389/620757496352604202/unknown.png`,
                     `https://cdn.discordapp.com/attachments/612058753293877274/640758529397096459/oil.png`,
                     `https://media.discordapp.net/attachments/612058753293877274/672564446710988810/unknown.png`,
                     `https://media.discordapp.net/attachments/612058753293877274/672564446710988810/unknown.png`,
-                    `https://i.imgur.com/kew5Kn3.png`];
+                    `https://i.imgur.com/kew5Kn3.png`,
+                    `https://i.imgur.com/AIrR3gM.png`];
 
             var r = Math.floor((Math.random() * m.length));
 
@@ -2467,7 +2469,8 @@ client.on('message', async message => {
                     `when medicare for all comes out you should be allowed a few colonoscopies per year unrelated to medical issues`,
                     `what even is caelposting`,
                     `I am become death, a tarot card that deals damage to all enemies in the room`,
-                    `https://media.discordapp.net/attachments/612063670297427978/687449144540790872/IMG_20200311_195811.jpg\nhow tf am i supposed to know`];
+                    `https://media.discordapp.net/attachments/612063670297427978/687449144540790872/IMG_20200311_195811.jpg\nhow tf am i supposed to know`,
+                    `no furry but if you won't admit that isabelle is kinda cute doe you're lying`];
 
             var r = Math.floor((Math.random() * h.length));
 
@@ -2889,11 +2892,13 @@ client.on('message', async message => {
 
     }
 
-    if (command === `STEPHEN` || command === `STEPHENMCTOWELIE`) {
+    if (command === `HOLLOWKNIGHT` || command === `HK` || command === `STEPHEN` || command === `STEPHENMCTOWELIE`) {
         var r2 = Math.random() * 100;
 
-        if (r > 95) {
+        if (r > 90 && r <= 95) {
             message.channel.send(`Proof that Melee is nothing like Hollow Knight`, {file: `https://media.discordapp.net/attachments/612061367972790281/694244463844917368/Melee_vs_Hollow_Knight.png`});
+        } else if (r > 95) {
+            message.channel.send({file: `https://media.discordapp.net/attachments/612063895082762250/694992160235454524/funny_hollow_knight_meme.png`});
         } else {
             var d = [`navigating a shitty maze slowly.`,
                     `playing a game just to be able to argue about it with your friends.`,
@@ -3017,13 +3022,17 @@ client.on('message', async message => {
                 `Zmwivd`,
                 `Zimwit`,
                 `Draco`,
+                `Drax`,
                 `DuckNumbers`,
+                `Faceroll`,
                 `Farmstink`,
+                `FloatyApologist`,
                 `Goiter`,
                 `Goloche`,
                 `IceMaster`,
                 `Loscar`,
                 `Midnight`,
+                `Restingcarcass`,
                 `Risc`,
                 `Rognut`,
                 `Rootnut`,
@@ -3035,6 +3044,7 @@ client.on('message', async message => {
                 `Struc`,
                 `Sugden`,
                 `Sugden_`,
+                `Ted`,
                 `Winnarly`,
                 `Wub`];
 
@@ -3058,7 +3068,18 @@ client.on('message', async message => {
 
     //Faceroll
     if (command === `FACEROLL`) {
-        message.channel.send(`Hey Faceroll. I don't know if you remember me. It would be weird if you did, because we've never met.\n\nIt's hard to tell when you're faced with life changing decisions. In the moment, the choice can seem insignificant. But years from now, you may look back on those small decisions and wonder what your life would have been like if you had only chosen differently. If you had only taken a chance.\n\nBear this in your mind as I extend to you one such small choice. A simple invitation to a simple discord. What lies beyond this invite, I cannot say. Nor can I say what ripples might extend outward from this decision into the water that is your life. I can only offer you the stone.\n\nhttps://discord.gg/PmaVCqd`);
+        var links = [`https://discord.gg/PmaVCqd`, //Wubcord
+            `https://discord.gg/d3tem5Q`, //Nutcord
+            `https://discord.gg/Qd8nUrK`, //Sun Dragon
+            `https://discord.gg/9nce4W8`, //Sugden Appreciation
+            `https://discord.gg/EdzHEGc`, //Ted Backroom
+            `https://discord.gg/59u5d4X`, //Risc Appreciation
+            `https://discord.gg/CxVgycy`, //TimCord Survivor
+            `https://discord.gg/0x4uq2ABzu6gnICT`]; //Puff Server
+
+        var r = Math.floor((Math.random() * links.length));
+
+        message.channel.send(`Hey Faceroll. I don't know if you remember me. It would be weird if you did, because we've never met.\n\nIt's hard to tell when you're faced with life changing decisions. In the moment, the choice can seem insignificant. But years from now, you may look back on those small decisions and wonder what your life would have been like if you had only chosen differently. If you had only taken a chance.\n\nBear this in your mind as I extend to you one such small choice. A simple invitation to a simple discord. What lies beyond this invite, I cannot say. Nor can I say what ripples might extend outward from this decision into the water that is your life. I can only offer you the stone.\n\n`+links[r]);
     }
 
     //Farmstink
@@ -3712,6 +3733,33 @@ client.on('message', async message => {
         message.channel.send({file: t[r]});
     }
 
+    //Time
+    if (command === `TIME` || command === `TIMEZONE` || command === `TIMEZONES` || command === `DIMITIME`) {
+        //var aestTime = new Date().toLocaleString("en-US", {timeZone: "Australia/Brisbane"});
+        //aestTime = new Date(aestTime);
+        //console.log('AEST time: '+aestTime.toLocaleString())
+
+        var dimiTime = new Date().toLocaleString("en-US", {timeZone: "America/Araguaina"});
+        dimiTime = new Date(dimiTime);
+
+        var britishTime = new Date().toLocaleString("en-GB", {timeZone: "Europe/London"});
+        britishTime = new Date(britishTime);
+
+        var netherlandsTime = new Date().toLocaleString("en-US", {timeZone: "Europe/Amsterdam"});
+        netherlandsTime = new Date(netherlandsTime);
+
+        var easternTime = new Date().toLocaleString("en-US", {timeZone: "America/New_York"});
+        easternTime = new Date(easternTime);
+
+        var centralTime = new Date().toLocaleString("en-US", {timeZone: "America/Chicago"});
+        centralTime = new Date(centralTime);
+
+        var pacificTime = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
+        pacificTime = new Date(pacificTime);
+
+        message.channel.send(`**Dimi Time:** `+dimiTime.toLocaleTimeString()+`\n**British Dimi Time:** `+britishTime.toLocaleTimeString()+`\n**Netherlands Dimi Time:** `+netherlandsTime.toLocaleTimeString()+`\n**Eastern Dimi Time:** `+easternTime.toLocaleTimeString()+`\n**Central Dimi Time:** `+centralTime.toLocaleTimeString()+`\n**Pacific Dimi Time:** `+pacificTime.toLocaleTimeString());
+    }
+
     //SFAT
     if (command === `SFAT` || command === `ZAC`) {
         message.channel.send({ file: `https://cdn.discordapp.com/attachments/612063670297427978/650057908851179553/unknown.png` });
@@ -3838,13 +3886,14 @@ client.on('message', async message => {
     }
 
     //Stream mommy
-    if (command === `STREAM` || command === `STREAMMO` || command === `STREAMMOMENTUM` || command === `STREAMOMENTUM` || command === `MOMMY` || command === `STREAMMOMMY` || command === `GAYIDIOT`) {
-        var r = Math.random() * 5;
+    if (command === `STREAM` || command === `STREAMMO` || command === `STREAMO` || command === `STREAMMOMENTUM` || command === `STREAMOMENTUM` || command === `MOMMY` || command === `STREAMMOMMY` || command === `GAYIDIOT`) {
+        var r = Math.random() * 9;
 
-        if (r <= 2) {
+        if (r <= 4) {
             var m = [`https://cdn.discordapp.com/attachments/612061640694824960/674717182189371392/unknown.png`,
                     `https://media.discordapp.net/attachments/612061640694824960/681218129396891700/unknown.png`,
-                    `https://cdn.discordapp.com/attachments/612061198288027796/681691860124696600/20200224_213949.png`];
+                    `https://cdn.discordapp.com/attachments/612061198288027796/681691860124696600/20200224_213949.png`,
+                    `https://cdn.discordapp.com/attachments/612058753293877274/694698069526315089/Dimi_Time.jpg`];
 
             var r = Math.floor((Math.random() * m.length));
 
@@ -4416,7 +4465,12 @@ client.on('message', async message => {
                     `https://media.discordapp.net/attachments/612061766830260244/694270255853207572/JPEG_20200330_154203.jpg`,
                     `https://media.discordapp.net/attachments/612061766830260244/694270806984884284/IMG_0858.JPG`,
                     `https://media.discordapp.net/attachments/612061766830260244/694271389783425044/JPEG_20200330_154606.jpg`,
-                    `https://media.discordapp.net/attachments/612058753293877274/684097223155253278/image0.jpg`];
+                    `https://media.discordapp.net/attachments/612058753293877274/684097223155253278/image0.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/695719507452362883/JPEG_20200403_204012.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/695719614755373186/IMG-20200402-WA0001.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/695964594681806968/JPEG_20200404_125430.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/695967858597036032/JPEG_20200404_130648.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/695967978482565120/JPEG_20200404_130803.jpg`];
 
             var r = Math.floor((Math.random() * m.length));
 
