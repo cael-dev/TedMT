@@ -89,9 +89,20 @@ client.on('message', async message => {
     //Patch Notes
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.7.2 Patch Notes 4/04/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20, 1.7.1 on 3/31/20
+            .setTitle(`TimBot v1.7.3 Patch Notes 4/23/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20, 1.7.1 on 3/31/20, 1.7.2 on 4/04/20
             .setColor(0x2d64f1) //0x2d64f1
-            .addField(`!quote`, `Added 16 new quotes`, true)
+            .addField(`!quote`, `Added 39 new quotes`, true)
+            .addField(`!comic`, `Added 13 new comics`, true)
+            .addField(`!meme/!oc`, `New command, several things from various commands were moved here`, true)
+            .addField(`!calendar`, `Added some birthdays`, true)
+            .addField(`!brio`, `Added 1 new outcome`, true)
+            .addField(`!cael`, `Added 1 new outcome`, true)
+            .addField(`!cumchamp`, `New command`, true)
+            .addField(`!risc`, `Added a lot of new source material`, true)
+            .addField(`!sugden`, `Added 9 new outcomes`, true)
+            .addField(`!winnarly`, `Added 1 new outcome`, true)
+
+            /*.addField(`!quote`, `Added 16 new quotes`, true)
             .addField(`!comic`, `Added 4 new comics`, true)
             .addField(`!time/!dimitime`, `New command`, true)
             .addField(`!cael`, `Added 2 new outcomes`, true)
@@ -941,7 +952,46 @@ client.on('message', async message => {
             `This is why we need self walking shoes.`,
             `here's a fun tip to help you remember how to spell sheik\nshe (like a girl which sheik is) + ik (the noise u make when you see a girl. icky!!)`,
             `barter economies must have sucked for sex workers trying to pay for abortions`,
-            `"fox grab destroys peach" -coffee`];
+            `"fox grab destroys peach" -coffee`,
+            `I feel like whenever anyone mentions zain AL sees a batsignal in the sky and he flies to the right channel`,
+            `plup samus isn't really cool`,
+            `im dimi for gods same`,
+            `redirected to cunt wars :frowning:`,
+            `despite his dockery I am a bubbles fan`,
+            `That was like so based I cringed a little.`,
+            `I think Draco should have to drop acid.`,
+            `<:falcoS:612079928762040321> <:iwillkillu:644363567121956874> <:shkrorhb:696519588678074388>`,
+            `i am racist`,
+            `I'm happy for poopies`,
+            `my favorites are browns`,
+            `my dad has that scale (bidet room)`,
+            `the point being, it's trivial for heathcliff to make enough noise to disrupt the conversation between the two women`,
+            `Leoardo the Vinci`,
+            `overtriforce hacking into the mainframe to get into the phones of every woman he knows but he shits his organs out and dies`,
+            `sordid comes to your house and steals your foreskin ASMR`,
+            `Enter SALOON. A jaunty tune is being played on a harpschicord in the back near a few damsels, and patrons are strewn about, drinking either their preffered liquor or whatever they can get their hands on, circumstances limiting.\n\nThe doors swing open. A man in a full horseriding outfit, black as pitch, dons assless chaps sans pants. His visage is worn and grizzled. He aims his penis at a spitoon and fires a small white stone at around 30-40 mph, and a ringing ding fills the room. This is the only noise for two and a half minutes. \n\n"Hello my peanus hurts huuuhhhhhhhhhh," says the grizzled man.`,
+            `honestly, in this moment, I understand why weed is illegal\nso we can send these ppl to jail`,
+            `To quote the famous Chilean author, Katje Borgesuis "what are you, some kinda retard or something?"`,
+            `I wish I could undo my bellybutton`,
+            `there should be a permit system where you have to get a disability license to play floaties`,
+            `buffer says: no tech`,
+            `she looks like she'd slash my tires and that's really hot`,
+            `everything you say used to disgust me, but now I just assume it's all bait and you can't possibly be quite ths retarded`,
+            `its good BECAUSE its racist`,
+            `My Shrively Penis REACTS to The Cold Bath Water`,
+            `Wow. Humans on theiyre phone's. So unique :rolling_eyes:`,
+            `"I deleted popogog accidentally." \n-Darsh`,
+            `xbrains be like\nFUCK i want a torta`,
+            `one of my friends was afraid to masturbate in the shower because he was worried it would get on the loofa and then his sister would use it and she would get pregnant`,
+            `Also I had a dream that mango kept calling lucky the n word on stream and I just realized it wasnt a real thing that got put on youtube`,
+            `you cant just call them manganese\ntheyre from japan dammit`,
+            `wobbers add 2 aditional characters, making it a top 9`,
+            `My advice?\nMasturbate at the children's playground.`,
+            `you people are like homophobic but with furries. Playing a game that has animals in it isn't going to like, corrupt you`,
+            `Harry potter is real its called the 2016 presidential election`,
+            `I would absolutely FUCK UP some white women.`,
+            `it's just ああああああああああああああgam bro`,
+            `╠═════════╣:sparkling_heart:Hello!:sparkling_heart:╠═════════╣\nWelcome to Autism Moment!\n\nWe are an autism focused neurodivergent server that strives to provide a safe and inclusive environment for those who are on the autism spectrum!\n\n(However we do welcome neurotypical folk and those who are questioning!)`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
             var min = (quotes.length - 150); //was 100
@@ -955,7 +1005,7 @@ client.on('message', async message => {
     }
 
     //Crab
-    if (command === `CRAB`) {
+    if (command === `CRAB` || command === `CRABE`) {
         var daily = await eco.Daily(sender.id);
 
         if (daily.updated) {
@@ -1221,12 +1271,14 @@ client.on('message', async message => {
                 .addField('6/24', `SPOTW Returns`, true)
                 .addField('6/26', `Soap's Fake Birthday`, true)
                 .addField('6/27', `Coffee's Birthday`, true)
+                .addField('6/30', `FloatyApologist's Birthday`, true)
             message.channel.send({embed});
         } else if (m === 6) {
             var embed = new Discord.RichEmbed()
                 .setTitle(`July Calendar`)
                 .setColor(0xecc81f)
                 .addField('7/04', `The Day Armada got Destroyed by Sugden`, true)
+                .addField('7/13', `Farmstink's Birthday`, true)
                 .addField('7/23', `WubWubWowzy's Birthday`, true)
                 .addField('7/24', `Skribbl.io Day`, true)
                 .addField('7/26', `Drew's Birthday`, true)
@@ -1479,7 +1531,20 @@ client.on('message', async message => {
                 `https://media.discordapp.net/attachments/670154973505519646/694996154416365628/comic.png`,
                 `https://media.discordapp.net/attachments/638438136921456640/695362540229886074/comic.png`,
                 `https://media.discordapp.net/attachments/612061198288027796/695406995687342170/comic.png`,
-                `https://media.discordapp.net/attachments/612061367972790281/695649710089830471/comic.png`];
+                `https://media.discordapp.net/attachments/612061367972790281/695649710089830471/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/702609753418891344/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/696405492351631401/comic.png`,
+                `https://media.discordapp.net/attachments/612063946643472389/697082434998763590/comic.png`,
+                `https://media.discordapp.net/attachments/612061640694824960/697126418441568286/comic.png`,
+                `https://media.discordapp.net/attachments/612061640694824960/697131189080686733/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/697612746908368946/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061640694824960/699402883854106674/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/701901083160871083/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061198288027796/701979647403098225/comic.png`,
+                `https://cdn.discordapp.com/attachments/612058753293877274/702105517035618314/comic.png`,
+                `https://cdn.discordapp.com/attachments/612061766830260244/702246893086048287/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063895082762250/702380685062701066/comic.png`,
+                `https://cdn.discordapp.com/attachments/612063670297427978/702408085448425492/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -2417,7 +2482,8 @@ client.on('message', async message => {
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
                 `BRANDON IS CRAZY! \n(brandon is brio btw, i can use his first name because we are tight like that. yeah i know top players but its whatever to me lol`,
                 `You stupid bitch, you stupid fucking bitch, you stupid fucking bitch`,
-                `BRIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`];
+                `BRIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`,
+                `I kid you not, he turns himself into a streamer. He becomes BrioIsMio, funniest shit I've ever seen. https://www.twitch.tv/brioismio`];
 
         var r = Math.floor((Math.random() * b.length));
 
@@ -2436,7 +2502,7 @@ client.on('message', async message => {
 
     //Cael
     if (command === `CAEL` || command === `KALE` || command === `THEDUDEFROMPOKEMONRSE`) {
-        var r = Math.random() * 26;
+        var r = Math.random() * 27;
 
         if (r <= 6) {
             var m = [`https://cdn.discordapp.com/attachments/612063946643472389/620757496352604202/unknown.png`,
@@ -2470,7 +2536,8 @@ client.on('message', async message => {
                     `what even is caelposting`,
                     `I am become death, a tarot card that deals damage to all enemies in the room`,
                     `https://media.discordapp.net/attachments/612063670297427978/687449144540790872/IMG_20200311_195811.jpg\nhow tf am i supposed to know`,
-                    `no furry but if you won't admit that isabelle is kinda cute doe you're lying`];
+                    `no furry but if you won't admit that isabelle is kinda cute doe you're lying`,
+                    `plup samus isn't really cool`];
 
             var r = Math.floor((Math.random() * h.length));
 
@@ -2861,8 +2928,19 @@ client.on('message', async message => {
         message.channel.send(c[r]);
     }
 
+    //CumChamp
+    if (command === `CUMCHAMP` || command === `CUMCHAMPION` || command === `CAMPAIGN`) {
+        var images = [`https://media.discordapp.net/attachments/612058753293877274/701869877316812850/CAMPAIGNPOSTER.png`,
+            `https://cdn.discordapp.com/attachments/700735038417010718/702497443765551164/streammommy.png`,
+            `https://cdn.discordapp.com/attachments/700735038417010718/702497467165573121/fozva1l.jpg`];
+
+        var r = Math.floor((Math.random() * images.length));
+
+        message.channel.send({file: images[r]});
+    }
+
     //CumCoin
-    if(command === `CUMCOIN`) {
+    if (command === `CUMCOIN`) {
         const embed = new Discord.RichEmbed()
             .setTitle(`Darsh's CumCoin`)
             .setColor(0xFFFFFF)
@@ -2934,7 +3012,8 @@ client.on('message', async message => {
     //Default Pizza
     if (command === `PIZZA` || command === `PIZZATIME` || command === `DEFAULTPIZZA` || command === `DEFAULT`) {
         var p = [`https://www.papajohns.com/static-assets/a/images/web/product/pizzas/cheese-slate-compressed.jpg`,
-            `https://www.simplyrecipes.com/wp-content/uploads/2019/09/easy-pepperoni-pizza-lead-4.jpg`];
+            `https://www.simplyrecipes.com/wp-content/uploads/2019/09/easy-pepperoni-pizza-lead-4.jpg`,
+            `https://media.discordapp.net/attachments/612061198288027796/697953543797342248/JPEG_20200409_193728.jpg`];
 
         var r = Math.floor((Math.random() * p.length));
 
@@ -3498,9 +3577,38 @@ client.on('message', async message => {
         message.channel.send(n[r]);
     }
 
-    //Pickle
-    if (command === `PICKLERICK` || command === `RICK` || command === `PICKLE`) {
-        message.channel.send({file:`https://cdn.discordapp.com/attachments/612063670297427978/687817958629572630/feet.png`});
+    //OC / memes
+    if (command === `OC` || command === `MEME` || command === `MEMES` || command === `OCMEME`) {
+        var withText = [`Made this to help visualize Farm's transition to a Falcon main.`,
+            `Proof that Melee is nothing like Hollow Knight.`,
+            `AL.jpg`];
+
+        var withTextImages = [`https://media.discordapp.net/attachments/612061766830260244/695703719089668157/Farmstinks_Transformation.png`,
+            `https://media.discordapp.net/attachments/612061367972790281/694244463844917368/Melee_vs_Hollow_Knight.png`,
+            `https://media.discordapp.net/attachments/612063895082762250/696031823402106890/8902184360_7d8e6b08f5_n.jpg`];
+
+        var images = [`https://media.discordapp.net/attachments/612061766830260244/695703104678789210/image0.jpg`,
+            `https://media.discordapp.net/attachments/612063895082762250/694992160235454524/funny_hollow_knight_meme.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/697563016018788462/Yup_its_team_coffee_time.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/699045456491315282/stream_mommy_posts.png`,
+            `https://media.discordapp.net/attachments/612063895082762250/701331973347606628/Polish_20200419_002233338.jpg`,
+            `https://media.discordapp.net/attachments/638438136921456640/701569970403934248/unknown.png`,
+            `https://cdn.discordapp.com/attachments/612058753293877274/694698069526315089/Dimi_Time.jpg`,
+            `https://cdn.discordapp.com/attachments/612061198288027796/681691860124696600/20200224_213949.png`,
+            `https://cdn.discordapp.com/attachments/612063670297427978/687817958629572630/feet.png`,
+            `https://media.discordapp.net/attachments/612325624203182085/700902793308930078/unknown.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/697204521339977909/unknown.png`];
+
+        var totalMemes = withText.length + images.length;
+
+        var r = Math.floor((Math.random() * totalMemes));
+
+        if (r <= withText.length) {
+            message.channel.send(withText[r], {file: withTextImages[r]});
+        } else {
+            r = r - withText.length;
+            message.channel.send({file: images[r]});
+        }
     }
 
     //Poo
@@ -3649,7 +3757,48 @@ client.on('message', async message => {
 "20:20 - Sugden fell down a well! oh no!",
 "21:00 - uh oh, stinky!",
 "23:15 - stream mommy starts a semantics argument",
-"0:30 - Sugden is outed as a white nationalist"];
+"0:30 - Sugden is outed as a white nationalist",
+"9:30 - Icemaster writes <:Popoga:648637180964634642>  in every channel",
+"7:15 - FloatyApologist announces his 5-step plan to kill all fastfallers",
+"10:00 - we all speedrun super mario world lu1g1%",
+"16:20 - Stream Mommy talks about weed. Again.",
+"10:00 - everyone argues about #CumChallenge2k20 seeding",
+"18:20 - Darsh goes to work out. Cael, Sugden, and Stream Mommy go with him.",
+"23:10 - AL, Struc, and Dimi play final fantasy",
+"14:00 - Bjart is elected cum champ",
+"17:30 - Darsh’s wife gets on voice chat and everyone questions her",
+"6:9 - Sugden, Stream Mommy, dimi, Bubbles, Midight, Silver and ADLP all play MW2",
+"11:30 - Soap releases his all peach combo video and brings Armada out of retirement.",
+"13:30 - Risc guilts someone into changing their pfp into a black person for a week",
+"8:45 - Cael posts hentai and gets banned for a day",
+"13:10 - Farmstink releases a new fanfic",
+"12:00 - Coffee has an epiphany about melee and switches to Fox.",
+"16:33 - Wub and Marge play Project+",
+"19:00 - Restingcarcass breaks both of his arms. Again.",
+"3:30 - The book club starts reading Mein Kampf",
+"00:00 - dimi time",
+"3:57 - Flapo and Cag have a wonderful discussion about the merits of crouch cancel; Cag smokes 2 joints and a bowl",
+"21:20 - Sugden nukes the server <:geg:659862247702528055> ",
+"19:00 - dimi has consumed two bottles of wine and is ready to talk about sheik",
+"10:45 - We all do a mixtape swap. It’s very fun.",
+"8:00 - Darsh deletes :popoga: and blames it on Sugden.",
+"19:00 - Loscar stages a heist on the YL character discord.",
+"15:40 - Ted comes back and rants to no one in particular about monster designs",
+"7:10 - DuckNumbers posts that he just jacked off",
+"8:40 - Cael Caelposts",
+"7:00 - Flapo overdoses on heroin in voice chat and sees Hungrybox in the light",
+"14:00 - Sugden takes a very painful shit and posts about it in Timcord",
+"13:00 - AL and dimi debate the merits of nuclear warfare with Israel; Sugden remains silent",
+"19:15 - <:popperga:659868423551189012> :pinching_hand: <a:dimi:614821651812581403>",
+"10:00 - Dimi successfully convinces the Melee Backroom to ban Zelda from future events",
+"12:00 - Anti wins the presidential debate by responding in latin to every question",
+"11:00 - Anti streams Dark Souls and everyone makes fun of him",
+"21:20 - SubF comes back to watch a dark souls stream",
+"17:59 - <a:672644471439228938:692228896602587156>",
+"15:30 - We all have to social distance because stream mommy got coronavirus",
+"14:30 - We all have to social distance because stream mommy is here in general",
+"9:00 - After a near death experience, Sugden decided to unban puff",
+"11:15 - I kid you not, he turns himself into a pickle. He’s called Pickle Risc, funniest shit I’ve ever seen."];
 
         var finalOutput = '';
 
@@ -3757,7 +3906,7 @@ client.on('message', async message => {
         var pacificTime = new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles"});
         pacificTime = new Date(pacificTime);
 
-        message.channel.send(`**Dimi Time:** `+dimiTime.toLocaleTimeString()+`\n**British Dimi Time:** `+britishTime.toLocaleTimeString()+`\n**Netherlands Dimi Time:** `+netherlandsTime.toLocaleTimeString()+`\n**Eastern Dimi Time:** `+easternTime.toLocaleTimeString()+`\n**Central Dimi Time:** `+centralTime.toLocaleTimeString()+`\n**Pacific Dimi Time:** `+pacificTime.toLocaleTimeString());
+        message.channel.send(`**Dimi Time:** `+dimiTime.toLocaleTimeString()+` (now)\n**British Dimi Time:** `+britishTime.toLocaleTimeString()+`\n**Netherlands Dimi Time:** `+netherlandsTime.toLocaleTimeString()+`\n**Eastern Dimi Time:** `+easternTime.toLocaleTimeString()+`\n**Central Dimi Time:** `+centralTime.toLocaleTimeString()+`\n**Pacific Dimi Time:** `+pacificTime.toLocaleTimeString());
     }
 
     //SFAT
@@ -3887,13 +4036,11 @@ client.on('message', async message => {
 
     //Stream mommy
     if (command === `STREAM` || command === `STREAMMO` || command === `STREAMO` || command === `STREAMMOMENTUM` || command === `STREAMOMENTUM` || command === `MOMMY` || command === `STREAMMOMMY` || command === `GAYIDIOT`) {
-        var r = Math.random() * 9;
+        var r = Math.random() * 7;
 
-        if (r <= 4) {
+        if (r <= 2) {
             var m = [`https://cdn.discordapp.com/attachments/612061640694824960/674717182189371392/unknown.png`,
-                    `https://media.discordapp.net/attachments/612061640694824960/681218129396891700/unknown.png`,
-                    `https://cdn.discordapp.com/attachments/612061198288027796/681691860124696600/20200224_213949.png`,
-                    `https://cdn.discordapp.com/attachments/612058753293877274/694698069526315089/Dimi_Time.jpg`];
+                    `https://media.discordapp.net/attachments/612061640694824960/681218129396891700/unknown.png`];
 
             var r = Math.floor((Math.random() * m.length));
 
@@ -4195,7 +4342,8 @@ client.on('message', async message => {
                 `in the PAL version of Super Smash Bros. Melee, Marth, Roy, Link, and Young Link had their swords completely removed from the game?`,
                 `the claps in Death Grips 'Spread Eagle Across the Block' are actually skateboard wheels hitting pavement?`,
                 `Filipino's are the most powerful race in the world?`,
-                `if you laid all of sugden's posts out lengthwise, they'd stretch over 15 miles! That's more than FIVE football fields!`];
+                `if you laid all of sugden's posts out lengthwise, they'd stretch over 15 miles! That's more than FIVE football fields!`,
+                `If you take raw chicken and add heat, it becomes cooked chicken. Just like in minecraft!`];
 
         var t = [`Wow!`,
                 `It's true!`,
@@ -4470,7 +4618,16 @@ client.on('message', async message => {
                     `https://media.discordapp.net/attachments/612058753293877274/695719614755373186/IMG-20200402-WA0001.jpg`,
                     `https://media.discordapp.net/attachments/612058753293877274/695964594681806968/JPEG_20200404_125430.jpg`,
                     `https://media.discordapp.net/attachments/612058753293877274/695967858597036032/JPEG_20200404_130648.jpg`,
-                    `https://media.discordapp.net/attachments/612058753293877274/695967978482565120/JPEG_20200404_130803.jpg`];
+                    `https://media.discordapp.net/attachments/612058753293877274/695967978482565120/JPEG_20200404_130803.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696054580496171028/20200404_135158.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696188483198255155/image0.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696438340592992306/image0.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696702341818089542/IMG-20200402-WA0000.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696702358956015626/IMG-20200402-WA0001.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696702379906826240/IMG-20200402-WA0002.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696702400995655750/IMG-20200403-WA0000.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/696702415860400228/IMG-20200406-WA0000.jpg`,
+                    `https://cdn.discordapp.com/attachments/612061367972790281/701989998051852338/JPEG_20200420_225728.jpg`];
 
             var r = Math.floor((Math.random() * m.length));
 
