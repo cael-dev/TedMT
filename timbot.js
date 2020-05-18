@@ -7,7 +7,10 @@ const eco = require("discord-economy");
 const lvl = require("discord-leveling"); //Halloween Leveling
 const msglvl = require("discord-leveling-2");
 const snowlvl = require("discord-leveling-3");
+const ecolvl = require("discord-leveling-4");
 const MarkovGen = require("markov-generator");
+const Scrambo = require("scrambo");
+const cube = new Scrambo();
 const client = new Discord.Client();
 const modRole = 'Illusion';
 const banRole = 'useless bitch';
@@ -16,7 +19,7 @@ sql.open('Storage/userData.sqlite');
 
 //Initialization
 client.on('ready', () => {
-    console.log('TimBot v1.6.2 Launched');
+    console.log('TimBot v1.7.4 Launched');
 
     client.user.setActivity("with Sunny :)", { type: "PLAYING" });
 })
@@ -31,8 +34,8 @@ client.on('message', async message => {
     var sender = message.author;
 
     if (msg.startsWith(prefixAlt) || msg.startsWith(prefix) || msg.startsWith(prefix2)) {
-        if (sender.id == 1) {
-            message.channel.send('You are temporarily banned from accessing TimBot.\nYour ban has 1 day remaining.');
+        if (sender.id == 247185195692720128) {
+            message.channel.send('You are temporarily banned from accessing TimBot.\nYour ban has 3 day(s) remaining.');
             return;
         }
     }
@@ -72,26 +75,21 @@ client.on('message', async message => {
         message.channel.send('Fuck you!');
     }
 
-    if (command === `CORONA` || command === `CORONAVIRUS` || command === `COVID` || command === `COVID19` || command === `RONA`) {
-        message.channel.send(`**Coronavirus Leaderboard**
-1 - Drew
-2 - Draco
-3 - Struc
-4 - Farmstink
-5 - Goloche
-6 - AL
-7 - Silver
-8 - No one yet
-9 - No one yet
-10 - No one yet`);
-    }
-
     //Patch Notes
     if (command === `PATCHNOTES` || command === `PATCH` || command === `UPDATE`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`TimBot v1.7.4 Patch Notes 5/06/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20, 1.7.1 on 3/31/20, 1.7.2 on 4/04/20, 1.7.3 on 4/23/20
+            .setTitle(`TimBot v1.7.5 Patch Notes 5/18/20`) //1.6.0 on 1/26/20, 1.6.1 on 1/29/20, 1.6.2 on 2/09/20, 1.7.0 on 3/13/20, 1.7.1 on 3/31/20, 1.7.2 on 4/04/20, 1.7.3 on 4/23/20, 1.7.4 on 5/06/20
             .setColor(0x2d64f1) //0x2d64f1
-            .addField(`!quote`, `Added 25 new quotes`, true)
+            .addField(`!quote`, `Added 19 new quotes`, true)
+            .addField(`!comic`, `Added 7 new comics`, true)
+            .addField(`!tcle`, `Added 14 new memes`, true)
+            .addField(`!dontcare`, `New command`, true)
+            .addField(`!milk`, `New command`, true)
+            .addField(`!scramble`, `Cubers be like: <:popperga:659868423551189012> :kaaba:`)
+            .addField(`!sugden`, `Added 15 new outcomes`)
+
+
+            /*.addField(`!quote`, `Added 25 new quotes`, true)
             .addField(`!comic`, `Added 14 new comics`, true)
             .addField(`!tcle`, `Renamed from !meme and added 18 new outcomes`, true)
             .addField(`!carb`, `New command`, true)
@@ -111,39 +109,7 @@ client.on('message', async message => {
             .addField(`!cumchamp`, `New command`, true)
             .addField(`!risc`, `Added a lot of new source material`, true)
             .addField(`!sugden`, `Added 9 new outcomes`, true)
-            .addField(`!winnarly`, `Added 1 new outcome`, true)
-
-            /*.addField(`!quote`, `Added 16 new quotes`, true)
-            .addField(`!comic`, `Added 4 new comics`, true)
-            .addField(`!time/!dimitime`, `New command`, true)
-            .addField(`!cael`, `Added 2 new outcomes`, true)
-            .addField(`!drew`, `Added 5 new outcomes`, true)
-            .addField(`!faceroll`, `Randomized outcomes`, true)
-            .addField(`!hollowknight`, `Previously !stephen, added some outcomes`, true)
-            .addField(`!sugden`, `Added 5 new outcomes`, true)
-
-            /*.addField(`!quote`, `Added 59 new quotes`, true)
-            .addField(`!comic`, `Added 26 new comics`, true)
-            .addField(`!tierlist`, `Added 10 new tier lists`, true)
-            .addField(`!airplane`, `Added 1 new result`, true)
-            .addField(`!AL`, `Added 2 new results`, true)
-            .addField(`!bubbles`, `Added 1 new result`, true)
-            .addField(`!calendar`, `Added 3 events`, true)
-            .addField(`!corona`, `New command`, true)
-            .addField(`!darsh`, `Added secret outcomes`, true)
-            .addField(`!dimi`, `Added 1 new results`, true)
-            .addField(`!faceroll`, `New command`, true)
-            .addField(`!flapo`, `New command`, true)
-            .addField(`!hbox`, `Added 1 new result`, true)
-            .addField(`!icemaster`, `Added 1 new result`, true)
-            .addField(`!ibdw`, `Added 1 new result`, true)
-            .addField(`!mango`, `Added 1 new result`, true)
-            .addField(`!midnight`, `Reworked command`, true)
-            .addField(`!pickle`, `Added as a new command. only has 1 result for now, very barebones`, true)
-            .addField(`!soap`, `Added 4 new results`, true)
-            .addField(`!stephen`, `Added 1 new result`, true)
-            .addField(`!streammommy`, `Added 3 new results`, true)
-            .addField(`!sugden`, `Added 13 new pics`, true)*/
+            .addField(`!winnarly`, `Added 1 new outcome`, true)*/
         message.channel.send({embed});
     }
 
@@ -173,7 +139,7 @@ client.on('message', async message => {
 
 
     //General
-    if (command === `QUOTE` || command === `Q` || command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
+    if (command === `QUOTE` || command === `Q` || command === `NEWQUOTE` || command === `NEWQ` || command === `NQ` || command === `TRUE`) {
         var quotes = [`What's your favorite minecraft block?`,
             `You lack a fundamental understanding of literature if you ever slightly enjoyed the character of Taylor`,
             `Puff is too high`,
@@ -1027,10 +993,29 @@ client.on('message', async message => {
             `VINDALOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOBRIOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO`,
             `risc you're unironically going to get a dick pic in your inbox if you confirm`,
             `i turned off yoshi's because its lame`,
-            `Playing against a Fox is like getting wobbled in neutral.`];
+            `Playing against a Fox is like getting wobbled in neutral.`,
+            `oh i mixed up the pedants in this server who like to write paragrpahs about things i dont understand`,
+            `Biological sex is what me and Streamo's mom did last night.`,
+            `Darsh's dilemma: the age of consent is 9, but it's the birthplace of anime.`,
+            `Doc is always to play`,
+            `AL wouldn't last more than a day as a mod anywhere else on the internet`,
+            `oh no dont quote that haha thats fine`,
+            `darsh is right`,
+            `all i know is that most ted talks are just what darsh thinks druggedfox's melee advice is`,
+            `the canadian french will rat stop you like a curb`,
+            `Why is there GREEN DAY in my Mario Maker???`,
+            `just you wait until I quit my job to play dota`,
+            `jesus three wheels of fortune\n\n1 more and you can craft the car of fortune`,
+            `ur guys' names are switched <:Popoga:648637180964634642> how deliciously naughty <:popogog:709232946799968316>`,
+            `2% sugden\n5% pain\n20% "hello, it's me, Sugden"\n30% puff lame\n-40% luck\n??% skill\ndo not talk about the political status of israil\n10% pleasure\n0% cum\nand 100% reason to say, "I'm sugden"`,
+            `Just upvote and move along please. We don't need comments like this taking up valuable space for discussion. I won't be downvoting this time, but next time I won't be so kind. Thank you for your cooperation`,
+            `sheik is dairy farmer`,
+            `Loscar's only in Grand Finals because he's Sugden.`,
+            `philosophy is inherently fascist`,
+            `writing books is the same as burning books`];
 
         if (command === `NEWQUOTE` || command === `NEWQ` || command === `NQ`) {
-            var min = (quotes.length - 150); //was 100
+            var min = (quotes.length - 100); //default 100
             var max = quotes.length;
             var r = Math.floor(Math.random() * (max - min + 1)) + min;
         } else {
@@ -1106,6 +1091,8 @@ client.on('message', async message => {
             }
 
             var results = await eco.AddToBalance(sender.id, reward);
+            await ecolvl.SetXp(sender.id, 1);
+            await ecolvl.SetLevel(sender.id, results.newbalance);
 
             if (r > 5) {
                 const embed = new Discord.RichEmbed()
@@ -1151,6 +1138,8 @@ client.on('message', async message => {
                 }
 
                 var results = await eco.AddToBalance(sender.id, reward);
+                await ecolvl.SetXp(sender.id, 1);
+                await ecolvl.SetLevel(sender.id, results.newbalance);
 
                 if (r > 5) {
                     const embed = new Discord.RichEmbed()
@@ -1301,6 +1290,7 @@ client.on('message', async message => {
                 .setColor(0xfffc00)
                 .addField('6/01', `Biday`, true)
                 .addField('6/03', `Sugden Mod Coronation Day`, true)
+                .addField('6/03', `Drax's Birthday`, true)
                 .addField('6/11', `Return of the DDT`, true)
                 .addField('6/12', `Sugden Netplay Day`, true)
                 .addField('6/15', `Skrt's Birthday`, true)
@@ -1626,7 +1616,14 @@ client.on('message', async message => {
                 `https://media.discordapp.net/attachments/612325624203182085/707271517037265046/comic.png`,
                 `https://media.discordapp.net/attachments/612063670297427978/707349614361051156/comic.png`,
                 `https://media.discordapp.net/attachments/612061640694824960/707567086024523816/comic.png`,
-                `https://media.discordapp.net/attachments/675486122759028786/707609311169478686/comic.png`];
+                `https://media.discordapp.net/attachments/675486122759028786/707609311169478686/comic.png`,
+                `https://media.discordapp.net/attachments/612061198288027796/708795289552551956/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/709115349001568336/comic.png`,
+                `https://media.discordapp.net/attachments/672225366273818657/709370843628568696/comic.png`,
+                `https://media.discordapp.net/attachments/672225366273818657/709370854349209690/comic-1.png`,
+                `https://media.discordapp.net/attachments/612061766830260244/709921561078923415/comic.png`,
+                `https://media.discordapp.net/attachments/612058753293877274/709968655856959549/comic.png`,
+                `https://media.discordapp.net/attachments/612061766830260244/711342054021660692/comic.png`];
 
         var r = Math.floor((Math.random() * c.length));
 
@@ -2493,6 +2490,11 @@ client.on('message', async message => {
         message.channel.send({file: b[r]});
     }
 
+    //Based
+    if (command === `BASED`) {
+        message.channel.send(`https://cdn.discordapp.com/attachments/612058753293877274/711349304446550066/based.mp3`);
+    }
+
     //Beywiz
     if (command === `BEYWIZ` || command === `BEY` || command === `BEYBEY`) {
         message.channel.send(`Fuck I woulda thrown a whole ass lobster`);
@@ -3048,7 +3050,9 @@ client.on('message', async message => {
             `https://media.discordapp.net/attachments/612058753293877274/705157139726860430/unknown.png`,
             `https://media.discordapp.net/attachments/700735038417010718/705381840994959372/Untitled.png`,
             `https://media.discordapp.net/attachments/700735038417010718/707244461570392105/unknown.png`,
-            `https://cdn.discordapp.com/attachments/700735038417010718/707245500469870856/unknown.png`];
+            `https://cdn.discordapp.com/attachments/700735038417010718/707245500469870856/unknown.png`,
+            `https://media.discordapp.net/attachments/700735038417010718/708452095170183269/unknown.png`,
+            `https://media.discordapp.net/attachments/700735038417010718/709414153777053726/unknown.png`];
 
         var r = Math.floor((Math.random() * images.length));
 
@@ -3058,9 +3062,10 @@ client.on('message', async message => {
     //CumCoin
     if (command === `CUMCOIN`) {
         const embed = new Discord.RichEmbed()
-            .setTitle(`Darsh's CumCoin`)
+            .setTitle(`CumCoin`)
             .setColor(0xFFFFFF)
-            .addField(`CumCoin`, `20000`, true)
+            .addField(`Darsh's CumCoin`, `20000`, true)
+            .addField(`Loscar's Cumcoin`, `20001`, true)
         message.channel.send({embed});
     }
 
@@ -3181,6 +3186,11 @@ client.on('message', async message => {
         var r = Math.floor((Math.random() * d.length));
 
         message.channel.send(d[r]);
+    }
+
+    //Don't Care
+    if (command === `DONTCARE` || command === `DIDNTASK`) {
+        message.channel.send({file: `https://i.imgur.com/bH44hzg.png`})
     }
 
     //Dota
@@ -3367,6 +3377,11 @@ client.on('message', async message => {
     //FloatyApologist
     if (command === `FLOATYAPOLOGIST` || command === `FLOATY` || command === `FLAPO`) {
         message.channel.send(`my middle name is Hungrybox`, {file: `https://media.discordapp.net/attachments/685993724911681560/707716372112867428/dkbJUFA.png`});
+    }
+
+    //GGs
+    if (command === `GGS`) {
+        message.channel.send(`https://cdn.discordapp.com/attachments/612061367972790281/711345843717931029/ggs.mp3`);
     }
 
     //GIMR
@@ -3697,6 +3712,11 @@ client.on('message', async message => {
         message.channel.send(m[r]);
     }
 
+    //Milk
+    if (command === `MILK`) {
+        message.channel.send({file: `https://media.discordapp.net/attachments/612058753293877274/708372072979628092/image0.jpg`});
+    }
+
     //Minecraft
     if (command === `MINECRAFT` || command === `MC`) {
         var m = [`That's not Minecraft, that's my wife!`,
@@ -3767,11 +3787,13 @@ client.on('message', async message => {
     if (command === `OC` || command === `MEME` || command === `MEMES` || command === `OCMEME` || command === `TCLE` || command === `FUNNY` || command === `HAHA`) {
         var withText = [`Made this to help visualize Farm's transition to a Falcon main.`,
             `Proof that Melee is nothing like Hollow Knight.`,
-            `AL.jpg`];
+            `AL.jpg`,
+            `CumChallenge2k20 Day 7, illustrated`];
 
         var withTextImages = [`https://media.discordapp.net/attachments/612061766830260244/695703719089668157/Farmstinks_Transformation.png`,
             `https://media.discordapp.net/attachments/612061367972790281/694244463844917368/Melee_vs_Hollow_Knight.png`,
-            `https://media.discordapp.net/attachments/612063895082762250/696031823402106890/8902184360_7d8e6b08f5_n.jpg`];
+            `https://media.discordapp.net/attachments/612063895082762250/696031823402106890/8902184360_7d8e6b08f5_n.jpg`,
+            `https://media.discordapp.net/attachments/672225366273818657/709370400609402961/cuck_vs_sugw.png`];
 
         var images = [`https://media.discordapp.net/attachments/612061766830260244/695703104678789210/image0.jpg`,
             `https://media.discordapp.net/attachments/612063895082762250/694992160235454524/funny_hollow_knight_meme.png`,
@@ -3801,7 +3823,20 @@ client.on('message', async message => {
             `https://media.discordapp.net/attachments/612058753293877274/705432709052497961/Carl_Meets_Shrek_In_The_Forest_30042020165737.jpg`,
             `https://media.discordapp.net/attachments/612061766830260244/706615425278148638/popoga_1_results.png`,
             `https://i.imgur.com/z88QYsx.png`,
-            `https://media.discordapp.net/attachments/612058753293877274/704452857784565840/hqdefault.jpg`];
+            `https://media.discordapp.net/attachments/612058753293877274/704452857784565840/hqdefault.jpg`,
+            `https://i.imgur.com/mZvFRTq.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/708131898878197820/im_sugden.png`,
+            `https://media.discordapp.net/attachments/612061640694824960/708416557281312828/unknown.png`,
+            `https://media.discordapp.net/attachments/672225366273818657/709370961383784509/unknown-1.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/709575207647576114/unknown.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/711385880148967444/image0.jpg`,
+            `https://i.imgur.com/YOkabSH.png`,
+            `https://i.imgur.com/l5MhW9F.png`,
+            `https://i.imgur.com/rFLRcvZ.jpg`,
+            `https://media.discordapp.net/attachments/612061367972790281/708174006817390612/Lonesome.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/711636947193430147/Capture.PNG`,
+            `https://i.imgur.com/bH44hzg.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/708372072979628092/image0.jpg`];
 
         var totalMemes = withText.length + images.length;
 
@@ -3909,12 +3944,8 @@ client.on('message', async message => {
 "2:30 - stream mommy has a hot take",
 "Never - stream mommy has a good take",
 "3:15 - Sugden has the flu",
-"3:00 - Midnight hangs out with Sam and PJ",
-"3:10 - Sam Leaves",
-"3:15 - Sam Wilson is heard on Brio’s Mic",
 "3:20 - Winnarly is heard telling Brio that they have to go to Midnights",
 "3:25 - Brio is too busy on a gungeon run and stays",
-"3:30 - Winnarly can be heard on Midnight’s Mic with PJ",
 "3:40 - Midnight is heard on Brio’s Mic asking where Winnarly is",
 "3:50 - Silver is heard on Midnight’s mic and tells Brio that Midnight is looking for him",
 "4:00 - Brio starts eating pizza",
@@ -4059,6 +4090,13 @@ client.on('message', async message => {
     //Sailormercury
     if (command === `REPLYGUY` || command === `:REPLYGUY:` || command === `SM` || command === `MERCURY` || command === `SAILOR` || command === `SAILORMERCURY` || command === `REDSHEIK`) {
         message.channel.send(`I MADE THE FUCKING POST\nFUCK you. I **FUCKING** HATE YOU. FUCK you.\nFUCK YOU.`);
+    }
+
+    //Scramble
+    if (command === `SCRAMBLE` || command === `CUBE` || command === `SCROMBLE` || command === `CBUE` || command === `SCRIMBLE` || command === `BOJANGLE` || command === `DONGLE`) {
+        var scramble = cube.type("333").length(20).get(1);
+
+        message.channel.send(scramble+`\n:kaaba:`);
     }
 
     //Tile
@@ -4890,7 +4928,22 @@ client.on('message', async message => {
                     `https://media.discordapp.net/attachments/612058753293877274/705176657186521238/image0.jpg`,
                     `https://media.discordapp.net/attachments/612058753293877274/706143320728010844/Snapchat-9323679052.jpg`,
                     `https://media.discordapp.net/attachments/612058753293877274/706156308591673405/20190802_174207.jpg`,
-                    `https://media.discordapp.net/attachments/612058753293877274/706156507301150730/123_18.jpeg`];
+                    `https://media.discordapp.net/attachments/612058753293877274/706156507301150730/123_18.jpeg`,
+                    `https://media.discordapp.net/attachments/612063895082762250/708122011263828069/20200506_201858.jpg`,
+                    `https://media.discordapp.net/attachments/612061198288027796/708281634704850944/JPEG_20200508_123659.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/709015395201449984/JPEG_20200510_131330.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/709015547299364874/JPEG_20200510_131406.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/709016527172796466/JPEG_20200510_131823.jpg`,
+                    `https://media.discordapp.net/attachments/612061198288027796/709050140295430164/JPEG_20200510_093158.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/710460545706360873/JPEG_20200514_125616.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/710456819394412564/JPEG_20200514_124125.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/710457639917584524/JPEG_20200514_124437.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/710458413519339560/JPEG_20200514_124715.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/710465718076047360/happy-dog-pet-running-on-600w-339532601.png`,
+                    `https://media.discordapp.net/attachments/612058753293877274/710483733370765402/95355746_2981154115328343_4251231626844962816_n.png`,
+                    `https://media.discordapp.net/attachments/612058753293877274/711232235315003462/JPEG_20200516_110235.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/711559407686910112/JPEG_20200517_134245.jpg`,
+                    `https://media.discordapp.net/attachments/612058753293877274/711954566911885392/JPEG_20200518_155253.jpg`];
 
             var r = Math.floor((Math.random() * m.length));
 
@@ -5229,6 +5282,8 @@ client.on('message', async message => {
                 board = 'messages';
             } else if (args[0] === `SNOW` || args[0] === `SNOWBALL` || args[0] === `SNOWBALLS` || args[0] === `CHRISTMAS` || args[0] === `XMAS` || args[0] === `EVENT`) {
                 board = 'christmas';
+            } else if (args[0] === `TIMCOIN` || args[0] === `TC` || args[0] === `MONEY` || args[0] === `BALANCE`) {
+                board = 'timcoin';
             }
         }
 
@@ -5303,6 +5358,32 @@ client.on('message', async message => {
 11 - ${eleventhteam}: ${users[10] && users[10].level || '0'}
 12 - ${twelfthteam}: ${users[11] && users[11].level || '0'}`)
             })
+        } else if (board === 'timcoin') {
+            await ecolvl.Leaderboard({ limit: 10 }).then(async users => {
+                console.log(users);
+                if (users[0]) var firstplace = await client.fetchUser(users[0].userid);
+                if (users[1]) var secondplace = await client.fetchUser(users[1].userid);
+                if (users[2]) var thirdplace = await client.fetchUser(users[2].userid);
+                if (users[3]) var fourthplace = await client.fetchUser(users[3].userid);
+                if (users[4]) var fifthplace = await client.fetchUser(users[4].userid);
+                if (users[5]) var sixthplace = await client.fetchUser(users[5].userid);
+                if (users[6]) var seventhplace = await client.fetchUser(users[6].userid);
+                if (users[7]) var eighthplace = await client.fetchUser(users[7].userid);
+                if (users[8]) var ninthplace = await client.fetchUser(users[8].userid);
+                if (users[9]) var tenthplace = await client.fetchUser(users[9].userid);
+
+                message.channel.send(`**TimCoin Leaderboard**
+1 - ${firstplace && firstplace.username || 'Nobody Yet'}: ${users[0] && users[0].level || '0'}
+2 - ${secondplace && secondplace.username || 'Nobody Yet'}: ${users[1] && users[1].level || '0'}
+3 - ${thirdplace && thirdplace.username || 'Nobody Yet'}: ${users[2] && users[2].level || '0'}
+4 - ${fourthplace && fourthplace.username || 'Nobody Yet'}: ${users[3] && users[3].level || '0'}
+5 - ${fifthplace && fifthplace.username || 'Nobody Yet'}: ${users[4] && users[4].level || '0'}
+6 - ${sixthplace && sixthplace.username || 'Nobody Yet'}: ${users[5] && users[5].level || '0'}
+7 - ${seventhplace && seventhplace.username || 'Nobody Yet'}: ${users[6] && users[6].level || '0'}
+8 - ${eighthplace && eighthplace.username || 'Nobody Yet'}: ${users[7] && users[7].level || '0'}
+9 - ${ninthplace && ninthplace.username || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
+10 - ${tenthplace && tenthplace.username || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}`)
+            })
         } else if (board === 'messages' || board === 'default') {
             await msglvl.Leaderboard({ /*limit: 10*/ }).then(async users => {
                 console.log(users);
@@ -5341,6 +5422,8 @@ client.on('message', async message => {
                 rank = 'messages';
             } else if (args[0] === `SNOW` || args[0] === `SNOWBALL` || args[0] === `SNOWBALLS` || args[0] === `CHRISTMAS` || args[0] === `XMAS` || args[0] === `EVENT`) {
                 rank = 'christmas';
+            } else if (args[0] === `TC` || args[0] === `TIMCOIN` || args[0] === `MONEY` || args[0] === `BALANCE`) {
+                rank = 'timcoin';
             }
         }
 
@@ -5361,6 +5444,14 @@ client.on('message', async message => {
             var teamName = fetchTeamName(fetchTeam(message.author.id));
 
             message.channel.send(`${teamName} is rank ${output} with a score of ${balance.level}.`);
+        } else if (rank === 'timcoin') {
+            var output = await ecolvl.Leaderboard({
+                search: message.author.id
+            });
+
+            var balance = await ecolvl.Fetch(message.author.id);
+
+            message.channel.send(`You are rank ${output} with ${balance.level} TimCoin.`);
         } else if (rank === 'messages' || rank === 'default') {
             var output = await msglvl.Leaderboard({
                 search: message.author.id
@@ -5732,6 +5823,8 @@ client.on('message', async message => {
         }
 
         var results = await eco.AddToBalance(defineduser.id, args[0]);
+        await ecolvl.SetXp(defineduser.id, 1);
+        await ecolvl.SetLevel(defineduser.id, results.newbalance);
 
         const embed = new Discord.RichEmbed()
             .setTitle(`${defineduser.username}\'s Balance`)
@@ -5780,6 +5873,8 @@ client.on('message', async message => {
         }
 
         var results = await eco.SubstractFromBalance(defineduser.id, args[0]);
+        await ecolvl.SetXp(defineduser.id, 1);
+        await ecolvl.SetLevel(defineduser.id, results.newbalance);
 
         const embed = new Discord.RichEmbed()
             .setTitle(`${defineduser.username}\'s Balance`)
@@ -5845,6 +5940,10 @@ client.on('message', async message => {
 
         var senderNewBalance = await eco.FetchBalance(sender.id);
         var recipientNewBalance = await eco.FetchBalance(defineduser.id);
+        await ecolvl.SetXp(sender.id, 1);
+        await ecolvl.SetLevel(sender.id, senderNewBalance.balance);
+        await ecolvl.SetXp(defineduser.id, 1);
+        await ecolvl.SetLevel(defineduser.id, recipientNewBalance.balance);
 
         const embed = new Discord.RichEmbed()
             .setTitle(`${args[0]} ${currencyName} added to ${defineduser.username}\'s Balance`)
@@ -5869,6 +5968,60 @@ client.on('message', async message => {
         } else if (profile.xp == 2) {
             message.channel.send(`Sorry, you've already claimed your reward.`);
         }
+    }
+
+    if (command === `INITIALIZETCLEADERBOARD`) {
+        if (sender.id == 72734539834720256) {
+            var users = [`343953414335496195`, //AL
+                `167375258012221441`, //adlp
+                `209457088240418817`, //antiprompt
+                `72734539834720256`, //silverhand
+                `129820441014435840`, //brio
+                `172862174979555331`, //bubbles
+                `247185195692720128`, //cael
+                `151811295711068161`, //cag
+                `562824176700882964`, //coffee
+                `136999091354861569`, //cori
+                `151073927798587394`, //darsh
+                `324723893635907584`, //dimi
+                `134031509282750464`, //drax
+                `368817136182886411`, //drew
+                `145798683995144192`, //duck
+                `239503073586708481`, //farm
+                `255475811358998528`, //flapo
+                `646446533407145986`, //goloche
+                `177461438921703434`, //loscar
+                `407120766459707392`, //ice
+                `175333417481666571`, //marge
+                `174695854924365824`, //soap
+                `202258713002639360`, //midnight
+                `566828080576987156`, //restingcarcass
+                `185839155438157832`, //risc
+                `276110325575843840`, //skrt
+                `262665230406909953`, //streamo
+                `437179896813584387`, //struc
+                `337284886039625728`, //sugden
+                `80434004188200960`, //winnarly
+                `91304895465926656`, //wub
+                `177545664757104640`]; //draco
+
+            for (var i = 0; i < users.length; i++) {
+                var balance = await eco.FetchBalance(users[i]);
+                await ecolvl.SetXp(users[i], 1);
+                await ecolvl.SetLevel(users[i], balance.balance);
+                console.log(`Initialized TC for ${users[i]}`);
+            }
+            console.log(`Finished initialization`);
+            message.channel.send(`Finished initialization`);
+        } else {
+            message.channel.send(`Hey! You're not Silver!`);
+        }
+    }
+
+    if (command === `TCLEADERBOARDTEST`) {
+        var results = await ecolvl.Fetch(sender.id);
+
+        message.channel.send(`${results.userid} - ${results.level}`)
     }
 
     //Holiday Commands
