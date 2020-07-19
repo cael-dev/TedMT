@@ -4074,7 +4074,7 @@ client.on('message', async message => {
 
     //Results
     if (command === `RESULTS` || command === `RESULT`) {
-        var withText = [`Popoga Games #1`,
+        var text = [`Popoga Games #1`,
             `Popoga Games #2\n https://www.youtube.com/watch?v=RHc6QQxgUbk&feature=youtu.be`,
             `Popoga Games #3`,
             `Melty Mondays not on a Monday #1`,
@@ -4085,7 +4085,7 @@ client.on('message', async message => {
             `Poop Games (Popoga Games #7)`,
             `TCLE Games S1E2`];
 
-        var withTextImages = [`https://cdn.discordapp.com/attachments/612061766830260244/706615425278148638/popoga_1_results.png`,
+        var images = [`https://cdn.discordapp.com/attachments/612061766830260244/706615425278148638/popoga_1_results.png`,
             ``,
             `https://cdn.discordapp.com/attachments/612061766830260244/713892124524806156/popoga_results_3_part_1.png https://cdn.discordapp.com/attachments/612061766830260244/713892135660945418/popoga_games_3_results_part_2.png`,
             `https://cdn.discordapp.com/attachments/615454765886996481/716404526604615730/once_again.png`,
@@ -4096,11 +4096,9 @@ client.on('message', async message => {
             `https://cdn.discordapp.com/attachments/612061766830260244/726541104085729320/poop_games_results.png`,
             `https://cdn.discordapp.com/attachments/612061766830260244/714904155667300445/unknown.png`];
 
-        var totalMemes = withText.length + images.length;
+        var r = Math.floor((Math.random() * text.length));
 
-        var r = Math.floor((Math.random() * totalMemes));
-
-        message.channel.send(withText[r], {file: withTextImages[r]});
+        message.channel.send(text[r], {file: images[r]});
     }
 
     //Restingcarcass
