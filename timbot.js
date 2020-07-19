@@ -3922,7 +3922,7 @@ client.on('message', async message => {
     }
 
     //OC / memes
-    /*if (command === `OC` || command === `MEME` || command === `MEMES` || command === `OCMEME` || command === `TCLE` || command === `FUNNY` || command === `HAHA`) {
+    if (command === `OC` || command === `MEME` || command === `MEMES` || command === `OCMEME` || command === `TCLE` || command === `FUNNY` || command === `HAHA`) {
         var withText = [`Made this to help visualize Farm's transition to a Falcon main.`,
             `Proof that Melee is nothing like Hollow Knight.`,
             `AL.jpg`,
@@ -4048,7 +4048,7 @@ client.on('message', async message => {
             r = r - withText.length;
             message.channel.send({file: images[r]});
         }
-    }*/ //ignore all of this. it is outdated and idk what the original was
+    }
 
 
     //Pipe or Joint
@@ -4102,7 +4102,7 @@ client.on('message', async message => {
 
         message.channel.send(withText[r], {file: withTextImages[r]});
     }
-  
+
     //Restingcarcass
     if (command === `RESTINGCARCASS` || command === `RESTING` || command === `MONKE`) {
         var monkes = [`https://media.discordapp.net/attachments/612058753293877274/733528498634752071/20200522_042255.jpg`,
