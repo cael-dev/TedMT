@@ -12,7 +12,7 @@ const MarkovGen = require("markov-generator");
 const Scrambo = require("scrambo");
 const cube = new Scrambo();
 const client = new Discord.Client();
-const modRole = 'Illusion';
+const modRole = 'Bot Admin';
 const banRole = 'useless bitch';
 const sql = require('sqlite');
 sql.open('Storage/userData.sqlite');
@@ -34,8 +34,8 @@ client.on('message', async message => {
     var sender = message.author;
 
     if (msg.startsWith(prefixAlt) || msg.startsWith(prefix) || msg.startsWith(prefix2)) {
-        if (sender.id == 247185195692720128) {
-            message.channel.send('You are temporarily banned from accessing TimBot.\nYour ban has 3 day(s) remaining.');
+        if (sender.id == 1) {
+            message.channel.send('You are temporarily banned from accessing TimBot.\nYour ban has 1 day(s) remaining.');
             return;
         }
     }
@@ -1191,6 +1191,10 @@ client.on('message', async message => {
                 reward = 100;
             }
 
+
+                            //DOUBLE DOUBLE
+                            reward = reward * 2;
+
             var results = await eco.AddToBalance(sender.id, reward);
             await ecolvl.SetXp(sender.id, 1);
             await ecolvl.SetLevel(sender.id, results.newbalance);
@@ -1237,6 +1241,9 @@ client.on('message', async message => {
                 } else if (r2 >= 15 && r2 < 16) {
                     reward = 100;
                 }
+
+                //DOUBLE DOUBLE
+                reward = reward * 2;
 
                 var results = await eco.AddToBalance(sender.id, reward);
                 await ecolvl.SetXp(sender.id, 1);
@@ -2314,9 +2321,6 @@ client.on('message', async message => {
             } else if (args[0] === `CHILD` || args[0] === `KID` || args[0] === `HAVEACHILD`) {
                 var split = lists[101].split(`\n`);
                 message.channel.send(split[0], {file: split[1]});
-            } else if (args[0] === `HANDSOME` || args[0] === `BOYS` || args[0] === `HANDSOMEBOYS`) {
-                var split = lists[102].split(`\n`);
-                message.channel.send(split[0], {file: split[1]});
             } else if (args[0] === `SWIPER` || args[0] === `SWIPERNOSWIPING` || args[0] === `DORA`) {
                 var split = lists[103].split(`\n`);
                 message.channel.send(split[0], {file: split[1]});
@@ -2403,6 +2407,7 @@ client.on('message', async message => {
         var tms = [`https://tiermaker.com/create/melee-projectiles-v3-204742`,
             `https://tiermaker.com/create/ssbm-commentator-tier-list-252311`,
             `https://tiermaker.com/create/melee-players-204703`,
+            `https://tiermaker.com/create/timcord-v2-204703`,
             `https://tiermaker.com/create/timcord-204703`];
 
         if (args[0] && args[0] != '') {
@@ -2414,12 +2419,14 @@ client.on('message', async message => {
                 message.channel.send(tms[2]);
             } else if (args[0] === `TIMCORD`) {
                 message.channel.send(tms[3]);
+            } else if (args[0] === `TIMCORDOLD` || args[0] === `OLDTIMCORD`) {
+                message.channel.send(tms[4]);
             } else {
                 message.channel.send(`Specified tier list not found.`);
             }
 
         } else {
-            message.channel.send(`https://tiermaker.com/create/timcord-204703`);
+            message.channel.send(`https://tiermaker.com/create/timcord-v2-204703`);
         }
     }
 
@@ -3460,6 +3467,11 @@ client.on('message', async message => {
             message.channel.send({file: d[r]});
     }
 
+    //e
+    if (command === `E`) {
+        message.channel.send('e');
+    }
+
     //Faceroll
     if (command === `FACEROLL`) {
         var links = [`https://discord.gg/PmaVCqd`, //Wubcord
@@ -3905,6 +3917,10 @@ client.on('message', async message => {
         message.channel.send(n[r]);
     }
 
+    if (command === `MEMETEST`) {
+        message.channel.send(`asdf`, {file: ``});
+    }
+
     //OC / memes
     /*if (command === `OC` || command === `MEME` || command === `MEMES` || command === `OCMEME` || command === `TCLE` || command === `FUNNY` || command === `HAHA`) {
         var withText = [`Made this to help visualize Farm's transition to a Falcon main.`,
@@ -3918,7 +3934,15 @@ client.on('message', async message => {
             `https://www.youtube.com/watch?v=lq46vpsDFXc`,
             `society if AL installed windows`,
             `this is how diarrhoea is made`,
-            `makes you wonder, who's really controlling the narrative on timcord?`];
+            `makes you wonder, who's really controlling the narrative on timcord?`,
+            `you see it`,
+            `When someone says you can't manipulate space and time to control your luck`,
+            `https://streamable.com/2dhnrr`,
+            `https://cdn.discordapp.com/attachments/612058753293877274/730134990293303356/objection-147811.mp4`,
+            `https://cdn.discordapp.com/attachments/612058753293877274/730129843114475671/fat.mp4`,
+            `https://streamable.com/pryuh1`,
+            `https://streamable.com/hmi1uy`,
+            `https://streamable.com/axhaiy`];
 
         var withTextImages = [`https://media.discordapp.net/attachments/612061766830260244/695703719089668157/Farmstinks_Transformation.png`,
             `https://media.discordapp.net/attachments/612061367972790281/694244463844917368/Melee_vs_Hollow_Knight.png`,
@@ -3931,7 +3955,16 @@ client.on('message', async message => {
             ``,
             `https://cdn.discordapp.com/attachments/615454765886996481/716720953429721208/futurecity.png`,
             `https://cdn.discordapp.com/attachments/612058753293877274/722875035756265532/unknown.png`,
-            `https://cdn.discordapp.com/attachments/612058753293877274/713184850307448882/questioneverything.png`];
+            `https://cdn.discordapp.com/attachments/612058753293877274/713184850307448882/questioneverything.png`,
+            `https://media.discordapp.net/attachments/672225366273818657/709370400609402961/cuck_vs_sugw.png`,
+            `https://cdn.discordapp.com/attachments/612063946643472389/645138709519532042/EJcYwlBUcAA70SD.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/729078290228445244/image0.jpg`,
+            ``,
+            ``,
+            ``,
+            ``,
+            ``,
+            ``];
 
         var images = [`https://media.discordapp.net/attachments/612061766830260244/695703104678789210/image0.jpg`,
             `https://media.discordapp.net/attachments/612063895082762250/694992160235454524/funny_hollow_knight_meme.png`,
@@ -3984,7 +4017,26 @@ client.on('message', async message => {
             `https://cdn.discordapp.com/attachments/612063670297427978/720322997105197158/trust-no-one-not-even-yourself.jpg`,
             `https://cdn.discordapp.com/attachments/611202965558132747/723351881820274758/unknown.png`,
             `https://cdn.discordapp.com/attachments/612058753293877274/722127277890076693/Monkey_Receiving_An_Orange_15062020183546.jpg`,
-            `https://cdn.discordapp.com/attachments/612063656036925502/714520959716950046/Oh_I_Just_Jog_Every_Once_in_a_While_25052020185107.jpg`];
+            `https://cdn.discordapp.com/attachments/612063656036925502/714520959716950046/Oh_I_Just_Jog_Every_Once_in_a_While_25052020185107.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/708372072979628092/image0.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/725929179006107683/Polish_20200410_213721311.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/726155088674029598/unknown.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/727678002636521492/EbXyyoXVcAAhuVp.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/727780914024677436/unknown.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/728256331806670918/unknown.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/728309832737882232/unknown.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/728351949950550067/unknown.png`,
+            `https://media.discordapp.net/attachments/612063895082762250/728649286186696714/image0.jpg`,
+            `https://media.discordapp.net/attachments/612061766830260244/729079221544288307/unknown.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/729083303696662628/Tinky_Winky_Joins_Hand_Stacking_04072020231636.jpg`,
+            `https://media.discordapp.net/attachments/612325624203182085/729409267408568410/DIMI_2016.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/730138040579915867/popoga2.PNG`,
+            `https://media.discordapp.net/attachments/612061766830260244/731600068687298636/this.jpg`,
+            `https://media.discordapp.net/attachments/612061766830260244/731640211624427590/unknown.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/733374447616131152/flapo.png`,
+            `https://media.discordapp.net/attachments/612063895082762250/733347288021205053/unknown.png`,
+            `https://media.discordapp.net/attachments/612061766830260244/733518086463946792/sheik_flowchart.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/733703015407812771/Screenshot_20200717-081204.png`];
 
         var totalMemes = withText.length + images.length;
 
@@ -4049,6 +4101,76 @@ client.on('message', async message => {
         var r = Math.floor((Math.random() * totalMemes));
 
         message.channel.send(withText[r], {file: withTextImages[r]});
+    }
+  
+    //Restingcarcass
+    if (command === `RESTINGCARCASS` || command === `RESTING` || command === `MONKE`) {
+        var monkes = [`https://media.discordapp.net/attachments/612058753293877274/733528498634752071/20200522_042255.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/733148876390793226/1ibh012n3ka51.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/732086998738927656/itbwycxns6u41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/732803704217927760/Thentheresingapes_3c2fc78a5a77fb383bc36373eb61de46.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/732443789704036372/q6u4keycd2851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/732086784045088818/pl1mdmi7v4z31.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/731709377077051472/eiqd5a1et4851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/731499820396707870/SmartSelect_20200711-081849_Discord.jpg`,
+            `https://media.discordapp.net/attachments/245037448378318849/731366871202267197/image0.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/731369014563045396/jo0abvjt6h851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/730972716924010496/jal77sdznu851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/730622017610711050/wi8fmbo3cs851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/730253281485520946/pxxbgfdsa3951.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/729909888985333780/2wqztqpjio851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/729536056634114099/ok48ofkvhdu41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/729197175765991494/cosji4rvrzw21.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/728812981097332786/h5o2t8bbac351.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/728448223223742483/hrhybpz7x0551.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/728101228499828818/j64bvqyr64851.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/727698201045368902/20200527_001412.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/726643100855828570/tb77l6m6b9751.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/726289907403849798/1593054420625.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/725904751555772426/qz5hpowj40a41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/725546847854395442/1oqzoputbn051.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/725188983298195497/rgjndhs1ars31.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/724834477800554567/jdyrddkw3c151.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/724467411574718474/49iq0j6vlhy41.gif`,
+            `https://media.discordapp.net/attachments/612058753293877274/724113079012556930/en1ykfndrkj41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/723718798925889686/sxrw97202f451.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/723359278089502730/h9wq3egb7lm41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/717342601354674217/Funny-Monkeys-Funny-Monkey-Picture-120-FunnyPica.com_.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/722995888896737370/65qzi0orypl31.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/722654226240634950/zfiq6ex00s451.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/722278972712550417/s8nu7e2234941.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/721904604706504724/eqwiv0inad351.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/721554565262082068/086xgbhziuo31.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/721198510627618826/y1pllpxkrz051.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/720824903460454440/c3iw5yp4q1v41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/720469070763393134/seoqm1fxkd351.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/720126335661637702/k7wdyxzy2j351.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/719767648216547339/bwairjlw99541.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/719495966499143720/1dgntu1klcz41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/719008269682606130/awgl9gzuu2r31.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/718663861468921896/alg820yni9y21.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/718308367294267472/bziq2napba251.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/717928180299857990/429xswax9qe41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/717570240405438495/j0fy5g7yuiz41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/717192465886609498/hdfygqef1ow41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/716855777683439636/9upv4q6lwcy41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/716486745343918100/8phj3ya07w541.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/716134013730947082/cm1vt0jtfom31.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/715754320158523422/l0jargjahkf41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/715407962587529287/ynawmdkdzou41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/715053538706718761/ikghe3c3qus41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/714686451538984980/enh8xyxw0yv41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/714319062536159323/zv6dojqrrog41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/713968828882616350/wvnpzgavoxt41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/713583339151294474/i5iglkpjcj441.png`,
+            `https://media.discordapp.net/attachments/612058753293877274/713232040505376768/84sie708o4y41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/712891718923452426/9mn5e4hymlu41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/712509925095637044/9tkzmxiydqp41.jpg`,
+            `https://media.discordapp.net/attachments/612058753293877274/712140339401719828/5np714wzeav41.jpg`];
+
+        var r = Math.floor((Math.random() * monkes.length));
+
+        message.channel.send(`monke`, {file: monkes[r]});
     }
 
     //Risc
