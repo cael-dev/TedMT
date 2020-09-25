@@ -8,12 +8,16 @@ const lvl = require("discord-leveling"); //Halloween Leveling
 const msglvl = require("discord-leveling-2");
 const snowlvl = require("discord-leveling-3");
 const ecolvl = require("discord-leveling-4");
+const candy2020 = require("discord-leveling-5");
 const MarkovGen = require("markov-generator");
 const Scrambo = require("scrambo");
 const cube = new Scrambo();
 const client = new Discord.Client();
 const modRole = 'Bot Admin';
+const bankRole = 'Loan Shark';
 const banRole = 'useless bitch';
+const triggeredCandyRecently = new Set();
+const jackpotCounter = 100;
 const sql = require('sqlite');
 sql.open('Storage/userData.sqlite');
 
@@ -65,6 +69,253 @@ client.on('message', async message => {
         }
     }
 
+    //Halloween Event
+    if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
+        if (message.channel.name == 'ppoopopopopopopoahahahahaha') {
+            if (triggeredCandyRecently.has(message.author.id)) {
+                return;
+            }
+            var r = (Math.random() * 100);
+
+            if (r >= 95) { //was 98.5
+                jackpotCounter++;
+                var dogCostumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
+                    `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
+                    `https://i.pinimg.com/originals/f3/b1/b0/f3b1b045c3e1d50b5d7f4b931165fd15.jpg`,
+                    `https://media.phillyvoice.com/media/images/01_102417_HalloweenDogs_Carroll.2e16d0ba.fill-735x490.jpg`,
+                    `https://purewows3.imgix.net/images/articles/2019_08/dog_halloween_costumes.jpg`,
+                    `https://i.ytimg.com/vi/hdxKJsTvvxQ/hqdefault.jpg`,
+                    `https://media1.popsugar-assets.com/files/thumbor/JQUUCOeO9YTIkYrVplfJchnodek/0x0:2003x2003/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/28/858/n/24155406/931e6e6c5d66d798a36ba9.34935958_/i/Dogs-Halloween-Costumes.jpg`,
+                    `https://diy.sndimg.com/content/dam/images/diy/fullset/2014/6/9/0/CI-Brian-Brainerd_bull-dog-in-ballerina-Halloween-costume_v.jpg.rend.hgtvcom.616.822.suffix/1420778852478.jpeg`,
+                    `https://www.simplemost.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-21-at-11.37.56-AM-750x500.png`,
+                    `https://static01.nyt.com/images/2014/10/30/t-magazine/30viewfinder-hirsch-slide-TWGN/30viewfinder-hirsch-slide-TWGN-videoLarge.jpg`,
+                    `https://dogtime.com/assets/uploads/2018/09/unhappy-dogs-in-costume-2-1280x720.png`,
+                    `https://media1.popsugar-assets.com/files/thumbor/hIev4EBak4afdOeJGaGyuzxX-HE/248x0:1454x1206/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2019/09/05/937/n/1922243/4236cd385d717e527c8e79.13418759_/i/Disney-Dog-Costumes.jpg`,
+                    `http://trupanion.com/blog/wp-content/uploads/2017/11/edit_IMG_7241.jpg`,
+                    `https://www.thepubliceditor.com/wp-content/uploads/2018/09/Dogs_Scary_Halloween_Costume.jpg`,
+                    `https://cdn.fashionmagazine.com/wp-content/uploads/2017/10/Screen-Shot-2018-10-30-at-9.58.49-AM-480x320-c-top.png`,
+                    `https://i.imgur.com/JO2lNCl.jpg`,
+                    `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-halloween-costumes-1532555670.jpg`,
+                    `https://media1.popsugar-assets.com/files/thumbor/CJEtk1U6VpB75o_qxfPAX6579r0/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/10/19/826/n/1922243/a00d1cad_edit_img_image_16686166_1444860712_12142682_526874914145470_1831035987_n/i/DIY-Halloween-Costumes-Dogs.jpg`,
+                    `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
+                    `https://i.imgur.com/A5nyeDW.png`,
+                    `https://i.imgur.com/E3wqRQi.png`,
+                    `https://i.imgur.com/hruNkRh.png`,
+                    `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
+                    `https://www.pedigreefoundation.org/wp-content/uploads/2016/10/elvis.jpg`,
+                    `https://s.hdnux.com/photos/67/05/73/14442226/3/920x920.jpg`,
+                    `https://i.pinimg.com/originals/2e/a0/cd/2ea0cd6333d77d49334fd638d8f1bc28.jpg`,
+                    `http://www.dogtagart.com/sites/default/files/blog/dogscostume.jpg`,
+                    `https://i.imgur.com/DQJjEMV.jpg`,
+                    `https://i.pinimg.com/originals/7e/85/d0/7e85d05973c3b487c9d45c63df55d431.jpg`,
+                    `https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-robin.jpg`,
+                    `https://s.hdnux.com/photos/04/34/32/1164953/3/920x920.jpg`,
+                    `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-12-at-4.12.06-PM1.png`,
+                    `https://i.imgur.com/tn7bfQv.png`,
+                    `https://i.imgur.com/ddFxviv.png`,
+                    `https://static.businessinsider.com/image/5088501f6bb3f78664000002-750.jpg`,
+                    `https://i.ytimg.com/vi/T0OHl7bbL1g/hqdefault.jpg`,
+                    `https://hips.hearstapps.com/rbk.h-cdn.co/assets/cm/14/50/548969e457d0e_-_top-paw-basketball-player-costume-for-dogslgn.gif`,
+                    `https://static.fabfitfun.com/magazine/wp-content/uploads/2018/10/09170644/dog.png`,
+                    `https://i.imgur.com/LzcvHfl.png`,
+                    `https://purewows3.imgix.net/images/articles/2017_09/Princess-Leia-dog-costume-for-Halloween.jpg`,
+                    `https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2010/7/27/0/Halloween-UGC_Foleyboy-alien-dog-costumes_s4x3.jpg.rend.hgtvcom.616.462.suffix/1400947976466.jpeg`,
+                    `https://www.wweek.com/resizer/b5st6q0nx-4BE81x0TdZzJ2198Y=/1200x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/wweek/wp-content/uploads/2017/10/26171017/Cowboy-Dog.jpg`,
+                    `https://media.healthday.com/Images/icimages/dog_costume1026.jpg`,
+                    `https://www.telegraph.co.uk/content/dam/Pets/2015-09/30oct/dogcrab.jpg`,
+                    `https://purewows3.imgix.net/images/articles/2017_09/Dog-dressed-up-for-Halloween-in-spider-costume.jpg`,
+                    `https://petcube.com/blog/content/images/2018/10/dog-pumpkin-halloween-costume.jpg`,
+                    `https://i.imgur.com/0UJXND1.jpg`,
+                    `https://cdn1-www.cattime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-cerberus.jpg`,
+                    `https://costumesjoy.com/wp-content/uploads/2018/08/Dogbaby-Halloween-Costumes-Pet-Clothing-Funny-Guitar-Dog-Clothes-Pet-Puppy-Coats-For-Puppy-Dog-French.jpg`,
+                    `https://static-blog.fabfitfun.com/magazine/wp-content/uploads/2018/10/09164347/spider-pup-costume.png`,
+                    `https://i.imgur.com/djUHSvl.png`,
+                    `https://sitterforyourcritter.com/wp-content/uploads/2017/10/dogs-dressed-as-superheros.jpg`,
+                    `https://images-na.ssl-images-amazon.com/images/I/711Qkz8SUcL._AC_SL1500_.jpg`,
+                    `https://i.pinimg.com/originals/59/51/3e/59513e4d6d29787eaa2b806284524988.jpg`,
+                    `https://s3.amazonaws.com/petcentral.com/wp-content/uploads/2017/10/29122415/dog-halloween-costumes-940x503.jpg`,
+                    `https://m.media-amazon.com/images/I/61kk32KKTaL._AC_SS350_.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758377983786090586/23a5dc97-3222-5ceb-aca5-58d3fb7dc4ba__17463.png`,
+                    `https://i.pinimg.com/originals/b6/d7/21/b6d72185e706bd40ba699df8f9740ddd.jpg`,
+                    `https://ae01.alicdn.com/kf/HTB1jIQ9SpXXXXXAaFXXq6xXFXXXq.jpg_q50.jpg`,
+                    `https://us-east-1.linodeobjects.com/gunaxin/2017/10/skeleton-dog-halloween-costume-non-toxic-pet-paint-5-600x469-560x438.jpg`,
+                    `https://bargainbabe.com/wp-content/uploads/2014/09/788c053e4931a6f006a7f773d8f08b90.jpg`,
+                    `https://images.halloweencostumes.com/products/15022/1-1/holy-hound-pet-costume.jpg`,
+                    `https://arc-anglerfish-arc2-prod-tronc.s3.amazonaws.com/public/TXTUIJAEDFACRHH5WXEWLYMQEE.JPG`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758378714916061194/unknown.png`,
+                    `https://images.meredith.com/content/dam/bhg/Images/cg/PetsBatDogImage.jpg.rendition.largest.jpg`,
+                    `https://inhabitat.com/wp-content/blogs.dir/1/files/2015/10/at-at-dog-costume-889x741.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758379018235674624/wheres_waldo_dog_halloween_costume.png`,
+                    `https://cdn.shopify.com/s/files/1/0654/0895/products/143390_MAIN._AC_SL1500_V1533931333_2048x2048.jpg`,
+                    `https://i5.walmartimages.com/asr/62da8a58-ae33-4c39-9e62-01e0238a1d3f_1.28f9bad19c1a722b39721f0a8484ac3e.jpeg`,
+                    `https://i1.wp.com/housefur.com/wp-content/uploads/2020/08/3093054-center-1.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758379316408483880/unknown.png`,
+                    `https://i.etsystatic.com/24436693/r/il/023961/2485791308/il_300x300.2485791308_3h6d.jpg`,
+                    `https://s3.amazonaws.com/petcentral.com/wp-content/uploads/2020/07/23135742/dog-halloween-costume-ideas-woody.jpg`,
+                    `https://d3d71ba2asa5oz.cloudfront.net/33000550/images/ra4003xl.jpg`,
+                    `https://images-na.ssl-images-amazon.com/images/I/61GDI%2BEKlyL._AC_SX522_.jpg`,
+                    `https://images-na.ssl-images-amazon.com/images/I/41lgLDbdMgL._AC_.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758379761365155850/unknown.png`,
+                    `https://i1.wp.com/racinecountyeye.com/wp-content/uploads/2017/09/4061956217_f633ac60a3_z.jpg`,
+                    `https://i.pinimg.com/originals/3b/5e/fd/3b5efd9a3df348d67fe40126fb3477c1.jpg`,
+                    `https://previews.123rf.com/images/iridi/iridi2003/iridi200300081/141670953-the-dog-in-a-funny-hat-is-holding-a-halloween-pumpkin-bucket-with-candies-white-background-isolated-.jpg`];
+
+                var monkeCostumes = [/*`https://i.pinimg.com/originals/94/83/c4/9483c49fe63907ed3883108f4c953869.jpg`,
+                    `https://i.pinimg.com/originals/28/54/59/2854590a890a398fa65a8b72962905f2.jpg`,
+                    `https://i.dailymail.co.uk/i/pix/2012/12/10/article-2245683-166F99E3000005DC-243_1024x615_large.jpg`,
+                    `https://i.pinimg.com/originals/bd/ca/e1/bdcae11644503625473eef12f5393888.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758372826356121620/unknown.png`,
+                    `https://cdn1.kontraband.com/uploads/image/2019/2/26/preview_37d0cdc4.jpeg`,
+                    `https://i.pinimg.com/originals/62/8c/a2/628ca2729b003cbc80cd0f5ecdf216d3.jpg`,
+                    `https://imgc.allpostersimages.com/img/print/u-g-PZMIWX0.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758373224710537250/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758373414368051251/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758373659676508180/unknown.png`,*/ //normal clothes end here
+                    `https://i.ebayimg.com/images/g/7TEAAOSwRYNcvnJ8/s-l640.jpg`,
+                    `https://foreignpolicy.com/wp-content/uploads/2009/10/091030_halloween221.jpg`,
+                    `https://www.comeseeourworld.org/wp-content/uploads/2017/04/monkey-with-halloween-pumpkins-800x533.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758374042083786772/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758374260338589727/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758374409601286146/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758374603139055666/unknown.png`,
+                    `https://i.pinimg.com/originals/0c/b0/cb/0cb0cb168b9cc193bf4fa6e9cadf12c7.jpg`,
+                    `https://cache.desktopnexus.com/thumbseg/2192/2192792-bigthumbnail.jpg`,
+                    `https://pbs.twimg.com/media/B1SWUIlIEAAI1qr.jpg`,
+                    `https://www.pressandjournal.co.uk/wp-content/uploads/sites/2/2014/10/Pumpkin-monkey.jpg`,
+                    `https://images.gawker.com/18k2op36eqqfkjpg/c_fit,fl_progressive,q_80,w_470.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758375215951511602/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758375393371095090/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758375508776845322/unknown.png`,
+                    `https://news.bbc.co.uk/media/images/49657000/jpg/_49657581_pumpkins2010020.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758375665811849256/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758375791149973504/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758375915222466640/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758376022591930389/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758376146588139560/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758376277757001798/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758376550793347103/unknown.png`,
+                    `https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX9296729.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758376841517203486/unknown.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758377058501525565/odrgdwyttwxnmjfx0pnf.png`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758377192199290910/unknown.png`,
+                    `https://www.maxpixels.net/static/photo/1x/Gorilla-Play-Assisi-Monkey-Female-Animal-Pumpkin-4597215.jpg`,
+                    `https://cdn.discordapp.com/attachments/171147807212699648/758377379092627466/r.png`,
+                    `https://www.ippl.org/gibbon/wp-content/uploads/2013/10/100_4756-Louie-Louie-compressed-556x417.jpg`];
+
+                var dogMessages = [`🎃👻🐶💀🍬`,
+                    `🎃 Happy Halloween! 🎃`,
+                    `👻 Happy Halloween! 👻`,
+                    `🍬 Trick or Treat! 🍬`,
+                    `🐶 Trick or Treat! 🐶`,
+                    `🐶🐶🐶`,
+                    `🎃🎃🎃`,
+                    `👻👻👻`,
+                    `💀💀💀`,
+                    `🍬🍬🍬`,
+                    `🎃 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🎃`,
+                    `👻 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 👻`,
+                    `🐶 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🐶`,
+                    `💀 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 💀`,
+                    `🍬 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🍬`];
+
+                var monkeMessages = [`🎃👻🐶💀🍬`,
+                    `🎃 Happy Halloween! 🎃`,
+                    `👻 Happy Halloween! 👻`,
+                    `🍬 Trick or Treat! 🍬`,
+                    `🐒 Trick or Treat! 🐒`,
+                    `🐒 monke 🐒`,
+                    `🐒🐒🐒`,
+                    `🙈🙉🙊`,
+                    `🐵🐵🐵`,
+                    `🎃🎃🎃`,
+                    `👻👻👻`,
+                    `💀💀💀`,
+                    `🍬🍬🍬`,
+                    `🎃 Wowzers! It's a Halloween monke and he's here to give out candy! Quick, get some before he runs away! 🎃`,
+                    `👻 Wowzers! It's a Halloween monke and he's here to give out candy! Quick, get some before he runs away! 👻`,
+                    `🐵 Wowzers! It's a Halloween monke and he's here to give out candy! Quick, get some before he runs away! 🐵`,
+                    `💀 Wowzers! It's a Halloween monke and he's here to give out candy! Quick, get some before he runs away! 💀`,
+                    `🍬 Wowzers! It's a Halloween monke and he's here to give out candy! Quick, get some before he runs away! 🍬`];
+
+                var dogOrMonke = Math.floor((Math.random() * 2));
+
+                var outputMessage = '';
+                var outputPicture = '';
+
+                if (dogOrMonke == 1) { //dog
+                    var r1 = Math.floor((Math.random() * dogCostumes.length));
+
+                    var r2 = Math.floor((Math.random() * dogMessages.length));
+
+                    outputMessage = dogMessage[r2];
+                    outputPicture = dogCostumes[r1];
+                } else { //monke
+                    var r1 = Math.floor((Math.random() * monkeCostumes.length));
+
+                    var r2 = Math.floor((Math.random() * monkeMessages.length));
+
+                    outputMessage = monkeMessage[r2];
+                    outputPicture = monkeCostumes[r1];
+                }
+
+                message.channel.send(outputMessage, { file: `${outputPicture}` })
+                    .then(async msg => {
+                        msg.react(`🍬`)
+
+                        var alreadyRewarded = new Array();
+
+
+                        const filter = (reaction, user) => {
+                            return reaction.emoji.name === `🍬` && user.id != msg.author.id;
+                        }
+
+                        const collector = msg.createReactionCollector(filter, { max:20, time: 15000 });
+
+                        collector.on('collect', async (reaction, reactionCollector) => {
+                            var lastReactedId = reaction.users.last().id;
+                            var lastReactedName = message.guild.members.fetch(reaction.users.last()).displayName;//reaction.users.last().username;
+                            if(!alreadyRewarded.includes(lastReactedId)) {
+                                alreadyRewarded.push(lastReactedId);
+
+                                var jackpot = (Math.random() * 100);
+                                if (jackpot >= 99.9) {
+                                    var c = jackpotCounter;
+                                    jackpotCounter = 100;
+
+                                    await candy2020.Fetch(lastReactedId);
+                                    await candy2020.SetXp(lastReactedId, 1);
+
+                                    var output = await candy2020.AddLevel(lastReactedId, c);
+
+                                    message.channel.send(`${lastReactedName} won the jackpot of ${c} candies!`);
+                                } else {
+                                    //Level them up here
+                                    var min = Math.ceil(2);
+                                    var max = Math.floor(10);
+                                    var c = Math.floor(Math.random() * (max - min + 1)) + min;
+
+                                    await candy2020.Fetch(lastReactedId);
+                                    await candy2020.SetXp(lastReactedId, 1);
+
+                                    var output = await candy2020.AddLevel(lastReactedId, c);
+
+                                    message.channel.send(`${lastReactedName} won ${c} candies!`);
+                                }
+                            }
+                        })
+                        triggeredCandyRecently.add(message.author.id);
+                        setTimeout(() => {
+                            triggeredCandyRecently.delete(message.author.id);
+                        }, 300)
+                        msg.delete(15000)
+                    })
+
+            } else {
+                return;
+            }
+        }
+    }
+
     //Ignore
     if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt)) return;
     if (message.author.bot) return;
@@ -73,6 +324,52 @@ client.on('message', async message => {
     //Ping
     if (command === `PING`) {
         message.channel.send('Fuck you!');
+    }
+
+    if (command === `ROLL` || command === `DEATHROLL`) {
+        var max = 100;
+        var min = 1;
+
+        if (args[0] && args[0] != '' && !isNaN(args[0])) {
+            max = args[0];
+        }
+
+        var d = Math.floor(Math.random() * (max - min + 1)) + min;
+
+        if(d > 1) {
+            var output = '';
+            var e = d.toString();
+
+            for (var i = 0; i < e.length; i++) {
+              var cc = e.charAt(i)
+              if(cc == 1) {
+                  output += ':one:';
+              } else if(cc == 2) {
+                  output += ':two:';
+              } else if(cc == 3) {
+                  output += ':three:';
+              } else if(cc == 4) {
+                  output += ':four:';
+              } else if(cc == 5) {
+                  output += ':five:';
+              } else if(cc == 6) {
+                  output += ':six:';
+              } else if(cc == 7) {
+                  output += ':seven:';
+              } else if(cc == 8) {
+                  output += ':eight:';
+              } else if(cc == 9) {
+                  output += ':nine:';
+              } else if(cc == 0) {
+                  output += ':zero:';
+              }
+            }
+            message.channel.send(output+' (1-'+max+')');
+        } else {
+            message.channel.send(`:skull: :one: :skull:`)
+        }
+
+        //message.channel.send(d+' (1-'+max+')');
     }
 
     //Patch Notes
@@ -1435,6 +1732,7 @@ client.on('message', async message => {
                 .setTitle(`September Calendar`)
                 .setColor(0x831ceb)
                 .addField('9/06', `Merging of the Bots`, true)
+                .addField('9/07', `Restingcarcass's Birthday`, true)
                 .addField('9/08', `Rognut's Birthday`, true)
                 .addField('9/08', `Rootnut's Birthday`, true)
                 .addField('9/10', `History Day`, true)
@@ -1980,7 +2278,7 @@ client.on('message', async message => {
             `Sugden's Really Epic Candy Tier List he got from the Candy Event - Sugden\nhttps://cdn.discordapp.com/attachments/612058753293877274/645705117731127315/Event_Candy_Tier_List.png`,
             `Commands - Sugden\nhttps://media.discordapp.net/attachments/612058753293877274/644559837052796937/Unordered_Commands_Tier_List.png`, //100
             `Likeliness to have a Child - Cael\nhttps://media.discordapp.net/attachments/612058753293877274/644511248213344256/my-image3.png`,
-            `Handsome Boys - Silver\nhttps://images-ext-2.discordapp.net/external/13iu1PMBQPT5k2fRQbRRxSqMraAx6PKwoKEnjRpHPyY/https/i.imgur.com/D0Dswha.png`,
+            //`Handsome Boys - Silver\nhttps://images-ext-2.discordapp.net/external/13iu1PMBQPT5k2fRQbRRxSqMraAx6PKwoKEnjRpHPyY/https/i.imgur.com/D0Dswha.png`,
             `Swiper - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/643319365122392075/my-image_1.png`,
             `Fifth Grade Museum Field Trip - Bubbles\nhttps://cdn.discordapp.com/attachments/612058753293877274/672845218004992020/image0.png`,
             `Pooping in the Woods - Coffee\nhttps://cdn.discordapp.com/attachments/612058753293877274/672839903435816971/image0.png`, //105
@@ -3214,8 +3512,8 @@ client.on('message', async message => {
             message.channel.send({file: `https://cdn.discordapp.com/attachments/612061198288027796/694630531953852516/IMG_20190506_214259.jpg`});
             message.channel.send({file: `https://cdn.discordapp.com/attachments/612061198288027796/694630532616683540/IMG_20190507_002554.jpg`});
         } else {
-            //message.channel.send(`My advice?\nGo to the gym.`);
-            message.channel.send(`My advice?\nWork out at home.`);
+            message.channel.send(`My advice?\nGo to the gym.`);
+            //message.channel.send(`My advice?\nWork out at home.`);
         }
 
     }
@@ -4053,7 +4351,7 @@ client.on('message', async message => {
 
     //Pipe or Joint
     if (command === `PIPEORJOINT` || command === `PIPE` || command === `JOINT` || command === `YOOOOOHEDOBESCHMOKINTHO`) {
-        var m = [`Pipe.`
+        var m = [`Pipe.`,
                 `Joint.`];
 
         var r = Math.floor((Math.random() * m.length));
@@ -4102,7 +4400,7 @@ client.on('message', async message => {
     }
 
     //Restingcarcass
-    if (command === `RESTINGCARCASS` || command === `RESTING` || command === `MONKE`) {
+    if (command === `RESTINGCARCASS` || command === `RESTING` || command === `MONKE` || command === `RC` || command === `CARC`) {
         var monkes = [`https://media.discordapp.net/attachments/612058753293877274/733528498634752071/20200522_042255.jpg`,
             `https://media.discordapp.net/attachments/612058753293877274/733148876390793226/1ibh012n3ka51.jpg`,
             `https://media.discordapp.net/attachments/612058753293877274/732086998738927656/itbwycxns6u41.jpg`,
@@ -5609,8 +5907,10 @@ client.on('message', async message => {
     if (command === `LEADERBOARD` || command === `TOP` || command === `LEADERBOARD` || command === `TOP`) {
         var board = 'default';
         if (args[0] && args[0] != '') {
-            if (args[0] === `HALLOWEEN` || args[0] === `OCTOBER` || args[0] === `CANDY` || args[0] === `TREATS`) {
-                board = 'halloween';
+            if (args[0] === `OLDCANDY` || args[0] === `OLDHALLOWEEN` || args[0] === `CANDY2019` || args[0] === `HALLOWEEN2019`) {
+                board = 'halloween2019';
+            } else if (args[0] === `HALLOWEEN` || args[0] === `OCTOBER` || args[0] === `CANDY` || args[0] === `TREATS`) {
+                board = 'halloween2020';
             } else if (args[0] === `MESSAGE` || args[0] === `MESSAGES` || args[0] === `MSG` || args[0] === `MSGS`) {
                 board = 'messages';
             } else if (args[0] === `SNOW` || args[0] === `SNOWBALL` || args[0] === `SNOWBALLS` || args[0] === `CHRISTMAS` || args[0] === `XMAS` || args[0] === `EVENT`) {
@@ -5620,7 +5920,7 @@ client.on('message', async message => {
             }
         }
 
-        if (board === 'halloween') {
+        if (board === 'halloween2019') {
             await lvl.Leaderboard({ /*limit: 10*/ }).then(async users => {
                 console.log(users);
                 if (users[0]) var firstplace = await client.fetchUser(users[0].userid);
@@ -5647,6 +5947,34 @@ client.on('message', async message => {
 9 - ${ninthplace && ninthplace.username || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
 10 - ${tenthplace && tenthplace.username || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}
 22 - ${twentysecondplace && twentysecondplace.username || 'Nobody Yet'}: ${users[21] && users[21].level || '0'}`)
+            })
+        } else if (board === 'halloween2020') {
+            await candy2020.Leaderboard({ /*limit: 10*/ }).then(async users => {
+                console.log(users);
+                if (users[0]) var firstplace = await client.fetchUser(users[0].userid);
+                if (users[1]) var secondplace = await client.fetchUser(users[1].userid);
+                if (users[2]) var thirdplace = await client.fetchUser(users[2].userid);
+                if (users[3]) var fourthplace = await client.fetchUser(users[3].userid);
+                if (users[4]) var fifthplace = await client.fetchUser(users[4].userid);
+                if (users[5]) var sixthplace = await client.fetchUser(users[5].userid);
+                if (users[6]) var seventhplace = await client.fetchUser(users[6].userid);
+                if (users[7]) var eighthplace = await client.fetchUser(users[7].userid);
+                if (users[8]) var ninthplace = await client.fetchUser(users[8].userid);
+                if (users[9]) var tenthplace = await client.fetchUser(users[9].userid);
+                if (users[21]) var twentysecondplace = await client.fetchUser(users[21].userid);
+
+                message.channel.send(`**Candy Leaderboard**
+1 - ${firstplace && message.guild.members.fetch(firstplace).displayName || 'Nobody Yet'}: ${users[0] && users[0].level || '0'}
+2 - ${secondplace && message.guild.members.fetch(secondplace).displayName || 'Nobody Yet'}: ${users[1] && users[1].level || '0'}
+3 - ${thirdplace && message.guild.members.fetch(thirdplace).displayName || 'Nobody Yet'}: ${users[2] && users[2].level || '0'}
+4 - ${fourthplace && message.guild.members.fetch(fourthplace).displayName || 'Nobody Yet'}: ${users[3] && users[3].level || '0'}
+5 - ${fifthplace && message.guild.members.fetch(fifthplace).displayName || 'Nobody Yet'}: ${users[4] && users[4].level || '0'}
+6 - ${sixthplace && message.guild.members.fetch(sixthplace).displayName || 'Nobody Yet'}: ${users[5] && users[5].level || '0'}
+7 - ${seventhplace && message.guild.members.fetch(seventhplace).displayName || 'Nobody Yet'}: ${users[6] && users[6].level || '0'}
+8 - ${eighthplace && message.guild.members.fetch(eighthplace).displayName || 'Nobody Yet'}: ${users[7] && users[7].level || '0'}
+9 - ${ninthplace && message.guild.members.fetch(ninthplace).displayName || 'Nobody Yet'}: ${users[8] && users[8].level || '0'}
+10 - ${tenthplace && message.guild.members.fetch(tenthplace).displayName || 'Nobody Yet'}: ${users[9] && users[9].level || '0'}
+22 - ${twentysecondplace && message.guild.members.fetch(twentysecondplace).displayName || 'Nobody Yet'}: ${users[21] && users[21].level || '0'}`)
             })
         } else if (board === 'christmas') {
             await snowlvl.Leaderboard({ }).then(async users => {
@@ -5750,7 +6078,9 @@ client.on('message', async message => {
         var rank = 'default';
         if (args[0] && args[0] != '') {
             if (args[0] === `HALLOWEEN` || args[0] === `OCTOBER` || args[0] === `CANDY` || args[0] === `TREATS`) {
-                rank = 'halloween';
+                rank = 'halloween2020';
+            } else if (args[0] === `OLDCANDY` || args[0] === `OLDHALLOWEEN` || args[0] === `HALLOWEEN2019` || args[0] === `CANDY2019`) {
+                rank = 'halloween2019';
             } else if (args[0] === `MESSAGE` || args[0] === `MESSAGES` || args[0] === `MSG` || args[0] === `MSGS`) {
                 rank = 'messages';
             } else if (args[0] === `SNOW` || args[0] === `SNOWBALL` || args[0] === `SNOWBALLS` || args[0] === `CHRISTMAS` || args[0] === `XMAS` || args[0] === `EVENT`) {
@@ -5760,8 +6090,16 @@ client.on('message', async message => {
             }
         }
 
-        if (rank === 'halloween') {
+        if (rank === 'halloween2019') {
             var output = await lvl.Leaderboard({
+                search: message.author.id
+            });
+
+            var balance = await lvl.Fetch(message.author.id)
+
+            message.channel.send(`You are rank ${output} with ${balance.level} candies.`);
+        } else if (rank === 'halloween2020') {
+            var output = await candy2020.Leaderboard({
                 search: message.author.id
             });
 
@@ -6069,7 +6407,7 @@ client.on('message', async message => {
     }
 
     if (command === `CHECKBAL`) {
-        if (!message.member.roles.find("name", modRole)) {
+        if (!message.member.roles.find("name", modRole) && !message.member.roles.find("name", bankRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
                 .setDescription('This command requires the ' + modRole + ' role.')
@@ -6118,7 +6456,7 @@ client.on('message', async message => {
 
     if (command === `ADD`) {
         //Check for better mod
-        if (!message.member.roles.find("name", modRole)) {
+        if (!message.member.roles.find("name", modRole) && !message.member.roles.find("name", bankRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
                 .setDescription('This command requires the ' + modRole + ' role.')
@@ -6168,7 +6506,7 @@ client.on('message', async message => {
 
     if (command === `SUBTRACT`) {
         //Check for better mod
-        if (!message.member.roles.find("name", modRole)) {
+        if (!message.member.roles.find("name", modRole) && !message.member.roles.find("name", bankRole)) {
             const embed = new Discord.RichEmbed()
                 .setTitle('Error: incorrect permissions')
                 .setDescription('This command requires the ' + modRole + ' role.')
@@ -6377,138 +6715,36 @@ client.on('message', async message => {
         message.channel.send(`🎃 Welcome to the 2019 TimCord Halloween Event! 🎃\n\nDuring the event, you will see dogs mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 7 placing members of the server at the end of the month will receive a gift of real candy of their choice shipped to them! (Thanks to Risc for helping sponsor the event!) Also, anyone who participates will receive a prize in SilverBux based on how much candy they collect. Good luck and have fun!`);
     }*/
 
-    /*if (command === `CANDYFIX`) {
-        await lvl.SetXp(message.author.id, 1);
-        message.channel.send('Fixed.');
+    /*if(command === `EVENT` || command === `HALLOWEEN` || command === `EVENTFAQ` || command === `EVENTINFO`) {
+        message.channel.send(`🎃 Welcome to the 2020 TimCord Halloween Event! 🎃\n\nDuring the event, you will see friendly halloween animals mysteriously appear who have come to bring you candy. Simply click the emoji beneath their picture to get a reward. The amount of candy you earn will be tracked over the course of the event, and there are prizes based on how much candy you collect. The top 8 placing members of the server at the end of the month, as well as the 22nd place sponsored by RestingCarcass, will receive a gift of real candy of their choice shipped to them! There will also be Steam game prizes given out to anyone who collects 500 or more candies, several trick games given out to random participants, and TimCoin prizes relative to your total amount of candies! Thank you to the event sponsors RestingCarcass, Farmstink, Midnight, Risc, Drax, and Silverhand.\n\nFor those familiar with the event there are several changes this year. First, monke has been added. Channels where candy can drop have been limited to #shithead-avenue #melee-salt #newhomies #fuck- and #d1-lamb. There is now a per-user cooldown on triggering the bot to prevent spamming. There is also a very rare jackpot of candy which grows in size the longer it goes without being collected.\n\nGood luck and have fun!`);
     }*/
 
-    //Halloween Event
-    /*if (!msg.startsWith(prefix) && !msg.startsWith(prefix2) && !msg.startsWith(prefixAlt) && !message.author.bot && message.channel.type != 'dm') {
-        var r = (Math.random() * 100);
+    if (command === `CANDYFIX`) {
+        await candy2020.SetXp(message.author.id, 1);
+        message.channel.send('Fixed.');
+    }
 
-        if (r >= 98.5) {
-            var costumes = [`https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-raptor.jpg`,
-                `https://www.telegraph.co.uk/content/dam/video_previews/r/v/rvmjg1nze6z4vd2gj6owhh9jc6xvdmhk-xxlarge.jpg`,
-                `https://i.pinimg.com/originals/f3/b1/b0/f3b1b045c3e1d50b5d7f4b931165fd15.jpg`,
-                `https://media.phillyvoice.com/media/images/01_102417_HalloweenDogs_Carroll.2e16d0ba.fill-735x490.jpg`,
-                `https://purewows3.imgix.net/images/articles/2019_08/dog_halloween_costumes.jpg`,
-                `https://i.ytimg.com/vi/hdxKJsTvvxQ/hqdefault.jpg`,
-                `https://media1.popsugar-assets.com/files/thumbor/JQUUCOeO9YTIkYrVplfJchnodek/0x0:2003x2003/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2019/08/28/858/n/24155406/931e6e6c5d66d798a36ba9.34935958_/i/Dogs-Halloween-Costumes.jpg`,
-                `https://diy.sndimg.com/content/dam/images/diy/fullset/2014/6/9/0/CI-Brian-Brainerd_bull-dog-in-ballerina-Halloween-costume_v.jpg.rend.hgtvcom.616.822.suffix/1420778852478.jpeg`,
-                `https://www.simplemost.com/wp-content/uploads/2018/09/Screen-Shot-2018-09-21-at-11.37.56-AM-750x500.png`,
-                `https://static01.nyt.com/images/2014/10/30/t-magazine/30viewfinder-hirsch-slide-TWGN/30viewfinder-hirsch-slide-TWGN-videoLarge.jpg`,
-                `https://dogtime.com/assets/uploads/2018/09/unhappy-dogs-in-costume-2-1280x720.png`,
-                `https://media1.popsugar-assets.com/files/thumbor/hIev4EBak4afdOeJGaGyuzxX-HE/248x0:1454x1206/fit-in/550x550/filters:format_auto-!!-:strip_icc-!!-/2019/09/05/937/n/1922243/4236cd385d717e527c8e79.13418759_/i/Disney-Dog-Costumes.jpg`,
-                `http://trupanion.com/blog/wp-content/uploads/2017/11/edit_IMG_7241.jpg`,
-                `https://www.thepubliceditor.com/wp-content/uploads/2018/09/Dogs_Scary_Halloween_Costume.jpg`,
-                `https://cdn.fashionmagazine.com/wp-content/uploads/2017/10/Screen-Shot-2018-10-30-at-9.58.49-AM-480x320-c-top.png`,
-                `https://i.imgur.com/JO2lNCl.jpg`,
-                `https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/dog-halloween-costumes-1532555670.jpg`,
-                `https://media1.popsugar-assets.com/files/thumbor/CJEtk1U6VpB75o_qxfPAX6579r0/fit-in/2048xorig/filters:format_auto-!!-:strip_icc-!!-/2015/10/19/826/n/1922243/a00d1cad_edit_img_image_16686166_1444860712_12142682_526874914145470_1831035987_n/i/DIY-Halloween-Costumes-Dogs.jpg`,
-                `http://www.korrectkritters.com/upload/2017/11/16/fun-dogs-in-halloween-costumes-dogs-in-halloween-costumes-s-90dfed41ee1742bb.jpg`,
-                `https://i.imgur.com/A5nyeDW.png`,
-                `https://i.imgur.com/E3wqRQi.png`,
-                `https://i.imgur.com/hruNkRh.png`,
-                `https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2017/10/halloween-costumes-for-dogs-600x600.jpg`,
-                `https://www.pedigreefoundation.org/wp-content/uploads/2016/10/elvis.jpg`,
-                `https://s.hdnux.com/photos/67/05/73/14442226/3/920x920.jpg`,
-                `https://i.pinimg.com/originals/2e/a0/cd/2ea0cd6333d77d49334fd638d8f1bc28.jpg`,
-                `http://www.dogtagart.com/sites/default/files/blog/dogscostume.jpg`,
-                `https://i.imgur.com/DQJjEMV.jpg`,
-                `https://i.pinimg.com/originals/7e/85/d0/7e85d05973c3b487c9d45c63df55d431.jpg`,
-                `https://moneydotcomvip.files.wordpress.com/2017/10/171018-dog-halloween-costumes-robin.jpg`,
-                `https://s.hdnux.com/photos/04/34/32/1164953/3/920x920.jpg`,
-                `https://i2.wp.com/blog.potterybarn.com/wp-content/uploads/2015/10/Screen-Shot-2015-10-12-at-4.12.06-PM1.png`,
-                `https://i.imgur.com/tn7bfQv.png`,
-                `https://i.imgur.com/ddFxviv.png`,
-                `https://static.businessinsider.com/image/5088501f6bb3f78664000002-750.jpg`,
-                `https://i.ytimg.com/vi/T0OHl7bbL1g/hqdefault.jpg`,
-                `https://hips.hearstapps.com/rbk.h-cdn.co/assets/cm/14/50/548969e457d0e_-_top-paw-basketball-player-costume-for-dogslgn.gif`,
-                `https://static.fabfitfun.com/magazine/wp-content/uploads/2018/10/09170644/dog.png`,
-                `https://i.imgur.com/LzcvHfl.png`,
-                `https://purewows3.imgix.net/images/articles/2017_09/Princess-Leia-dog-costume-for-Halloween.jpg`,
-                `https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2010/7/27/0/Halloween-UGC_Foleyboy-alien-dog-costumes_s4x3.jpg.rend.hgtvcom.616.462.suffix/1400947976466.jpeg`,
-                `https://www.wweek.com/resizer/b5st6q0nx-4BE81x0TdZzJ2198Y=/1200x0/filters:quality(100)/s3.amazonaws.com/arc-wordpress-client-uploads/wweek/wp-content/uploads/2017/10/26171017/Cowboy-Dog.jpg`,
-                `https://media.healthday.com/Images/icimages/dog_costume1026.jpg`,
-                `https://www.telegraph.co.uk/content/dam/Pets/2015-09/30oct/dogcrab.jpg`,
-                `https://purewows3.imgix.net/images/articles/2017_09/Dog-dressed-up-for-Halloween-in-spider-costume.jpg`,
-                `https://petcube.com/blog/content/images/2018/10/dog-pumpkin-halloween-costume.jpg`,
-                `https://i.imgur.com/0UJXND1.jpg`,
-                `https://cdn1-www.cattime.com/assets/uploads/gallery/cool-halloween-costumes/dog-halloween-costume-cerberus.jpg`,
-                `https://costumesjoy.com/wp-content/uploads/2018/08/Dogbaby-Halloween-Costumes-Pet-Clothing-Funny-Guitar-Dog-Clothes-Pet-Puppy-Coats-For-Puppy-Dog-French.jpg`,
-                `https://static-blog.fabfitfun.com/magazine/wp-content/uploads/2018/10/09164347/spider-pup-costume.png`,
-                `https://i.imgur.com/djUHSvl.png`,
-                `https://sitterforyourcritter.com/wp-content/uploads/2017/10/dogs-dressed-as-superheros.jpg`];
+    if (command === `JACKPOT`) {
+        message.channel.send('The jackpot is currently at ' + jackpotCounter + ' candies!');
+    }
 
-            var messages = [`🎃👻🐶💀🍬`,
-                `🎃 Happy Halloween! 🎃`,
-                `👻 Happy Halloween! 👻`,
-                `🍬 Trick or Treat! 🍬`,
-                `🐶 Trick or Treat! 🐶`,
-                `🐶🐶🐶`,
-                `🎃🎃🎃`,
-                `👻👻👻`,
-                `💀💀💀`,
-                `🍬🍬🍬`,
-                `🎃 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🎃`,
-                `👻 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 👻`,
-                `🐶 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🐶`,
-                `💀 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 💀`,
-                `🍬 Wowzers! It's a Halloween dog and he's here to give out candy! Quick, get some before he runs away! 🍬`];
-
-            var r1 = Math.floor((Math.random() * costumes.length));
-
-            var r2 = Math.floor((Math.random() * messages.length));
-
-            message.channel.send(messages[r2], { file: `${costumes[r1]}` })
-                .then(async msg => {
-                    msg.react(`🍬`)
-
-                    var alreadyRewarded = new Array();
-
-
-                    const filter = (reaction, user) => {
-                        return reaction.emoji.name === `🍬` && user.id != msg.author.id;
-                    }
-
-                    const collector = msg.createReactionCollector(filter, { max:20, time: 15000 });
-
-                    collector.on('collect', async (reaction, reactionCollector) => {
-                        var lastReactedId = reaction.users.last().id;
-                        var lastReactedName = reaction.users.last().username;
-                        if(!alreadyRewarded.includes(lastReactedId)) {
-                            alreadyRewarded.push(lastReactedId);
-
-                            //Level them up here
-                            var min = Math.ceil(3);
-                            var max = Math.floor(5);
-                            var c = Math.floor(Math.random() * (max - min + 1)) + min;
-
-                            await lvl.Fetch(lastReactedId);
-                            await lvl.SetXp(lastReactedId, 1);
-
-                            var output = await lvl.AddLevel(lastReactedId, c);
-
-                            message.channel.send(`${lastReactedName} won ${c} candies!`);
-                        }
-                    })
-
-                    msg.delete(15000)
-                })
+    if (command === `SETJACKPOT`) {
+        if (message.author.id == 72734539834720256) {
+            jackpotCounter = args[0];
         } else {
             return;
         }
-    }*/
+    }
 
-    /*if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS` || command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS`) {
-        var output = await lvl.Fetch(message.author.id);
+    if (command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS` || command === `CANDY` || command === `CANDYBALANCE` || command === `CANDYBAL` || command === `CBAL` || command === `SWEETS` || command === `TREATS`) {
+        var output = await candy2020.Fetch(message.author.id);
 
         const embed = new Discord.RichEmbed()
             .setTitle(`${message.member.displayName}\'s Trick or Treat Bag`)
             .setColor(0xEB6123)
             .addField(`Candies`, `${output.level}`, true)
         message.channel.send({embed});
-    }*/
+    }
 
     //Christmas Event
     /*if (!message.author.bot && message.channel.name == 'snowball-fight') {
