@@ -4365,8 +4365,9 @@ client.on('message', async message => {
         //368817136182886411 Drew's ID
         //246994286145437696 Ted's ID
         //262665230406909953 Streamo's ID
-
-        //message.guild.members.get('262665230406909953').setNickname('Mother', 'of the stream variety').catch(e=>console.log(e));
+        if (message.member.displayname === 'POOMASTER') {
+            message.guild.members.get('368817136182886411').setNickname('poo').catch(e=>console.log(e));
+        }
         message.channel.send('peepeepoopoo');
     }
 
